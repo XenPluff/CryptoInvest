@@ -17,6 +17,7 @@ if (!existsSync(".env")) {
     "API_PORT=4000",
     "PORT=4000",
     "FUNDING_ENABLED=false",
+    "EMAIL_PROVIDER=smtp",
     "SMTP_HOST=127.0.0.1",
     "SMTP_PORT=1025",
     "SMTP_SECURE=false",

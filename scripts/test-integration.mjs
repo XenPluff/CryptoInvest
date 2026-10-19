@@ -62,6 +62,8 @@ try {
           ...process.env,
           TEST_DATABASE_URL: target.toString(),
           // Test messages must stay in local capture even when cloud credentials exist.
+          EMAIL_PROVIDER: "smtp",
+          BREVO_API_KEY: "",
           RESEND_API_KEY: "",
           EMAIL_FROM: "Aureon tests <tests@aureon.invalid>",
           SMTP_HOST: "127.0.0.1",
