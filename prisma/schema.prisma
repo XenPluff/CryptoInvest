@@ -1,0 +1,377 @@
+generator client {
+  provider = "prisma-client-js"
+  engineType = "client"
+  output = "../node_modules/.prisma/client"
+}
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+enum Role {
+  USER
+  ADMIN
+}
+enum TokenKind {
+  VERIFY_EMAIL
+  RESET_PASSWORD
+}
+enum KycStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+enum TransactionType {
+  DEPOSIT
+  WITHDRAWAL
+  INVESTMENT
+  RETURN
+  REFERRAL
+  ADJUSTMENT
+  TRANSFER
+}
+enum TransactionStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  PAID
+  ACTIVE
+  SETTLED
+}
+enum InvestmentStatus {
+  ACTIVE
+  SETTLED
+}
+model User {
+  id String @id @default(cuid())
+  name String
+  email String @unique
+  passwordHash String
+  role Role @default(USER)
+  emailVerifiedAt DateTime?
+  suspended Boolean @default(false)
+  twoFactorSecret String?
+  twoFactorEnabled Boolean @default(false)
+  referralCode String @unique
+  referredById String?
+  referredBy User? @relation("Referrals", fields: [referredById], references: [id])
+  referrals User[] @relation("Referrals")
+  walletLinks WalletLink[]
+  walletChallenges WalletChallenge[]
+  passkeys PasskeyCredential[]
+  passkeyChallenges PasskeyChallenge[]
+  sessions Session[]
+  tokens Token[]
+  kyc KycSubmission?
+  transactions Transaction[]
+  investments Investment[]
+  ledger LedgerEntry[]
+  transfersSent BalanceTransfer[] @relation("TransferSender")
+  transfersReceived BalanceTransfer[] @relation("TransferRecipient")
+  notifications Notification[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([referredById])
+}
+model Session {
+  id String @id @default(cuid())
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String @unique
+  expiresAt DateTime
+  revokedAt DateTime?
+  ip String?
+  userAgent String?
+  createdAt DateTime @default(now())
+  @@index([userId, expiresAt])
+}
+model Token {
+  id String @id @default(cuid())
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  kind TokenKind
+  tokenHash String @unique
+  expiresAt DateTime
+  usedAt DateTime?
+  createdAt DateTime @default(now())
+  @@index([userId, kind])
+}
+model Plan {
+  id String @id @default(cuid())
+  name String
+  slug String @unique
+  dailyRate Float @default(0)
+  monthlyRate Float @default(0)
+  minCents Int
+  maxCents Int
+  durationDays Int
+  description String
+  active Boolean @default(true)
+  investments Investment[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model Wallet {
+  id String @id @default(cuid())
+  asset String
+  network String
+  address String
+  active Boolean @default(true)
+  transactions Transaction[]
+  @@unique([asset, network])
+}
+model Transaction {
+  id String @id @default(cuid())
+  userId String
+  user User @relation(fields: [userId], references: [id])
+  type TransactionType
+  amountCents Int
+  status TransactionStatus @default(PENDING)
+  direction String?
+  asset String?
+  network String?
+  txHash String? @unique
+  walletId String?
+  wallet Wallet? @relation(fields: [walletId], references: [id])
+  address String?
+  note String?
+  reviewedById String?
+  reviewedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([userId, createdAt])
+  @@index([type, status, createdAt])
+}
+model LedgerEntry {
+  id String @id @default(cuid())
+  userId String
+  user User @relation(fields: [userId], references: [id])
+  amountCents Int
+  kind String
+  referenceId String
+  createdAt DateTime @default(now())
+  @@unique([referenceId, kind])
+  @@index([userId, createdAt])
+}
+model BalanceTransfer {
+  id String @id
+  fromUserId String
+  fromUser User @relation("TransferSender", fields: [fromUserId], references: [id])
+  toUserId String
+  toUser User @relation("TransferRecipient", fields: [toUserId], references: [id])
+  amountCents Int
+  status TransactionStatus @default(PENDING)
+  note String
+  createdById String
+  reviewedById String?
+  reviewNote String?
+  reviewedAt DateTime?
+  createdAt DateTime @default(now())
+  @@index([status, createdAt])
+  @@index([fromUserId, createdAt])
+  @@index([toUserId, createdAt])
+}
+model Investment {
+  id String @id @default(cuid())
+  userId String
+  user User @relation(fields: [userId], references: [id])
+  planId String
+  plan Plan @relation(fields: [planId], references: [id])
+  planName String
+  planSlug String
+  principalCents Int
+  dailyRate Float
+  monthlyRate Float
+  durationDays Int
+  startTimestamp DateTime @default(now())
+  status InvestmentStatus @default(ACTIVE)
+  earnedCents Int @default(0)
+  settledAt DateTime?
+  @@index([userId, status])
+}
+model KycSubmission {
+  id String @id @default(cuid())
+  userId String @unique
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  encryptedPayload String
+  country String
+  documentType String
+  status KycStatus @default(PENDING)
+  reviewNote String?
+  reviewedById String?
+  reviewedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([status, createdAt])
+}
+model Notification {
+  id String @id @default(cuid())
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title String
+  message String
+  readAt DateTime?
+  createdAt DateTime @default(now())
+  @@index([userId, createdAt])
+}
+model AuditLog {
+  id String @id @default(cuid())
+  actorId String?
+  action String
+  targetId String?
+  metadata Json?
+  ip String?
+  createdAt DateTime @default(now())
+  @@index([createdAt])
+}
+model ContactMessage {
+  id String @id @default(cuid())
+  name String
+  email String
+  subject String
+  message String
+  createdAt DateTime @default(now())
+}
+model NewsletterSubscriber {
+  id String @id @default(cuid())
+  email String @unique
+  consentAt DateTime?
+  consentVersion String?
+  confirmedAt DateTime?
+  unsubscribedAt DateTime?
+  confirmTokenHash String? @unique
+  confirmExpiresAt DateTime?
+  unsubscribeTokenHash String? @unique
+  encryptedUnsubscribeToken String?
+  campaignRecipients CampaignRecipient[]
+  createdAt DateTime @default(now())
+  @@index([confirmedAt, unsubscribedAt])
+}
+model Setting {
+  key String @id
+  value String
+  updatedAt DateTime @updatedAt
+}
+
+model EmailOutbox {
+  id String @id @default(cuid())
+  notificationId String? @unique
+  recipient String
+  subject String
+  text String
+  category String @default("ACTIVITY")
+  actionUrl String?
+  newsletterSubscriberId String?
+  campaignRecipientId String? @unique
+  attempts Int @default(0)
+  nextAttemptAt DateTime @default(now())
+  lockedAt DateTime?
+  sentAt DateTime?
+  cancelledAt DateTime?
+  lastError String?
+  createdAt DateTime @default(now())
+  @@index([sentAt, nextAttemptAt])
+}
+
+model WalletLink {
+  id String @id @default(cuid())
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  address String @unique
+  chainId Int
+  provider String
+  verifiedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+  @@index([userId, createdAt])
+}
+
+model WalletChallenge {
+  id String @id @default(cuid())
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sessionId String
+  address String
+  chainId Int
+  provider String
+  nonce String @unique
+  message String
+  expiresAt DateTime
+  consumedAt DateTime?
+  createdAt DateTime @default(now())
+  @@index([userId, sessionId, expiresAt])
+}
+
+enum PasskeyChallengeKind {
+  REGISTER
+  LOGIN
+}
+
+model PasskeyCredential {
+  id String @id
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  publicKey Bytes
+  counter BigInt @default(0)
+  transports String[]
+  deviceType String
+  backedUp Boolean
+  label String
+  lastUsedAt DateTime?
+  createdAt DateTime @default(now())
+  @@index([userId])
+}
+
+model PasskeyChallenge {
+  id String @id
+  userId String?
+  user User? @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sessionId String?
+  kind PasskeyChallengeKind
+  challengeHash String
+  securityStamp String?
+  expiresAt DateTime
+  usedAt DateTime?
+  createdAt DateTime @default(now())
+  @@index([expiresAt])
+  @@index([userId, kind])
+}
+
+
+model ContentEntry {
+  id String @id @default(cuid())
+  kind String
+  slug String @unique
+  title String
+  summary String
+  body String
+  status String @default("DRAFT")
+  publishedAt DateTime?
+  createdById String
+  updatedById String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([status, kind, publishedAt])
+}
+
+model EmailCampaign {
+  id String @id @default(cuid())
+  title String
+  subject String
+  message String
+  status String @default("DRAFT")
+  createdById String
+  updatedById String
+  recipients CampaignRecipient[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CampaignRecipient {
+  id String @id @default(cuid())
+  campaignId String
+  campaign EmailCampaign @relation(fields: [campaignId], references: [id])
+  subscriberId String
+  subscriber NewsletterSubscriber @relation(fields: [subscriberId], references: [id])
+  queuedAt DateTime @default(now())
+  @@unique([campaignId, subscriberId])
+  @@index([subscriberId])
+}

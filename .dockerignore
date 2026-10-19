@@ -1,0 +1,17 @@
+.git
+.github
+.next
+.next-dev
+node_modules
+dist
+.env
+.env.*
+!.env.example
+.aureon
+coverage
+test-results
+playwright-report
+*.log
+*.tsbuildinfo
+.agents
+.codex
