@@ -6,7 +6,7 @@ The owner completed Blueprint deployment. The verified preview is live at
 <https://aureon-preview.onrender.com>; see [live preview status](LIVE_PREVIEW.md)
 for the running commit, health verification, and remaining email/admin setup.
 
-## Next step: deploy in the Render dashboard
+## Deployment procedure (completed for the live preview)
 
 [Deploy AUREON on Render](https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2FXenPluff%2FCryptoInvest%2Ftree%2Fcodex%2Faureon-render-preview)
 

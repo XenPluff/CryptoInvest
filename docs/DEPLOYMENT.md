@@ -2,9 +2,10 @@
 
 Render is selected for the hosted preview. The prepared [Render guide](RENDER.md)
 and `render.yaml` describe signup, source access, free preview resources, and the
-locally validated hosted startup. No hosting account or public service exists yet.
+locally validated hosted startup. The preview is now live at
+<https://aureon-preview.onrender.com>; see [live preview status](LIVE_PREVIEW.md).
 
-This repository supplies a deployment recipe and a working local application. No domain has been registered or hosting destination selected; a public site, project mailbox, and Resend sender have not been provisioned. Deposits use the supplied wallet addresses directly; no external deposit-provider account is needed. Keep the origin and sender configurable, select hosting, complete provider onboarding, and supply credentials through the host's secret manager. The owner has authorized enabled funding for the current workspace. A separate public deployment still requires its own origin, email, and operational configuration.
+This repository supplies a deployment recipe and a working local application. The Render HTTPS preview is deployed. A custom domain, project mailbox, and Resend sender have not been provisioned. Deposits use the supplied wallet addresses directly; no external deposit-provider account is needed. Keep the origin and sender configurable, complete email-provider onboarding, and supply credentials through the host's secret manager. The owner has authorized enabled funding for the current workspace. A separate public deployment still requires its own origin, email, and operational configuration.
 
 ## Architecture
 
