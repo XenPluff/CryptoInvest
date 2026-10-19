@@ -2,7 +2,9 @@
 
 The owner has created a Render account and connected an API key. The application
 and blueprint are published on GitHub branch `codex/aureon-render-preview`.
-No Render web service, database, or public preview URL has been created yet.
+The owner completed Blueprint deployment. The verified preview is live at
+<https://aureon-preview.onrender.com>; see [live preview status](LIVE_PREVIEW.md)
+for the running commit, health verification, and remaining email/admin setup.
 
 ## Next step: deploy in the Render dashboard
 
