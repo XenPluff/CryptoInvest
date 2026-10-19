@@ -91,6 +91,14 @@ The application uses Resend's HTTPS API when the key and sender are configured. 
 
 `accounts@your-domain.example` is a proposed sender, not a created mailbox. Resend supplies outbound delivery; if replies or a support inbox are needed, provision that mailbox with the chosen domain's email host separately.
 
+The owner-supplied public support address is `aurreon.support@gmail.com`, defined
+in `lib/contact.ts` and linked from the support page and site footer. Publishing
+this contact address does not configure outbound application mail or verify
+mailbox ownership. Render's free web services block outbound SMTP ports 25, 465,
+and 587, so connecting this Gmail inbox through SMTP is not supported on the
+current free hosting plan. Verification and recovery messages still require a
+configured sending provider.
+
 An SMTP fallback is available using `SMTP_HOST`, `SMTP_PORT`, `SMTP_FROM` (or `EMAIL_FROM`), `SMTP_USER`, and `SMTP_PASSWORD`. Username and password must be provided together. Set `SMTP_SECURE=true` for implicit TLS on port 465, or use the provider's STARTTLS settings with `SMTP_REQUIRE_TLS=true`. TLS certificate verification remains enabled. Local `setup:local` uses Mailpit without TLS solely for local testing.
 
 Activity notifications for verified accounts enter a durable database email queue in the same transaction as the activity. The API worker checks every 30 seconds and retries failed delivery with backoff, up to ten attempts. Monitor pending/failed counts in the administrator's delivery status and investigate failures; a mail outage does not reverse a financial entry. A sent/accepted result confirms provider acceptance, not delivery into the recipient's inbox.

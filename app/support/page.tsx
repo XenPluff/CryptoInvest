@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ShieldCheck, MessageSquareText } from "lucide-react";
 import { PublicShell, PageIntro } from "@/components/public/PublicShell";
 import { ContactForm } from "@/components/public/ContactForm";
+import { SUPPORT_EMAIL, SUPPORT_EMAIL_URL } from "@/lib/contact";
 export const metadata: Metadata = {
   title: "Support",
   description:
@@ -34,9 +35,10 @@ export default function SupportPage() {
             <MessageSquareText color="var(--gold)" size={20} />
             <strong>A direct channel.</strong>
             <p>
-              Messages are saved for operator review. A custom-domain support
-              email and live chat will be published after they have been
-              configured. No response-time guarantee is currently offered.
+              Email us at{" "}
+              <a href={SUPPORT_EMAIL_URL}>{SUPPORT_EMAIL}</a>, or use the form
+              to send a message to the support queue. Messages submitted through
+              the form are saved for operator review.
             </p>
           </div>
           <div className="public-contact-note">

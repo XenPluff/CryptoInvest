@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useTranslation } from "@/lib/i18n";
 import { ArrowUpRight } from "lucide-react";
 import { AureonMark } from "./SiteHeader";
+import { SUPPORT_EMAIL, SUPPORT_EMAIL_URL } from "@/lib/contact";
 export default function SiteFooter() {
   const { t, locale } = useTranslation();
   return (
@@ -43,6 +44,7 @@ export default function SiteFooter() {
               </Link>
               <Link href="/login">{t("Investor access")}</Link>
               <a href="/support#contact">{t("Speak with us")}</a>
+              <a href={SUPPORT_EMAIL_URL}>{SUPPORT_EMAIL}</a>
             </div>
           </div>
         </div>
