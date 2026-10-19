@@ -57,7 +57,11 @@ requires the existing secure account-creation workflow and authenticator setup.
 Real email verification/recovery still requires an authorized email provider and
 sender configured securely on Render. The local Mailpit inbox is not deployed or
 exposed publicly. Without email setup, public pages can be previewed, but complete
-new-investor registration is not ready for public use.
+new-investor registration is not ready for public use. The prepared Brevo HTTPS
+integration needs an activated Brevo account, verification of the supplied Gmail
+sender, and its API key entered securely on Render. Follow
+[email activation steps](EMAIL_DELIVERY.md); a Gmail SMTP password will not work
+on Render's free web plan.
 
 ## Deploying through the Render API
 

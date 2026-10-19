@@ -3,9 +3,11 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 const { settings, smtpSend } = vi.hoisted(() => ({
   settings: {
     emailConfigured: true,
-    emailProvider: "resend" as "resend" | "smtp" | "none",
+    emailProvider: "resend" as "brevo" | "resend" | "smtp" | "none",
     emailFrom: "AUREON <security@example.test>",
     resendApiKey: "unit-test-provider-key",
+    brevoApiKey: "unit-test-brevo-key",
+    brevoSenderEmail: "support@example.test",
     smtpHost: "localhost",
     smtpPort: 1025,
     smtpSecure: false,
@@ -37,6 +39,82 @@ beforeEach(() => {
 });
 
 describe("transactional email delivery", () => {
+  it("sends through Brevo HTTPS with the verified sender and reply address", async () => {
+    settings.emailProvider = "brevo";
+    const network = vi.fn().mockResolvedValue(
+      new Response('{"messageId":"<unit-test@brevo.test>"}', { status: 201 }),
+    );
+    vi.stubGlobal("fetch", network);
+    const { sendEmail, emailProviderStatus } = await import("../server/mail");
+    await sendEmail(message);
+    expect(network).toHaveBeenCalledWith(
+      "https://api.brevo.com/v3/smtp/email",
+      expect.objectContaining({
+        method: "POST",
+        redirect: "error",
+        signal: expect.any(AbortSignal),
+        headers: expect.objectContaining({ "api-key": settings.brevoApiKey }),
+      }),
+    );
+    expect(JSON.parse(network.mock.calls[0][1].body)).toEqual({
+      sender: { name: "AUREON", email: settings.brevoSenderEmail },
+      replyTo: { name: "AUREON Support", email: settings.brevoSenderEmail },
+      to: [{ email: message.to }],
+      subject: message.subject,
+      htmlContent: message.html,
+    });
+    expect(emailProviderStatus()).toMatchObject({ provider: "brevo", connectionVerified: true });
+    expect(JSON.stringify(emailProviderStatus())).not.toContain(settings.brevoApiKey);
+    expect(smtpSend).not.toHaveBeenCalled();
+  });
+
+  it("sends plain text through Brevo when no HTML body is supplied", async () => {
+    settings.emailProvider = "brevo";
+    const network = vi.fn().mockResolvedValue(
+      new Response('{"messageId":"<unit-test@brevo.test>"}', { status: 201 }),
+    );
+    vi.stubGlobal("fetch", network);
+    const { sendEmail } = await import("../server/mail");
+    await sendEmail({ to: message.to, subject: message.subject, text: message.text });
+    const body = JSON.parse(network.mock.calls[0][1].body);
+    expect(body.textContent).toBe(message.text);
+    expect(body).not.toHaveProperty("htmlContent");
+  });
+
+  it.each([
+    [401, '{"message":"unit-test-brevo-key"}'],
+    [429, '{"message":"Daily quota exceeded"}'],
+    [500, '{"message":"Internal error"}'],
+    [201, '{}'],
+    [201, '{"messageId":" "}'],
+    [201, 'invalid json'],
+  ])("rejects unconfirmed Brevo delivery (%s, %s) without falling back or leaking details", async (status, body) => {
+    settings.emailProvider = "brevo";
+    const network = vi.fn().mockResolvedValue(new Response(body, { status }));
+    vi.stubGlobal("fetch", network);
+    const { sendEmail, emailProviderStatus } = await import("../server/mail");
+    await expect(sendEmail(message)).rejects.toMatchObject({
+      status: 503,
+      message: "Email delivery is temporarily unavailable. Please try again later.",
+    });
+    expect(emailProviderStatus().connectionVerified).toBe(false);
+    expect(network).toHaveBeenCalledTimes(1);
+    expect(smtpSend).not.toHaveBeenCalled();
+  });
+
+  it("clears confirmed connectivity when a later Brevo request times out", async () => {
+    settings.emailProvider = "brevo";
+    const network = vi.fn()
+      .mockResolvedValueOnce(new Response('{"messageId":"<unit-test@brevo.test>"}', { status: 201 }))
+      .mockRejectedValueOnce(new DOMException("unit-test-brevo-key", "TimeoutError"));
+    vi.stubGlobal("fetch", network);
+    const { sendEmail, emailProviderStatus } = await import("../server/mail");
+    await sendEmail(message);
+    expect(emailProviderStatus().connectionVerified).toBe(true);
+    await expect(sendEmail(message)).rejects.toMatchObject({ status: 503 });
+    expect(emailProviderStatus().connectionVerified).toBe(false);
+  });
+
   it("uses Resend HTTPS and records provider acceptance only after confirmed success", async () => {
     const network = vi
       .fn()

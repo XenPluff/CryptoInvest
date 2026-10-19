@@ -30,6 +30,10 @@ services:
         generateValue: true
       - key: FUNDING_ENABLED
         value: "true"
+      - key: EMAIL_PROVIDER
+        value: brevo
+      - key: BREVO_SENDER_EMAIL
+        value: aurreon.support@gmail.com
 
 databases:
   - name: aureon-preview-db

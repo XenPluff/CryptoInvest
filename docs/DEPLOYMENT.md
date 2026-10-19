@@ -78,13 +78,30 @@ Set `APP_ORIGIN` to that exact origin before starting the API. Production cookie
 
 WebAuthn passkeys use the hostname from `APP_ORIGIN` as their relying-party ID and verify the exact origin. Choose the intended hostname before production enrollment; credentials registered for localhost or another hostname do not migrate to the new hostname. Use a compatible browser/OS authenticator. Adding or removing a passkey requires current TOTP when enabled, otherwise the current password. Passkey login still requires TOTP on accounts that enabled it; financial reviews retain their TOTP requirements.
 
-## Account email with Resend
+## Account email with Brevo on the preview
+
+For the owner-supplied Gmail sender on Render's free plan, use Brevo's HTTPS API.
+See [email activation steps](EMAIL_DELIVERY.md) for sender verification, account
+activation, and securely entering `BREVO_API_KEY` on Render. The non-secret
+settings are `EMAIL_PROVIDER=brevo` and
+`BREVO_SENDER_EMAIL=aurreon.support@gmail.com`. This prepares the integration;
+messages cannot be sent until the owner provides an activated account and key.
+Brevo rewrites free-domain sender addresses to its own sending domain; replies
+are addressed to the project Gmail inbox.
+
+`EMAIL_PROVIDER` accepts `brevo`, `resend`, `smtp`, or `none`. When unset, selection
+prefers Brevo, then Resend, then SMTP based on available credentials. Explicitly
+selecting a provider with missing required settings reports email as unconfigured
+and does not silently switch to another provider.
+
+## Account email with Resend (owned-domain alternative)
 
 After registering the project's domain, verify a sending domain in Resend, publish the DNS records it requests, and configure:
 
 ```dotenv
 RESEND_API_KEY=your-secret-key-in-the-host-secret-manager
 EMAIL_FROM="Aureon <accounts@your-domain.example>"
+EMAIL_PROVIDER=resend
 ```
 
 The application uses Resend's HTTPS API when the key and sender are configured. Verification and recovery links are built from `APP_ORIGIN`. Confirm delivery to an inbox you control, check the branded link destination, verify a real test account, and complete a password reset. A configured key does not prove delivery; the recipient and sender must comply with the provider account's actual permissions.
@@ -105,7 +122,7 @@ Activity notifications for verified accounts enter a durable database email queu
 
 Newsletter subscriptions require explicit consent and email confirmation before campaign eligibility. In the administration workspace, create a campaign draft, review its message, and explicitly confirm each batch with current TOTP. A batch queues at most 100 confirmed subscribers, excludes duplicate campaign recipients, and includes an unsubscribe link. The worker checks current consent and campaign status before handing off the message. Archiving cancels pending messages; provider-accepted messages cannot be recalled. Do not import or queue addresses without valid consent.
 
-Outbound destinations include `api.resend.com:443` and `api.coingecko.com:443`. The direct-wallet deposit workflow requires no external provider API. SMTP deployments also need their SMTP host/port. Package installation needs the npm registry; Docker builds need the chosen Node and PostgreSQL image registries. If a network allowlist exists, add required destinations without replacing unrelated entries. HTTPS provider requests honor `HTTPS_PROXY`/`HTTP_PROXY` and `NO_PROXY` through the supported environment proxy agent, with TLS verification enabled. Supply any required approved runtime CA using `NODE_EXTRA_CA_CERTS`.
+Outbound destinations include `api.brevo.com:443`, `api.resend.com:443`, and `api.coingecko.com:443`. The direct-wallet deposit workflow requires no external provider API. SMTP deployments also need their SMTP host/port. Package installation needs the npm registry; Docker builds need the chosen Node and PostgreSQL image registries. If a network allowlist exists, add required destinations without replacing unrelated entries. HTTPS provider requests honor `HTTPS_PROXY`/`HTTP_PROXY` and `NO_PROXY` through the supported environment proxy agent, with TLS verification enabled. Supply any required approved runtime CA using `NODE_EXTRA_CA_CERTS`.
 
 ## Supplied deposit wallet addresses
 

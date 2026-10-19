@@ -1,4 +1,6 @@
 import "dotenv/config";
+import { z } from "zod";
+import { SUPPORT_EMAIL } from "../lib/contact";
 
 const environment = process.env;
 const nodeEnv = environment.NODE_ENV ?? "development";
@@ -61,6 +63,8 @@ if (nodeEnv === "production" && appUrl.protocol !== "https:") {
 const smtpHost = environment.SMTP_HOST?.trim() || undefined;
 const emailFrom = environment.EMAIL_FROM?.trim() || undefined;
 const resendApiKey = environment.RESEND_API_KEY?.trim() || undefined;
+const brevoApiKey = environment.BREVO_API_KEY?.trim() || undefined;
+const brevoSenderEmail = environment.BREVO_SENDER_EMAIL?.trim() || SUPPORT_EMAIL;
 const smtpFrom = environment.SMTP_FROM?.trim() || emailFrom;
 const smtpUser = environment.SMTP_USER || undefined;
 const smtpPassword = environment.SMTP_PASSWORD || undefined;
@@ -71,8 +75,38 @@ const authCookie = environment.AUTH_COOKIE ?? "aureon_session";
 if (!/^[a-zA-Z0-9_-]+$/.test(authCookie))
   throw new Error("AUTH_COOKIE contains unsupported characters.");
 
-const emailProvider =
-  resendApiKey && emailFrom ? "resend" : smtpHost && smtpFrom ? "smtp" : "none";
+const requestedEmailProvider = environment.EMAIL_PROVIDER?.trim() || undefined;
+if (
+  requestedEmailProvider &&
+  !["brevo", "resend", "smtp", "none"].includes(requestedEmailProvider)
+) {
+  throw new Error("EMAIL_PROVIDER must be brevo, resend, smtp, or none.");
+}
+const availableEmailProviders = {
+  brevo: Boolean(brevoApiKey),
+  resend: Boolean(resendApiKey && emailFrom),
+  smtp: Boolean(smtpHost && smtpFrom),
+  none: true,
+};
+type EmailProvider = keyof typeof availableEmailProviders;
+const preferredEmailProvider: EmailProvider =
+  (requestedEmailProvider as EmailProvider | undefined) ??
+  (brevoApiKey
+    ? "brevo"
+    : resendApiKey && emailFrom
+      ? "resend"
+      : smtpHost && smtpFrom
+        ? "smtp"
+        : "none");
+const emailProvider: EmailProvider = availableEmailProviders[preferredEmailProvider]
+  ? preferredEmailProvider
+  : "none";
+if (
+  emailProvider === "brevo" &&
+  !z.string().email().max(254).safeParse(brevoSenderEmail).success
+) {
+  throw new Error("BREVO_SENDER_EMAIL must be a valid email address.");
+}
 
 export const config = {
   nodeEnv,
@@ -84,6 +118,8 @@ export const config = {
   authCookie,
   fundingEnabled: boolean("FUNDING_ENABLED"),
   resendApiKey,
+  brevoApiKey,
+  brevoSenderEmail,
   emailFrom,
   emailProvider,
   smtpHost,

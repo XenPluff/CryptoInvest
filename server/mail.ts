@@ -52,7 +52,37 @@ export async function sendEmail(message: {
       "Email delivery is not configured. Please contact support.",
     );
   try {
-    if (config.emailProvider === "resend") {
+    if (config.emailProvider === "brevo") {
+      const response = await externalFetch("https://api.brevo.com/v3/smtp/email", {
+        method: "POST",
+        redirect: "error",
+        headers: {
+          "api-key": config.brevoApiKey!,
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          sender: { name: "AUREON", email: config.brevoSenderEmail },
+          replyTo: { name: "AUREON Support", email: config.brevoSenderEmail },
+          to: [{ email: message.to }],
+          subject: message.subject,
+          ...(message.html
+            ? { htmlContent: message.html }
+            : { textContent: message.text }),
+        }),
+        signal: AbortSignal.timeout(10_000),
+      });
+      if (!response.ok) throw new Error("Provider rejected email.");
+      const result: unknown = await response.json();
+      if (
+        !result ||
+        typeof result !== "object" ||
+        !("messageId" in result) ||
+        typeof result.messageId !== "string" ||
+        !result.messageId.trim()
+      )
+        throw new Error("Provider acceptance was not confirmed.");
+    } else if (config.emailProvider === "resend") {
       const response = await externalFetch("https://api.resend.com/emails", {
         method: "POST",
         redirect: "error",
