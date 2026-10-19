@@ -5,11 +5,15 @@ Website: <https://aureon-preview.onrender.com>
 Verified on October 19, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `e8daadc2346a4e65bc82e4da1fb7cc09d968cf09` from branch
+- Running source commit: `0334de6f130709b803255a8e1d7e00d1d3321b76` from branch
   `codex/aureon-render-preview`.
 - Homepage returns HTTP 200 and renders AUREON.
 - `/api/health` returns HTTP 200, database `connected`, and funding enabled.
 - Email delivery is unconfigured (`emailConfigured:false`).
+- Public contact email: `aurreon.support@gmail.com`, supplied by the owner. The
+  homepage footer and support page return HTTP 200 with working `mailto:` link
+  destinations. The support form continues to save requests in the admin queue;
+  publishing the inbox does not enable outbound account mail.
 
 This is the actual provider-assigned HTTPS address, not a local address or a
 guessed preview hostname. The owner completed the Render Blueprint deployment
