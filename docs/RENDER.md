@@ -1,18 +1,31 @@
 # Render preview deployment
 
-The Render deployment recipe is prepared in `render.yaml`. No Render account,
-service, database, or public preview URL has been created from this workspace.
-The account owner must complete Render's email or GitHub sign-in directly.
+The owner has created a Render account and connected an API key. The application
+and blueprint are published on GitHub branch `codex/aureon-render-preview`.
+No Render web service, database, or public preview URL has been created yet.
+
+## Next step: deploy in the Render dashboard
+
+[Deploy AUREON on Render](https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2FXenPluff%2FCryptoInvest%2Ftree%2Fcodex%2Faureon-render-preview)
+
+Open the link while signed in to Render, authorize access to the repository if
+prompted, and deploy the Blueprint. It contains the free web service and free
+PostgreSQL resource definitions. Wait for the web service to show Live and use
+the HTTPS address Render actually assigns.
+
+The API key successfully listed services (none existed), but workspace and
+PostgreSQL API requests from this cloud environment returned HTTP 403 Cloudflare
+block pages. Provisioning therefore needs the normal Render browser flow unless
+Render resolves that restriction. Do not attempt to bypass the protection or
+claim that a service exists based only on the source being published.
 
 ## Account and source access
 
 1. Open <https://dashboard.render.com/register> and sign up with your own GitHub
    account or email. Complete any verification Render requests.
 2. Authorize Render to access `XenPluff/CryptoInvest` when configuring its source.
-   The current application changes are still in this workspace, not published to
-   GitHub. Publish the reviewed source and `render.yaml` to the branch Render will
-   use before attempting deployment; the original remote commit does not contain
-   this application.
+   Select `codex/aureon-render-preview`; the original `main` commit does not contain
+   this application. The direct deployment link above selects the prepared branch.
 3. Create a Blueprint from that branch and review the web/database resources.
    The recipe explicitly requests the `free` plans documented by Render. Do not
    accept a paid resource substitution without the owner's authorization.

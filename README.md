@@ -1,5 +1,7 @@
 # AUREON · CryptoInvest
 
+[Deploy the prepared preview to Render](https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2FXenPluff%2FCryptoInvest%2Ftree%2Fcodex%2Faureon-render-preview)
+
 A full-stack digital asset investment website with a responsive 3D landing page, live market data, account authentication, investor and administration workspaces, and a content studio. Built with Next.js 15, React 19, Three.js, Express 5, PostgreSQL 17, and Prisma 6.
 
 The application records real database activity. Fresh installations have no investors, balances, transactions, testimonials, or performance history. Fresh installations default to disabled funding. The owner has explicitly enabled funding in this workspace; administrators can pause or resume it in Platform settings. No public deployment, provider activation, security audit, or regulatory approval is implied by this repository.

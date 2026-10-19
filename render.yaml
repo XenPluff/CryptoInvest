@@ -3,6 +3,7 @@ services:
   - type: web
     name: aureon-preview
     runtime: docker
+    branch: codex/aureon-render-preview
     plan: free
     region: oregon
     dockerfilePath: ./Dockerfile
