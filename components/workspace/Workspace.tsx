@@ -52,6 +52,7 @@ import { LiveInvestmentDisplay } from "@/components/LiveInvestmentDisplay";
 import { WalletConnections } from "./WalletConnections";
 import { PasskeySettings } from "./PasskeySettings";
 import { PortfolioAnalytics } from "./PortfolioAnalytics";
+import { DepositWorkspace } from "./DepositWorkspace";
 
 const investorNav = [
   { id: "", name: "Overview", icon: LayoutDashboard },
@@ -94,8 +95,8 @@ const titles: Record<string, [string, string]> = {
     "Explore investment plans with clear rates and defined terms.",
   ],
   wallets: [
-    "Build your next position.",
-    "Fund your account using a supported cryptocurrency network.",
+    "Fund your next move.",
+    "A considered transfer. A clear path to your portfolio.",
   ],
   withdrawals: [
     "Your capital, on your terms.",
@@ -384,7 +385,7 @@ function InvestorContent({
   if (section === "") return <Overview user={user} />;
   if (section === "plans") return <Plans />;
   if (section === "investments") return <Investments />;
-  if (section === "wallets") return <Wallets />;
+  if (section === "wallets") return <DepositWorkspace user={user} />;
   if (section === "withdrawals") return <Withdrawals />;
   if (section === "transactions") return <Transactions />;
   if (section === "referrals") return <Referrals />;
@@ -731,103 +732,6 @@ function Investments() {
           </Panel>
         )
       )}
-    </>
-  );
-}
-function Wallets() {
-  const r = useRemote("/wallets");
-  const [selected, setSelected] = useState("");
-  return (
-    <>
-      <LoadState {...r} />
-      {r.data && !r.data.fundingEnabled && (
-        <Notice>
-          Funding is currently unavailable. The supplied receiving addresses are
-          configured below; deposits can be submitted when funding is enabled.
-        </Notice>
-      )}
-      <div className="ws-two-column">
-        <Panel title="Your deposit destinations" eyebrow="FUND YOUR ACCOUNT">
-          {r.data?.wallets?.length ? (
-            <div className="ws-wallet-list">
-              {r.data.wallets.map((w: RecordData) => (
-                <div
-                  className={`ws-wallet-card ${selected === w.id ? "is-selected" : ""}`}
-                  key={w.id}
-                >
-                  <div className="ws-wallet-heading">
-                    <span className="ws-coin">{w.asset.slice(0, 1)}</span>
-                    <div>
-                      <h3>{w.asset}</h3>
-                      <span>{w.network}</span>
-                    </div>
-                    <CopyButton value={w.address} label="Address" />
-                  </div>
-                  <code>{w.address}</code>
-                  <button
-                    className="ws-text-button"
-                    onClick={() => setSelected(w.id)}
-                  >
-                    Use this wallet <ArrowUpRight size={14} />
-                  </button>
-                </div>
-              ))}
-            </div>
-          ) : (
-            !r.loading && (
-              <Empty title="No receiving wallets available">
-                Configured cryptocurrency receiving addresses will appear here
-                once funding is activated.
-              </Empty>
-            )
-          )}
-        </Panel>
-        <Panel title="Submit a deposit" eyebrow="TRANSACTION CONFIRMATION">
-          <p className="ws-panel-description">
-            Send funds using the exact asset and network shown. After sending,
-            submit the transaction hash for manual blockchain verification.
-          </p>
-          <ActionForm
-            path="/deposits"
-            submit="Submit for verification"
-            disabled={!r.data?.fundingEnabled || !r.data?.wallets?.length}
-            transform={(d) => ({ ...d, amount: Number(d.amount) })}
-            onSuccess={() => void r.reload()}
-          >
-            <Field label="Receiving wallet" name="walletId" required>
-              <select
-                name="walletId"
-                required
-                value={selected}
-                onChange={(e) => setSelected(e.target.value)}
-              >
-                <option value="">Select asset and network</option>
-                {r.data?.wallets?.map((w: RecordData) => (
-                  <option key={w.id} value={w.id}>
-                    {w.asset} · {w.network}
-                  </option>
-                ))}
-              </select>
-            </Field>
-            <Field
-              label="Deposit value (USD)"
-              name="amount"
-              required
-              type="number"
-              min="0.01"
-              step="0.01"
-              placeholder="0.00"
-            />
-            <Field
-              label="Blockchain transaction hash"
-              name="txHash"
-              required
-              placeholder="Enter your transaction hash"
-              help="Your balance updates only after the transaction is verified and approved."
-            />
-          </ActionForm>
-        </Panel>
-      </div>
     </>
   );
 }

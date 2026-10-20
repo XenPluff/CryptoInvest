@@ -132,8 +132,11 @@ test.describe("Investor workspace", () => {
     const submit = page.getByRole("button", {
       name: "Submit for verification",
     });
+    // This new account has neither approved KYC nor an enrolled authenticator.
+    // The form reflects the same prerequisites enforced by the financial API.
+    await expect(submit).toBeDisabled();
+    await expect(page.getByRole("link", { name: "Complete setup" })).toBeVisible();
     if (health.fundingEnabled) {
-      await expect(submit).toBeEnabled();
       await expect(
         page.getByText("Funding is currently unavailable.", { exact: false }),
       ).toHaveCount(0);
