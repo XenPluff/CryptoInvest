@@ -223,7 +223,6 @@ export default function Landing() {
         <MarketTicker />
         <PublishedAnnouncements />
         <VideoTeaser />
-        <CardTeaser />
         <section
           className="perspective-section section-space"
           id="philosophy"
@@ -386,6 +385,7 @@ export default function Landing() {
             </p>
           </div>
         </section>
+        <CardTeaser />
         <section className="journey-section section-space">
           <div className="container journey-layout">
             <div>
