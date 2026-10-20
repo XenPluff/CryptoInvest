@@ -5,8 +5,15 @@ Website: <https://aureon-preview.onrender.com>
 Verified on October 20, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `fd64b240046bd4497a7c6dff598b5ca6a1fbb185` from branch
+- Running source commit: `1b07815e750927783889434253434133138a8575` from branch
   `codex/aureon-render-preview`.
+- The homepage's "Where value takes shape" picture slideshow is live in
+  deployment `dep-dbbuto5pkucs73bolp60`. It cycles through all nine business
+  pictures one at a time on a five-second interval, with pause/play controls.
+  Actual hosted HTML/images passed a complete nine-picture cycle and wraparound,
+  pause and 1440/390/320px layouts without API fixtures or page errors. Local
+  browser cases also cover touchscreen playback, hover/offscreen pause,
+  reduced-motion defaults and retaining the current picture after load failures.
 - The homepage card picture caption is removed in deployment
   `dep-dbbuitfavr4c73dmjhfg`. Actual hosted image decoding, caption absence,
   links, placement after investment packages and 1440/390px layouts passed
