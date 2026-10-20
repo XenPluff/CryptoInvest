@@ -82,10 +82,14 @@ test("administrators review applications with a fresh authenticator and applican
   const bodies = await setup(page, { admin: true });
   await page.getByLabel("Filter application status").selectOption("DECLINED"); await expect(page.getByText("No matching applications", { exact: true })).toBeVisible();
   await page.getByLabel("Filter application status").selectOption(""); await page.getByRole("button", { name: "Review Card Preview Investor" }).click();
+  await page.getByLabel("Message to applicant").fill("Your pre-launch application is now under preliminary review.");
+  await page.getByLabel("Your administrator authenticator code").fill("123456"); await page.getByRole("button", { name: "Save preliminary review" }).click();
+  await expect(page.locator("table").getByText("Under preliminary review", { exact: true })).toBeVisible();
+  expect(bodies[0].body.status).toBe("UNDER_REVIEW"); await expect(page.getByLabel("Preliminary outcome")).toHaveValue("WAITLISTED"); bodies.length = 0;
   await page.getByLabel("Preliminary outcome").selectOption("WAITLISTED"); await page.getByLabel("Message to applicant").fill("Preliminary review complete. You are on the pre-launch list; no credit is approved.");
   await page.getByRole("button", { name: "Save preliminary review" }).click(); expect(bodies).toHaveLength(0);
   await page.getByLabel("Your administrator authenticator code").fill("123456"); await page.getByRole("button", { name: "Save preliminary review" }).click();
-  await expect(page.locator("table").getByText("On the pre-launch list", { exact: true })).toBeVisible(); expect(bodies[0].body).toEqual({ status: "WAITLISTED", message: "Preliminary review complete. You are on the pre-launch list; no credit is approved.", code: "123456", version: 1 });
+  await expect(page.locator("table").getByText("On the pre-launch list", { exact: true })).toBeVisible(); expect(bodies[0].body).toEqual({ status: "WAITLISTED", message: "Preliminary review complete. You are on the pre-launch list; no credit is approved.", code: "123456", version: 2 });
   await expect(page.getByRole("button", { name: "Save preliminary review" })).toHaveCount(0);
 });
 test("public, investor and admin card pages fit mobile and desktop without page errors", async ({ page }) => {

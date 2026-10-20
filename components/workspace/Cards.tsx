@@ -86,7 +86,7 @@ export function AdminCards() {
   function choose(application: CardApplication) { if (busy) return; setSelected(application); setDecision(application.status === "UNDER_REVIEW" ? "WAITLISTED" : "UNDER_REVIEW"); setMessage(""); setCode(""); setError(""); }
   async function review(event: FormEvent<HTMLFormElement>) {
     event.preventDefault(); if (!selected || busy) return; setBusy(true); setError("");
-    try { const result = await api<{ application: CardApplication }>(`/admin/card-applications/${selected.id}/review`, { method: "POST", body: JSON.stringify({ status: decision, message, code, version: selected.version }) }); setSelected({ ...selected, ...result.application }); setCode(""); setMessage(""); void r.reload(); }
+    try { const result = await api<{ application: CardApplication }>(`/admin/card-applications/${selected.id}/review`, { method: "POST", body: JSON.stringify({ status: decision, message, code, version: selected.version }) }); setSelected({ ...selected, ...result.application }); setDecision(result.application.status === "UNDER_REVIEW" ? "WAITLISTED" : "UNDER_REVIEW"); setCode(""); setMessage(""); void r.reload(); }
     catch (cause) { setError(cause instanceof Error ? cause.message : "Review could not be saved."); setCode(""); void r.reload(); }
     finally { setBusy(false); }
   }
