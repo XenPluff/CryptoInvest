@@ -31,10 +31,11 @@ For this Render free service, the one-time operator command can be run before
 the normal startup command by temporarily setting its Docker Command to:
 
 ```sh
-sh -c 'node dist/scripts/promote-admin.js && exec npm run start:render'
+node scripts/start-render.mjs --promote-admin
 ```
 
-The normal web server only starts after the operator command succeeds. After
+The launcher applies migrations and seeds, then runs the explicit operator
+command. The normal web server only starts after that command succeeds. After
 the deployment reports live, restore Docker Command to `npm run start:render`
 and remove temporary operator environment settings. Never put a password in
 the Docker Command or chat. An existing account uses its current password.
@@ -65,4 +66,6 @@ npm run test:integration -- --admin-provisioning
 The helper creates and drops its own disposable PostgreSQL database. Seven
 checks cover credential/fund preservation, session and reset-token revocation,
 audit records, repeat and concurrent grants, ineligible accounts, and missing
-or invalid target addresses. It does not modify the application database.
+or invalid target addresses, plus a compiled CLI subprocess check. It does not
+modify the application database. Run `npm run build` before this check so the
+compiled command is available.

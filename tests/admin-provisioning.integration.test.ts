@@ -1,6 +1,8 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { randomUUID } from "node:crypto";
 import { readFile, readdir } from "node:fs/promises";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import pg from "pg";
 import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
@@ -102,5 +104,15 @@ integration("operator administrator provisioning", () => {
 
   it("rejects an invalid target before querying the database", async () => {
     await expect(promoteAdministrator(db, "invalid")).rejects.toThrow("Set ADMIN_EMAIL");
+  });
+
+  it("the compiled operator command exits successfully after promoting an account", async () => {
+    const user = await account();
+    const result = await promisify(execFile)(process.execPath, ["dist/scripts/promote-admin.js"], {
+      env: { ...process.env, DATABASE_URL: connectionString!, ADMIN_EMAIL: user.email },
+      timeout: 10000,
+    });
+    expect(result.stdout).toContain("Administrator access granted");
+    expect((await db.user.findUniqueOrThrow({ where: { id: user.id } })).role).toBe("ADMIN");
   });
 });

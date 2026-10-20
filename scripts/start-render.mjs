@@ -56,6 +56,8 @@ try {
     "tsx",
     "prisma/seed.ts",
   ]);
+  if (process.argv.includes("--promote-admin"))
+    await run(process.execPath, ["dist/scripts/promote-admin.js"]);
   await run("npm", ["start"]);
 } catch (error) {
   if (!stopping)
