@@ -39,6 +39,11 @@ npm run admin:create
 
 The command refuses to overwrite or elevate an existing account. Sign in at `/login`, enroll an authenticator under account security, and use `/admin`. Financial reviews require TOTP. Withdrawal approval and payout reconciliation require different administrators.
 
+For an existing verified, active account, an authorized operator can set
+`ADMIN_EMAIL` and run `npm run admin:promote`. This preserves credentials and
+funds, revokes prior sessions/reset links, and audits the role change. See
+[administrator setup](docs/ADMIN_SETUP.md) for the one-time Render procedure.
+
 ## Development checks
 
 ```sh

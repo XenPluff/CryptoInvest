@@ -6,6 +6,9 @@ import { config as loadEnv } from "dotenv";
 import pg from "pg";
 
 const root = fileURLToPath(new URL("..", import.meta.url));
+const testFile = process.argv.includes("--admin-provisioning")
+  ? "tests/admin-provisioning.integration.test.ts"
+  : "tests/backend.integration.test.ts";
 loadEnv({ path: new URL("../.env", import.meta.url), quiet: true });
 
 let admin;
@@ -53,7 +56,7 @@ try {
       [
         "node_modules/vitest/vitest.mjs",
         "run",
-        "tests/backend.integration.test.ts",
+        testFile,
       ],
       {
         cwd: root,
