@@ -29,7 +29,6 @@ const french = {
   "Video guides": "Guides vidéo",
   "Aureon card concepts": "Concepts de cartes Aureon",
   "AUREON-branded gold Visa and black Mastercard front and back concepts": "Concepts recto et verso de cartes Visa dorées et Mastercard noires à l’identité AUREON",
-  "AI-generated card artwork · Design concepts, not issued": "Visuel de cartes généré par IA · Concepts de design, cartes non émises",
   "THE AUREON CARD CONCEPT": "LE CONCEPT DE CARTE AUREON",
   "Our signature.": "Notre signature.",
   "A new dimension.": "Une nouvelle dimension.",

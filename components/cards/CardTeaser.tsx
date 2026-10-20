@@ -18,7 +18,6 @@ export default function CardTeaser() {
           sizes="(max-width: 800px) 100vw, 55vw"
           alt={t("AUREON-branded gold Visa and black Mastercard front and back concepts")}
         />
-        <figcaption>{t("AI-generated card artwork · Design concepts, not issued")}</figcaption>
       </figure>
       <div className={styles.copy}>
         <p className="eyebrow">{t("THE AUREON CARD CONCEPT")}</p>
