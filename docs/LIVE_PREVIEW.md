@@ -5,8 +5,18 @@ Website: <https://aureon-preview.onrender.com>
 Verified on October 20, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `44c48245824e796fefa95450c286ab94b0fa1eb1` from branch
+- Running source commit: `af4b8503a8dd9fcdc37f201867e5943fd0ba0d86` from branch
   `codex/aureon-render-preview`.
+- [How value is generated](https://aureon-preview.onrender.com/approach) is live
+  in deployment `dep-dbbs95ei0phs73e1ocs0`. Eight company-reported activity
+  profiles include original AUREON-branded AI illustrations, revenue mechanics,
+  costs, risks and supporting-record standards. The reported 7–15 years of trader
+  experience is attributed to the company; business operations and credentials
+  were not independently verified in this content task. Actual deployed images
+  rendered successfully and all eight original downloads matched local SHA-256
+  hashes. Source/AI labels, expandable evidence, homepage/About links and
+  1440/390/320px English/French navigation layouts passed hosted browser checks
+  without API fixtures or page errors, through the existing verified-TLS client.
 - The [video library](https://aureon-preview.onrender.com/videos) is live in
   deployment `dep-dbbrh9gu01pc738prbp0`. Five actual MP4s cover the introduction,
   account setup, deposits, withdrawals and a short brand film, with ambient
