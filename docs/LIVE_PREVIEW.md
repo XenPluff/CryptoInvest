@@ -5,8 +5,18 @@ Website: <https://aureon-preview.onrender.com>
 Verified on October 20, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `af4b8503a8dd9fcdc37f201867e5943fd0ba0d86` from branch
+- Running source commit: `b912c6c24e4ba1273cebd9dcb3611c566aa7aba6` from branch
   `codex/aureon-render-preview`.
+- The [AI and robotics investment profile](https://aureon-preview.onrender.com/approach#ai-robotics)
+  is live in deployment `dep-dbbt458m7kps73d5cv70`, bringing the collection to
+  nine company-reported activities/investment interests. It includes an original
+  AUREON-branded illustration and appears in the homepage list and About page.
+  Actual hosted profile, caption, navigation, expandable evidence and
+  1440/390/320px English/French layouts passed browser checks without API
+  fixtures or page errors. All nine original PNG downloads match local SHA-256
+  hashes. Health reports connected database, enabled funding and passed email
+  readiness checks. Imagery and operating descriptions remain explicitly
+  distinguished from independently verified ownership or investment results.
 - [How value is generated](https://aureon-preview.onrender.com/approach) is live
   in deployment `dep-dbbs95ei0phs73e1ocs0`. Eight company-reported activity
   profiles include original AUREON-branded AI illustrations, revenue mechanics,
