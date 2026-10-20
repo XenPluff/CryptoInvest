@@ -2,6 +2,9 @@
 
 ## Current product
 
+- Homepage artwork and introduction link to the designs and pre-launch application.
+  The original generated image is shown uncropped with a concept/AI caption;
+  English and French copy explains current availability.
 - Public design and program information: `/cards`.
 - Investor applications, preferences, history and withdrawal: `/dashboard/cards`.
 - Administrator search, status filters, pagination and review: `/admin/cards`.
