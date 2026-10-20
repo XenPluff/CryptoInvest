@@ -5,8 +5,23 @@ Website: <https://aureon-preview.onrender.com>
 Verified on October 20, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `b912c6c24e4ba1273cebd9dcb3611c566aa7aba6` from branch
+- Running source commit: `668882af1c826572b9be608a092856ebfe830748` from branch
   `codex/aureon-render-preview`.
+- [Card concepts](https://aureon-preview.onrender.com/cards),
+  [investor applications](https://aureon-preview.onrender.com/dashboard/cards)
+  and the [admin queue](https://aureon-preview.onrender.com/admin/cards) are live
+  in deployment `dep-dbbtq92jtilc73aia0lg`. Branded Visa/Mastercard design
+  preferences include interactive 3D front/back views and original concept
+  artwork. Actual deployed HTML/assets, matching PNG SHA-256, both card views,
+  1440/390/320px layouts and English/French public navigation passed without
+  page errors. Workspace application and two-stage admin review checks used
+  browser-only API fixtures; actual unauthenticated card APIs return 401.
+  No production application, review, financial transaction or email was created
+  by these checks. Startup completed with the additive application migration;
+  health reports connected database, enabled funding and passed email readiness.
+  This is a pre-launch application system. No licensed issuer or approved card
+  program is connected; real card issuance, credit and worldwide payments remain
+  unavailable. See [card program scope](CARD_PROGRAM.md).
 - The [AI and robotics investment profile](https://aureon-preview.onrender.com/approach#ai-robotics)
   is live in deployment `dep-dbbt458m7kps73d5cv70`, bringing the collection to
   nine company-reported activities/investment interests. It includes an original
