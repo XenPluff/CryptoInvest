@@ -18,7 +18,7 @@ test("all sector pictures load and original branded artwork can be downloaded", 
     expect(artwork.status()).toBe(200);
     expect(artwork.headers()["content-type"]).toContain("image/png");
     expect((await artwork.body()).subarray(0, 8).toString("hex")).toBe("89504e470d0a1a0a");
-    await expect(article.getByText("AI-generated sector illustration", { exact: true })).toBeVisible();
+    await expect(article.getByText("AI-generated sector illustration", { exact: true })).toHaveCount(0);
   }
   const trading = page.locator("article#market-trading");
   await expect(trading).toContainText("AUREON reports");

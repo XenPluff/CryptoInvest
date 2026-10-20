@@ -36,8 +36,9 @@ reference. Source artwork is retained unchanged as PNG; website delivery uses
 Next.js responsive image handling. Each picture can be downloaded in its
 original form from its profile.
 
-AI labels are visible beside the pictures and in the page's introductory source
-note. The imagery does not establish ownership, operations, staff, title,
+The repeated "AI-generated sector illustration" picture captions have been
+removed. Image alternative text and the page's introductory source note describe
+the imagery. The imagery does not establish ownership, operations, staff, title,
 provenance, licensing or performance. Replace illustrations with genuine project
 photography only after obtaining usage rights, validating what it shows and
 updating the captions and alternative text.

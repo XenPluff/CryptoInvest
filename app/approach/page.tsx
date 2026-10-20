@@ -38,7 +38,7 @@ export default function ApproachPage() {
         {businessActivities.map(activity => <article key={activity.id} id={activity.id} className={styles.activity} aria-labelledby={`${activity.id}-title`}>
           <figure className={styles.artwork}>
             <Image src={`/images/strategies/${activity.id}.png`} alt={activity.imageAlt} width={1536} height={1024} sizes="(max-width: 900px) 100vw, 50vw" />
-            <figcaption><span>AI-generated sector illustration</span><a href={`/images/strategies/${activity.id}.png`} download aria-label={`Download ${activity.title} artwork`}>Download artwork <ArrowUpRight size={11} /></a></figcaption>
+            <figcaption><a href={`/images/strategies/${activity.id}.png`} download aria-label={`Download ${activity.title} artwork`}>Download artwork <ArrowUpRight size={11} /></a></figcaption>
           </figure>
           <div className={styles.activityBody}>
             <div className={styles.activityEyebrow}><span>{activity.theme}</span><span>/{activity.number}</span></div>
