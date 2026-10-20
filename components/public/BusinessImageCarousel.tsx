@@ -58,7 +58,7 @@ export default function BusinessImageCarousel() {
   }, [index, playing, hovered, inView, pageVisible]);
 
   return (
-    <div ref={ref} className={styles.slideshow} role="region" aria-roledescription="carousel" aria-label="Business activity pictures" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+    <div ref={ref} className={styles.slideshow} role="region" aria-roledescription="carousel" aria-label="Business activity pictures" onPointerEnter={event => { if (event.pointerType === "mouse") setHovered(true); }} onPointerLeave={() => setHovered(false)}>
       <div className={styles.slideshowFrame} aria-live={playing ? "off" : "polite"}>
         <Image key={businessActivities[index].id} {...imageProps(index)} className={styles.slideshowPicture} />
       </div>

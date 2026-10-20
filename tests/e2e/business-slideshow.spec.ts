@@ -3,6 +3,23 @@ import { businessActivities } from "../../lib/business-activities";
 
 const carousel = (page: import("@playwright/test").Page) => page.getByRole("region", { name: "Business activity pictures" });
 
+test.describe("touchscreen controls", () => {
+  test.use({ hasTouch: true, isMobile: true, viewport: { width: 390, height: 844 } });
+  test("tapping pause and play resumes automatic rotation without a mouse leave", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+    await page.clock.install();
+    await page.goto("/");
+    const slides = carousel(page);
+    await slides.scrollIntoViewIfNeeded();
+    await slides.getByRole("button", { name: "Pause business slideshow" }).tap();
+    await page.clock.fastForward(11000);
+    await expect(slides.getByRole("img")).toHaveAttribute("alt", businessActivities[0].imageAlt);
+    await slides.getByRole("button", { name: "Play business slideshow" }).tap();
+    await page.clock.fastForward(5100);
+    await expect(slides.getByRole("img")).toHaveAttribute("alt", businessActivities[1].imageAlt);
+  });
+});
+
 test("homepage slideshow cycles all nine pictures one at a time and supports pause and hover", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.clock.install();
