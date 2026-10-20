@@ -26,6 +26,7 @@ const french = {
   "Investment plans": "Offres d’investissement",
   "Market insights": "Analyses de marché",
   "Our security": "Notre sécurité",
+  "Video guides": "Guides vidéo",
   "Switch to light mode": "Activer le thème clair",
   "Switch to dark mode": "Activer le thème sombre",
   "Log in": "Connexion",

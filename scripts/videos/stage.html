@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>AUREON video renderer</title>
+<style>html,body{margin:0;background:#0a0a0c}canvas{display:block;width:1280px;height:720px}</style>
+<canvas id="stage" width="1280" height="720"></canvas>
+<script>
+const canvas=document.getElementById('stage'),c=canvas.getContext('2d',{alpha:false});
+const gold='#d6b66c',ivory='#f5f2e9',muted='#adaaa4';
+const ease=t=>1-Math.pow(1-Math.max(0,Math.min(1,t)),3);
+function text(s,x,y,size=20,color=ivory,font='DM Sans',align='left'){
+ c.fillStyle=color;c.font=`${size}px "${font}"`;c.textAlign=align;c.fillText(s,x,y);
+}
+function caps(s,x,y,size=12,color=gold){
+ c.fillStyle=color;c.font=`500 ${size}px "DM Sans"`;c.textAlign='left';
+ for(const ch of s){c.fillText(ch,x,y);x+=c.measureText(ch).width+2.4;}
+}
+function wrap(s,x,y,width,size=23,color=muted){
+ c.font=`${size}px "DM Sans"`;let line='',row=0;
+ for(const word of s.split(' ')){
+  const next=line?line+' '+word:word;
+  if(c.measureText(next).width>width&&line){text(line,x,y+row*35,size,color);row++;line=word;}else line=next;
+ }if(line)text(line,x,y+row*35,size,color);
+}
+function line(x,y,x2,y2,color='#d6b66c33',width=1){c.strokeStyle=color;c.lineWidth=width;c.beginPath();c.moveTo(x,y);c.lineTo(x2,y2);c.stroke();}
+function box(x,y,w,h,r=14,fill='#171719',stroke='#ffffff18'){
+ c.beginPath();c.roundRect(x,y,w,h,r);c.fillStyle=fill;c.fill();if(stroke){c.strokeStyle=stroke;c.lineWidth=1;c.stroke();}
+}
+function mark(x,y,size){c.save();c.translate(x,y);c.scale(size/32,size/32);c.strokeStyle=gold;c.lineWidth=1.1;
+ c.beginPath();c.moveTo(16,3);c.lineTo(30,28);c.lineTo(2,28);c.closePath();c.stroke();
+ c.beginPath();c.moveTo(16,12);c.lineTo(25,28);c.lineTo(7,28);c.closePath();c.stroke();
+ c.fillStyle=gold;c.beginPath();c.moveTo(11.5,20);c.lineTo(16,28);c.lineTo(20.5,20);c.closePath();c.fill();c.restore();}
+function tick(x,y,on=true){c.strokeStyle=on?gold:'#ffffff33';c.lineWidth=2;c.beginPath();if(on){c.moveTo(x-5,y);c.lineTo(x-1,y+4);c.lineTo(x+6,y-5);}else{c.arc(x,y,6,0,Math.PI*2);}c.stroke();}
+function sphere(cx,cy,r,t,alpha=1){
+ c.save();c.globalAlpha*=alpha;
+ const glow=c.createRadialGradient(cx,cy,0,cx,cy,r*1.65);glow.addColorStop(0,'#b38a301c');glow.addColorStop(1,'#b38a3000');c.fillStyle=glow;c.fillRect(cx-r*2,cy-r*2,r*4,r*4);
+ const ry=t*.14,rx=.38+Math.sin(t*.09)*.13;
+ function p(x,y,z){let a=x*Math.cos(ry)+z*Math.sin(ry),b=-x*Math.sin(ry)+z*Math.cos(ry);let d=y*Math.cos(rx)-b*Math.sin(rx),e=y*Math.sin(rx)+b*Math.cos(rx);return[cx+a*r,cy+d*r,e];}
+ function curve(points){for(let j=1;j<points.length;j++){const a=points[j-1],b=points[j];line(a[0],a[1],b[0],b[1],`rgba(214,182,108,${.12+(b[2]+1)*.2})`,.9);}}
+ for(let i=-5;i<=5;i++){const lat=i*Math.PI/12,points=[];for(let j=0;j<=80;j++){let a=j*Math.PI/40;points.push(p(Math.cos(lat)*Math.cos(a),Math.sin(lat),Math.cos(lat)*Math.sin(a)));}curve(points);}
+ for(let i=0;i<16;i++){const a=i*Math.PI/8,points=[];for(let j=0;j<=80;j++){let b=j*Math.PI/40;points.push(p(Math.cos(b)*Math.cos(a),Math.sin(b),Math.cos(b)*Math.sin(a)));}curve(points);}
+ c.save();c.translate(cx,cy);c.rotate(-.45+Math.sin(t*.1)*.05);c.scale(1,.34);c.strokeStyle='#d6b66c66';c.lineWidth=2;c.beginPath();c.arc(0,0,r*1.38,0,Math.PI*2);c.stroke();c.restore();
+ const angle=t*.28;c.fillStyle=gold;c.beginPath();c.arc(cx+Math.cos(angle)*r*1.3,cy+Math.sin(angle)*r*.55,4,0,Math.PI*2);c.fill();
+ c.restore();
+}
+function row(label,value,y,selected=false){box(790,y,350,58,8,selected?'#d6b66c12':'#202022',selected?'#d6b66c77':'#ffffff10');text(label,808,y+24,15,muted);text(value,808,y+45,17,selected?gold:ivory);}
+function panel(title,kicker='ILLUSTRATED WORKSPACE'){
+ c.save();c.shadowColor='#00000066';c.shadowBlur=42;box(755,178,420,382,17,'#111114','#d6b66c44');c.restore();
+ caps(kicker,785,212,9,muted);text(title,785,251,29,ivory,'Cormorant Garamond');line(785,272,1145,272,'#ffffff15');
+}
+function visual(kind,t,progress,sceneIndex){
+ if(kind==='orb'){sphere(968,354,181,t,1);mark(934,319,68);caps('A DIFFERENT PERSPECTIVE',826,585,10,muted);return;}
+ sphere(1010,358,238,t,.15);
+ if(kind==='account'){
+  panel('Your account checklist');const labels=['Email verification','Identity review','Authenticator setup','Understand the risks'];
+  labels.forEach((label,i)=>{const y=306+i*56;box(786,y-13,358,44,7,'#1b1b1e','#ffffff0b');tick(809,y+8,sceneIndex>i||progress>.55&&i===sceneIndex);text(label,830,y+14,16,ivory);});
+ }else if(kind==='ledger'){
+  panel('A view with context');row('ACCOUNT FUNDS','Cleared available balance',292,true);row('ACTIVE INVESTMENTS','Principal allocated separately',366);row('ILLUSTRATIVE TARGETS','Estimates, not settled earnings',440);
+ }else if(kind==='assets'){
+  panel('Choose your currency');['BTC','ETH','USDT','BNB','SOL'].forEach((asset,i)=>{const x=788+(i%3)*119,y=299+Math.floor(i/3)*112;box(x,y,106,95,9,i===2?'#d6b66c16':'#202022',i===2?'#d6b66c88':'#ffffff14');c.fillStyle=i===2?gold:'#77746d';c.beginPath();c.arc(x+53,y+30,13,0,Math.PI*2);c.fill();text(asset,x+53,y+66,16,ivory,'DM Sans','center');});
+  text('Options depend on the live wallet catalogue.',788,539,12,muted);
+ }else if(kind==='network'){
+  panel('One asset. Different networks.');row('ASSET','USDT',295);row('NETWORK OPTION','TRON / TRC20',369,true);row('DIFFERENT NETWORK','Ethereum / ERC20',443);caps('MATCH YOUR SENDING WALLET',794,542,9,gold);
+ }else if(kind==='address'){
+  panel('Check the current destination');row('SOURCE','Your live deposit workspace',295,true);row('DESTINATION','Verify the complete address',369);row('KEEP YOUR RECORD','Blockchain transaction hash',443);
+ }else if(kind==='receipt'){
+  panel('Submit. Verify. Then credit.','PROCESS PREVIEW');const labels=['Transfer reference submitted','Operator verifies on-chain','Credit after approval'];labels.forEach((label,i)=>{const y=318+i*83;box(787,y-20,356,63,8,i===0?'#d6b66c14':'#202022','#ffffff12');text(`0${i+1}`,806,y+18,23,gold,'Cormorant Garamond');text(label,847,y+14,15,ivory);});
+ }else if(kind==='withdraw'){
+  panel('Request a withdrawal');row('AMOUNT (USD)','Within available funds',292);row('CRYPTOCURRENCY AND NETWORK','Match your external wallet',366,true);row('AUTHENTICATOR CODE','Current six-digit code',440);
+ }else if(kind==='timeline'){
+  panel('Follow the request','PROCESS PREVIEW');const labels=['Requested: amount reserved','Review: no automatic payment','Paid: reference recorded'];labels.forEach((label,i)=>{const y=323+i*78;if(i<2)line(802,y+8,802,y+77,'#d6b66c55',2);c.fillStyle=i===0?gold:'#333337';c.beginPath();c.arc(802,y,8,0,Math.PI*2);c.fill();text(label,825,y+6,16,ivory);});
+ }
+}
+window.renderFrame=(movie,time)=>{
+ const index=Math.min(movie.scenes.length-1,Math.floor(time/movie.sceneSeconds)),local=time-index*movie.sceneSeconds,s=movie.scenes[index];
+ const duration=movie.sceneSeconds*movie.scenes.length;
+ c.globalAlpha=1;c.fillStyle='#0a0a0c';c.fillRect(0,0,1280,720);
+ const bg=c.createLinearGradient(0,0,1280,720);bg.addColorStop(0,'#181612');bg.addColorStop(.46,'#0a0a0c');bg.addColorStop(1,'#171410');c.fillStyle=bg;c.fillRect(0,0,1280,720);
+ for(let i=0;i<60;i++){let x=(i*197.37)%1280,y=(i*131.79)%720;let a=.12+.12*Math.sin(time*.3+i);c.fillStyle=`rgba(214,182,108,${a})`;c.fillRect(x,y,1,1);}
+ for(let x=40;x<1280;x+=80)line(x,112,x,620,'#ffffff03');
+ mark(68,44,36);caps('AUREON',123,66,20,ivory);caps('FILMS & FIELD NOTES',123,88,8,muted);
+ caps('CAPITAL AT RISK',1009,68,10,muted);line(74,116,1206,116,'#d6b66c30');
+ let opacity=Math.min(ease(local/.65),ease((movie.sceneSeconds-local)/.5));c.save();c.globalAlpha=opacity;c.translate(0,(1-ease(local/.8))*16);
+ caps(s.label,80,208,11,gold);
+ let size=Math.max(s.title.length,s.accent.length)>16?66:76;
+ text(s.title,76,302,size,ivory,'Cormorant Garamond');text(s.accent,76,379,size,gold,'Cormorant Garamond Italic');
+ line(80,411,135,411,'#d6b66caa',2);wrap(s.text,80,451,573,22,muted);
+ visual(s.visual,time,local/movie.sceneSeconds,index);c.restore();
+ line(74,643,1206,643,'#ffffff15');caps(movie.category.toUpperCase(),80,675,10,muted);text(movie.title,80,702,13,muted);
+ for(let i=0;i<movie.scenes.length;i++){const x=980+i*(200/movie.scenes.length);box(x,674,200/movie.scenes.length-7,3,1,i===index?gold:'#ffffff25',null);}
+ text(`${String(index+1).padStart(2,'0')} / ${String(movie.scenes.length).padStart(2,'0')}`,1202,703,11,muted,'DM Sans','right');
+ c.fillStyle='#d6b66c';c.fillRect(0,717,1280*Math.min(1,time/duration),3);
+};
+</script></html>

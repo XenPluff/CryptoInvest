@@ -43,6 +43,11 @@ export default function HowItWorksPage() {
         description="A clear path from your first visit to a verified account. Take the time to understand the process before committing capital."
         number="06"
       />
+      <section className="container public-body-section">
+        <Link href="/videos#getting-started" className="public-inline-button">
+          Prefer to watch? Explore the video guides <ArrowUpRight size={14} />
+        </Link>
+      </section>
       <section className="container public-body-section public-divider">
         <div className="public-process">
           {steps.map((step, i) => (

@@ -30,6 +30,7 @@ export default function SiteFooter() {
               <Link href="/insights">{t("Market insights")}</Link>
               <Link href="/journal">{t("Journal")}</Link>
               <Link href="/about">{t("About Aureon")}</Link>
+              <Link href="/videos">{t("Video guides")}</Link>
             </div>
             <div>
               <span>{t("YOUR CONFIDENCE")}</span>

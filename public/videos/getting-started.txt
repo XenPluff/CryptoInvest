@@ -1,0 +1,29 @@
+Set up your account
+
+Ambient instrumental music; no spoken narration. All instructions appear on screen.
+
+GUIDE 01 / ACCOUNT SETUP
+Your first steps.
+Start with the account setup checklist. Keep your login and authenticator information private.
+
+01 / REGISTER
+Create your account.
+Choose Create an account. Enter your name, email and a unique password, then review the terms.
+
+02 / CHECK YOUR INBOX
+Verify your email.
+Open the verification link sent to your email, then sign in. Check spam if the message is missing.
+
+03 / ACCOUNT SETTINGS
+Complete identity review.
+Open Account settings and submit the required identity details. Wait for an approved KYC review.
+
+04 / AUTHENTICATOR SETUP
+Add another layer.
+Enable two-factor authentication in Account settings. Use your authenticator for current six-digit codes.
+
+05 / UNDERSTAND THE PROCESS
+Know before you proceed.
+Funding requires verified email, approved KYC, two-factor authentication and enabled platform funding.
+
+Digital assets involve substantial risk, including loss of your entire investment.

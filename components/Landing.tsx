@@ -22,6 +22,7 @@ import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import MarketTicker from "./MarketTicker";
 import { PublishedAnnouncements } from "./public/Journal";
+import { VideoTeaser } from "./public/VideoLibrary";
 import { api } from "@/lib/api";
 const reveal = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
 const plans = [
@@ -219,6 +220,7 @@ export default function Landing() {
         </section>
         <MarketTicker />
         <PublishedAnnouncements />
+        <VideoTeaser />
         <section
           className="perspective-section section-space"
           id="philosophy"

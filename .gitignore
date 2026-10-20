@@ -14,3 +14,4 @@ playwright-report/
 *backup-recovery-key*.pem
 next-env.d.ts
 *.tsbuildinfo
+public/videos/*.rendering.mp4

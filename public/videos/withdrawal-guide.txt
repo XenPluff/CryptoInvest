@@ -1,0 +1,29 @@
+Request and track a withdrawal
+
+Ambient instrumental music; no spoken narration. All instructions appear on screen.
+
+GUIDE 03 / WITHDRAWALS
+Plan your next step.
+Open Withdraw funds. Requests require approved identity, verified email, an authenticator and enabled funding.
+
+01 / AVAILABLE BALANCE
+Check what is available.
+Enter an amount within your available USD balance. Active investment principal and target estimates are not available funds.
+
+02 / ASSET AND NETWORK
+Confirm your destination.
+Select the supported asset and network. Enter your external wallet address and check every detail.
+
+03 / AUTHENTICATOR CONFIRMATION
+Review, then request.
+Enter your current six-digit authenticator code, confirm the destination details and choose Request withdrawal.
+
+04 / REQUEST STATUS
+Pending is under review.
+The requested amount is reserved while the request is pending. Approval alone does not send cryptocurrency.
+
+05 / TRANSACTION HISTORY
+Track the outcome.
+Check transaction activity for the outcome and payment reference when recorded. Contact support if you need help.
+
+Digital assets involve substantial risk, including loss of your entire investment.

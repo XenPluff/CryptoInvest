@@ -148,7 +148,7 @@ export function DepositWorkspace({ user }: { user: RecordData }) {
             </form>
           </>}
         </section>
-        <div className="dp-review-note"><span><FileCheck2 size={19} /></span><div><strong>Every transfer, accounted for.</strong><p>Your transaction is checked on its network before an administrator approves the deposit. A submitted hash does not credit your balance.</p><Link href="/support">Need a hand? <ArrowUpRight size={13} /></Link></div></div>
+        <div className="dp-review-note"><span><FileCheck2 size={19} /></span><div><strong>Every transfer, accounted for.</strong><p>Your transaction is checked on its network before an administrator approves the deposit. A submitted hash does not credit your balance.</p><Link href="/videos#deposit-guide">Watch the deposit guide <ArrowUpRight size={13} /></Link><br /><Link href="/support">Need a hand? <ArrowUpRight size={13} /></Link></div></div>
       </aside>
     </div>}
   </div>;

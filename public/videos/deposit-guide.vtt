@@ -1,0 +1,38 @@
+WEBVTT
+
+NOTE Ambient instrumental music. All instructions appear on screen.
+
+1
+00:00:00.000 --> 00:00:08.000 line:84% position:50% size:90% align:center
+A careful beginning.
+Open Deposit funds. Complete account checks first, and confirm deposits are open before sending anything.
+
+2
+00:00:08.000 --> 00:00:16.000 line:84% position:50% size:90% align:center
+Choose your asset.
+Choose a currently supported asset in the workspace. Available options are shown on the deposit page.
+
+3
+00:00:16.000 --> 00:00:24.000 line:84% position:50% size:90% align:center
+Match the network.
+Your sending wallet must use the exact selected network. USDT on TRC20 and ERC20 are different routes.
+
+4
+00:00:24.000 --> 00:00:32.000 line:84% position:50% size:90% align:center
+Verify the destination.
+Copy the current address or scan its QR code in your account. Recheck the complete destination in your sending wallet.
+
+5
+00:00:32.000 --> 00:00:40.000 line:84% position:50% size:90% align:center
+Keep the reference.
+If you choose to transfer, allow for network fees. Keep the blockchain transaction hash. Transfers can be irreversible.
+
+6
+00:00:40.000 --> 00:00:48.000 line:84% position:50% size:90% align:center
+Submit for verification.
+Enter the declared USD value, transaction hash and current authenticator code. Confirm the details and submit.
+
+7
+00:00:48.000 --> 00:00:56.000 line:84% position:50% size:90% align:center
+Follow the review.
+Track the pending deposit in activity. A hash alone never credits your balance; the operator must verify and approve it.

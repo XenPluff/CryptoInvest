@@ -836,6 +836,9 @@ function Withdrawals() {
           <Link href="/dashboard/transactions" className="ws-text-button">
             View withdrawal activity <ArrowUpRight size={16} />
           </Link>
+          <Link href="/videos#withdrawal-guide" className="ws-text-button">
+            Watch the withdrawal guide <ArrowUpRight size={16} />
+          </Link>
         </Panel>
       </div>
     </div>

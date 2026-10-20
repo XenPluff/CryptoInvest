@@ -1,0 +1,33 @@
+Understand the deposit process
+
+Ambient instrumental music; no spoken narration. All instructions appear on screen.
+
+GUIDE 02 / DEPOSITS
+A careful beginning.
+Open Deposit funds. Complete account checks first, and confirm deposits are open before sending anything.
+
+01 / CHOOSE YOUR CURRENCY
+Choose your asset.
+Choose a currently supported asset in the workspace. Available options are shown on the deposit page.
+
+02 / CHECK BOTH SIDES
+Match the network.
+Your sending wallet must use the exact selected network. USDT on TRC20 and ERC20 are different routes.
+
+03 / USE THE LIVE WORKSPACE
+Verify the destination.
+Copy the current address or scan its QR code in your account. Recheck the complete destination in your sending wallet.
+
+04 / YOUR SENDING WALLET
+Keep the reference.
+If you choose to transfer, allow for network fees. Keep the blockchain transaction hash. Transfers can be irreversible.
+
+05 / CONFIRM YOUR TRANSFER
+Submit for verification.
+Enter the declared USD value, transaction hash and current authenticator code. Confirm the details and submit.
+
+06 / TRANSACTION HISTORY
+Follow the review.
+Track the pending deposit in activity. A hash alone never credits your balance; the operator must verify and approve it.
+
+Digital assets involve substantial risk, including loss of your entire investment.

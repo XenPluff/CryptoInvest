@@ -31,6 +31,7 @@ export default function SiteHeader() {
     ["Investment plans", "/plans"],
     ["Market insights", "/insights"],
     ["Our security", "/security"],
+    ["Video guides", "/videos"],
   ];
   return (
     <>
@@ -105,6 +106,9 @@ export default function SiteHeader() {
                 <ArrowUpRight size={15} />
               </Link>
             ))}
+            <Link href="/register" onClick={() => setOpen(false)}>
+              {t("Get started")} <ArrowUpRight size={15} />
+            </Link>
             <Link href="/login" onClick={() => setOpen(false)}>
               {t("Log in")}
             </Link>

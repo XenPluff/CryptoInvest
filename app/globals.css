@@ -1709,6 +1709,14 @@ p {
     font-size: 110px;
   }
 }
+@media (max-width: 420px) {
+  .site-header .header-join {
+    display: none;
+  }
+  .site-header .header-inner {
+    gap: 8px;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
