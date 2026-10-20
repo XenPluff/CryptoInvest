@@ -68,6 +68,7 @@ by preparing these materials. Their current state is not a legal launch decision
 
 | Evidence | Purpose and limits |
 | --- | --- |
+| [Card concepts and applications](../CARD_PROGRAM.md) | Pre-launch-only card preferences, applicant records, 3D design specimens and admin reviews; no issuing bank, network permission, credit facility or payment integration. Include public copy and application data handling in legal/security scope. |
 | [Business-model page](../../app/approach/page.tsx) and [activity descriptions](../../lib/business-activities.ts) | Company-reported sectors and trader-experience claims, revenue mechanics, risk and reporting framework; not independent verification. All sector artwork is labeled AI-generated. Include this page in financial-promotion and offering review. |
 | [Feature status](../FEATURE_STATUS.md) | Implemented product behavior and known external prerequisites |
 | [Backend operations](../BACKEND_OPERATIONS.md) | Ledger, attribution, review, payout and settlement procedures |

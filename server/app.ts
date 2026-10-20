@@ -34,6 +34,7 @@ import { contentPublicRouter, contentAdminRouter } from "./content";
 import { analyticsUserRouter, analyticsAdminRouter } from "./analytics";
 import { externalFetch } from "./network";
 import { operationsRouter } from "./operations";
+import { cardAdminRouter, cardUserRouter } from "./cards";
 
 export const app = express();
 app.disable("x-powered-by");
@@ -80,6 +81,8 @@ api.use("/admin", contentAdminRouter);
 api.use("/analytics", analyticsUserRouter);
 api.use("/admin/analytics", analyticsAdminRouter);
 api.use("/admin/operations", operationsRouter);
+api.use("/cards", cardUserRouter);
+api.use("/admin/card-applications", cardAdminRouter);
 const userId = (req: Request) => req.auth!.user.id;
 const money = (cents: number) => cents / 100;
 const planJson = (p: Plan) => ({

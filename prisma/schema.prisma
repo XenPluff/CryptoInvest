@@ -41,6 +41,21 @@ enum InvestmentStatus {
   ACTIVE
   SETTLED
 }
+enum CardNetwork {
+  VISA
+  MASTERCARD
+}
+enum CardFormat {
+  PHYSICAL
+  VIRTUAL
+}
+enum CardApplicationStatus {
+  SUBMITTED
+  UNDER_REVIEW
+  WAITLISTED
+  DECLINED
+  WITHDRAWN
+}
 model User {
   id String @id @default(cuid())
   name String
@@ -68,9 +83,41 @@ model User {
   transfersSent BalanceTransfer[] @relation("TransferSender")
   transfersReceived BalanceTransfer[] @relation("TransferRecipient")
   notifications Notification[]
+  cardApplication CardApplication?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   @@index([referredById])
+}
+model CardApplication {
+  id String @id @default(cuid())
+  userId String @unique
+  user User @relation(fields: [userId], references: [id])
+  network CardNetwork
+  format CardFormat
+  country String
+  intendedUse String
+  status CardApplicationStatus @default(SUBMITTED)
+  version Int @default(1)
+  consentVersion String
+  consentedAt DateTime
+  submittedAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  reviewedById String?
+  reviewedAt DateTime?
+  reviewMessage String?
+  events CardApplicationEvent[]
+  @@index([status, submittedAt])
+}
+model CardApplicationEvent {
+  id String @id @default(cuid())
+  applicationId String
+  application CardApplication @relation(fields: [applicationId], references: [id])
+  actorId String
+  status CardApplicationStatus
+  version Int
+  message String
+  createdAt DateTime @default(now())
+  @@unique([applicationId, version])
 }
 model Session {
   id String @id @default(cuid())

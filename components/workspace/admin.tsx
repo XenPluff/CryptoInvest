@@ -19,6 +19,7 @@ import { ContentOperations, CampaignOperations } from "./ContentOperations";
 import { AdminAnalytics } from "./AdminAnalytics";
 import { ProviderConnections } from "./ProviderConnections";
 import { Operations } from "./Operations";
+import { AdminCards } from "./Cards";
 import {
   BalanceManagement,
   TransferManagement,
@@ -50,6 +51,7 @@ export function AdminContent({ section }: { section: string }) {
   if (section === "deposits" || section === "withdrawals")
     return <FinancialReviews type={section} />;
   if (section === "kyc") return <KycReviews />;
+  if (section === "cards") return <AdminCards />;
   if (section === "audit") return <AuditLogs />;
   if (section === "operations") return <Operations />;
   if (section === "messages") return <Messages />;

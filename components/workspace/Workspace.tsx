@@ -53,6 +53,7 @@ import { WalletConnections } from "./WalletConnections";
 import { PasskeySettings } from "./PasskeySettings";
 import { PortfolioAnalytics } from "./PortfolioAnalytics";
 import { DepositWorkspace } from "./DepositWorkspace";
+import { InvestorCards } from "./Cards";
 
 const investorNav = [
   { id: "", name: "Overview", icon: LayoutDashboard },
@@ -60,6 +61,7 @@ const investorNav = [
   { id: "plans", name: "Investment plans", icon: Sparkles },
   { id: "wallets", name: "Deposit funds", icon: Wallet },
   { id: "withdrawals", name: "Withdraw funds", icon: ArrowUpRight },
+  { id: "cards", name: "Cards", icon: CreditCard },
   { id: "transactions", name: "Transactions", icon: Activity },
   { id: "referrals", name: "Referrals", icon: Gift },
   { id: "account", name: "Account & security", icon: Shield },
@@ -75,6 +77,7 @@ const adminNav = [
   { id: "deposits", name: "Deposit reviews", icon: ArrowDownLeft },
   { id: "withdrawals", name: "Withdrawals", icon: ArrowUpRight },
   { id: "kyc", name: "Identity reviews", icon: FileCheck2 },
+  { id: "cards", name: "Card applications", icon: CreditCard },
   { id: "audit", name: "Audit trail", icon: FileText },
   { id: "operations", name: "Operations & backups", icon: Shield },
   { id: "messages", name: "Messages", icon: Bell },
@@ -115,6 +118,7 @@ const titles: Record<string, [string, string]> = {
     "A little peace of mind.",
     "Manage your profile, identity verification, and account security.",
   ],
+  cards: ["The AUREON card concept.", "Explore designs, apply for preliminary review and follow your application."],
 };
 export default function Workspace({ admin = false }: { admin?: boolean }) {
   const path = usePathname();
@@ -388,6 +392,7 @@ function InvestorContent({
   if (section === "investments") return <Investments />;
   if (section === "wallets") return <DepositWorkspace user={user} />;
   if (section === "withdrawals") return <Withdrawals />;
+  if (section === "cards") return <InvestorCards user={user} />;
   if (section === "transactions") return <Transactions />;
   if (section === "referrals") return <Referrals />;
   if (section === "account")

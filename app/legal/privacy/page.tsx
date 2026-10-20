@@ -38,6 +38,13 @@ export default function PrivacyPage() {
           Communication information: support enquiries, newsletter subscriptions
           and account notifications.
         </li>
+        <li>
+          Pre-launch card applications: your account identity, preferred network
+          design and card format, country of residence, intended use, age
+          attestation, versioned acknowledgements, review messages and status
+          history. No card number, CVV, PIN, credit limit, bank account details
+          or additional identity documents are requested in this form.
+        </li>
       </ul>
       <h2>3. Why it is processed</h2>
       <p>
@@ -47,6 +54,15 @@ export default function PrivacyPage() {
         document a valid legal basis for each processing activity, including
         contract, legal obligation, legitimate interest or consent where
         appropriate.
+      </p>
+      <p>
+        Card preferences are used for preliminary application review and account
+        updates. A withdrawal closes the application but retains its historical
+        record; you may contact support to exercise applicable data rights.
+        This process does not run a credit check, issue a card or automatically
+        share an application with a bank or card network. Any future issuer
+        processing requires an identified partner and updated information and
+        terms before that processing begins.
       </p>
       <h2>4. Cookies & local preferences</h2>
       <p>
@@ -59,11 +75,11 @@ export default function PrivacyPage() {
       <h2>5. Service providers & international transfers</h2>
       <p>
         Hosting, database and email services may process personal information as
-        necessary to provide the service. Resend is the planned transactional
-        email provider; custom-domain configuration remains pending. Deposits
+        necessary to provide the service. The deployed transactional email
+        service uses Brevo. Deposits
         use the supplied wallet addresses, with no external deposit-provider
-        connection. Naming a planned email provider does not imply a current
-        connection or transfer of information.
+        connection. No card-issuing provider is integrated with the pre-launch
+        application process.
       </p>
       <p>
         The operator must publish its final processor list, locations,

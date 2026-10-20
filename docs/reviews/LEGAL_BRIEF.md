@@ -79,8 +79,8 @@ structure. Approval in one country must not be presented as global permission.
 
 - Terms currently leave the contracting entity, registered address, governing
   law, disputes, fees, complaint process and some eligibility rules incomplete.
-- Privacy copy still describes Resend as planned transactional mail; the
-  recorded deployment uses Brevo. The provider/data-flow disclosure must match
+- Privacy copy now names the deployed Brevo transactional-mail provider.
+  Counsel should verify the complete provider/data-flow disclosure against
   actual processing, including hosting, email, monitoring and future backups.
 - The exceptionally high target rates require substantiation and regulatory
   analysis. There is no published independently verified strategy, track record
