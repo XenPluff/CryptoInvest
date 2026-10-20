@@ -5,10 +5,17 @@ Website: <https://aureon-preview.onrender.com>
 Verified on October 20, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `d468acd03054fd58faa3fa25384dc170bb6dd0e0` from branch
+- Running source commit: `b8dfcee4ef2d24c3e2586aa29939dac6f17c0686` from branch
   `codex/aureon-render-preview`.
 - Homepage returns HTTP 200 and renders AUREON.
 - `/api/health` returns HTTP 200, database `connected`, and funding enabled.
+- The redesigned [investor deposit page](https://aureon-preview.onrender.com/dashboard/wallets)
+  is deployed in `dep-dbbo10nf3r2c738lcqrg`. It uses the unchanged wallet catalogue,
+  with currency/network selection, local QR codes, address copying, authenticator
+  submission, and recent deposit statuses. The deployed HTML/assets were checked
+  in Chromium with browser-only account/wallet fixtures: all six QR destinations
+  matched, 1440/390/320px layouts fit, and no page errors occurred. No live
+  account or financial records were created by those checks.
 - Email settings are present (`emailConfigured:true`), and the startup check from
   Render reports `emailDeliveryStatus:checks_passed` after the owner authorized
   the outbound IP ranges and restarted the service.
