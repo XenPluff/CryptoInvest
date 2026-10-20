@@ -36,6 +36,14 @@ reference. Source artwork is retained unchanged as PNG; website delivery uses
 Next.js responsive image handling. Each picture can be downloaded in its
 original form from its profile.
 
+The homepage's "Where value takes shape" picture cycles through all nine
+activities, one image at a time, on a five-second interval. The next responsive
+image is decoded before replacing the current one; a failed load retains the
+current image and retries. Rotation pauses on hover, offscreen or in a hidden
+tab, with an explicit pause/play control. Reduced-motion users start paused and
+can opt into rotation. The image frame keeps a fixed 3:2 ratio. Other previews
+remain static.
+
 The repeated "AI-generated sector illustration" picture captions have been
 removed. Image alternative text and the page's introductory source note describe
 the imagery. The imagery does not establish ownership, operations, staff, title,

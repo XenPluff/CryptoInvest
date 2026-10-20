@@ -3,12 +3,13 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { businessActivities } from "@/lib/business-activities";
 import styles from "./business.module.css";
+import BusinessImageCarousel from "./BusinessImageCarousel";
 
-export default function BusinessTeaser() {
+export default function BusinessTeaser({ rotateImages = false }: { rotateImages?: boolean }) {
   return (
     <section className={`container ${styles.teaser}`} aria-labelledby="business-teaser-title" lang="en">
       <figure className={styles.teaserImage}>
-        <Image src="/images/strategies/crypto-mining.png" width={1536} height={1024} alt={businessActivities[0].imageAlt} sizes="(max-width: 750px) 100vw, 50vw" />
+        {rotateImages ? <BusinessImageCarousel /> : <Image src="/images/strategies/crypto-mining.png" width={1536} height={1024} alt={businessActivities[0].imageAlt} sizes="(max-width: 750px) 100vw, 50vw" />}
       </figure>
       <div className={styles.teaserCopy}>
         <p className="eyebrow">The business behind the platform</p>

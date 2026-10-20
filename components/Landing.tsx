@@ -307,7 +307,7 @@ export default function Landing() {
             </div>
           </div>
         </section>
-        <BusinessTeaser />
+        <BusinessTeaser rotateImages />
         <section className="plans-section section-space">
           <div className="container">
             <div className="section-heading split-heading">
