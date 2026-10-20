@@ -27,7 +27,7 @@ export default function SiteHeader() {
   const path = usePathname();
   const { theme, setTheme } = usePreferences();
   const links = [
-    ["The Aureon approach", "/#philosophy"],
+    ["The Aureon approach", "/approach"],
     ["Investment plans", "/plans"],
     ["Market insights", "/insights"],
     ["Our security", "/security"],

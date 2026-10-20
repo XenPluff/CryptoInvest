@@ -57,6 +57,22 @@ export default function AboutPage() {
       <section className="container public-body-section public-divider">
         <div className="public-section-top">
           <div>
+            <p className="eyebrow">The business behind the platform</p>
+            <h2>Where value takes shape.</h2>
+          </div>
+          <p>
+            Explore AUREON’s company-reported activities across digital
+            infrastructure, markets, property, agriculture, energy and physical
+            assets, with an explanation of revenue, costs, risks and reporting.
+          </p>
+        </div>
+        <Link className="public-inline-button" href="/approach">
+          Explore the business model <ArrowUpRight size={14} />
+        </Link>
+      </section>
+      <section className="container public-body-section public-divider">
+        <div className="public-section-top">
+          <div>
             <p className="eyebrow">Our principles</p>
             <h2>Designed with intention.</h2>
           </div>

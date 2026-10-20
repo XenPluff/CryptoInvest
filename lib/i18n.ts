@@ -27,6 +27,7 @@ const french = {
   "Market insights": "Analyses de marché",
   "Our security": "Notre sécurité",
   "Video guides": "Guides vidéo",
+  "How value is generated": "Les sources de valeur",
   "Switch to light mode": "Activer le thème clair",
   "Switch to dark mode": "Activer le thème sombre",
   "Log in": "Connexion",

@@ -23,6 +23,7 @@ import SiteFooter from "./SiteFooter";
 import MarketTicker from "./MarketTicker";
 import { PublishedAnnouncements } from "./public/Journal";
 import { VideoTeaser } from "./public/VideoLibrary";
+import BusinessTeaser from "./public/BusinessTeaser";
 import { api } from "@/lib/api";
 const reveal = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
 const plans = [
@@ -305,6 +306,7 @@ export default function Landing() {
             </div>
           </div>
         </section>
+        <BusinessTeaser />
         <section className="plans-section section-space">
           <div className="container">
             <div className="section-heading split-heading">
