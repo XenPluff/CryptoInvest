@@ -17,6 +17,7 @@ import {
 import { config } from "./config";
 import { decrypt, encrypt } from "./crypto";
 import { emailConfigured } from "./mail";
+import { getEmailReadiness } from "./email-readiness";
 import {
   assertBalance,
   audit,
@@ -181,6 +182,7 @@ api.get("/health", async (_req, res) => {
       status: "ok",
       database: "connected",
       emailConfigured,
+      emailDeliveryStatus: getEmailReadiness().status,
       fundingEnabled: await fundingEnabled(),
     });
   } catch {
@@ -188,6 +190,7 @@ api.get("/health", async (_req, res) => {
       status: "degraded",
       database: "unavailable",
       emailConfigured,
+      emailDeliveryStatus: getEmailReadiness().status,
       fundingEnabled: false,
     });
   }

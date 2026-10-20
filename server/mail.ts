@@ -2,6 +2,7 @@ import { externalFetch } from "./network";
 import nodemailer from "nodemailer";
 import { config } from "./config";
 import { HttpError } from "./errors";
+import { getEmailReadiness } from "./email-readiness";
 
 export const emailConfigured = config.emailConfigured;
 const transport =
@@ -37,6 +38,7 @@ export function emailProviderStatus() {
     configured: emailConfigured,
     connectionVerified: Boolean(recentlyAccepted && lastAttemptSucceeded),
     lastAcceptedAt,
+    preflight: getEmailReadiness(),
   };
 }
 

@@ -4,7 +4,7 @@ API paths are prefixed `/api`. Amounts are USD decimal numbers unless suffixed `
 
 ## Public and authentication
 
-- `GET /health` → `{status,database,emailConfigured,fundingEnabled}`;503if database unavailable.
+- `GET /health` → `{status,database,emailConfigured,emailDeliveryStatus,fundingEnabled}`;503if database unavailable. `emailDeliveryStatus` is a cached, read-only startup check from the deployed network. It does not prove inbox delivery and contains no credentials or provider response bodies.
 - `GET /plans` → `{plans:[{id,name,slug,dailyRate,monthlyRate,minAmount,maxAmount,durationDays,description,active}]}`; only active plans.
 - `GET /markets?currency=USD|EUR|GBP` → `{assets:[{id,symbol,name,price,change24h:number|null}],currency,updatedAt,source,stale}`. Defaults to USD. CoinGecko supplies the selected quote currency; each currency has its own 60-second cache and 15-minute stale limit. Unsupported currencies return 400; no usable provider data returns 503. Null change24h means unavailable. Account balances remain USD.
 - `POST /contact {name,email,subject,message}` stores an operator support message.
