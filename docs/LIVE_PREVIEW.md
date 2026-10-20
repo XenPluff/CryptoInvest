@@ -5,14 +5,18 @@ Website: <https://aureon-preview.onrender.com>
 Verified on October 20, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `701c691b6278b3d8e1ef025b7b514f9ad3b92afe` from branch
+- Running source commit: `fd64b240046bd4497a7c6dff598b5ca6a1fbb185` from branch
   `codex/aureon-render-preview`.
+- The homepage card picture caption is removed in deployment
+  `dep-dbbuitfavr4c73dmjhfg`. Actual hosted image decoding, caption absence,
+  links, placement after investment packages and 1440/390px layouts passed
+  without API fixtures or page errors.
 - Repeated "AI-generated sector illustration" picture captions are removed in
   deployment `dep-dbbue93l550s73e9mft0`. Actual hosted homepage, About and approach
   HTML confirm their absence; nine sector profiles and download links remain.
 - The homepage card introduction is live in deployment `dep-dbbu6i8473hc73cide80`.
   Immediately after the investment packages, the original card artwork appears with an
-  AI/concept caption, introductory copy, current pre-launch availability and
+  introductory copy, current pre-launch availability and
   links to the card designs and investor application page. Actual hosted
   section order, image decoding, links and 1440/390px layouts passed without API
   fixtures or page errors. Health remains
