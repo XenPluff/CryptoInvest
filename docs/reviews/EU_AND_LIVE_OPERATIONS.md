@@ -4,6 +4,10 @@ This is an intake and review plan, not a legal opinion or a confirmation of
 registration, licensing, compliance, or entitlement to accept investors.
 Company-specific intake and evidence belong in a private reviewer channel.
 
+Use this addendum when EU establishment or EU investor markets are relevant.
+The UK, Switzerland and Australia are not EU member states; use the
+[separate jurisdiction addendum](UK_SWITZERLAND_AUSTRALIA.md) for those locations.
+
 ## Home jurisdiction and investor markets
 
 Identify the specific EU member state, registered entity and competent national

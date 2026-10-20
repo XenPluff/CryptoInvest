@@ -20,8 +20,8 @@ select solely on an automated scan, a smart-contract-only service, or a logo.
 
 ## Legal routing
 
-**Jurisdiction-specific selection is pending the owner's operating country,
-investor countries and investor categories.** Do not treat a generic firm list as
+**Final selection is pending genuine entity and authorization references,
+current investor countries and an approved review-fee budget.** Do not treat a generic firm list as
 confirmation that a particular office can advise or that the offering is lawful.
 
 One verified cross-border routing candidate is **DLA Piper**, whose official
@@ -30,11 +30,31 @@ describes work for investment funds, digital-asset platforms and financial
 institutions, and links financial-services regulatory capabilities.
 [Official contact](https://www.dlapiper.com/en/contact-us).
 
+For UK/Australian scoping, its official [UK location](https://www.dlapiper.com/en/locations/united-kingdom)
+and [Australian location](https://www.dlapiper.com/en/locations/australia) pages
+list local offices. Its [investment management and funds practice](https://www.dlapiper.com/en/capabilities/practice-area/investment-funds)
+describes formation, management and regulatory work. Ask for a named local
+financial-regulatory team and a lead coordinator; a global brand does not itself
+establish the admission or scope of the proposed lawyers.
+
+For Swiss scoping, **MME** advertises digital-asset legal and regulatory
+classification, financial-market licensing, AML/SRO and cross-border work on its
+[blockchain/digital-assets practice page](https://www.mme.ch/en/expertise/blockchain-dlt-digital-assets).
+Its [official contact page](https://www.mme.ch/en/contact) lists Zurich and Zug
+offices and `office@mme.ch`. It is a candidate to request a Swiss proposal,
+subject to conflicts, named counsel's admission, suitability and agreed terms.
+No Swiss authorization or professional admission has been verified for a
+specific assigned lawyer.
+
 Once locations and budget are known, add local regulated-finance/securities
 counsel and compare with the relevant DLA office or its proposed local team.
 Verify each proposed lawyer's admission through the applicable official
 professional register and obtain conflicts clearance before confidential intake.
 No local admission or regulatory approval is asserted by this entry.
+In particular, DLA Piper's contact disclaimer says unsolicited information is
+not treated as confidential and does not create a lawyer-client relationship.
+Start with a minimal conflicts enquiry; agree secure intake and confidentiality
+before supplying detailed facts, client records or privileged material.
 
 ## Draft security quotation request — not sent
 
