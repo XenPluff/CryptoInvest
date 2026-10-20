@@ -5,8 +5,18 @@ Website: <https://aureon-preview.onrender.com>
 Verified on October 20, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `e327463f1a0212d83faf391cea9d16beb61e6fb9` from branch
+- Running source commit: `44c48245824e796fefa95450c286ab94b0fa1eb1` from branch
   `codex/aureon-render-preview`.
+- The [video library](https://aureon-preview.onrender.com/videos) is live in
+  deployment `dep-dbbrh9gu01pc738prbp0`. Five actual MP4s cover the introduction,
+  account setup, deposits, withdrawals and a short brand film, with ambient
+  music, English captions, transcripts and downloads. The homepage and navigation
+  link to the collection; deposit and withdrawal screens link to their guides.
+  Actual deployed HTML/media passed browser playback, caption and chapter-seek
+  checks without API fixtures, plus 1440/390/320px English/French navigation
+  layouts and HTTP 206 media range checks. Resources were retrieved through the
+  existing verified-TLS client because the cloud browser lacks the proxy CA.
+  No real account, deposit, withdrawal or email was created by these checks.
 - Homepage returns HTTP 200 and renders AUREON.
 - `/api/health` returns HTTP 200, database `connected`, and funding enabled.
 - [Operations & backups](https://aureon-preview.onrender.com/admin/operations)
