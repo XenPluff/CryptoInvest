@@ -18,6 +18,7 @@ import { api, money } from "@/lib/api";
 import { ContentOperations, CampaignOperations } from "./ContentOperations";
 import { AdminAnalytics } from "./AdminAnalytics";
 import { ProviderConnections } from "./ProviderConnections";
+import { Operations } from "./Operations";
 import {
   BalanceManagement,
   TransferManagement,
@@ -50,6 +51,7 @@ export function AdminContent({ section }: { section: string }) {
     return <FinancialReviews type={section} />;
   if (section === "kyc") return <KycReviews />;
   if (section === "audit") return <AuditLogs />;
+  if (section === "operations") return <Operations />;
   if (section === "messages") return <Messages />;
   if (section === "settings") return <PlatformSettings />;
   if (section === "content") return <ContentOperations />;

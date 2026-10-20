@@ -20,9 +20,11 @@
     "setup:local": "node scripts/setup-local.mjs",
     "admin:create": "tsx --env-file=.env scripts/create-admin.ts",
     "admin:promote": "tsx --env-file=.env scripts/promote-admin.ts",
+    "backup:verify-restore": "tsx scripts/restore-backup.ts",
     "test:integration": "node scripts/test-integration.mjs"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1153.0",
     "@fontsource/cormorant-garamond": "^5.3.0",
     "@fontsource/dm-sans": "^5.3.0",
     "@prisma/adapter-pg": "^6.19.3",

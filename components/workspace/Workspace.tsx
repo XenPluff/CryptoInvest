@@ -76,6 +76,7 @@ const adminNav = [
   { id: "withdrawals", name: "Withdrawals", icon: ArrowUpRight },
   { id: "kyc", name: "Identity reviews", icon: FileCheck2 },
   { id: "audit", name: "Audit trail", icon: FileText },
+  { id: "operations", name: "Operations & backups", icon: Shield },
   { id: "messages", name: "Messages", icon: Bell },
   { id: "content", name: "Content studio", icon: FileText },
   { id: "campaigns", name: "Email campaigns", icon: Mail },

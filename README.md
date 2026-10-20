@@ -69,6 +69,13 @@ When cloud settings provide email credentials, start the local browser-test appl
 
 ## What is implemented
 
+Backups and operational alerts are available in **Administration → Operations &
+backups**. Start with the [recovery-kit guide](docs/BACKUP_RECOVERY.md) and
+[alert setup](docs/OPERATIONAL_ALERTS.md). Automatic off-site storage requires a
+private bucket and credentials; encrypted manual downloads need only your
+browser-generated recovery kit. Verify the backend workflows separately with
+`npm run test:integration -- --operations` against local development services.
+
 - Public pages, responsive navigation, themes, WebGL artwork, plan calculator, and actual CoinGecko USD/EUR/GBP quotes with an explicit unavailable state. Core landing, navigation, and authentication copy supports English/French; dashboards and legal copy remain canonical English.
 - Email verification and reset links, HTTP-only sessions, bcrypt passwords, authenticator TOTP, WebAuthn passkeys, and queued activity emails. Passkey changes require fresh account proof; passkey login retains enabled TOTP.
 - Database ledger balances, balance activity and allocation charts, deposit declarations, withdrawal reservations, plan purchases, and manually reconciled settlements. Charts use actual records and start empty.

@@ -10,5 +10,7 @@ coverage/
 test-results/
 playwright-report/
 *.log
+*.aureon
+*backup-recovery-key*.pem
 next-env.d.ts
 *.tsbuildinfo

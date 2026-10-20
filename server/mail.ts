@@ -28,6 +28,7 @@ const transport =
 
 let lastAcceptedAt: string | null = null;
 let lastAttemptSucceeded = false;
+let lastFailedAt: string | null = null;
 
 /** Provider acceptance confirms connectivity, not delivery to an inbox. */
 export function emailProviderStatus() {
@@ -38,6 +39,7 @@ export function emailProviderStatus() {
     configured: emailConfigured,
     connectionVerified: Boolean(recentlyAccepted && lastAttemptSucceeded),
     lastAcceptedAt,
+    lastFailedAt,
     preflight: getEmailReadiness(),
   };
 }
@@ -123,6 +125,7 @@ export async function sendEmail(message: {
     lastAttemptSucceeded = true;
   } catch {
     lastAttemptSucceeded = false;
+    lastFailedAt = new Date().toISOString();
     throw new HttpError(
       503,
       "Email delivery is temporarily unavailable. Please try again later.",

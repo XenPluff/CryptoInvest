@@ -33,6 +33,7 @@ import { passkeyRouter } from "./passkeys";
 import { contentPublicRouter, contentAdminRouter } from "./content";
 import { analyticsUserRouter, analyticsAdminRouter } from "./analytics";
 import { externalFetch } from "./network";
+import { operationsRouter } from "./operations";
 
 export const app = express();
 app.disable("x-powered-by");
@@ -78,6 +79,7 @@ api.use(contentPublicRouter);
 api.use("/admin", contentAdminRouter);
 api.use("/analytics", analyticsUserRouter);
 api.use("/admin/analytics", analyticsAdminRouter);
+api.use("/admin/operations", operationsRouter);
 const userId = (req: Request) => req.auth!.user.id;
 const money = (cents: number) => cents / 100;
 const planJson = (p: Plan) => ({

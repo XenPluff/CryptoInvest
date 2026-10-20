@@ -6,7 +6,9 @@ import { config as loadEnv } from "dotenv";
 import pg from "pg";
 
 const root = fileURLToPath(new URL("..", import.meta.url));
-const testFile = process.argv.includes("--admin-provisioning")
+const testFile = process.argv.includes("--operations")
+  ? "tests/operations.integration.test.ts"
+  : process.argv.includes("--admin-provisioning")
   ? "tests/admin-provisioning.integration.test.ts"
   : "tests/backend.integration.test.ts";
 loadEnv({ path: new URL("../.env", import.meta.url), quiet: true });

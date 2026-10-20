@@ -57,6 +57,12 @@ export function queuedEmailMessage(
     "recipient" | "subject" | "text" | "category" | "actionUrl"
   >,
 ) {
+  if (job.category === "OPERATIONS") {
+    const paths = ["/admin/operations", "/admin/deposits", "/admin/withdrawals", "/admin/transfers", "/admin/kyc", "/admin/settings", "/admin/audit"];
+    if (!job.actionUrl || !paths.includes(job.actionUrl)) throw new Error("Invalid operations destination.");
+    const url = `${config.appOrigin}${job.actionUrl}`;
+    return { to: job.recipient, subject: job.subject, text: `${job.text}\n\nReview operations: ${url}\n\nSign in through your trusted AUREON address. Never share authentication codes.`, html: actionEmail({ title: job.subject.replace(/^AUREON Operations \| /, ""), description: job.text, button: "Review operations", url, expiry: "This operational notice contains no account credentials or identity documents.", unsolicited: "Review the current status in your administrator workspace before taking action." }) };
+  }
   if (job.category === "ACTIVITY")
     return {
       to: job.recipient,
@@ -95,6 +101,10 @@ async function stillEligible(job: EmailOutbox) {
     select: { cancelledAt: true, sentAt: true },
   });
   if (!current || current.cancelledAt || current.sentAt) return false;
+  if (job.category === "OPERATIONS") {
+    const admin = await prisma.user.findUnique({ where: { email: job.recipient }, select: { role: true, suspended: true, emailVerifiedAt: true } });
+    return Boolean(admin?.role === "ADMIN" && !admin.suspended && admin.emailVerifiedAt);
+  }
   if (job.category === "ACTIVITY") return true;
   if (!job.newsletterSubscriberId) return false;
   const subscriber = await prisma.newsletterSubscriber.findUnique({
@@ -144,7 +154,7 @@ export async function deliverNotificationEmails() {
       WHERE id IN (
         SELECT id FROM "EmailOutbox" WHERE "sentAt" IS NULL AND "cancelledAt" IS NULL AND "attempts"<10
         AND "nextAttemptAt"<=CURRENT_TIMESTAMP AND ("lockedAt" IS NULL OR "lockedAt"<CURRENT_TIMESTAMP-INTERVAL '5 minutes')
-        ORDER BY "createdAt" LIMIT 10 FOR UPDATE SKIP LOCKED
+        ORDER BY CASE "category" WHEN 'OPERATIONS' THEN 0 WHEN 'ACTIVITY' THEN 1 ELSE 2 END, "createdAt" LIMIT 10 FOR UPDATE SKIP LOCKED
       ) RETURNING *`;
     await Promise.all(
       jobs.map(async (job) => {

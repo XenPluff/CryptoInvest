@@ -159,10 +159,21 @@ Before staging, run `npm run typecheck`, `npm test`, `npm run test:integration`,
 
 Check `https://your-domain.example/api/health`: database connectivity should be healthy, email should be configured, and funding should retain its intended setting. Validate registration, inbox delivery, reset, TOTP, passkey reauthentication/login, wallet proofs, role boundaries, identity review, empty balances/charts, statements, and support enquiries against staging. Review content publishing, newsletter consent/unsubscribe, and an explicitly authorized campaign batch using controlled recipients. Verify all three quote currencies; core landing/auth/navigation support English/French while legal/dashboard copy remains canonical English. Provider connectivity and financial checks need the real external account; local tests do not establish them or a completed security audit.
 
-Back up PostgreSQL regularly and test restoration alongside the matching encryption key and required application secrets. For the supplied Compose database:
+Use the [encrypted backup and recovery workflow](BACKUP_RECOVERY.md) in `/admin/operations`.
+It supports browser-generated recovery keys, manual encrypted downloads, optional
+daily private S3/R2 storage, and verified restores into empty disposable databases.
+Automatic off-site backups remain disabled until both the public encryption key
+and private storage are configured. Keep recovery keys and application encryption
+secrets separately; temporary Render files are not durable backups.
 
-```sh
-docker compose exec -T db pg_dump -U aureon -d aureon > aureon-backup.sql
-```
+The [operations guide](OPERATIONAL_ALERTS.md) covers administrator alerts and the
+independent GitHub Actions monitor, including notification delivery and schedule
+limits. The production container includes Node 22 and PostgreSQL 17 tools and
+launches only the application; the actual database remains a separate service.
 
-Store backups encrypted with restricted access; the SQL file includes personal and financial records. The `postgres_data` volume must survive releases. `docker compose down` preserves it; `down -v` deletes it. Before an upgrade, back up the database, review migrations, build the new image, apply `db:migrate` once, and recreate the app. Keep monitoring, access review, reconciliation, TLS renewal, and restore drills in the operator's ongoing process. Multi-instance rate limits and distributed session/rate-limit policy need further infrastructure review; the included limiter is process-local.
+The `postgres_data` volume must survive releases. `docker compose down` preserves
+it; `down -v` deletes it. Before an upgrade, back up the database, review migrations,
+build the new image, apply `db:migrate` once, and recreate the app. Keep access
+review, reconciliation, TLS renewal, and restore drills in the operator's ongoing
+process. Multi-instance rate limits and distributed session/rate-limit policy need
+further infrastructure review; the included limiter is process-local.

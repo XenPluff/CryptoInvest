@@ -4,7 +4,7 @@ API paths are prefixed `/api`. Amounts are USD decimal numbers unless suffixed `
 
 ## Public and authentication
 
-- `GET /health` → `{status,database,emailConfigured,emailDeliveryStatus,fundingEnabled}`;503if database unavailable. `emailDeliveryStatus` is a cached, read-only startup check from the deployed network. It does not prove inbox delivery and contains no credentials or provider response bodies.
+- `GET /health` → `{status,database,emailConfigured,emailDeliveryStatus,fundingEnabled}`;503if database unavailable. `emailDeliveryStatus` is a cached, read-only provider check from the deployed network, refreshed at startup and every 15 minutes. It does not prove inbox delivery and contains no credentials or provider response bodies.
 - `GET /plans` → `{plans:[{id,name,slug,dailyRate,monthlyRate,minAmount,maxAmount,durationDays,description,active}]}`; only active plans.
 - `GET /markets?currency=USD|EUR|GBP` → `{assets:[{id,symbol,name,price,change24h:number|null}],currency,updatedAt,source,stale}`. Defaults to USD. CoinGecko supplies the selected quote currency; each currency has its own 60-second cache and 15-minute stale limit. Unsupported currencies return 400; no usable provider data returns 503. Null change24h means unavailable. Account balances remain USD.
 - `POST /contact {name,email,subject,message}` stores an operator support message.
@@ -85,3 +85,19 @@ All mutations below require administrator role, enrolled TOTP, a current `code`,
 - `GET /admin/transfers` returns `{transfers:[]}` with sender/recipient details and USD `amount`.
 - `POST /admin/transfers {fromUserId,toUserId,amount,note,idempotencyKey,code}` reserves sender funds and creates a PENDING internal USD transfer. Both accounts must be distinct, active, email verified, identity approved, and protected by TOTP.
 - `POST /admin/transfers/:id/review {action:'approve'|'reject',note,code}` changes PENDING to SETTLED (credit recipient) or REJECTED (refund sender). Approval rechecks eligibility. Concurrent or repeated decisions return 409 without duplicate credit/refund. These routes never broadcast a blockchain transaction.
+
+## Administrator operations and backups
+
+These routes require an active administrator session and enrolled TOTP. They do
+not depend on funding being enabled. Mutations additionally require current
+`code`, JSON, and the matching application Origin; results use `no-store`.
+
+- `GET /admin/operations` returns `{alerts,backups,backup,latestVerifiedBackup,monitoring}`. Active conditions precede recent resolved conditions; backup history is capped at 20 runs. The latest verified off-site upload is queried separately. Storage credential values and recovery keys are never returned.
+- `POST /admin/operations/alerts/:id/acknowledge {code}` records acknowledgement and an audit event. It does not resolve the underlying condition; stale/already acknowledged conditions return 409.
+- `POST /admin/operations/backup-key {code,publicKey,recoveryKeySaved:true}` stores only an RSA SPKI public key of at least 3072 bits and audits its SHA-256 fingerprint. Invalid keys return 400; replacing a configured key returns 409. Private keys are generated/downloaded in the browser and must never be submitted.
+- `POST /admin/operations/backups/download {code}` prepares an authenticated encrypted PostgreSQL archive, returning an attachment with `X-Backup-SHA256`. The result records `PREPARED`, not off-site success. It requires prior recovery-kit setup and is limited to three attempts per hour per client IP. No production restore route exists.
+
+Daily off-site runs use database claims and record `SUCCEEDED` only after stored
+bytes are retrieved and their size and checksum match. See
+[backup recovery](../docs/BACKUP_RECOVERY.md) and
+[operational alerts](../docs/OPERATIONAL_ALERTS.md) for setup and limits.
