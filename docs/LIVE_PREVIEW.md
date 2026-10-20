@@ -5,7 +5,7 @@ Website: <https://aureon-preview.onrender.com>
 Verified on October 20, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `5448a4143e2838b8e4aff5ab6f16fcd2b727e1e9` from branch
+- Running source commit: `d468acd03054fd58faa3fa25384dc170bb6dd0e0` from branch
   `codex/aureon-render-preview`.
 - Homepage returns HTTP 200 and renders AUREON.
 - `/api/health` returns HTTP 200, database `connected`, and funding enabled.
@@ -21,6 +21,12 @@ Verified on October 20, 2026:
   homepage footer and support page return HTTP 200 with working `mailto:` link
   destinations. The support form continues to save requests in the admin queue;
   publishing the inbox does not enable outbound account mail.
+- The owner reports receiving the verification email, verifying their address,
+  and signing in successfully. Password-reset inbox delivery is not confirmed.
+- Administrator target is `aurreon.support@gmail.com`. The operator upgrade
+  remains unconfirmed after failed one-time startup attempts; normal startup is
+  restored and live. See [administrator setup](ADMIN_SETUP.md) for the pending
+  dashboard-log check.
 
 This is the actual provider-assigned HTTPS address, not a local address or a
 guessed preview hostname. The owner completed the Render Blueprint deployment
@@ -30,9 +36,9 @@ the blueprint's free plans.
 
 ## Remaining account setup
 
-Public pages can be viewed now. Brevo access and sender checks pass. Complete
-new-investor registration still needs the recipient to receive and use a real
-verification link; verification/recovery inbox delivery remains unconfirmed. The preview
+Public pages can be viewed now. Brevo access and sender checks pass, and the
+owner reports completing verification and sign-in. Recovery inbox delivery
+remains unconfirmed. The preview
 does not expose the development Mailpit inbox.
 
 No default administrator credentials are created. Administrator access requires

@@ -4,6 +4,19 @@ The owner selected `aurreon.support@gmail.com` for administrator access and
 reported successful email verification and sign-in. The previously proposed
 `+admin` alias is not the selected account.
 
+## Current status
+
+The operator CLI passed eight real PostgreSQL checks, including the compiled
+subprocess. The one-time promotion deployments did not start successfully on
+Render. Normal startup was restored, and a normal deployment of commit
+`d468acd03054fd58faa3fa25384dc170bb6dd0e0` became live. The role upgrade remains
+unconfirmed; do not claim administrator access is enabled yet.
+
+Render's logs API returns HTTP 403 Cloudflare pages from this workspace. The
+owner needs to copy the first operator error immediately before `Hosted startup
+failed` from the latest failed deployment's dashboard logs, or confirm the
+authenticated administrator screen. No password or secret is needed in chat.
+
 ## Existing verified account
 
 An operator with access to the deployment environment can set `ADMIN_EMAIL`
@@ -63,7 +76,7 @@ reconciliation retain their separate-administrator requirement.
 npm run test:integration -- --admin-provisioning
 ```
 
-The helper creates and drops its own disposable PostgreSQL database. Seven
+The helper creates and drops its own disposable PostgreSQL database. Eight
 checks cover credential/fund preservation, session and reset-token revocation,
 audit records, repeat and concurrent grants, ineligible accounts, and missing
 or invalid target addresses, plus a compiled CLI subprocess check. It does not

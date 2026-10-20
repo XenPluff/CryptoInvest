@@ -47,8 +47,9 @@ before relying on a permanent branded sender.
 The live check on October 20, 2026 initially returned `ip_blocked` from Render
 itself. After the owner authorized the IP ranges and restarted the service,
 the live status became `checks_passed`: account access works, transactional
-sending is enabled, and the configured sender is active. Actual verification
-and recovery inbox delivery still need recipient confirmation.
+sending is enabled, and the configured sender is active. The owner subsequently
+reported receiving the verification email, verifying their address, and signing
+in. Recovery inbox delivery still needs confirmation.
 
 On startup the deployed API performs read-only Brevo account and sender checks
 from Render's actual outbound network. `/api/health` exposes the cached
