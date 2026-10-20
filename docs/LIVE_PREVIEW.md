@@ -5,8 +5,15 @@ Website: <https://aureon-preview.onrender.com>
 Verified on October 20, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `668882af1c826572b9be608a092856ebfe830748` from branch
+- Running source commit: `9011d244497b8c8895bb8ec3121f2b141ce770f4` from branch
   `codex/aureon-render-preview`.
+- The homepage card introduction is live in deployment `dep-dbbu276i0phs73e7tlrg`.
+  Below the video introduction, the original card artwork appears with an
+  AI/concept caption, introductory copy, current pre-launch availability and
+  links to the card designs and investor application page. Actual hosted
+  HTML/image decoding, links and 1440/800/390/320px English/French layouts in
+  light/dark themes passed without API fixtures or page errors. Health remains
+  connected with funding enabled and email readiness checks passed.
 - [Card concepts](https://aureon-preview.onrender.com/cards),
   [investor applications](https://aureon-preview.onrender.com/dashboard/cards)
   and the [admin queue](https://aureon-preview.onrender.com/admin/cards) are live
