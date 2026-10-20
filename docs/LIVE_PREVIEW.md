@@ -5,10 +5,22 @@ Website: <https://aureon-preview.onrender.com>
 Verified on October 20, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `b8dfcee4ef2d24c3e2586aa29939dac6f17c0686` from branch
+- Running source commit: `e327463f1a0212d83faf391cea9d16beb61e6fb9` from branch
   `codex/aureon-render-preview`.
 - Homepage returns HTTP 200 and renders AUREON.
 - `/api/health` returns HTTP 200, database `connected`, and funding enabled.
+- [Operations & backups](https://aureon-preview.onrender.com/admin/operations)
+  is live in deployment `dep-dbbp43nf3r2c73dt15dg`. The page returns 200 and its
+  unauthenticated API returns 401. Hosted HTML/assets passed browser checks for
+  local recovery-key generation, public-key-only submission, and 1440/390/320px
+  layouts using browser-only account/operations fixtures. TLS verification was
+  retained through the trusted HTTPS client; no real admin session or backup
+  was created by that check. The owner still needs to generate/save a recovery
+  kit and configure private storage to activate daily off-site backups.
+- The independent GitHub monitor is active on `main`; manual run `39455326506`
+  passed against the updated service. Scheduled checks and repository issues run
+  outside Render; GitHub account notification preferences control outage email.
+  See [backup setup](BACKUP_RECOVERY.md) and [alerts](OPERATIONAL_ALERTS.md).
 - The redesigned [investor deposit page](https://aureon-preview.onrender.com/dashboard/wallets)
   is deployed in `dep-dbbo10nf3r2c738lcqrg`. It uses the unchanged wallet catalogue,
   with currency/network selection, local QR codes, address copying, authenticator
