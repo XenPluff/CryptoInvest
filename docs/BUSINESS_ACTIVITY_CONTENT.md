@@ -1,13 +1,19 @@
 # Business model and sector artwork
 
-`/approach` explains eight activities identified by the owner as current company
-operations: crypto mining, financial market trading, property management,
-agriculture, solar energy, tangible physical assets, natural resources/metals
-and arbitrage. The owner also confirmed a claim of 7–15 years of trader
+`/approach` explains nine business activities and investment interests identified
+by the owner: crypto mining, financial market trading, property management,
+agriculture, solar energy, tangible physical assets, natural resources/metals,
+arbitrage, and artificial intelligence/robotics investments. The owner also
+confirmed a claim of 7–15 years of trader
 experience in chat on October 20, 2026. No operating, financial or credential
 records were inspected as part of this website-content task. Company-supplied
 descriptions and experience claims are attributed on the page; independent
 verification is not asserted.
+
+The AI/robotics profile describes an investment interest, without inventing a
+named holding, owned laboratory, robot fleet or software product. It distinguishes
+revenue earned by investee businesses from dividends, distributions and realized
+investment gains that may accrue to AUREON.
 
 Each profile explains a possible revenue mechanism, costs affecting net results,
 key risks and the records that should support the activity. The revenue-to-net-
@@ -23,7 +29,7 @@ investment calculations, funding settings or legal permissions.
 
 ## Artwork
 
-Eight original AI-generated sector illustrations live in
+Nine original AI-generated sector illustrations live in
 `public/images/strategies/`, each carrying an AUREON logo watermark and the words
 "SECTOR ILLUSTRATION". The existing company brand mark was supplied as the logo
 reference. Source artwork is retained unchanged as PNG; website delivery uses
@@ -40,7 +46,7 @@ updating the captions and alternative text.
 
 - Edit the sector copy in [business activities](../lib/business-activities.ts),
   and page-level source/reporting notes in [the approach page](../app/approach/page.tsx).
-- Keep all eight image files, captions, download links and alt text aligned.
+- Keep all image files, captions, download links and alt text aligned.
 - Publish verifiable entity, team and activity records through a suitable secure
   disclosure process before upgrading an attributed statement to a verified one.
   Avoid public investor records and confidential commercial documents.

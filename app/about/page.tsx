@@ -62,8 +62,9 @@ export default function AboutPage() {
           </div>
           <p>
             Explore AUREON’s company-reported activities across digital
-            infrastructure, markets, property, agriculture, energy and physical
-            assets, with an explanation of revenue, costs, risks and reporting.
+            infrastructure, markets, property, agriculture, energy, physical
+            assets and AI/robotics investments, with an explanation of revenue,
+            costs, risks and reporting.
           </p>
         </div>
         <Link className="public-inline-button" href="/approach">

@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 import { businessActivities } from "../../lib/business-activities";
 
-test("all eight sector pictures load and original branded artwork can be downloaded", async ({ page }) => {
+test("all sector pictures load and original branded artwork can be downloaded", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", error => errors.push(error.message));
   const response = await page.goto("/approach");
@@ -41,9 +41,9 @@ test("activity navigation and the homepage preview fit desktop and mobile in bot
     }
   }
   await page.goto("/approach");
-  await page.getByRole("navigation", { name: "Explore business activities" }).getByRole("link", { name: /Solar energy/ }).click();
-  await expect(page).toHaveURL(/#solar-energy$/);
-  await expect(page.getByRole("heading", { name: "Solar energy", exact: true })).toBeInViewport();
+  await page.getByRole("navigation", { name: "Explore business activities" }).getByRole("link", { name: /Artificial intelligence & robotics/ }).click();
+  await expect(page).toHaveURL(/#ai-robotics$/);
+  await expect(page.getByRole("heading", { name: "Artificial intelligence & robotics", exact: true })).toBeInViewport();
   await page.goto("/");
   await page.getByRole("link", { name: "Explore the business model", exact: true }).click();
   await expect(page).toHaveURL(/\/approach$/);

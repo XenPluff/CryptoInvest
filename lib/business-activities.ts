@@ -86,4 +86,13 @@ export const businessActivities: BusinessActivity[] = [
     evidence: "Timestamped trade confirmations, venue and custody statements, fees, transfer records, exposure limits and net results reconciled across both sides.",
     imageAlt: "AI-generated conceptual illustration of paired market venues and trade routes with the AUREON logo",
   },
+  {
+    id: "ai-robotics", number: "09", title: "Artificial intelligence & robotics", theme: "INTELLIGENT TECHNOLOGY",
+    summary: "An investment focus spanning modern artificial intelligence, intelligent automation and robotics.",
+    revenue: "Investments can generate dividends or distributions where declared, or realized gains when an ownership interest is sold. Licensing, software subscriptions and robotics services may support investee-company revenue; those receipts are separate from AUREON’s own investment returns.",
+    margin: "Investment fees, dilution, follow-on funding, taxes and exit costs affect net returns. Investee businesses also face research, computing, hardware, deployment and support costs.",
+    risk: "Technology may fail to commercialize or become obsolete. Competition, data and intellectual-property restrictions, cybersecurity, robot safety, regulation and illiquidity can lead to partial or total loss.",
+    evidence: "Named investments and ownership interests, investment agreements, capitalization records, valuation methods, investee financial reports and evidence of any dividends, distributions or realized exit proceeds.",
+    imageAlt: "AI-generated illustration of a modern robotics laboratory with AI computing infrastructure and the AUREON logo",
+  },
 ];

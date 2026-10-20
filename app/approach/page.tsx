@@ -8,7 +8,7 @@ import styles from "@/components/public/business.module.css";
 
 export const metadata: Metadata = {
   title: "How value is generated",
-  description: "Explore AUREON's company-reported activities in mining, trading, property, agriculture, energy, physical assets, natural resources and arbitrage, with revenue mechanics, risks and reporting standards.",
+  description: "Explore AUREON's company-reported business activities, including AI and robotics investments, with revenue mechanics, key risks and transparency standards.",
 };
 
 const standards = [
@@ -23,10 +23,10 @@ const standards = [
 export default function ApproachPage() {
   return (
     <PublicShell>
-      <PageIntro eyebrow="How value is generated" title="Where value" emphasis="takes shape." description="Digital infrastructure. Productive assets. Financial markets. A closer look at the commercial logic, costs and evidence behind AUREON’s stated business activities." number="08" />
+      <PageIntro eyebrow="How value is generated" title="Where value" emphasis="takes shape." description="Digital infrastructure. Productive assets. Financial markets. Intelligent technology. A closer look at the commercial logic, costs and evidence behind AUREON’s stated business activities." number="08" />
       <section className={`container ${styles.context}`} aria-label="About these business descriptions">
         <span className={styles.kicker}>COMPANY-REPORTED ACTIVITIES</span>
-        <p>AUREON identifies the eight areas below as current activities. These descriptions are company-supplied; supporting operating records, independently verified financial results and individual team credentials have not been published on this page.</p>
+        <p>AUREON identifies the following areas as current business activities and investment interests. These descriptions are company-supplied; supporting operating records, independently verified financial results and individual team credentials have not been published on this page.</p>
         <p>All images are AI-generated sector illustrations carrying the AUREON logo. They do not document company-owned facilities, assets or personnel.</p>
       </section>
 
