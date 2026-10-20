@@ -2,18 +2,20 @@
 
 Website: <https://aureon-preview.onrender.com>
 
-Verified on October 19, 2026:
+Verified on October 20, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `8f64acb615182e0335b20883b215cc15da7633dc` from branch
+- Running source commit: `5448a4143e2838b8e4aff5ab6f16fcd2b727e1e9` from branch
   `codex/aureon-render-preview`.
 - Homepage returns HTTP 200 and renders AUREON.
 - `/api/health` returns HTTP 200, database `connected`, and funding enabled.
-- Email delivery is unconfigured (`emailConfigured:false`).
-- The Brevo HTTPS integration is deployed. Render has `EMAIL_PROVIDER=brevo`
-  and `BREVO_SENDER_EMAIL=aurreon.support@gmail.com`, but no `BREVO_API_KEY`.
-  Sender/account activation and the secret key remain required; follow
-  [email activation steps](EMAIL_DELIVERY.md).
+- Email settings are present (`emailConfigured:true`), but delivery is blocked:
+  the startup check from Render reports `emailDeliveryStatus:ip_blocked`.
+- The owner entered `BREVO_API_KEY` in Render alongside `EMAIL_PROVIDER=brevo`
+  and `BREVO_SENDER_EMAIL=aurreon.support@gmail.com`. Brevo must authorize the
+  service's outbound IP ranges before account/sender checks and sending can
+  succeed. Follow [email activation steps](EMAIL_DELIVERY.md); no actual email
+  delivery or sender activation is claimed from key presence.
 - Public contact email: `aurreon.support@gmail.com`, supplied by the owner. The
   homepage footer and support page return HTTP 200 with working `mailto:` link
   destinations. The support form continues to save requests in the admin queue;
@@ -27,8 +29,9 @@ the blueprint's free plans.
 
 ## Remaining account setup
 
-Public pages can be viewed now. Complete new-investor registration needs an
-authorized email provider/sender for verification and recovery emails. The preview
+Public pages can be viewed now. Complete new-investor registration needs Brevo
+to authorize Render's outbound network, followed by successful sender checks and
+verification/recovery delivery. The preview
 does not expose the development Mailpit inbox.
 
 No default administrator credentials are created. Administrator access requires

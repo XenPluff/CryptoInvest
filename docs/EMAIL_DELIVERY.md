@@ -44,6 +44,11 @@ before relying on a permanent branded sender.
 
 ## Check the complete account flow
 
+The live check on October 20, 2026 returned `ip_blocked` from Render itself.
+The key is present on the service; authorizing its outbound IP ranges is the
+current external prerequisite. Provider/sender activation and inbox delivery
+are still unverified.
+
 On startup the deployed API performs read-only Brevo account and sender checks
 from Render's actual outbound network. `/api/health` exposes the cached
 `emailDeliveryStatus`, without provider response bodies, account information, or
