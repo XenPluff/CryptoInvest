@@ -6,16 +6,21 @@ reported successful email verification and sign-in. The previously proposed
 
 ## Current status
 
-The operator CLI passed eight real PostgreSQL checks, including the compiled
-subprocess. The one-time promotion deployments did not start successfully on
-Render. Normal startup was restored, and a normal deployment of commit
-`d468acd03054fd58faa3fa25384dc170bb6dd0e0` became live. The role upgrade remains
-unconfirmed; do not claim administrator access is enabled yet.
+The owner-requested retry succeeded on October 20, 2026. Deployment
+`dep-dbbncc8n74is73d95ut0` of commit
+`d468acd03054fd58faa3fa25384dc170bb6dd0e0` became live using the verified
+`--promote-admin` startup command. The launcher only starts the web service after
+the operator command succeeds, confirming administrator access for the selected
+verified account. The earlier failed attempts are historical; their dashboard
+log request is no longer needed.
 
-Render's logs API returns HTTP 403 Cloudflare pages from this workspace. The
-owner needs to copy the first operator error immediately before `Hosted startup
-failed` from the latest failed deployment's dashboard logs, or confirm the
-authenticated administrator screen. No password or secret is needed in chat.
+Normal Docker Command was restored to `npm run start:render`, and temporary
+`ADMIN_EMAIL`/`ADMIN_NAME` settings were removed. Live health is 200 with database
+connected, funding enabled, and email checks passed; unauthenticated admin API
+access remains 401. No password was collected or reset. The owner must sign in
+again and complete authenticator enrollment if needed; enrollment has not been
+independently confirmed. The operator CLI passed eight real PostgreSQL checks,
+including its compiled subprocess.
 
 ## Existing verified account
 
@@ -63,8 +68,8 @@ password from deployment settings after successful provisioning.
 
 ## Sign in and enroll an authenticator
 
-After promotion, sign in again at `/login` and open `/admin`. Under
-**Account & security**, enroll an authenticator app and confirm its six-digit
+After promotion, sign in again at `/login` and open `/admin`. If prompted, use
+**Account & security** at `/dashboard/account`, enroll an authenticator app, and confirm its six-digit
 code. The owner must perform enrollment on their own device; passwords, setup
 secrets, and authentication codes should never be shared in chat. Financial
 administration continues to require current TOTP. Withdrawal approval and paid

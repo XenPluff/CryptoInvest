@@ -23,10 +23,10 @@ Verified on October 20, 2026:
   publishing the inbox does not enable outbound account mail.
 - The owner reports receiving the verification email, verifying their address,
   and signing in successfully. Password-reset inbox delivery is not confirmed.
-- Administrator target is `aurreon.support@gmail.com`. The operator upgrade
-  remains unconfirmed after failed one-time startup attempts; normal startup is
-  restored and live. See [administrator setup](ADMIN_SETUP.md) for the pending
-  dashboard-log check.
+- Administrator access is enabled for `aurreon.support@gmail.com`. The requested
+  one-time promotion retry became live; normal startup is restored and temporary
+  operator settings removed. The owner must sign in again and complete
+  authenticator setup if needed. See [administrator setup](ADMIN_SETUP.md).
 
 This is the actual provider-assigned HTTPS address, not a local address or a
 guessed preview hostname. The owner completed the Render Blueprint deployment
