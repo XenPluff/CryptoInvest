@@ -5,8 +5,21 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 21, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `3ae6670bb585e565dcfb5b4b9a585a528769738a` from branch
+- Running source commit: `efad2592c6278e221d77b2a9688765b6b87963a9` from branch
   `codex/aureon-render-preview`.
+- The eight-language interface is live in deployment `dep-dbch5t3rjlhs73bfis5g`.
+  German, Spanish, Italian, Russian, Ukrainian and Arabic join English and French
+  across public/authentication pages and investor/admin workspaces. Arabic uses
+  RTL layouts; preferences persist and English restores LTR. The 2,307-message
+  catalogs load on demand, with dedicated homepage headlines, translated guide
+  chapters and browser titles. Actual hosted HTML/assets passed 56 route/language
+  checks across seven non-English languages and 1440/390/320px layouts, including
+  legal copy and English PDF/video identification. No API fixtures or page errors
+  occurred; unauthenticated card/admin APIs remain 401. Health reports connected
+  database, enabled funding and passed email readiness. Local workspace/form/QR
+  checks used browser-only fixtures and created no production records. Original
+  files, email and unknown freeform content retain their original language. See
+  [language scope](LOCALIZATION.md).
 - The [homepage investor perspective](https://aureon-preview.onrender.com/#investor-perspective)
   is live in deployment `dep-dbcg9u6ktt5c73cpto6g`, immediately after
   “Your next chapter” and before FAQ. Company-authored principles describe
