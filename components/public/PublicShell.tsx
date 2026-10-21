@@ -1,3 +1,4 @@
+import TranslatedContent from "@/components/TranslatedContent";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -9,8 +10,8 @@ export function PublicShell({ children }: { children: ReactNode }) {
   return (
     <>
       <SiteHeader />
-      <main id="main" lang="en" className="public-main">
-        {children}
+      <main id="main" className="public-main">
+        <TranslatedContent>{children}</TranslatedContent>
       </main>
       <SiteFooter />
     </>
@@ -30,7 +31,7 @@ export function PageIntro({
   description: string;
   number?: string;
 }) {
-  return (
+  return <TranslatedContent>{(
     <section className="public-intro container">
       <div className="public-breadcrumb">
         <Link href="/">Aureon</Link>
@@ -59,7 +60,7 @@ export function PageIntro({
         </div>
       </div>
     </section>
-  );
+  )}</TranslatedContent>;
 }
 
 export function PublicCTA({
@@ -69,7 +70,7 @@ export function PublicCTA({
   title?: string;
   text?: string;
 }) {
-  return (
+  return <TranslatedContent>{(
     <section className="public-cta container">
       <div>
         <p className="eyebrow">A considered beginning</p>
@@ -80,5 +81,5 @@ export function PublicCTA({
         Create an account <ArrowUpRight size={16} />
       </Link>
     </section>
-  );
+  )}</TranslatedContent>;
 }

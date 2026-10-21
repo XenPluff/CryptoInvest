@@ -1,3 +1,4 @@
+import TranslatedContent from "@/components/TranslatedContent";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { Info } from "lucide-react";
@@ -20,7 +21,7 @@ export function LegalDocument({
   description: string;
   children: ReactNode;
 }) {
-  return (
+  return <TranslatedContent>{(
     <PublicShell>
       <PageIntro
         eyebrow="Legal & disclosures"
@@ -42,6 +43,7 @@ export function LegalDocument({
           ))}
         </nav>
         <article className="public-legal-content">
+          <p className="legal-language-note">Original documents are in English. Translations are provided for convenience.</p>
           <div className="public-notice">
             <Info size={17} />
             <p>
@@ -63,5 +65,5 @@ export function LegalDocument({
         </article>
       </section>
     </PublicShell>
-  );
+  )}</TranslatedContent>;
 }

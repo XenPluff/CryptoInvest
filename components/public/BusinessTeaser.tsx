@@ -1,3 +1,4 @@
+import TranslatedContent from "@/components/TranslatedContent";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -6,8 +7,8 @@ import styles from "./business.module.css";
 import BusinessImageCarousel from "./BusinessImageCarousel";
 
 export default function BusinessTeaser({ rotateImages = false }: { rotateImages?: boolean }) {
-  return (
-    <section className={`container ${styles.teaser}`} aria-labelledby="business-teaser-title" lang="en">
+  return <TranslatedContent>{(
+    <section className={`container ${styles.teaser}`} aria-labelledby="business-teaser-title" >
       <figure className={styles.teaserImage}>
         {rotateImages ? <BusinessImageCarousel /> : <Image src="/images/strategies/crypto-mining.png" width={1536} height={1024} alt={businessActivities[0].imageAlt} sizes="(max-width: 750px) 100vw, 50vw" />}
       </figure>
@@ -19,5 +20,5 @@ export default function BusinessTeaser({ rotateImages = false }: { rotateImages?
         <Link href="/approach" className={styles.inlineLink}>Explore the business model <ArrowUpRight size={16} /></Link>
       </div>
     </section>
-  );
+  )}</TranslatedContent>;
 }

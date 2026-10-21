@@ -1,4 +1,6 @@
-import type { Metadata } from "next";
+"use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import Link from "next/link";
 import { ArrowUpRight, Info } from "lucide-react";
 import {
@@ -6,11 +8,6 @@ import {
   PageIntro,
   PublicCTA,
 } from "@/components/public/PublicShell";
-export const metadata: Metadata = {
-  title: "How it works",
-  description:
-    "From creating your Aureon account to verification, deposit review and investment records.",
-};
 const steps = [
   {
     title: "Create your account.",
@@ -34,7 +31,8 @@ const steps = [
   },
 ];
 export default function HowItWorksPage() {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <PublicShell>
       <PageIntro
         eyebrow="How it works"
@@ -96,5 +94,5 @@ export default function HowItWorksPage() {
       </section>
       <PublicCTA />
     </PublicShell>
-  );
+  )}</TranslatedContent>;
 }

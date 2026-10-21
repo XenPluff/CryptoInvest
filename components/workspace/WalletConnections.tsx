@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -66,6 +68,7 @@ export function WalletConnections({
   emailVerified: boolean;
   twoFactorEnabled: boolean;
 }) {
+  useDisplayLocale();
   const connections = useRemote<{ links: WalletLink[] }>(
     "/wallet-connect/links",
     emailVerified,
@@ -231,7 +234,7 @@ export function WalletConnections({
     }
   }
 
-  return (
+  return <TranslatedContent>{(
     <Panel
       title="Your connected wallets"
       eyebrow="PROVE IT’S YOURS"
@@ -377,5 +380,5 @@ export function WalletConnections({
         not establish the sender or source of funds for a deposit.
       </p>
     </Panel>
-  );
+  )}</TranslatedContent>;
 }

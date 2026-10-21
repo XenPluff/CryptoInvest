@@ -43,6 +43,8 @@ test("profile links and mobile layouts work in both themes and navigation langua
     await page.screenshot({ path: `.aureon/screenshots/company-profile-${width}.png`, fullPage: true });
   }
   await page.goto("/about");
+  await page.locator(".site-header select").selectOption("en");
+  await expect(page.locator(".site-header select")).toHaveAttribute("aria-busy", "false");
   await expect(page.getByRole("link", { name: "Download the company profile", exact: true })).toHaveAttribute("href", "/company-profile");
   expect(errors).toEqual([]);
 });

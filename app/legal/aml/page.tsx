@@ -1,8 +1,10 @@
-import type { Metadata } from "next";
+"use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import { LegalDocument } from "@/components/public/LegalDocument";
-export const metadata: Metadata = { title: "AML & identity policy" };
 export default function AmlPage() {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <LegalDocument
       type="aml"
       title="AML & identity."
@@ -81,5 +83,5 @@ export default function AmlPage() {
         certification of compliance.
       </p>
     </LegalDocument>
-  );
+  )}</TranslatedContent>;
 }

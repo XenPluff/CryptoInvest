@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import Link from "next/link";
 import { useTranslation } from "@/lib/i18n";
 import { ArrowLeft, ArrowUpRight, ShieldCheck } from "lucide-react";
@@ -19,8 +21,9 @@ export function AuthShell({
   children: ReactNode;
   footer?: ReactNode;
 }) {
-  const { t, locale } = useTranslation();
-  return (
+  useDisplayLocale();
+  const { t } = useTranslation();
+  return <TranslatedContent>{(
     <main className="auth-page">
       <aside className="auth-story" aria-label={t("About Aureon")}>
         <Link href="/" className="auth-brand" aria-label={t("Aureon home")}>
@@ -79,16 +82,11 @@ export function AuthShell({
         <div className="auth-bottom">
           <span>© {new Date().getFullYear()} Aureon</span>
           <div>
-            {locale === "fr" && (
-              <span className="auth-legal-language">
-                Documents juridiques en anglais
-              </span>
-            )}
             <Link href="/legal/privacy">{t("Privacy")}</Link>
             <Link href="/legal/terms">{t("Terms")}</Link>
           </div>
         </div>
       </section>
     </main>
-  );
+  )}</TranslatedContent>;
 }

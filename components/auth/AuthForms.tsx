@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 
 import Link from "next/link";
 import { useTranslation } from "@/lib/i18n";
@@ -29,9 +31,10 @@ function PasswordField({
   label = "Password",
   ...props
 }: InputHTMLAttributes<HTMLInputElement> & { label?: string }) {
+  useDisplayLocale();
   const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
-  return (
+  return <TranslatedContent>{(
     <label className="auth-field">
       <span>{t(label)}</span>
       <div className="auth-input-wrap">
@@ -47,25 +50,26 @@ function PasswordField({
         </button>
       </div>
     </label>
-  );
+  )}</TranslatedContent>;
 }
 
 function Feedback({ error, message }: { error?: string; message?: string }) {
+  useDisplayLocale();
   const { t } = useTranslation();
   if (error)
-    return (
+    return <TranslatedContent>{(
       <div className="auth-feedback auth-feedback-error" role="alert">
         <CircleAlert size={17} />
         <span>{t(error)}</span>
       </div>
-    );
+    )}</TranslatedContent>;
   if (message)
-    return (
+    return <TranslatedContent>{(
       <div className="auth-feedback auth-feedback-success" role="status">
         <CheckCircle2 size={17} />
         <span>{message}</span>
       </div>
-    );
+    )}</TranslatedContent>;
   return null;
 }
 
@@ -76,8 +80,9 @@ function SubmitButton({
   busy: boolean;
   children: React.ReactNode;
 }) {
+  useDisplayLocale();
   const { t } = useTranslation();
-  return (
+  return <TranslatedContent>{(
     <button
       className="button button-gold auth-submit"
       type="submit"
@@ -94,7 +99,7 @@ function SubmitButton({
         </>
       )}
     </button>
-  );
+  )}</TranslatedContent>;
 }
 
 function errorMessage(error: unknown) {
@@ -104,6 +109,7 @@ function errorMessage(error: unknown) {
 }
 
 export function LoginForm() {
+  useDisplayLocale();
   const { t } = useTranslation();
   const router = useRouter();
   const params = useSearchParams();
@@ -157,7 +163,7 @@ export function LoginForm() {
       setBusy(false);
     }
   }
-  return (
+  return <TranslatedContent>{(
     <>
       <form className="auth-form" onSubmit={submit}>
         {twoFactor ? (
@@ -242,10 +248,11 @@ export function LoginForm() {
       </form>
       {!twoFactor && <PasskeyLogin />}
     </>
-  );
+  )}</TranslatedContent>;
 }
 
 export function RegisterForm() {
+  useDisplayLocale();
   const { t } = useTranslation();
   const params = useSearchParams();
   const [error, setError] = useState("");
@@ -281,7 +288,7 @@ export function RegisterForm() {
     }
   }
   if (message)
-    return (
+    return <TranslatedContent>{(
       <div className="auth-result">
         <div className="auth-result-icon">
           <Mail size={28} />
@@ -300,8 +307,8 @@ export function RegisterForm() {
           <Link href="/verify-email">{t("Need a new verification link?")}</Link>
         </p>
       </div>
-    );
-  return (
+    )}</TranslatedContent>;
+  return <TranslatedContent>{(
     <form className="auth-form auth-register-form" onSubmit={submit}>
       <label className="auth-field">
         <span>{t("Full name")}</span>
@@ -384,10 +391,11 @@ export function RegisterForm() {
         </Link>
       </p>
     </form>
-  );
+  )}</TranslatedContent>;
 }
 
 export function ForgotPasswordForm() {
+  useDisplayLocale();
   const { t } = useTranslation();
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
@@ -409,7 +417,7 @@ export function ForgotPasswordForm() {
       setBusy(false);
     }
   }
-  return message ? (
+  return <TranslatedContent>{message ? (
     <div className="auth-result">
       <div className="auth-result-icon">
         <Mail size={28} />
@@ -447,10 +455,11 @@ export function ForgotPasswordForm() {
         </Link>
       </p>
     </form>
-  );
+  )}</TranslatedContent>;
 }
 
 export function ResetPasswordForm() {
+  useDisplayLocale();
   const { t } = useTranslation();
   const params = useSearchParams();
   const token = params.get("token");
@@ -479,7 +488,7 @@ export function ResetPasswordForm() {
     }
   }
   if (!token)
-    return (
+    return <TranslatedContent>{(
       <div className="auth-result">
         <div className="auth-result-icon">
           <KeyRound size={28} />
@@ -497,9 +506,9 @@ export function ResetPasswordForm() {
           {t("Request reset link")} <ArrowRight size={16} />
         </Link>
       </div>
-    );
+    )}</TranslatedContent>;
   if (message)
-    return (
+    return <TranslatedContent>{(
       <div className="auth-result">
         <div className="auth-result-icon">
           <CheckCircle2 size={28} />
@@ -510,8 +519,8 @@ export function ResetPasswordForm() {
           {t("Sign in securely")} <ArrowRight size={16} />
         </Link>
       </div>
-    );
-  return (
+    )}</TranslatedContent>;
+  return <TranslatedContent>{(
     <form className="auth-form" onSubmit={submit}>
       <PasswordField
         name="password"
@@ -538,10 +547,11 @@ export function ResetPasswordForm() {
         <Link href="/forgot-password">{t("Request a new reset link")}</Link>
       </p>
     </form>
-  );
+  )}</TranslatedContent>;
 }
 
 export function VerifyEmailForm() {
+  useDisplayLocale();
   const { t } = useTranslation();
   const params = useSearchParams();
   const token = params.get("token");
@@ -572,7 +582,7 @@ export function VerifyEmailForm() {
     }
   }, [token]); // Each link is submitted once, including React strict mode.
   if (!token)
-    return (
+    return <TranslatedContent>{(
       <div className="auth-result">
         <div className="auth-result-icon">
           <Mail size={28} />
@@ -595,8 +605,8 @@ export function VerifyEmailForm() {
           </Link>
         </p>
       </div>
-    );
-  return (
+    )}</TranslatedContent>;
+  return <TranslatedContent>{(
     <div className="auth-result">
       <div className="auth-result-icon">
         {status === "pending" || status === "idle" ? (
@@ -634,10 +644,11 @@ export function VerifyEmailForm() {
         </>
       )}
     </div>
-  );
+  )}</TranslatedContent>;
 }
 
 function ResendVerificationForm() {
+  useDisplayLocale();
   const { t } = useTranslation();
   const params = useSearchParams();
   const [error, setError] = useState("");
@@ -664,7 +675,7 @@ function ResendVerificationForm() {
       setBusy(false);
     }
   }
-  return (
+  return <TranslatedContent>{(
     <form className="auth-form auth-resend-form" onSubmit={submit}>
       <label className="auth-field">
         <span>{t("Email address")}</span>
@@ -681,15 +692,16 @@ function ResendVerificationForm() {
       <Feedback error={error} message={message} />
       <SubmitButton busy={busy}>{t("Send verification link")}</SubmitButton>
     </form>
-  );
+  )}</TranslatedContent>;
 }
 
 export function AuthFormLoading() {
+  useDisplayLocale();
   const { t } = useTranslation();
-  return (
+  return <TranslatedContent>{(
     <div className="auth-form-loading" role="status">
       <LoaderCircle size={22} className="auth-spinner" />
       <span>{t("Preparing your secure session…")}</span>
     </div>
-  );
+  )}</TranslatedContent>;
 }

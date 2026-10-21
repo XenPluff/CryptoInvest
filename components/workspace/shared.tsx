@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale, displayLocale } from "@/lib/i18n";
 import { useCallback, useEffect, useState } from "react";
 import { api, money } from "@/lib/api";
 import {
@@ -49,14 +51,15 @@ export function LoadState({
   error: string;
   reload: () => void;
 }) {
+  useDisplayLocale();
   if (loading)
-    return (
+    return <TranslatedContent>{(
       <div className="ws-state" role="status">
         <LoaderCircle className="ws-spin" size={22} /> Loading your workspace…
       </div>
-    );
+    )}</TranslatedContent>;
   if (error)
-    return (
+    return <TranslatedContent>{(
       <div className="ws-state ws-state-error" role="alert">
         <CircleAlert size={22} />
         <span>{error}</span>
@@ -64,7 +67,7 @@ export function LoadState({
           <RefreshCw size={14} /> Try again
         </button>
       </div>
-    );
+    )}</TranslatedContent>;
   return null;
 }
 export function Empty({
@@ -76,7 +79,8 @@ export function Empty({
   children: React.ReactNode;
   icon?: any;
 }) {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <div className="ws-empty">
       <div className="ws-empty-icon">
         <Icon size={25} strokeWidth={1.3} />
@@ -84,7 +88,7 @@ export function Empty({
       <h3>{title}</h3>
       <p>{children}</p>
     </div>
-  );
+  )}</TranslatedContent>;
 }
 export function Panel({
   title,
@@ -99,7 +103,8 @@ export function Panel({
   children: React.ReactNode;
   className?: string;
 }) {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <section className={`ws-panel ${className}`}>
       {(title || eyebrow || action) && (
         <div className="ws-panel-header">
@@ -112,27 +117,29 @@ export function Panel({
       )}
       {children}
     </section>
-  );
+  )}</TranslatedContent>;
 }
 export function Badge({ value }: { value: string }) {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <span className={`ws-badge ws-badge-${String(value).toLowerCase()}`}>
       {String(value || "pending").replaceAll("_", " ")}
     </span>
-  );
+  )}</TranslatedContent>;
 }
 export function DateText({ value }: { value: any }) {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <>
       {value
-        ? new Date(value).toLocaleDateString("en-US", {
+        ? new Date(value).toLocaleDateString(displayLocale(), {
             month: "short",
             day: "numeric",
             year: "numeric",
           })
         : "—"}
     </>
-  );
+  )}</TranslatedContent>;
 }
 export function CopyButton({
   value,
@@ -141,8 +148,9 @@ export function CopyButton({
   value: string;
   label?: string;
 }) {
+  useDisplayLocale();
   const [copied, setCopied] = useState(false);
-  return (
+  return <TranslatedContent>{(
     <button
       className="ws-button ws-button-small"
       onClick={async () => {
@@ -159,7 +167,7 @@ export function CopyButton({
       {copied ? <Check size={15} /> : <Copy size={15} />}{" "}
       {copied ? "Copied" : label}
     </button>
-  );
+  )}</TranslatedContent>;
 }
 export function Notice({
   children,
@@ -168,7 +176,8 @@ export function Notice({
   children: React.ReactNode;
   tone?: "info" | "success" | "error";
 }) {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <div
       role={tone === "error" ? "alert" : "status"}
       className={`ws-notice ws-notice-${tone}`}
@@ -176,7 +185,7 @@ export function Notice({
       <CircleAlert size={16} />
       <div>{children}</div>
     </div>
-  );
+  )}</TranslatedContent>;
 }
 export function Field({
   label,
@@ -211,7 +220,8 @@ export function Field({
   children?: React.ReactNode;
   help?: string;
 }) {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <label className="ws-field">
       <span>{label}</span>
       {children || (
@@ -232,7 +242,7 @@ export function Field({
       )}
       {help && <small>{help}</small>}
     </label>
-  );
+  )}</TranslatedContent>;
 }
 export function ActionForm({
   path,
@@ -251,11 +261,12 @@ export function ActionForm({
   onSuccess?: (d: RecordData) => void;
   disabled?: boolean;
 }) {
+  useDisplayLocale();
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState<{ error?: string; message?: string }>(
     {},
   );
-  return (
+  return <TranslatedContent>{(
     <form
       className="ws-form"
       onSubmit={async (e) => {
@@ -298,17 +309,18 @@ export function ActionForm({
         {!busy && <ArrowUpRight size={16} />}
       </button>
     </form>
-  );
+  )}</TranslatedContent>;
 }
 export function TransactionsTable({ rows }: { rows: RecordData[] }) {
+  useDisplayLocale();
   if (!rows.length)
-    return (
+    return <TranslatedContent>{(
       <Empty title="Your next chapter starts here">
         Deposits, investments, and withdrawals will appear in your transaction
         history.
       </Empty>
-    );
-  return (
+    )}</TranslatedContent>;
+  return <TranslatedContent>{(
     <div className="ws-table-wrap">
       <table className="ws-table">
         <thead>
@@ -352,7 +364,7 @@ export function TransactionsTable({ rows }: { rows: RecordData[] }) {
         </tbody>
       </table>
     </div>
-  );
+  )}</TranslatedContent>;
 }
 
 export function useModalFocus(onClose?: () => void) {

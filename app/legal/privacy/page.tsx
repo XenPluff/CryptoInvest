@@ -1,8 +1,10 @@
-import type { Metadata } from "next";
+"use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import { LegalDocument } from "@/components/public/LegalDocument";
-export const metadata: Metadata = { title: "Privacy notice" };
 export default function PrivacyPage() {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <LegalDocument
       type="privacy"
       title="Privacy notice."
@@ -117,5 +119,5 @@ export default function PrivacyPage() {
         and effective date, with additional notice where required.
       </p>
     </LegalDocument>
-  );
+  )}</TranslatedContent>;
 }

@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent, { Verbatim } from "@/components/TranslatedContent";
+import { useDisplayLocale, displayLocale } from "@/lib/i18n";
 import { useState } from "react";
 import {
   ArrowUpRight,
@@ -41,32 +43,34 @@ import {
 } from "./shared";
 
 export function AdminContent({ section }: { section: string }) {
-  if (!section) return <AdminOverview />;
-  if (section === "users") return <AdminUsers />;
-  if (section === "balances") return <BalanceManagement />;
-  if (section === "transfers") return <TransferManagement />;
-  if (section === "transactions") return <AdminTransactionLog />;
-  if (section === "plans") return <AdminPlans />;
-  if (section === "investments") return <InvestmentSettlements />;
+  useDisplayLocale();
+  if (!section) return <TranslatedContent>{<AdminOverview />}</TranslatedContent>;
+  if (section === "users") return <TranslatedContent>{<AdminUsers />}</TranslatedContent>;
+  if (section === "balances") return <TranslatedContent>{<BalanceManagement />}</TranslatedContent>;
+  if (section === "transfers") return <TranslatedContent>{<TransferManagement />}</TranslatedContent>;
+  if (section === "transactions") return <TranslatedContent>{<AdminTransactionLog />}</TranslatedContent>;
+  if (section === "plans") return <TranslatedContent>{<AdminPlans />}</TranslatedContent>;
+  if (section === "investments") return <TranslatedContent>{<InvestmentSettlements />}</TranslatedContent>;
   if (section === "deposits" || section === "withdrawals")
-    return <FinancialReviews type={section} />;
-  if (section === "kyc") return <KycReviews />;
-  if (section === "cards") return <AdminCards />;
-  if (section === "audit") return <AuditLogs />;
-  if (section === "operations") return <Operations />;
-  if (section === "messages") return <Messages />;
-  if (section === "settings") return <PlatformSettings />;
-  if (section === "content") return <ContentOperations />;
-  if (section === "campaigns") return <CampaignOperations />;
-  return (
+    return <TranslatedContent>{<FinancialReviews type={section} />}</TranslatedContent>;
+  if (section === "kyc") return <TranslatedContent>{<KycReviews />}</TranslatedContent>;
+  if (section === "cards") return <TranslatedContent>{<AdminCards />}</TranslatedContent>;
+  if (section === "audit") return <TranslatedContent>{<AuditLogs />}</TranslatedContent>;
+  if (section === "operations") return <TranslatedContent>{<Operations />}</TranslatedContent>;
+  if (section === "messages") return <TranslatedContent>{<Messages />}</TranslatedContent>;
+  if (section === "settings") return <TranslatedContent>{<PlatformSettings />}</TranslatedContent>;
+  if (section === "content") return <TranslatedContent>{<ContentOperations />}</TranslatedContent>;
+  if (section === "campaigns") return <TranslatedContent>{<CampaignOperations />}</TranslatedContent>;
+  return <TranslatedContent>{(
     <Empty title="Page not found">Choose a section from your navigation.</Empty>
-  );
+  )}</TranslatedContent>;
 }
 function AdminOverview() {
+  useDisplayLocale();
   const r = useRemote("/admin/overview");
-  if (r.loading || r.error) return <LoadState {...r} />;
+  if (r.loading || r.error) return <TranslatedContent>{<LoadState {...r} />}</TranslatedContent>;
   const d = r.data!;
-  return (
+  return <TranslatedContent>{(
     <>
       <div className="ws-stats-grid">
         {[
@@ -128,9 +132,10 @@ function AdminOverview() {
         note. Only approve funds you have independently verified.
       </Notice>
     </>
-  );
+  )}</TranslatedContent>;
 }
 function AdminUsers() {
+  useDisplayLocale();
   const r = useRemote("/admin/users");
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<RecordData | null>(null);
@@ -138,7 +143,7 @@ function AdminUsers() {
     r.data?.users?.filter((u: RecordData) =>
       `${u.name} ${u.email}`.toLowerCase().includes(query.toLowerCase()),
     ) || [];
-  return (
+  return <TranslatedContent>{(
     <>
       <Panel
         title="Investor directory"
@@ -171,8 +176,8 @@ function AdminUsers() {
                 {rows.map((u: RecordData) => (
                   <tr key={u.id}>
                     <td>
-                      <strong>{u.name}</strong>
-                      <small>{u.email}</small>
+                      <strong><Verbatim>{u.name}</Verbatim></strong>
+                      <small><Verbatim>{u.email}</Verbatim></small>
                     </td>
                     <td>
                       <DateText value={u.createdAt} />
@@ -254,12 +259,13 @@ function AdminUsers() {
         </AdminDialog>
       )}
     </>
-  );
+  )}</TranslatedContent>;
 }
 function AdminPlans() {
+  useDisplayLocale();
   const r = useRemote("/admin/plans");
   const [selected, setSelected] = useState<RecordData | null>(null);
-  return (
+  return <TranslatedContent>{(
     <>
       <Panel
         title="Investment plan configuration"
@@ -290,7 +296,7 @@ function AdminPlans() {
                 {r.data.plans.map((p: RecordData) => (
                   <tr key={p.id}>
                     <td>
-                      <strong>{p.name}</strong>
+                      <strong><Verbatim>{p.name}</Verbatim></strong>
                       <small>{p.slug}</small>
                     </td>
                     <td>
@@ -435,9 +441,10 @@ function AdminPlans() {
         </AdminDialog>
       )}
     </>
-  );
+  )}</TranslatedContent>;
 }
 function FinancialReviews({ type }: { type: "deposits" | "withdrawals" }) {
+  useDisplayLocale();
   const r = useRemote(`/admin/${type}`);
   const [selected, setSelected] = useState<RecordData | null>(null);
   const [filter, setFilter] = useState("pending");
@@ -447,7 +454,7 @@ function FinancialReviews({ type }: { type: "deposits" | "withdrawals" }) {
       (t: RecordData) =>
         filter === "all" || String(t.status).toLowerCase() === filter,
     ) || [];
-  return (
+  return <TranslatedContent>{(
     <>
       <Notice>
         {isDeposit
@@ -493,8 +500,8 @@ function FinancialReviews({ type }: { type: "deposits" | "withdrawals" }) {
                 {rows.map((t: RecordData) => (
                   <tr key={t.id}>
                     <td>
-                      <strong>{t.user?.name || "Investor"}</strong>
-                      <small>{t.user?.email || t.userId}</small>
+                      <strong><Verbatim>{t.user?.name || "Investor"}</Verbatim></strong>
+                      <small><Verbatim>{t.user?.email || t.userId}</Verbatim></small>
                     </td>
                     <td className="ws-tabular">{money(t.amount)}</td>
                     <td>
@@ -536,8 +543,8 @@ function FinancialReviews({ type }: { type: "deposits" | "withdrawals" }) {
           <div className="ws-review-summary">
             <div>
               <span>Investor</span>
-              <strong>{selected.user?.name}</strong>
-              <small>{selected.user?.email}</small>
+              <strong><Verbatim>{selected.user?.name}</Verbatim></strong>
+              <small><Verbatim>{selected.user?.email}</Verbatim></small>
             </div>
             <div>
               <span>Requested amount</span>
@@ -555,12 +562,12 @@ function FinancialReviews({ type }: { type: "deposits" | "withdrawals" }) {
                   ? "Submitted transaction hash"
                   : "Destination address"}
               </span>
-              <code>{isDeposit ? selected.txHash : selected.address}</code>
+              <code><Verbatim>{isDeposit ? selected.txHash : selected.address}</Verbatim></code>
             </div>
             {isDeposit && selected.wallet && (
               <div>
                 <span>Receiving address</span>
-                <code>{selected.wallet.address}</code>
+                <code><Verbatim>{selected.wallet.address}</Verbatim></code>
               </div>
             )}
           </div>
@@ -658,9 +665,10 @@ function FinancialReviews({ type }: { type: "deposits" | "withdrawals" }) {
         </AdminDialog>
       )}
     </>
-  );
+  )}</TranslatedContent>;
 }
 function KycReviews() {
+  useDisplayLocale();
   const r = useRemote("/admin/kyc");
   const [selected, setSelected] = useState<RecordData | null>(null);
   const [filter, setFilter] = useState("pending");
@@ -669,7 +677,7 @@ function KycReviews() {
       (k: RecordData) =>
         filter === "all" || String(k.status).toLowerCase() === filter,
     ) || [];
-  return (
+  return <TranslatedContent>{(
     <>
       <Notice>
         This queue contains submitted identity metadata for manual operator
@@ -710,9 +718,9 @@ function KycReviews() {
                   <tr key={k.id}>
                     <td>
                       <strong>{k.fullName}</strong>
-                      <small>{k.user?.email}</small>
+                      <small><Verbatim>{k.user?.email}</Verbatim></small>
                     </td>
-                    <td>{k.country}</td>
+                    <td><Verbatim>{k.country}</Verbatim></td>
                     <td>
                       <DateText value={k.createdAt} />
                     </td>
@@ -793,10 +801,11 @@ function KycReviews() {
         </AdminDialog>
       )}
     </>
-  );
+  )}</TranslatedContent>;
 }
 function LogList({ rows }: { rows: RecordData[] }) {
-  return rows.length ? (
+  useDisplayLocale();
+  return <TranslatedContent>{rows.length ? (
     <div className="ws-log-list">
       {rows.map((log) => (
         <div className="ws-log-item" key={log.id}>
@@ -809,7 +818,7 @@ function LogList({ rows }: { rows: RecordData[] }) {
               )}
             </strong>
             <p>
-              {log.actor?.email || log.user?.email || log.actorId || "System"}
+              <Verbatim>{log.actor?.email || log.user?.email || log.actorId || "System"}</Verbatim>
               {log.entityType ? ` · ${log.entityType}` : ""}
             </p>
             {(log.note || log.metadata?.note) && (
@@ -821,7 +830,7 @@ function LogList({ rows }: { rows: RecordData[] }) {
             <small>
               <DateText value={log.createdAt} />{" "}
               {log.createdAt &&
-                new Date(log.createdAt).toLocaleTimeString("en-US", {
+                new Date(log.createdAt).toLocaleTimeString(displayLocale(), {
                   hour: "2-digit",
                   minute: "2-digit",
                 })}
@@ -834,11 +843,12 @@ function LogList({ rows }: { rows: RecordData[] }) {
     <Empty icon={Shield} title="No audit events yet">
       Administrative decisions and account events are recorded here.
     </Empty>
-  );
+  )}</TranslatedContent>;
 }
 function AuditLogs() {
+  useDisplayLocale();
   const r = useRemote("/admin/audit");
-  return (
+  return <TranslatedContent>{(
     <Panel title="Platform audit trail" eyebrow="ACCOUNTABILITY BY DESIGN">
       <p className="ws-panel-description">
         Administrative actions are recorded with their actor, timestamp, and
@@ -847,12 +857,13 @@ function AuditLogs() {
       <LoadState {...r} />
       {r.data && <LogList rows={r.data.logs || []} />}
     </Panel>
-  );
+  )}</TranslatedContent>;
 }
 function Messages() {
+  useDisplayLocale();
   const r = useRemote("/admin/messages");
   const [selected, setSelected] = useState<RecordData | null>(null);
-  return (
+  return <TranslatedContent>{(
     <>
       <Panel title="Contact requests" eyebrow="YOUR INBOX">
         <LoadState {...r} />
@@ -864,11 +875,11 @@ function Messages() {
                 key={m.id}
                 onClick={() => setSelected(m)}
               >
-                <div className="ws-avatar">{m.name?.slice(0, 1) || "?"}</div>
+                <div className="ws-avatar"><Verbatim>{m.name?.slice(0, 1) || "?"}</Verbatim></div>
                 <div>
-                  <strong>{m.subject}</strong>
+                  <strong><Verbatim>{m.subject}</Verbatim></strong>
                   <p>
-                    {m.name} · {m.email}
+                    <Verbatim>{m.name}</Verbatim> · <Verbatim>{m.email}</Verbatim>
                   </p>
                   <span>{m.message}</span>
                 </div>
@@ -890,7 +901,7 @@ function Messages() {
       {selected && (
         <AdminDialog title={selected.subject} onClose={() => setSelected(null)}>
           <p className="ws-muted">
-            {selected.name} · {selected.email} ·{" "}
+            <Verbatim>{selected.name}</Verbatim> · <Verbatim>{selected.email}</Verbatim> ·{" "}
             <DateText value={selected.createdAt} />
           </p>
           <p className="ws-message-body">{selected.message}</p>
@@ -903,11 +914,12 @@ function Messages() {
         </AdminDialog>
       )}
     </>
-  );
+  )}</TranslatedContent>;
 }
 function PlatformSettings() {
+  useDisplayLocale();
   const r = useRemote("/admin/settings");
-  return (
+  return <TranslatedContent>{(
     <div className="ws-two-column">
       <Panel title="Financial activation" eyebrow="PLATFORM CONTROLS">
         <LoadState {...r} />
@@ -990,7 +1002,7 @@ function PlatformSettings() {
         </Panel>
       </div>
     </div>
-  );
+  )}</TranslatedContent>;
 }
 function AdminDialog({
   title,
@@ -1001,8 +1013,9 @@ function AdminDialog({
   children: React.ReactNode;
   onClose: () => void;
 }) {
+  useDisplayLocale();
   useModalFocus(onClose);
-  return (
+  return <TranslatedContent>{(
     <div className="ws-modal-backdrop" onClick={onClose}>
       <section
         className="ws-modal ws-modal-wide"
@@ -1023,13 +1036,14 @@ function AdminDialog({
         {children}
       </section>
     </div>
-  );
+  )}</TranslatedContent>;
 }
 
 function InvestmentSettlements() {
+  useDisplayLocale();
   const r = useRemote("/admin/investments");
   const [selected, setSelected] = useState<RecordData | null>(null);
-  return (
+  return <TranslatedContent>{(
     <>
       <Notice>
         Settle an investment only after independently establishing its realized
@@ -1054,8 +1068,8 @@ function InvestmentSettlements() {
                 {r.data.investments.map((i: RecordData) => (
                   <tr key={i.id}>
                     <td>
-                      <strong>{i.user?.name || i.userId}</strong>
-                      <small>{i.planName || i.plan?.name}</small>
+                      <strong><Verbatim>{i.user?.name || i.userId}</Verbatim></strong>
+                      <small><Verbatim>{i.planName || i.plan?.name}</Verbatim></small>
                     </td>
                     <td>{money(i.principalAmount)}</td>
                     <td>
@@ -1160,5 +1174,5 @@ function InvestmentSettlements() {
         </AdminDialog>
       )}
     </>
-  );
+  )}</TranslatedContent>;
 }

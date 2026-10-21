@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BellRing, Check, Download, ExternalLink, KeyRound, LoaderCircle, RefreshCw, ShieldCheck } from "lucide-react";
@@ -19,6 +21,7 @@ function pem(bytes: ArrayBuffer, label: string) {
   return `-----BEGIN ${label}-----\n${base64.match(/.{1,64}/g)!.join("\n")}\n-----END ${label}-----\n`;
 }
 export function Operations() {
+  useDisplayLocale();
   const remote = useRemote<OperationsData>("/admin/operations");
   const [code, setCode] = useState(""); const [busy, setBusy] = useState("");
   const [error, setError] = useState(""); const [message, setMessage] = useState("");
@@ -60,12 +63,12 @@ export function Operations() {
       await remote.reload();
     });
   }
-  if (!remote.data) return <LoadState {...remote} />;
+  if (!remote.data) return <TranslatedContent>{<LoadState {...remote} />}</TranslatedContent>;
   const { alerts, backups, backup } = remote.data;
   const active = alerts.filter(alert => !alert.resolvedAt);
   const recentUpload = remote.data.latestVerifiedBackup;
   const readyCode = /^\d{6}$/.test(code);
-  return <div className={styles.root}>
+  return <TranslatedContent>{<div className={styles.root}>
     <div className={styles.intro}><div><span className="ws-eyebrow">CONTINUITY & OVERSIGHT</span><h2>Keep your operations in view.</h2><p>Review alerts, protect your records, and prepare for recovery.</p></div><button className="ws-button ws-button-small" onClick={() => void remote.reload()} disabled={remote.loading}><RefreshCw size={14} />Refresh</button></div>
     {remote.error && <Notice tone="error">{remote.error}</Notice>}{error && <Notice tone="error">{error}</Notice>}{message && <Notice>{message}</Notice>}
     <div className={styles.summary}>
@@ -101,5 +104,5 @@ export function Operations() {
       </div>
     </div>
     <Panel title="Backup history" eyebrow="ACTUAL RECORDED RUNS"><div className="ws-table-wrap"><table className="ws-table"><thead><tr><th>Started</th><th>Destination</th><th>Result</th><th>Size</th><th>Verification</th></tr></thead><tbody>{backups.map(run => <tr key={run.id}><td><DateText value={run.startedAt} /><small>{new Date(run.startedAt).toLocaleTimeString()}</small></td><td>{run.storage === "S3" ? "Private storage" : "Manual download"}</td><td><Badge value={run.status} />{run.error && <small>{run.error}</small>}</td><td>{run.sizeBytes === null ? "—" : `${(run.sizeBytes / 1024).toFixed(1)} KiB`}</td><td>{run.sha256 ? <details><summary>Checksum & key</summary><div className={styles.hash}><span>ARCHIVE SHA-256</span><code>{run.sha256}</code><span>ENCRYPTION KEY</span><code>{run.keyFingerprint}</code></div></details> : "Not completed"}</td></tr>)}</tbody></table></div>{!backups.length && <p className={styles.help}>No backup runs recorded. Create your recovery kit to get started.</p>}<p className={styles.help}>PREPARED means an encrypted download was generated. SUCCEEDED means an off-site upload was retrieved and its checksum matched.</p></Panel>
-  </div>;
+  </div>}</TranslatedContent>;
 }

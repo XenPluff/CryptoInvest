@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale, displayLocale } from "@/lib/i18n";
 import { money } from "@/lib/api";
 import type { AdminAnalyticsResponse } from "@/lib/analytics";
 import { AllocationBars, ObservationChart } from "./PortfolioAnalytics";
@@ -6,15 +8,16 @@ import { LoadState, Panel, useRemote } from "./shared";
 import styles from "./analytics.module.css";
 
 export function AdminAnalytics() {
+  useDisplayLocale();
   const remote = useRemote<AdminAnalyticsResponse>("/admin/analytics");
   if (remote.loading || remote.error)
-    return (
+    return <TranslatedContent>{(
       <Panel title="Platform analytics">
         <LoadState {...remote} />
       </Panel>
-    );
+    )}</TranslatedContent>;
   const data = remote.data!;
-  return (
+  return <TranslatedContent>{(
     <>
       <div className="ws-two-column">
         <Panel
@@ -61,7 +64,7 @@ export function AdminAnalytics() {
             <div>
               <span>Registered investor accounts</span>
               <strong>
-                {data.summary.registeredInvestors.toLocaleString("en-US")}
+                {data.summary.registeredInvestors.toLocaleString(displayLocale())}
               </strong>
             </div>
             <small className={styles.meta}>
@@ -124,5 +127,5 @@ export function AdminAnalytics() {
         </p>
       </Panel>
     </>
-  );
+  )}</TranslatedContent>;
 }

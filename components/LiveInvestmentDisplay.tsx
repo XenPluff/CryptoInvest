@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 
 import { useEffect, useId, useState } from "react";
 import { ArrowUpRight, Check, Clock3, Info } from "lucide-react";
@@ -19,15 +21,16 @@ export interface LiveInvestmentDisplayProps
 
 /** Keep cents prominent while exposing four quieter illustrative sub-cent digits. */
 function TargetAmount({ micros }: { micros: string }) {
+  useDisplayLocale();
   const amount = BigInt(micros);
   const cents = Number(amount / 10_000n);
   const subCents = (amount % 10_000n).toString().padStart(4, "0");
-  return (
+  return <TranslatedContent>{(
     <span className={styles.targetAmount}>
       {formatUsd(cents)}
       <span className={styles.microDigits}>{subCents}</span>
     </span>
-  );
+  )}</TranslatedContent>;
 }
 
 /** This animated target is deliberately separate from the settled wallet balance. */
@@ -35,6 +38,7 @@ export function LiveInvestmentDisplay({
   className = "",
   ...input
 }: LiveInvestmentDisplayProps) {
+  useDisplayLocale();
   const [now, setNow] = useState<number | null>(null);
   const descriptionId = useId();
   useEffect(() => {
@@ -87,7 +91,7 @@ export function LiveInvestmentDisplay({
       nowTimestamp: now ?? input.startTimestamp,
     });
   } catch {
-    return (
+    return <TranslatedContent>{(
       <div className={`${styles.liveCard} ${className}`} role="status">
         <p className={styles.eyebrow}>Investment target</p>
         <h3>Unable to calculate this target</h3>
@@ -96,13 +100,13 @@ export function LiveInvestmentDisplay({
           support.
         </p>
       </div>
-    );
+    )}</TranslatedContent>;
   }
   const plan = resolveInvestmentTerms(input);
   const rate = plan.isMonthly ? plan.monthlyRate : plan.dailyRate;
   const duration = plan.durationDays;
   const daysRemaining = Math.ceil(growth.remainingMs / 86_400_000);
-  return (
+  return <TranslatedContent>{(
     <article
       className={`${styles.liveCard} ${className}`}
       aria-describedby={descriptionId}
@@ -201,6 +205,6 @@ export function LiveInvestmentDisplay({
         </span>
       </p>
     </article>
-  );
+  )}</TranslatedContent>;
 }
 export default LiveInvestmentDisplay;

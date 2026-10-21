@@ -266,8 +266,8 @@ p {
   display: flex;
   align-items: center;
   gap: 28px;
-  margin-left: auto;
-  margin-right: 28px;
+  margin-inline-start: auto;
+  margin-inline-end: 28px;
 }
 .desktop-nav a {
   color: var(--muted);
@@ -579,7 +579,7 @@ p {
   gap: 12px;
   align-items: center;
   flex: 1;
-  border-left: 1px solid var(--border);
+  border-inline-start: 1px solid var(--border);
   padding: 4px 0 4px 24px;
   min-width: 0;
 }
@@ -621,7 +621,7 @@ p {
 }
 .asset-name small {
   font-size: 7px;
-  margin-left: 5px;
+  margin-inline-start: 5px;
   color: var(--muted);
 }
 .asset-price {
@@ -647,7 +647,7 @@ p {
   max-width: 55px;
   flex: 1;
   min-width: 15px;
-  margin-left: auto;
+  margin-inline-start: auto;
 }
 .perspective-section {
   position: relative;
@@ -872,7 +872,7 @@ p {
 .journey-step > svg {
   color: var(--gold);
   margin-top: 8px;
-  margin-left: auto;
+  margin-inline-start: auto;
   flex-shrink: 0;
 }
 .faq-section {
@@ -891,7 +891,7 @@ p {
   background: none;
   display: flex;
   width: 100%;
-  text-align: left;
+  text-align: start;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
@@ -1004,7 +1004,7 @@ p {
   color: var(--text);
 }
 .footer-links a svg {
-  margin-left: 5px;
+  margin-inline-start: 5px;
   color: var(--gold);
 }
 .risk-notice {
@@ -1041,7 +1041,7 @@ p {
 .footer-edition {
   font-size: 6px;
   letter-spacing: 1.1px;
-  margin-left: 30px;
+  margin-inline-start: 30px;
   color: #938b75;
 }
 .sr-only {
@@ -1073,7 +1073,7 @@ p {
   }
   .desktop-nav {
     gap: 19px;
-    margin-right: 12px;
+    margin-inline-end: 12px;
   }
   .desktop-nav a {
     font-size: 9px;
@@ -1116,7 +1116,7 @@ p {
     flex-basis: 110px;
   }
   .ticker-asset {
-    padding-left: 16px;
+    padding-inline-start: 16px;
     gap: 9px;
   }
   .ticker-asset > svg {
@@ -1223,7 +1223,7 @@ p {
     gap: 8px;
   }
   .ticker-asset {
-    padding-left: 12px;
+    padding-inline-start: 12px;
     gap: 8px;
   }
   .asset-name {
@@ -1467,14 +1467,14 @@ p {
     flex: none;
     width: 50%;
     padding: 16px 10px 16px 0;
-    border-left: 0;
+    border-inline-start: 0;
     gap: 10px;
   }
   .ticker-asset:nth-child(even) {
-    border-right: 1px solid var(--border);
+    border-inline-end: 1px solid var(--border);
   }
   .ticker-asset:nth-child(odd) {
-    padding-left: 18px;
+    padding-inline-start: 18px;
   }
   .ticker-asset:nth-child(2),
   .ticker-asset:nth-child(3) {
@@ -1485,7 +1485,7 @@ p {
     width: 42px;
     max-width: 42px;
     min-width: 20px;
-    margin-left: auto;
+    margin-inline-start: auto;
   }
   .asset-name {
     font-size: 10px;
@@ -1495,7 +1495,7 @@ p {
   }
   .asset-price small {
     font-size: 7px;
-    margin-left: 4px;
+    margin-inline-start: 4px;
   }
   .coin-icon {
     width: 25px;
@@ -1597,7 +1597,7 @@ p {
   }
   .plans-disclosure {
     font-size: 8px;
-    text-align: left;
+    text-align: start;
     justify-content: flex-start;
     line-height: 1.8;
   }
@@ -1731,7 +1731,7 @@ p {
 }
 
 .ticker-signal {
-  margin-left: auto;
+  margin-inline-start: auto;
   color: var(--muted);
   font-size: 18px;
   opacity: 0.55;

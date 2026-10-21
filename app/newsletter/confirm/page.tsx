@@ -1,8 +1,12 @@
+"use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import { Suspense } from "react";
 import { PublicShell, PageIntro } from "@/components/public/PublicShell";
 import { NewsletterAction } from "@/components/public/NewsletterAction";
 export default function NewsletterConfirmPage() {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <PublicShell>
       <PageIntro
         eyebrow="Newsletter preferences"
@@ -20,5 +24,5 @@ export default function NewsletterConfirmPage() {
         <NewsletterAction action="confirm" />
       </Suspense>
     </PublicShell>
-  );
+  )}</TranslatedContent>;
 }

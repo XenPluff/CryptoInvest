@@ -25,7 +25,7 @@
   background:
     radial-gradient(ellipse at 51% 39%, #332b194d 0, transparent 58%),
     linear-gradient(155deg, #141416, #111113 62%, #0b0b0d);
-  border-right: 1px solid #ffffff0b;
+  border-inline-end: 1px solid #ffffff0b;
 }
 .auth-story:after {
   content: "";
@@ -56,11 +56,11 @@
     serif;
   transform: translateY(-2px);
   letter-spacing: -8px;
-  margin-right: 3px;
+  margin-inline-end: 3px;
 }
 .auth-brand-period {
   color: var(--auth-gold);
-  margin-left: -10px;
+  margin-inline-start: -10px;
 }
 .auth-art {
   position: relative;
@@ -326,7 +326,7 @@
   position: relative;
 }
 .auth-input-wrap input {
-  padding-right: 48px;
+  padding-inline-end: 48px;
 }
 .auth-password-toggle {
   position: absolute;
@@ -438,7 +438,7 @@
   align-items: center;
   gap: 4px;
   color: #c9ad6a;
-  margin-left: 3px;
+  margin-inline-start: 3px;
 }
 .auth-bottom {
   width: 100%;
@@ -619,7 +619,7 @@
   font-variant-numeric: tabular-nums;
   letter-spacing: 13px;
   text-align: center;
-  padding-left: 27px;
+  padding-inline-start: 27px;
   height: 64px;
 }
 .auth-text-button {
@@ -661,8 +661,8 @@
 }
 @media (min-width: 1500px) {
   .auth-story {
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-inline-start: 80px;
+    padding-inline-end: 80px;
   }
   .auth-art {
     max-height: 460px;
@@ -680,8 +680,8 @@
     padding: 35px 32px 26px;
   }
   .auth-main {
-    padding-left: 37px;
-    padding-right: 37px;
+    padding-inline-start: 37px;
+    padding-inline-end: 37px;
   }
   .auth-story-copy h2 {
     font-size: 43px;
@@ -695,8 +695,8 @@
     height: 360px;
   }
   .auth-art {
-    margin-left: -25px;
-    margin-right: -25px;
+    margin-inline-start: -25px;
+    margin-inline-end: -25px;
   }
   .auth-story-bottom {
     font-size: 8px;
@@ -759,11 +759,11 @@
 }
 @media (max-width: 380px) {
   .auth-main {
-    padding-left: 21px;
-    padding-right: 21px;
+    padding-inline-start: 21px;
+    padding-inline-end: 21px;
   }
   .auth-story {
-    padding-left: 21px;
+    padding-inline-start: 21px;
   }
   .auth-form-wrap h1 {
     font-size: 36px;

@@ -1,11 +1,14 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import { Panel, Badge, Notice, LoadState, useRemote } from "./shared";
 export function ProviderConnections() {
+  useDisplayLocale();
   const state = useRemote("/admin/providers");
   const delivery = useRemote("/admin/email-delivery");
   const deposits = state.data?.deposits;
   const email = state.data?.email;
-  return (
+  return <TranslatedContent>{(
     <>
       <Panel title="Deposit wallet addresses" eyebrow="DIRECT CRYPTO DEPOSITS">
         <LoadState {...state} />
@@ -79,5 +82,5 @@ export function ProviderConnections() {
         </Notice>
       </Panel>
     </>
-  );
+  )}</TranslatedContent>;
 }

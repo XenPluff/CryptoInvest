@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import { useRef, useState } from "react";
 import { RotateCcw, Wifi } from "lucide-react";
 import { AureonMark } from "@/components/SiteHeader";
@@ -6,16 +8,18 @@ import type { CardNetwork } from "@/lib/cards";
 import styles from "./cards.module.css";
 
 export function NetworkMark({ network }: { network: CardNetwork }) {
-  return network === "VISA" ? <span className={styles.visa}>VISA</span> : <span className={styles.mastercard}><span className={styles.circles}><i /><i /></span><small>mastercard</small></span>;
+  useDisplayLocale();
+  return <TranslatedContent>{network === "VISA" ? <span className={styles.visa}>VISA</span> : <span className={styles.mastercard}><span className={styles.circles}><i /><i /></span><small>mastercard</small></span>}</TranslatedContent>;
 }
 
 export default function CardShowcase({ network: controlled, onNetworkChange }: { network?: CardNetwork; onNetworkChange?: (network: CardNetwork) => void }) {
+  useDisplayLocale();
   const [ownNetwork, setNetwork] = useState<CardNetwork>("MASTERCARD");
   const [back, setBack] = useState(false);
   const stage = useRef<HTMLDivElement>(null);
   const network = controlled ?? ownNetwork;
   function choose(value: CardNetwork) { setNetwork(value); onNetworkChange?.(value); }
-  return <div className={styles.showcase}>
+  return <TranslatedContent>{<div className={styles.showcase}>
     <div className={styles.selector} aria-label="Card design preference">
       {(["MASTERCARD", "VISA"] as const).map(value => <button type="button" aria-pressed={network === value} key={value} onClick={() => choose(value)}>{value === "VISA" ? "Visa concept" : "Mastercard concept"}</button>)}
     </div>
@@ -43,5 +47,5 @@ export default function CardShowcase({ network: controlled, onNetworkChange }: {
     </div>
     <div className={styles.viewControls}><span>3D DESIGN PREVIEW</span><button type="button" onClick={() => setBack(value => !value)}><RotateCcw size={14} /> Show {back ? "front" : "back"}</button></div>
     <p className={styles.conceptNote}>Visa and Mastercard are shown as design preferences only. No issuing-bank or network partnership is confirmed. Both designs are non-functional concepts.</p>
-  </div>;
+  </div>}</TranslatedContent>;
 }

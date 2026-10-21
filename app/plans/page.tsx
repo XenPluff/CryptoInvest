@@ -1,4 +1,6 @@
-import type { Metadata } from "next";
+"use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import {
   PublicShell,
   PageIntro,
@@ -6,13 +8,9 @@ import {
 } from "@/components/public/PublicShell";
 import { PlanCatalog } from "@/components/public/PlanCatalog";
 import { InvestmentCalculator } from "@/components/InvestmentCalculator";
-export const metadata: Metadata = {
-  title: "Investment plans",
-  description:
-    "Explore Aureon investment plan parameters, time horizons, eligibility and investment risk.",
-};
 export default function PlansPage() {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <PublicShell>
       <PageIntro
         eyebrow="Investment plans"
@@ -99,5 +97,5 @@ export default function PlansPage() {
       </section>
       <PublicCTA />
     </PublicShell>
-  );
+  )}</TranslatedContent>;
 }

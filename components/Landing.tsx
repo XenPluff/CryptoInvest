@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import Link from "next/link";
 import { useTranslation } from "@/lib/i18n";
 import HeroArtwork from "./HeroArtwork";
@@ -83,6 +85,7 @@ const questions = [
   ],
 ];
 export default function Landing() {
+  useDisplayLocale();
   const { t } = useTranslation();
   const reduced = useReducedMotion();
   const [faq, setFaq] = useState<number | null>(0);
@@ -140,7 +143,7 @@ export default function Landing() {
       setBusy(false);
     }
   }
-  return (
+  return <TranslatedContent>{(
     <>
       <SiteHeader />
       <main id="main">
@@ -536,5 +539,5 @@ export default function Landing() {
       </main>
       <SiteFooter />
     </>
-  );
+  )}</TranslatedContent>;
 }

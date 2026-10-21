@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import { useEffect, useState } from "react";
 import { ArrowUpRight, ArrowDownRight, Radio } from "lucide-react";
 import { api, money } from "@/lib/api";
@@ -16,6 +18,7 @@ const placeholders = [
   { id: "tether", symbol: "USDT", name: "Tether" },
 ];
 export default function MarketTicker() {
+  useDisplayLocale();
   const [assets, setAssets] = useState<Market[]>([]);
   const [stale, setStale] = useState(false);
   const [error, setError] = useState(false);
@@ -42,7 +45,7 @@ export default function MarketTicker() {
       clearInterval(timer);
     };
   }, []);
-  return (
+  return <TranslatedContent>{(
     <div className="market-band">
       <div className="container market-inner">
         <div className="market-label">
@@ -106,5 +109,5 @@ export default function MarketTicker() {
         })}
       </div>
     </div>
-  );
+  )}</TranslatedContent>;
 }

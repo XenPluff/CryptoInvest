@@ -1,13 +1,11 @@
-import type { Metadata } from "next";
+"use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import { PublicShell, PageIntro } from "@/components/public/PublicShell";
 import { Journal } from "@/components/public/Journal";
-export const metadata: Metadata = {
-  title: "Journal",
-  description:
-    "Published AUREON insights, platform announcements, and answers.",
-};
 export default function JournalPage() {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <PublicShell>
       <PageIntro
         eyebrow="Journal"
@@ -18,5 +16,5 @@ export default function JournalPage() {
       />
       <Journal />
     </PublicShell>
-  );
+  )}</TranslatedContent>;
 }

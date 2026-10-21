@@ -1,4 +1,6 @@
-import type { Metadata } from "next";
+"use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import Link from "next/link";
 import { ArrowUpRight, Aperture, Compass, Scale } from "lucide-react";
 import {
@@ -6,13 +8,9 @@ import {
   PageIntro,
   PublicCTA,
 } from "@/components/public/PublicShell";
-export const metadata: Metadata = {
-  title: "About Aureon",
-  description:
-    "A considered approach to digital asset investing, built around clarity, deliberate design and transparent risk.",
-};
 export default function AboutPage() {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <PublicShell>
       <PageIntro
         eyebrow="About Aureon"
@@ -137,5 +135,5 @@ export default function AboutPage() {
       </section>
       <PublicCTA title="Make your next decision an informed one." />
     </PublicShell>
-  );
+  )}</TranslatedContent>;
 }

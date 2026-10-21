@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 
 import Link from "next/link";
 import { ArrowUpRight, BookOpen, ListChecks, ShieldCheck } from "lucide-react";
@@ -30,9 +32,10 @@ const principles = [
 ] as const;
 
 export default function InvestorPerspective() {
+  useDisplayLocale();
   const { t } = useTranslation();
 
-  return (
+  return <TranslatedContent>{(
     <section id="investor-perspective" className={styles.section} aria-labelledby="investor-perspective-title">
       <div className="container">
         <div className={styles.heading}>
@@ -58,5 +61,5 @@ export default function InvestorPerspective() {
         </div>
       </div>
     </section>
-  );
+  )}</TranslatedContent>;
 }

@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import Link from "next/link";
 import { useTranslation } from "@/lib/i18n";
 import { usePathname } from "next/navigation";
@@ -7,7 +9,8 @@ import { ArrowUpRight, Menu, X, Sun, Moon } from "lucide-react";
 import LanguageSelector from "./LanguageSelector";
 import { usePreferences } from "@/lib/ui-store";
 export function AureonMark({ size = 28 }: { size?: number }) {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <svg
       width={size}
       height={size}
@@ -19,9 +22,10 @@ export function AureonMark({ size = 28 }: { size?: number }) {
       <path d="M16 12 25 28H7l9-16Z" stroke="currentColor" strokeWidth="1.3" />
       <path d="m11.5 20 4.5 8 4.5-8h-9Z" fill="currentColor" />
     </svg>
-  );
+  )}</TranslatedContent>;
 }
 export default function SiteHeader() {
+  useDisplayLocale();
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const path = usePathname();
@@ -33,7 +37,7 @@ export default function SiteHeader() {
     ["Our security", "/security"],
     ["Video guides", "/videos"],
   ];
-  return (
+  return <TranslatedContent>{(
     <>
       <a className="skip-link" href="#main">
         {t("Skip to content")}
@@ -116,5 +120,5 @@ export default function SiteHeader() {
         )}
       </header>
     </>
-  );
+  )}</TranslatedContent>;
 }

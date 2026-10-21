@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 
 import { useEffect, useState, type FormEvent } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -11,6 +13,7 @@ import { Fingerprint, LoaderCircle } from "lucide-react";
 import { api } from "@/lib/api";
 
 export function PasskeyLogin() {
+  useDisplayLocale();
   const router = useRouter();
   const params = useSearchParams();
   const [supported, setSupported] = useState(false);
@@ -68,7 +71,7 @@ export function PasskeyLogin() {
     }
   }
 
-  return (
+  return <TranslatedContent>{(
     <details className="auth-referral auth-passkey">
       <summary>
         <Fingerprint size={17} /> Sign in with a passkey
@@ -128,5 +131,5 @@ export function PasskeyLogin() {
         </button>
       </form>
     </details>
-  );
+  )}</TranslatedContent>;
 }

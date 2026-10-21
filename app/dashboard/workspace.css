@@ -52,7 +52,7 @@
   display: flex;
   flex-direction: column;
   padding: 31px 20px 0;
-  border-right: 1px solid var(--ws-line);
+  border-inline-end: 1px solid var(--ws-line);
   background: #0d0f0f;
   z-index: 45;
 }
@@ -71,7 +71,7 @@
   letter-spacing: 0;
   font-family: Arial, sans-serif;
   font-size: 8px;
-  margin-left: 4px;
+  margin-inline-start: 4px;
   margin-top: 1px;
   color: #b5ad98;
 }
@@ -129,7 +129,7 @@
   width: 4px;
   background: var(--ws-gold);
   border-radius: 50%;
-  margin-left: auto;
+  margin-inline-start: auto;
 }
 .ws-nav-break {
   margin-top: 19px;
@@ -148,7 +148,7 @@
   font-size: 11px;
 }
 .ws-support svg:last-child {
-  margin-left: auto;
+  margin-inline-start: auto;
   color: #656d67;
 }
 .ws-user {
@@ -190,11 +190,11 @@
   color: #6f7772;
 }
 .ws-user button {
-  margin-left: auto;
+  margin-inline-start: auto;
   color: #7e8780;
 }
 .ws-main {
-  margin-left: 238px;
+  margin-inline-start: 238px;
 }
 .ws-topbar {
   height: 78px;
@@ -366,7 +366,7 @@
   margin: 3px 0 0;
 }
 .ws-verification-banner .ws-button {
-  margin-left: auto;
+  margin-inline-start: auto;
 }
 .ws-stats-grid {
   display: grid;
@@ -639,7 +639,7 @@
   white-space: nowrap;
 }
 .ws-table th {
-  text-align: left;
+  text-align: start;
   font-size: 8px;
   font-weight: 400;
   color: #737f72;
@@ -670,7 +670,7 @@
   text-transform: capitalize;
 }
 .ws-align-right {
-  text-align: right !important;
+  text-align: end !important;
 }
 .ws-mono {
   font-family: monospace;
@@ -751,8 +751,8 @@
   margin-top: 2px;
 }
 .ws-market-price {
-  margin-left: auto;
-  text-align: right;
+  margin-inline-start: auto;
+  text-align: end;
   font-variant-numeric: tabular-nums;
 }
 .ws-market-row .ws-positive {
@@ -1138,7 +1138,7 @@
   letter-spacing: -0.5px;
   color: #dfdfc9;
   margin: 10px 0 20px;
-  padding-right: 20px;
+  padding-inline-end: 20px;
 }
 .ws-modal > p {
   font-size: 11px;
@@ -1207,7 +1207,7 @@
   color: #879574;
 }
 .ws-wallet-heading > .ws-button {
-  margin-left: auto;
+  margin-inline-start: auto;
 }
 .ws-wallet-card > code {
   display: block;
@@ -1337,10 +1337,10 @@
   flex-direction: column;
   gap: 9px;
   padding: 0 15px;
-  border-left: 1px solid #ffffff0c;
+  border-inline-start: 1px solid #ffffff0c;
 }
 .ws-referral-stats > div:first-child {
-  padding-left: 0;
+  padding-inline-start: 0;
   border: 0;
 }
 .ws-referral-stats strong {
@@ -1561,7 +1561,7 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  text-align: left;
+  text-align: start;
   border-top: 1px solid #ffffff0c !important;
   padding: 20px 0 !important;
   width: 100%;
@@ -1643,7 +1643,7 @@
     padding: 28px 14px 0;
   }
   .ws-main {
-    margin-left: 209px;
+    margin-inline-start: 209px;
   }
   .ws-content {
     padding: 30px 26px 0;
@@ -1770,7 +1770,7 @@
     flex: 1;
   }
   .ws-verification-banner .ws-button {
-    margin-left: 49px;
+    margin-inline-start: 49px;
   }
   .ws-footer {
     font-size: 7px;
@@ -1800,7 +1800,7 @@
     backdrop-filter: blur(4px);
   }
   .ws-main {
-    margin-left: 0;
+    margin-inline-start: 0;
   }
   .ws-menu-toggle {
     display: grid;

@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 
 import Image, { getImageProps } from "next/image";
 import { useEffect, useState } from "react";
@@ -15,6 +17,7 @@ const imageProps = (index: number) => ({
 });
 
 export default function BusinessImageCarousel() {
+  useDisplayLocale();
   const [index, setIndex] = useState(0);
   const [pageVisible, setPageVisible] = useState(true);
 
@@ -49,7 +52,7 @@ export default function BusinessImageCarousel() {
     return () => { canceled = true; window.clearInterval(timer); };
   }, [index, pageVisible]);
 
-  return (
+  return <TranslatedContent>{(
     <div className={styles.slideshow} role="region" aria-roledescription="carousel" aria-label="Business activity pictures">
       <div className={styles.slideshowFrame} aria-live="off">
         <Image key={businessActivities[index].id} {...imageProps(index)} className={styles.slideshowPicture} />
@@ -59,5 +62,5 @@ export default function BusinessImageCarousel() {
         <div className={styles.slideshowProgress} aria-hidden="true">{businessActivities.map((activity, position) => <i key={activity.id} className={position === index ? styles.slideshowActive : undefined} />)}</div>
       </div>
     </div>
-  );
+  )}</TranslatedContent>;
 }

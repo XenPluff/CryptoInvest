@@ -1,4 +1,6 @@
-import type { Metadata } from "next";
+"use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, CreditCard, Globe2, FileCheck2 } from "lucide-react";
@@ -6,10 +8,9 @@ import { PageIntro, PublicShell } from "@/components/public/PublicShell";
 import CardShowcase from "@/components/cards/CardShowcase";
 import styles from "@/components/cards/cards.module.css";
 
-export const metadata: Metadata = { title: "AUREON card concepts & applications", description: "Explore AUREON Visa and Mastercard card design concepts and submit a pre-launch application. Cards are not issued and payment functionality is unavailable." };
-
 export default function CardsPage() {
-  return <PublicShell>
+  useDisplayLocale();
+  return <TranslatedContent>{<PublicShell>
     <PageIntro eyebrow="The AUREON card concept" title="A considered design." emphasis="A future possibility." description="Explore two card design concepts, inspect the front and back in 3D, and register your card preferences for preliminary review." number="09" />
     <section className={`container ${styles.publicHero}`}>
       <div className={styles.publicCopy}><span className={styles.phase}>PRE-LAUNCH / NOT ISSUED</span><h2>Your perspective.<br /><em>In every detail.</em></h2><p>Brushed gold. Sculpted charcoal. The AUREON mark. Two distinct design directions for a proposed credit-card experience, with a clear application record in your workspace.</p><p>Applications are expressions of interest for preliminary review. AUREON does not currently issue these cards, provide a credit line or enable card payments.</p><Link href="/dashboard/cards" className={styles.inlineLink}>Apply for pre-launch review <ArrowUpRight size={16} /></Link></div>
@@ -28,5 +29,5 @@ export default function CardsPage() {
       <details><summary>What information is collected?</summary><p>Your existing account is linked to your preferred network design, card format, country of residence, intended use and recorded consent. Review messages and status history are retained. Do not provide card numbers, CVVs, PINs, bank details or identity documents in this form. Read the <Link href="/legal/privacy">privacy notice</Link>.</p></details>
       <details><summary>What happens after I submit?</summary><p>Follow the status and any review message in your investor workspace. You can withdraw an active application. If a genuine program becomes available, new eligibility, privacy and issuer terms would need to be presented before further processing.</p></details>
     </section>
-  </PublicShell>;
+  </PublicShell>}</TranslatedContent>;
 }

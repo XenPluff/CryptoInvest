@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import { useState } from "react";
 import { FileText, Mail, Plus, X } from "lucide-react";
 import {
@@ -24,8 +26,9 @@ function Dialog({
   children: React.ReactNode;
   onClose: () => void;
 }) {
+  useDisplayLocale();
   useModalFocus(onClose);
-  return (
+  return <TranslatedContent>{(
     <div className="ws-modal-backdrop" onClick={onClose}>
       <section
         className="ws-modal ws-modal-wide"
@@ -46,13 +49,14 @@ function Dialog({
         {children}
       </section>
     </div>
-  );
+  )}</TranslatedContent>;
 }
 export function ContentOperations() {
+  useDisplayLocale();
   const r = useRemote("/admin/content");
   const [editor, setEditor] = useState<RecordData | null>(null);
   const [review, setReview] = useState<RecordData | null>(null);
-  return (
+  return <TranslatedContent>{(
     <>
       <Notice>
         Articles, announcements, and FAQ answers appear publicly after an
@@ -253,15 +257,16 @@ export function ContentOperations() {
         </Dialog>
       )}
     </>
-  );
+  )}</TranslatedContent>;
 }
 export function CampaignOperations() {
+  useDisplayLocale();
   const r = useRemote("/admin/campaigns");
   const [editor, setEditor] = useState<RecordData | null>(null);
   const [review, setReview] = useState<RecordData | null>(null);
   const [archive, setArchive] = useState<RecordData | null>(null);
   const counts = r.data?.subscriberCounts;
-  return (
+  return <TranslatedContent>{(
     <>
       <Notice>
         Only subscribers who confirmed their email consent receive campaigns.
@@ -508,5 +513,5 @@ export function CampaignOperations() {
         </Dialog>
       )}
     </>
-  );
+  )}</TranslatedContent>;
 }

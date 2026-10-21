@@ -1,16 +1,14 @@
-import type { Metadata } from "next";
+"use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import Link from "next/link";
 import { ShieldCheck, MessageSquareText } from "lucide-react";
 import { PublicShell, PageIntro } from "@/components/public/PublicShell";
 import { ContactForm } from "@/components/public/ContactForm";
 import { SUPPORT_EMAIL, SUPPORT_EMAIL_URL } from "@/lib/contact";
-export const metadata: Metadata = {
-  title: "Support",
-  description:
-    "Get help with your Aureon account, identity verification, transactions and privacy requests.",
-};
 export default function SupportPage() {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <PublicShell>
       <PageIntro
         eyebrow="Support"
@@ -126,5 +124,5 @@ export default function SupportPage() {
         </div>
       </section>
     </PublicShell>
-  );
+  )}</TranslatedContent>;
 }

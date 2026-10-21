@@ -4,13 +4,13 @@ import { useCallback } from "react";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
-export const supportedLocales = ["en", "fr"] as const;
+export const supportedLocales = ["en", "fr", "de", "es", "it", "ru", "uk", "ar"] as const;
 export type Locale = (typeof supportedLocales)[number];
 export function isLocale(value: unknown): value is Locale {
-  return value === "en" || value === "fr";
+  return typeof value === "string" && supportedLocales.includes(value as Locale);
 }
 
-const french = {
+export const french = {
   Journal: "Journal",
   "I agree to receive occasional insights by email and accept the":
     "J’accepte de recevoir occasionnellement des analyses par e-mail et j’accepte la",
@@ -299,23 +299,81 @@ const french = {
 } as const;
 export type TranslationKey = keyof typeof french;
 
-/** Unknown copy, including untranslated server messages, stays in canonical English. */
+export const localeNames: Record<Locale, string> = {
+  en: "English", fr: "Français", de: "Deutsch", es: "Español",
+  it: "Italiano", ru: "Русский", uk: "Українська", ar: "العربية",
+};
+export const localeFormats: Record<Locale, string> = {
+  en: "en-US", fr: "fr-FR", de: "de-DE", es: "es-ES",
+  it: "it-IT", ru: "ru-RU", uk: "uk-UA", ar: "ar",
+};
+type Messages = Record<string, string>;
+const catalogs = new Map<Locale, Messages>();
+const loaders = {
+  fr: () => import("./locales/fr.json"), de: () => import("./locales/de.json"),
+  es: () => import("./locales/es.json"), it: () => import("./locales/it.json"),
+  ru: () => import("./locales/ru.json"), uk: () => import("./locales/uk.json"),
+  ar: () => import("./locales/ar.json"),
+};
+const patterns = new WeakMap<Messages, { expression: RegExp; target: string }[]>();
+
+/** Only registered interface copy is translated; unknown/operator-authored content is preserved. */
 export function translate(locale: Locale, text: string): string {
-  return locale === "fr" && Object.hasOwn(french, text)
-    ? french[text as TranslationKey]
-    : text;
+  if (locale === "en" || !text.trim()) return text;
+  const key = text.replace(/\s+/g, " ").trim();
+  const messages = catalogs.get(locale);
+  let translated = locale === "fr" && Object.hasOwn(french, key)
+    ? french[key as TranslationKey] : messages && Object.hasOwn(messages, key) ? messages[key] : undefined;
+  if (!translated && messages && /^[A-Z _]+$/.test(key)) {
+    const status = key.replaceAll("_", " ").toLowerCase();
+    if (Object.hasOwn(messages, status)) translated = messages[status];
+  }
+  if (!translated && messages) {
+    let templates = patterns.get(messages);
+    if (!templates) {
+      templates = Object.entries(messages).filter(([source]) => /\{\d+\}/.test(source) && source.replace(/\{\d+\}/g, "").replace(/[^a-z]/gi, "").length >= 6)
+        .map(([source, target]) => ({ expression: new RegExp("^" + source.split(/(\{\d+\})/g).map(part => /^\{\d+\}$/.test(part) ? "(.*?)" : part.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("") + "$"), target }));
+      patterns.set(messages, templates);
+    }
+    for (const { expression, target } of templates) {
+      const match = key.match(expression);
+      if (match) { translated = target.replace(/\{(\d+)\}/g, (_, index) => match[Number(index) + 1]); break; }
+    }
+  }
+  return translated ? (text.match(/^\s+/)?.[0] || "") + translated + (text.match(/\s+$/)?.[0] || "") : text;
 }
+
+export async function loadLocale(locale: Locale) {
+  if (locale === "en") return {};
+  if (!catalogs.has(locale)) catalogs.set(locale, (await loaders[locale]()).default);
+  return catalogs.get(locale)!;
+}
+export function displayLocale() { return localeFormats[useLocale.getState().locale]; }
+export function useDisplayLocale() { return useLocale(state => state.locale); }
+let localeRequest = 0;
 
 type LocalePreferences = {
   locale: Locale;
-  setLocale: (locale: Locale) => void;
+  setLocale: (locale: Locale) => Promise<void>;
+  messages: Messages;
+  loading: boolean;
+  error: boolean;
 };
 export const useLocale = create<LocalePreferences>()(
   persist(
     (set) => ({
       locale: "en",
-      setLocale: (locale) => {
-        if (isLocale(locale)) set({ locale });
+      messages: {}, loading: false, error: false,
+      setLocale: async (locale) => {
+        if (!isLocale(locale)) return;
+        const request = ++localeRequest;
+        set({ loading: true, error: false });
+        try {
+          const messages = await loadLocale(locale);
+          if (request === localeRequest) set({ locale, messages, loading: false });
+        } catch {
+          if (request === localeRequest) set({ loading: false, error: true });
+        }
       },
     }),
     {
@@ -334,6 +392,7 @@ export const useLocale = create<LocalePreferences>()(
 
 export function useTranslation() {
   const locale = useLocale((state) => state.locale);
-  const t = useCallback((text: string) => translate(locale, text), [locale]);
+  const messages = useLocale((state) => state.messages);
+  const t = useCallback((text: string) => translate(locale, text), [locale, messages]);
   return { locale, t };
 }

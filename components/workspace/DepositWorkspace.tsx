@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent, { Verbatim } from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 
 import Link from "next/link";
 import { useEffect, useState, type CSSProperties, type FormEvent } from "react";
@@ -24,15 +26,17 @@ function coin(asset: string) { return coins[asset] ?? { name: asset, color: "#c9
 function network(value: string) { return networks[value] ?? { name: value, tag: value }; }
 
 function CoinIcon({ asset }: { asset: string }) {
-  return <span className="dp-coin" style={{ "--coin-color": coin(asset).color } as CSSProperties} aria-hidden="true">
+  useDisplayLocale();
+  return <TranslatedContent>{<span className="dp-coin" style={{ "--coin-color": coin(asset).color } as CSSProperties} aria-hidden="true">
     {asset === "ETH" ? <svg viewBox="0 0 24 24"><path d="M12 2 5.5 12 12 15.7 18.5 12 12 2Zm0 15.2L5.5 13.5 12 22l6.5-8.5-6.5 3.7Z" fill="currentColor" /></svg>
       : asset === "BNB" ? <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 5.2 5.2-2 2L12 6l-3.2 3.2-2-2L12 2ZM4.8 9.2 7.6 12l-2.8 2.8L2 12l2.8-2.8ZM12 9.2l2.8 2.8-2.8 2.8L9.2 12 12 9.2Zm7.2 0L22 12l-2.8 2.8-2.8-2.8 2.8-2.8ZM8.8 14.8 12 18l3.2-3.2 2 2L12 22l-5.2-5.2 2-2Z" /></svg>
       : asset === "SOL" ? <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 4h16l-3 4H2l3-4Zm-3 6h16l3 4H5l-3-4Zm3 6h16l-3 4H2l3-4Z" /></svg>
       : <span>{asset === "BTC" ? "₿" : asset === "USDT" ? "₮" : asset.slice(0, 1)}</span>}
-  </span>;
+  </span>}</TranslatedContent>;
 }
 
 export function DepositWorkspace({ user }: { user: RecordData }) {
+  useDisplayLocale();
   const catalog = useRemote<{ wallets: ReceivingWallet[]; fundingEnabled: boolean }>("/wallets");
   const activity = useRemote<{ transactions: Deposit[] }>("/transactions");
   const [selectedId, setSelectedId] = useState("");
@@ -83,9 +87,9 @@ export function DepositWorkspace({ user }: { user: RecordData }) {
     } finally { setBusy(false); }
   }
 
-  if (!catalog.data || catalog.error) return <LoadState {...catalog} />;
+  if (!catalog.data || catalog.error) return <TranslatedContent>{<LoadState {...catalog} />}</TranslatedContent>;
 
-  return <div className="dp-workspace">
+  return <TranslatedContent>{<div className="dp-workspace">
     <div className="dp-journey">
       <div className="dp-journey-label"><ArrowDownLeft size={18} /><span>A CLEAR PATH TO YOUR ACCOUNT</span></div>
       <ol><li><span>01</span> Choose your currency</li><li><span>02</span> Make your transfer</li><li><span>03</span> Submit for review</li></ol>
@@ -116,7 +120,7 @@ export function DepositWorkspace({ user }: { user: RecordData }) {
             <div className="dp-receive-layout"><div className="dp-address-content">
               <div className="dp-receive-asset"><CoinIcon asset={selected.asset} /><div><strong>{coin(selected.asset).name}</strong><span>{selectedNetwork?.name} network</span></div></div>
               <span id="dp-address-label" className="dp-small-label">DEPOSIT ADDRESS</span>
-              <code aria-labelledby="dp-address-label" data-testid="deposit-address" className="dp-address" tabIndex={0}>{selected.address}</code>
+              <code aria-labelledby="dp-address-label" data-testid="deposit-address" className="dp-address" tabIndex={0}><Verbatim>{selected.address}</Verbatim></code>
               <button type="button" className="dp-copy-button" aria-label="Copy deposit address" onClick={async () => {
                 try { await navigator.clipboard.writeText(selected.address); setCopyStatus("Address copied"); }
                 catch { setCopyStatus("Copy unavailable. Select the address above to copy it manually."); }
@@ -151,5 +155,5 @@ export function DepositWorkspace({ user }: { user: RecordData }) {
         <div className="dp-review-note"><span><FileCheck2 size={19} /></span><div><strong>Every transfer, accounted for.</strong><p>Your transaction is checked on its network before an administrator approves the deposit. A submitted hash does not credit your balance.</p><Link href="/videos#deposit-guide">Watch the deposit guide <ArrowUpRight size={13} /></Link><br /><Link href="/support">Need a hand? <ArrowUpRight size={13} /></Link></div></div>
       </aside>
     </div>}
-  </div>;
+  </div>}</TranslatedContent>;
 }

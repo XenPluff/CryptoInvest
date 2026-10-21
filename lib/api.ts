@@ -1,4 +1,5 @@
 "use client";
+import { displayLocale } from "./i18n";
 export class ApiError extends Error {
   constructor(
     message: string,
@@ -30,7 +31,7 @@ export async function api<T = any>(
   return data;
 }
 export const money = (amount: number, currency = "USD") =>
-  new Intl.NumberFormat("en-US", {
+  new Intl.NumberFormat(displayLocale(), {
     style: "currency",
     currency,
     maximumFractionDigits: 2,

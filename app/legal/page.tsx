@@ -1,4 +1,6 @@
-import type { Metadata } from "next";
+"use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import Link from "next/link";
 import {
   FileText,
@@ -8,11 +10,6 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { PublicShell, PageIntro } from "@/components/public/PublicShell";
-export const metadata: Metadata = {
-  title: "Legal & disclosures",
-  description:
-    "Review Aureon terms, privacy notice, investment risk and identity verification policies.",
-};
 const documents = [
   {
     href: "/legal/terms",
@@ -44,7 +41,8 @@ const documents = [
   },
 ];
 export default function LegalPage() {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <PublicShell>
       <PageIntro
         eyebrow="Legal & disclosures"
@@ -74,5 +72,5 @@ export default function LegalPage() {
         </p>
       </section>
     </PublicShell>
-  );
+  )}</TranslatedContent>;
 }

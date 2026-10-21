@@ -1,5 +1,8 @@
 "use client";
+import TranslatedContent, { Verbatim } from "@/components/TranslatedContent";
+import { useDisplayLocale, displayLocale } from "@/lib/i18n";
 import Link from "next/link";
+import LanguageSelector from "@/components/LanguageSelector";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
@@ -121,6 +124,7 @@ const titles: Record<string, [string, string]> = {
   cards: ["The AUREON card concept.", "Explore designs, apply for preliminary review and follow your application."],
 };
 export default function Workspace({ admin = false }: { admin?: boolean }) {
+  useDisplayLocale();
   const path = usePathname();
   const router = useRouter();
   const base = admin ? "/admin" : "/dashboard";
@@ -140,26 +144,29 @@ export default function Workspace({ admin = false }: { admin?: boolean }) {
     setMobile(false);
   }, [path]);
   if (auth.loading)
-    return (
+    return <TranslatedContent>{(
       <div className="ws-auth-loading">
+        <LanguageSelector />
         <span className="ws-brand">
           AUREON<span>®</span>
         </span>
         <LoadState loading error="" reload={auth.reload} />
       </div>
-    );
+    )}</TranslatedContent>;
   if (auth.error)
-    return (
+    return <TranslatedContent>{(
       <div className="ws-auth-loading">
+        <LanguageSelector />
         <LoadState loading={false} error={auth.error} reload={auth.reload} />
         <Link className="ws-button" href="/login">
           Sign in
         </Link>
       </div>
-    );
+    )}</TranslatedContent>;
   if (admin && user?.role === "ADMIN" && !user.twoFactorEnabled)
-    return (
+    return <TranslatedContent>{(
       <div className="ws-auth-loading">
+        <LanguageSelector />
         <Shield size={35} />
         <h1>Secure your operator account.</h1>
         <p>
@@ -170,10 +177,11 @@ export default function Workspace({ admin = false }: { admin?: boolean }) {
           Set up account security
         </Link>
       </div>
-    );
+    )}</TranslatedContent>;
   if (admin && user?.role !== "ADMIN")
-    return (
+    return <TranslatedContent>{(
       <div className="ws-auth-loading">
+        <LanguageSelector />
         <Shield size={35} />
         <h1>Administrator access required</h1>
         <p>Your account does not have permission to view this workspace.</p>
@@ -181,9 +189,9 @@ export default function Workspace({ admin = false }: { admin?: boolean }) {
           Return to your dashboard
         </Link>
       </div>
-    );
-  return (
-    <div className="ws-shell" lang="en">
+    )}</TranslatedContent>;
+  return <TranslatedContent>{(
+    <div className="ws-shell" >
       <button
         className={`ws-sidebar-scrim ${mobile ? "is-open" : ""}`}
         onClick={() => setMobile(false)}
@@ -226,9 +234,9 @@ export default function Workspace({ admin = false }: { admin?: boolean }) {
             </Link>
           )}
           <div className="ws-user">
-            <div className="ws-avatar">{user?.name?.slice(0, 1) || "A"}</div>
+            <div className="ws-avatar"><Verbatim>{user?.name?.slice(0, 1) || "A"}</Verbatim></div>
             <div>
-              <strong>{user?.name}</strong>
+              <strong><Verbatim>{user?.name}</Verbatim></strong>
               <span>{admin ? "Administrator" : "Personal account"}</span>
             </div>
             <button
@@ -259,6 +267,7 @@ export default function Workspace({ admin = false }: { admin?: boolean }) {
             <strong>{current?.name || "Page"}</strong>
           </div>
           <div className="ws-topbar-actions">
+            <LanguageSelector />
             <span className="ws-topbar-security">
               <Shield size={13} /> Secure session
             </span>
@@ -277,7 +286,7 @@ export default function Workspace({ admin = false }: { admin?: boolean }) {
               className="ws-avatar ws-avatar-small"
               href={`${base}/${admin ? "settings" : "account"}`}
             >
-              {user?.name?.slice(0, 1) || "A"}
+              <Verbatim>{user?.name?.slice(0, 1) || "A"}</Verbatim>
             </Link>
           </div>
           {notices && (
@@ -329,9 +338,7 @@ export default function Workspace({ admin = false }: { admin?: boolean }) {
           <div className="ws-page-heading">
             <div>
               <span className="ws-eyebrow">
-                {admin
-                  ? "PLATFORM OPERATIONS"
-                  : `WELCOME ${user?.name?.split(" ")[0]?.toUpperCase() || "BACK"}`}
+                {admin ? "PLATFORM OPERATIONS" : <>WELCOME <Verbatim>{user?.name?.split(" ")[0]?.toUpperCase() || ""}</Verbatim></>}
               </span>
               <h1>
                 {admin
@@ -375,7 +382,7 @@ export default function Workspace({ admin = false }: { admin?: boolean }) {
         </motion.main>
       </div>
     </div>
-  );
+  )}</TranslatedContent>;
 }
 
 function InvestorContent({
@@ -387,27 +394,29 @@ function InvestorContent({
   user: RecordData;
   refreshUser: () => void;
 }) {
-  if (section === "") return <Overview user={user} />;
-  if (section === "plans") return <Plans />;
-  if (section === "investments") return <Investments />;
-  if (section === "wallets") return <DepositWorkspace user={user} />;
-  if (section === "withdrawals") return <Withdrawals />;
-  if (section === "cards") return <InvestorCards user={user} />;
-  if (section === "transactions") return <Transactions />;
-  if (section === "referrals") return <Referrals />;
+  useDisplayLocale();
+  if (section === "") return <TranslatedContent>{<Overview user={user} />}</TranslatedContent>;
+  if (section === "plans") return <TranslatedContent>{<Plans />}</TranslatedContent>;
+  if (section === "investments") return <TranslatedContent>{<Investments />}</TranslatedContent>;
+  if (section === "wallets") return <TranslatedContent>{<DepositWorkspace user={user} />}</TranslatedContent>;
+  if (section === "withdrawals") return <TranslatedContent>{<Withdrawals />}</TranslatedContent>;
+  if (section === "cards") return <TranslatedContent>{<InvestorCards user={user} />}</TranslatedContent>;
+  if (section === "transactions") return <TranslatedContent>{<Transactions />}</TranslatedContent>;
+  if (section === "referrals") return <TranslatedContent>{<Referrals />}</TranslatedContent>;
   if (section === "account")
-    return <Account user={user} refreshUser={refreshUser} />;
-  return (
+    return <TranslatedContent>{<Account user={user} refreshUser={refreshUser} />}</TranslatedContent>;
+  return <TranslatedContent>{(
     <Empty title="This page could not be found">
       <Link href="/dashboard">Return to your overview</Link>
     </Empty>
-  );
+  )}</TranslatedContent>;
 }
 
 function Overview({ user }: { user: RecordData }) {
+  useDisplayLocale();
   const r = useRemote("/dashboard");
   const markets = useRemote("/markets");
-  if (r.loading || r.error) return <LoadState {...r} />;
+  if (r.loading || r.error) return <TranslatedContent>{<LoadState {...r} />}</TranslatedContent>;
   const d = r.data!;
   const stats = [
     ["Available balance", d.balance, Wallet, "Ready for your next move"],
@@ -415,7 +424,7 @@ function Overview({ user }: { user: RecordData }) {
     ["Realized earnings", d.totalEarned, Activity, "Accrued to your account"],
     ["Referral earnings", d.referralEarnings, Gift, "From your connections"],
   ];
-  return (
+  return <TranslatedContent>{(
     <>
       {!user.emailVerified || user.kycStatus !== "APPROVED" ? (
         <div className="ws-verification-banner">
@@ -555,16 +564,17 @@ function Overview({ user }: { user: RecordData }) {
         </Panel>
       </div>
     </>
-  );
+  )}</TranslatedContent>;
 }
 
 function Plans() {
+  useDisplayLocale();
   const r = useRemote("/plans");
   const health = useRemote("/health");
   const [selected, setSelected] = useState<RecordData | null>(null);
   const [done, setDone] = useState(false);
   useModalFocus(selected ? () => setSelected(null) : undefined);
-  return (
+  return <TranslatedContent>{(
     <>
       <LoadState {...r} />
       {health.data && !health.data.fundingEnabled && (
@@ -583,12 +593,11 @@ function Plans() {
               <span className="ws-plan-number">0{i + 1}</span>
               <Sparkles size={24} strokeWidth={1} />
             </div>
-            <h2>{p.name}</h2>
+            <h2><Verbatim>{p.name}</Verbatim></h2>
             <p>{p.description}</p>
             <div className="ws-plan-rate">
               <strong>
-                {(Number(p.dailyRate || p.monthlyRate) * 100).toLocaleString(
-                  "en-US",
+                {(Number(p.dailyRate || p.monthlyRate) * 100).toLocaleString(displayLocale(),
                   { maximumFractionDigits: 2 },
                 )}
                 %
@@ -613,7 +622,7 @@ function Plans() {
                 setDone(false);
               }}
             >
-              Choose {p.name} <ArrowUpRight size={16} />
+              Choose <Verbatim>{p.name}</Verbatim> <ArrowUpRight size={16} />
             </button>
           </Panel>
         ))}
@@ -640,7 +649,7 @@ function Plans() {
               <X size={20} />
             </button>
             <span className="ws-eyebrow">YOUR NEXT CHAPTER</span>
-            <h2 id="invest-title">Invest with {selected.name}.</h2>
+            <h2 id="invest-title">Invest with <Verbatim>{selected.name}</Verbatim>.</h2>
             <p>
               Investments use your available account balance. Identity approval,
               verified email, and two-factor authentication are required.
@@ -687,11 +696,12 @@ function Plans() {
         </div>
       )}
     </>
-  );
+  )}</TranslatedContent>;
 }
 function Investments() {
+  useDisplayLocale();
   const r = useRemote("/investments");
-  return (
+  return <TranslatedContent>{(
     <>
       <LoadState {...r} />
       {r.data?.investments?.length ? (
@@ -739,12 +749,13 @@ function Investments() {
         )
       )}
     </>
-  );
+  )}</TranslatedContent>;
 }
 function Withdrawals() {
+  useDisplayLocale();
   const r = useRemote("/dashboard");
   const health = useRemote("/wallets");
-  return (
+  return <TranslatedContent>{(
     <div className="ws-two-column">
       <Panel title="Request a withdrawal" eyebrow="MOVE WITH CONFIDENCE">
         {health.data && !health.data.fundingEnabled && (
@@ -847,12 +858,13 @@ function Withdrawals() {
         </Panel>
       </div>
     </div>
-  );
+  )}</TranslatedContent>;
 }
 function Transactions() {
+  useDisplayLocale();
   const r = useRemote("/transactions");
   const [filter, setFilter] = useState("all");
-  return (
+  return <TranslatedContent>{(
     <Panel
       title="Account activity"
       action={
@@ -898,13 +910,14 @@ function Transactions() {
         />
       )}
     </Panel>
-  );
+  )}</TranslatedContent>;
 }
 function Referrals() {
+  useDisplayLocale();
   const r = useRemote("/referrals");
   const [origin, setOrigin] = useState("");
   useEffect(() => setOrigin(window.location.origin), []);
-  return (
+  return <TranslatedContent>{(
     <>
       <LoadState {...r} />
       <div className="ws-two-column">
@@ -979,7 +992,7 @@ function Referrals() {
         )}
       </Panel>
     </>
-  );
+  )}</TranslatedContent>;
 }
 function Account({
   user,
@@ -988,11 +1001,12 @@ function Account({
   user: RecordData;
   refreshUser: () => void;
 }) {
+  useDisplayLocale();
   const kyc = useRemote("/kyc");
   const [twoFactor, setTwoFactor] = useState<RecordData | null>(null);
   const [setupError, setSetupError] = useState("");
   const [setupBusy, setSetupBusy] = useState(false);
-  return (
+  return <TranslatedContent>{(
     <div className="ws-two-column ws-account-grid">
       <div>
         <Panel title="Personal details" eyebrow="YOUR PROFILE">
@@ -1209,5 +1223,5 @@ function Account({
         </Panel>
       </div>
     </div>
-  );
+  )}</TranslatedContent>;
 }

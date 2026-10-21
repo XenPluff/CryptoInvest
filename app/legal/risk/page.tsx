@@ -1,8 +1,10 @@
-import type { Metadata } from "next";
+"use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import { LegalDocument } from "@/components/public/LegalDocument";
-export const metadata: Metadata = { title: "Risk disclosure" };
 export default function RiskPage() {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <LegalDocument
       type="risk"
       title="Risk disclosure."
@@ -85,5 +87,5 @@ export default function RiskPage() {
         exhaustive and does not waive any rights available under applicable law.
       </p>
     </LegalDocument>
-  );
+  )}</TranslatedContent>;
 }

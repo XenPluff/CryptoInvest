@@ -1,12 +1,15 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import Link from "next/link";
 import { useTranslation } from "@/lib/i18n";
 import { ArrowUpRight } from "lucide-react";
 import { AureonMark } from "./SiteHeader";
 import { SUPPORT_EMAIL, SUPPORT_EMAIL_URL } from "@/lib/contact";
 export default function SiteFooter() {
-  const { t, locale } = useTranslation();
-  return (
+  useDisplayLocale();
+  const { t } = useTranslation();
+  return <TranslatedContent>{(
     <footer className="site-footer">
       <div className="container">
         <div className="footer-top">
@@ -60,11 +63,6 @@ export default function SiteFooter() {
             )}
           </p>
         </div>
-        {locale === "fr" && (
-          <p className="legal-language-note">
-            Les documents juridiques sont disponibles en anglais.
-          </p>
-        )}
         <div className="footer-bottom">
           <span>
             © {new Date().getFullYear()} {t("Aureon. All rights reserved.")}
@@ -80,5 +78,5 @@ export default function SiteFooter() {
         </div>
       </div>
     </footer>
-  );
+  )}</TranslatedContent>;
 }

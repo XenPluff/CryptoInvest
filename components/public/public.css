@@ -46,7 +46,7 @@
   height: 1px;
   background: var(--gold);
   vertical-align: middle;
-  margin-right: 11px;
+  margin-inline-end: 11px;
 }
 .public-intro-note {
   padding-bottom: 8px;
@@ -244,7 +244,7 @@
   letter-spacing: 0;
   color: var(--muted);
   font-family: var(--sans, Arial, sans-serif);
-  margin-left: 6px;
+  margin-inline-start: 6px;
 }
 .public-plan-rate-label {
   font-size: 10px;
@@ -327,7 +327,7 @@
 .public-comparison th,
 .public-comparison td {
   padding: 19px 15px;
-  text-align: left;
+  text-align: start;
   border-bottom: 1px solid var(--border);
   white-space: nowrap;
 }
@@ -425,20 +425,20 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding: 18px 20px;
-  text-align: right;
+  text-align: end;
   border-bottom: 1px solid var(--border);
 }
 .public-market-table th:first-child {
-  text-align: left;
+  text-align: start;
 }
 .public-market-table td {
   padding: 25px 20px;
   border-bottom: 1px solid var(--border);
   font-size: 15px;
-  text-align: right;
+  text-align: end;
 }
 .public-market-table td:first-child {
-  text-align: left;
+  text-align: start;
 }
 .public-asset {
   display: flex;
@@ -787,11 +787,11 @@
   padding: 15px 17px;
   color: var(--muted);
   text-decoration: none;
-  border-left: 1px solid var(--border);
+  border-inline-start: 1px solid var(--border);
 }
 .public-legal-nav a.active {
   color: var(--gold);
-  border-left-color: var(--gold);
+  border-inline-start-color: var(--gold);
   background: var(--surface);
 }
 .public-legal-content {
@@ -812,7 +812,7 @@
   margin: 10px 0;
 }
 .public-legal-content ul {
-  padding-left: 19px;
+  padding-inline-start: 19px;
 }
 .public-legal-content a {
   color: var(--gold);
@@ -1077,3 +1077,6 @@
     transform: none;
   }
 }
+
+/* Long translated legal headings must fit the available grid column. */
+.public-legal-content { min-width: 0; overflow-wrap: anywhere; }

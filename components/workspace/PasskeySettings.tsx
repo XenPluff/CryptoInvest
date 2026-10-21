@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 
 import { useEffect, useState, type FormEvent } from "react";
 import {
@@ -23,6 +25,7 @@ export function PasskeySettings({
 }: {
   twoFactorEnabled: boolean;
 }) {
+  useDisplayLocale();
   const list = useRemote<{ credentials: Credential[] }>("/auth/passkeys");
   const [supported, setSupported] = useState(false);
   const [busy, setBusy] = useState("");
@@ -102,7 +105,7 @@ export function PasskeySettings({
     }
   }
 
-  return (
+  return <TranslatedContent>{(
     <Panel title="Passkeys & biometrics" eyebrow="YOUR DEVICE. YOUR KEY.">
       <div className="ws-security-visual">
         <Fingerprint size={45} strokeWidth={1} />
@@ -221,5 +224,5 @@ export function PasskeySettings({
         </button>
       </form>
     </Panel>
-  );
+  )}</TranslatedContent>;
 }

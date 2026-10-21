@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale, displayLocale } from "@/lib/i18n";
 import { useEffect, useState } from "react";
 import { RefreshCw, ArrowDownRight, ArrowUpRight, Info } from "lucide-react";
 import { api, money } from "@/lib/api";
@@ -15,6 +17,7 @@ interface MarketResponse {
   stale: boolean;
 }
 export function MarketExplorer() {
+  useDisplayLocale();
   const [data, setData] = useState<MarketResponse | null>(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
@@ -42,13 +45,13 @@ export function MarketExplorer() {
     return () => clearInterval(timer);
   }, []);
   if (loading)
-    return (
+    return <TranslatedContent>{(
       <div aria-label="Loading market prices" aria-busy="true">
         <div className="public-skeleton" style={{ height: 340 }} />
       </div>
-    );
+    )}</TranslatedContent>;
   if (error && !data)
-    return (
+    return <TranslatedContent>{(
       <div className="public-error" role="status">
         <div>
           <h3>Market data is taking a pause.</h3>
@@ -62,9 +65,9 @@ export function MarketExplorer() {
           Refresh prices <RefreshCw size={14} />
         </button>
       </div>
-    );
+    )}</TranslatedContent>;
   if (!data) return null;
-  return (
+  return <TranslatedContent>{(
     <>
       <div className="public-market-bar">
         <span className="public-market-live">
@@ -81,7 +84,7 @@ export function MarketExplorer() {
         </span>
         <span>
           Updated{" "}
-          {new Date(data.updatedAt).toLocaleString(undefined, {
+          {new Date(data.updatedAt).toLocaleString(displayLocale(), {
             dateStyle: "medium",
             timeStyle: "short",
           })}
@@ -178,5 +181,5 @@ export function MarketExplorer() {
         differ from execution prices. No orders are placed through this view.
       </p>
     </>
-  );
+  )}</TranslatedContent>;
 }

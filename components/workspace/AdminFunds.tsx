@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent, { Verbatim } from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import { useEffect, useState } from "react";
 import { money } from "@/lib/api";
 import {
@@ -15,21 +17,23 @@ import {
 } from "./shared";
 
 function AccountOptions({ users }: { users: RecordData[] }) {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <>
       <option value="">Select an investor</option>
       {users
         .filter((user) => user.role === "USER")
         .map((user) => (
           <option value={user.id} key={user.id}>
-            {user.name} ({user.email}) · {money(user.balance)}
+            <Verbatim>{user.name}</Verbatim> (<Verbatim>{user.email}</Verbatim>) · {money(user.balance)}
           </option>
         ))}
     </>
-  );
+  )}</TranslatedContent>;
 }
 function FinancialProof() {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <>
       <Field
         label="Reason and review note"
@@ -50,11 +54,12 @@ function FinancialProof() {
         and supporting records.
       </label>
     </>
-  );
+  )}</TranslatedContent>;
 }
 function Ledger({ userId }: { userId: string }) {
+  useDisplayLocale();
   const ledger = useRemote(`/admin/users/${userId}/ledger`);
-  return (
+  return <TranslatedContent>{(
     <Panel title="Account ledger" eyebrow="RECORDED BALANCE">
       <LoadState {...ledger} />
       {ledger.data && (
@@ -94,16 +99,17 @@ function Ledger({ userId }: { userId: string }) {
         </Empty>
       ) : null}
     </Panel>
-  );
+  )}</TranslatedContent>;
 }
 export function BalanceManagement() {
+  useDisplayLocale();
   const users = useRemote("/admin/users");
   const [selected, setSelected] = useState("");
   const [nonce, setNonce] = useState("");
   const [done, setDone] = useState(false);
   const [revision, setRevision] = useState(0);
   useEffect(() => setNonce(crypto.randomUUID()), []);
-  return (
+  return <TranslatedContent>{(
     <>
       <Panel title="Investor balances" eyebrow="AVAILABLE USD">
         <LoadState {...users} />
@@ -123,8 +129,8 @@ export function BalanceManagement() {
                   .map((user: RecordData) => (
                     <tr key={user.id}>
                       <td>
-                        <strong>{user.name}</strong>
-                        <small>{user.email}</small>
+                        <strong><Verbatim>{user.name}</Verbatim></strong>
+                        <small><Verbatim>{user.email}</Verbatim></small>
                       </td>
                       <td>{money(user.balance)}</td>
                       <td>
@@ -222,16 +228,17 @@ export function BalanceManagement() {
         )}
       </div>
     </>
-  );
+  )}</TranslatedContent>;
 }
 export function TransferManagement() {
+  useDisplayLocale();
   const users = useRemote("/admin/users");
   const transfers = useRemote("/admin/transfers");
   const [nonce, setNonce] = useState("");
   const [done, setDone] = useState(false);
   const [review, setReview] = useState<RecordData | null>(null);
   useEffect(() => setNonce(crypto.randomUUID()), []);
-  return (
+  return <TranslatedContent>{(
     <>
       <Notice>
         These transfers move available USD balances between AUREON accounts.
@@ -382,16 +389,17 @@ export function TransferManagement() {
         </Panel>
       )}
     </>
-  );
+  )}</TranslatedContent>;
 }
 export function AdminTransactionLog() {
+  useDisplayLocale();
   const [type, setType] = useState("");
   const [status, setStatus] = useState("");
   const query = new URLSearchParams();
   if (type) query.set("type", type);
   if (status) query.set("status", status);
   const transactions = useRemote(`/admin/transactions?${query}`);
-  return (
+  return <TranslatedContent>{(
     <Panel title="All transactions" eyebrow="PLATFORM ACTIVITY">
       <div className="ws-form-row">
         <Field label="Transaction type" name="type">
@@ -459,8 +467,8 @@ export function AdminTransactionLog() {
                 return (
                   <tr key={transaction.id}>
                     <td>
-                      {transaction.user.name}
-                      <small>{transaction.user.email}</small>
+                      <Verbatim>{transaction.user.name}</Verbatim>
+                      <small><Verbatim>{transaction.user.email}</Verbatim></small>
                     </td>
                     <td>
                       {transaction.type}
@@ -503,5 +511,5 @@ export function AdminTransactionLog() {
         </Empty>
       ) : null}
     </Panel>
-  );
+  )}</TranslatedContent>;
 }

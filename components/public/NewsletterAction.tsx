@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import { useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -9,13 +11,14 @@ export function NewsletterAction({
 }: {
   action: "confirm" | "unsubscribe";
 }) {
+  useDisplayLocale();
   const params = useSearchParams();
   const token = params.get("token");
   const [busy, setBusy] = useState(false),
     [message, setMessage] = useState(""),
     [error, setError] = useState("");
   const valid = token && /^[A-Za-z0-9_-]{43}$/.test(token);
-  return (
+  return <TranslatedContent>{(
     <section
       className="container public-body-section public-divider"
       style={{ maxWidth: 760, minHeight: 300 }}
@@ -87,5 +90,5 @@ export function NewsletterAction({
         </form>
       )}
     </section>
-  );
+  )}</TranslatedContent>;
 }

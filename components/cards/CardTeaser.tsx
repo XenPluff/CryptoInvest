@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -7,8 +9,9 @@ import { useTranslation } from "@/lib/i18n";
 import styles from "./teaser.module.css";
 
 export default function CardTeaser() {
+  useDisplayLocale();
   const { t } = useTranslation();
-  return (
+  return <TranslatedContent>{(
     <section className={`container ${styles.teaser}`} aria-labelledby="card-teaser-title">
       <figure className={styles.artwork}>
         <Image
@@ -34,5 +37,5 @@ export default function CardTeaser() {
         </div>
       </div>
     </section>
-  );
+  )}</TranslatedContent>;
 }

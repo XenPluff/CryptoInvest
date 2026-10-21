@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent, { Verbatim } from "@/components/TranslatedContent";
+import { useDisplayLocale, displayLocale } from "@/lib/i18n";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, BookOpen, CircleAlert, Megaphone } from "lucide-react";
@@ -49,7 +51,8 @@ function PublicationError({
   error: string;
   retry: () => void;
 }) {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <div className="public-notice" role="alert">
       <CircleAlert size={18} />
       <p>
@@ -69,12 +72,13 @@ function PublicationError({
         </button>
       </p>
     </div>
-  );
+  )}</TranslatedContent>;
 }
 export function Journal() {
+  useDisplayLocale();
   const [kind, setKind] = useState("");
   const r = usePublications(`/content?limit=50${kind ? `&kind=${kind}` : ""}`);
-  return (
+  return <TranslatedContent>{(
     <section className="container public-body-section public-divider">
       <div
         style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 32 }}
@@ -141,7 +145,7 @@ export function Journal() {
                 }}
               >
                 <time dateTime={entry.publishedAt}>
-                  {new Date(entry.publishedAt).toLocaleDateString("en-US", {
+                  {new Date(entry.publishedAt).toLocaleDateString(displayLocale(), {
                     month: "short",
                     day: "numeric",
                     year: "numeric",
@@ -178,11 +182,12 @@ export function Journal() {
         </div>
       )}
     </section>
-  );
+  )}</TranslatedContent>;
 }
 export function JournalArticle({ slug }: { slug: string }) {
+  useDisplayLocale();
   const r = usePublications(`/content/${encodeURIComponent(slug)}`);
-  return (
+  return <TranslatedContent>{(
     <section
       className="container public-body-section public-divider"
       style={{ maxWidth: 860 }}
@@ -210,7 +215,7 @@ export function JournalArticle({ slug }: { slug: string }) {
           <p style={{ margin: "20px 0 36px", color: "var(--muted)" }}>
             Published{" "}
             <time dateTime={r.data.entry.publishedAt}>
-              {new Date(r.data.entry.publishedAt).toLocaleDateString("en-US", {
+              {new Date(r.data.entry.publishedAt).toLocaleDateString(displayLocale(), {
                 month: "long",
                 day: "numeric",
                 year: "numeric",
@@ -225,7 +230,7 @@ export function JournalArticle({ slug }: { slug: string }) {
               fontSize: 17,
             }}
           >
-            {r.data.entry.body}
+            <Verbatim>{r.data.entry.body}</Verbatim>
           </div>
           <Link
             className="button button-outline"
@@ -237,12 +242,13 @@ export function JournalArticle({ slug }: { slug: string }) {
         </article>
       )}
     </section>
-  );
+  )}</TranslatedContent>;
 }
 export function PublishedAnnouncements() {
+  useDisplayLocale();
   const r = usePublications("/content?kind=ANNOUNCEMENT&limit=3");
   if (!r.data?.entries?.length) return null;
-  return (
+  return <TranslatedContent>{(
     <aside
       className="container"
       aria-label="Platform announcements"
@@ -258,12 +264,13 @@ export function PublishedAnnouncements() {
         </div>
       ))}
     </aside>
-  );
+  )}</TranslatedContent>;
 }
 export function PublishedFaqs() {
+  useDisplayLocale();
   const r = usePublications("/content?kind=FAQ&limit=50");
   if (!r.data?.entries?.length) return null;
-  return (
+  return <TranslatedContent>{(
     <div aria-label="Published answers">
       {r.data.entries.map((entry) => (
         <details key={entry.id}>
@@ -275,5 +282,5 @@ export function PublishedFaqs() {
         </details>
       ))}
     </div>
-  );
+  )}</TranslatedContent>;
 }

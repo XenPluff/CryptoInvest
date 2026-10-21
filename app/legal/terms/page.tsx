@@ -1,9 +1,11 @@
-import type { Metadata } from "next";
+"use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import Link from "next/link";
 import { LegalDocument } from "@/components/public/LegalDocument";
-export const metadata: Metadata = { title: "Terms of service" };
 export default function TermsPage() {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <LegalDocument
       type="terms"
       title="Terms of service."
@@ -95,5 +97,5 @@ export default function TermsPage() {
         become final.
       </p>
     </LegalDocument>
-  );
+  )}</TranslatedContent>;
 }

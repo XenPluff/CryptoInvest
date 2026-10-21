@@ -1,19 +1,14 @@
 "use client";
 
-import { useEffect } from "react";
 import { Languages } from "lucide-react";
-import { isLocale, useLocale, useTranslation } from "@/lib/i18n";
+import { isLocale, localeNames, supportedLocales, useLocale, useTranslation } from "@/lib/i18n";
 import "./language.css";
 
 export default function LanguageSelector() {
   const { locale, t } = useTranslation();
   const setLocale = useLocale((state) => state.setLocale);
-  useEffect(() => {
-    void useLocale.persist.rehydrate();
-  }, []);
-  useEffect(() => {
-    document.documentElement.lang = locale;
-  }, [locale]);
+  const loading = useLocale(state => state.loading);
+  const error = useLocale(state => state.error);
   return (
     <label className="language-selector">
       <Languages size={15} aria-hidden="true" />
@@ -21,17 +16,15 @@ export default function LanguageSelector() {
       <select
         aria-label={t("Language")}
         value={locale}
+        aria-busy={loading}
+        title={loading ? t("Loading language…") : t("Website language")}
         onChange={(event) => {
-          if (isLocale(event.target.value)) setLocale(event.target.value);
+          if (isLocale(event.target.value)) void setLocale(event.target.value);
         }}
       >
-        <option value="en" lang="en">
-          EN
-        </option>
-        <option value="fr" lang="fr">
-          FR
-        </option>
+        {supportedLocales.map(code => <option key={code} value={code} lang={code} dir={code === "ar" ? "rtl" : "ltr"}>{code.toUpperCase()} · {localeNames[code]}</option>)}
       </select>
+      {error && <span role="alert" className="language-error">{t("Language could not load. Please try again.")}</span>}
     </label>
   );
 }

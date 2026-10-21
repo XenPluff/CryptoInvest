@@ -1,8 +1,11 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import { useState, type FormEvent } from "react";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { api } from "@/lib/api";
 export function ContactForm() {
+  useDisplayLocale();
   const [pending, setPending] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -37,7 +40,7 @@ export function ContactForm() {
       setPending(false);
     }
   }
-  return (
+  return <TranslatedContent>{(
     <form onSubmit={submit} className="public-form">
       {error && (
         <div role="alert" className="public-form-message error">
@@ -129,5 +132,5 @@ export function ContactForm() {
         <ArrowUpRight size={15} />
       </button>
     </form>
-  );
+  )}</TranslatedContent>;
 }

@@ -1,17 +1,15 @@
-import type { Metadata } from "next";
+"use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import {
   PublicShell,
   PageIntro,
   PublicCTA,
 } from "@/components/public/PublicShell";
 import { MarketCurrency } from "@/components/public/MarketCurrency";
-export const metadata: Metadata = {
-  title: "Market insights",
-  description:
-    "Live cryptocurrency market prices and a clear introduction to market risk.",
-};
 export default function InsightsPage() {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <PublicShell>
       <PageIntro
         eyebrow="Market insights"
@@ -77,5 +75,5 @@ export default function InsightsPage() {
       </section>
       <PublicCTA title="Bring perspective to your next move." />
     </PublicShell>
-  );
+  )}</TranslatedContent>;
 }

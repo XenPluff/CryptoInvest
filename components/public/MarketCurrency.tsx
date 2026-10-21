@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale, displayLocale } from "@/lib/i18n";
 import { useEffect, useState } from "react";
 import { ArrowDownRight, ArrowUpRight, Info, RefreshCw } from "lucide-react";
 import { api } from "@/lib/api";
@@ -40,33 +42,14 @@ const copy = {
     description:
       "Indicative third-party prices in the selected currency, refreshed every minute. Account balances and investment amounts remain in USD. Prices may differ from execution prices.",
   },
-  fr: {
-    currency: "Devise du marché",
-    loading: "Chargement des cours",
-    unavailable: "Les cours sont momentanément indisponibles.",
-    pending: "Les prix s’afficheront dès que le fournisseur sera disponible.",
-    fallback: "Le fournisseur de cours est temporairement indisponible.",
-    refresh: "Actualiser les cours",
-    refreshing: "Actualisation",
-    previous: "Données précédemment reçues",
-    live: "Données du fournisseur",
-    updated: "Mis à jour",
-    failed:
-      "La dernière actualisation a échoué. Les derniers cours reçus peuvent être obsolètes.",
-    asset: "Actif",
-    price: "Cours",
-    change: "Variation sur 24 h",
-    unknown: "Indisponible",
-    description:
-      "Cours indicatifs fournis par un tiers dans la devise choisie, actualisés chaque minute. Les soldes des comptes et les investissements restent en USD. Les cours peuvent différer des prix d’exécution.",
-  },
 };
 
 export function MarketCurrencySelector() {
+  useDisplayLocale();
   const currency = usePreferences((state) => state.currency);
   const setCurrency = usePreferences((state) => state.setCurrency);
-  const { locale } = useTranslation();
-  return (
+  const { t: translateCopy } = useTranslation();
+  return <TranslatedContent>{(
     <label
       style={{
         display: "inline-flex",
@@ -75,9 +58,9 @@ export function MarketCurrencySelector() {
         fontSize: 11,
       }}
     >
-      <span>{copy[locale].currency}</span>
+      <span>{translateCopy(copy.en.currency)}</span>
       <select
-        aria-label={copy[locale].currency}
+        aria-label={translateCopy(copy.en.currency)}
         value={currency}
         onChange={(event) => setCurrency(event.target.value as Currency)}
         style={{
@@ -95,13 +78,14 @@ export function MarketCurrencySelector() {
         ))}
       </select>
     </label>
-  );
+  )}</TranslatedContent>;
 }
 
 export function MarketCurrency({ compact = false }: { compact?: boolean }) {
+  useDisplayLocale();
   const currency = usePreferences((state) => state.currency);
-  const { locale } = useTranslation();
-  const t = copy[locale];
+  const { locale, t: translateCopy } = useTranslation();
+  const t = Object.fromEntries(Object.entries(copy.en).map(([key, value]) => [key, translateCopy(value)])) as typeof copy.en;
   const [data, setData] = useState<MarketResponse | null>(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
@@ -129,7 +113,7 @@ export function MarketCurrency({ compact = false }: { compact?: boolean }) {
       } catch (cause) {
         if (active && !controller.signal.aborted)
           setError(
-            cause instanceof Error ? cause.message : copy[locale].fallback,
+            cause instanceof Error ? cause.message : translateCopy(copy.en.fallback),
           );
       } finally {
         if (active) {
@@ -148,7 +132,7 @@ export function MarketCurrency({ compact = false }: { compact?: boolean }) {
   }, [currency, request]); // Locale changes formatting without requesting a new quote.
   const current = data?.currency === currency ? data : null;
   const format = (price: number) =>
-    new Intl.NumberFormat(locale === "fr" ? "fr-FR" : "en-US", {
+    new Intl.NumberFormat(displayLocale(), {
       style: "currency",
       currency,
       maximumFractionDigits: 2,
@@ -162,7 +146,7 @@ export function MarketCurrency({ compact = false }: { compact?: boolean }) {
       {refreshing ? t.refreshing : t.refresh} <RefreshCw size={12} />
     </button>
   );
-  return (
+  return <TranslatedContent>{(
     <>
       <div className="public-market-bar" style={{ flexWrap: "wrap", gap: 15 }}>
         <MarketCurrencySelector />
@@ -201,7 +185,7 @@ export function MarketCurrency({ compact = false }: { compact?: boolean }) {
             <span>
               {t.updated}{" "}
               {new Date(current.updatedAt).toLocaleString(
-                locale === "fr" ? "fr-FR" : "en-US",
+                displayLocale(),
                 { dateStyle: "medium", timeStyle: "short" },
               )}
             </span>
@@ -338,5 +322,5 @@ export function MarketCurrency({ compact = false }: { compact?: boolean }) {
         </>
       )}
     </>
-  );
+  )}</TranslatedContent>;
 }

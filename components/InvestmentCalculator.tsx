@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import {
@@ -24,6 +26,7 @@ const referencePlans: CalculatorPlan[] = (
 ).map((slug) => ({ ...PLAN_DEFINITIONS[slug], slug }));
 
 export function InvestmentCalculator() {
+  useDisplayLocale();
   const [plans, setPlans] = useState(referencePlans);
   const [selected, setSelected] = useState<string>("starter");
   const selectedRef = useRef("starter");
@@ -124,7 +127,7 @@ export function InvestmentCalculator() {
     result.growth && result.growth.principalCents
       ? (result.growth.earningsCents / result.growth.principalCents) * 100
       : 0;
-  return (
+  return <TranslatedContent>{(
     <section
       className={styles.calculator}
       aria-label="Illustrative investment calculator"
@@ -348,6 +351,6 @@ export function InvestmentCalculator() {
         </span>
       </div>
     </section>
-  );
+  )}</TranslatedContent>;
 }
 export default InvestmentCalculator;

@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale, displayLocale } from "@/lib/i18n";
 import { useId } from "react";
 import { money } from "@/lib/api";
 import type {
@@ -22,6 +24,7 @@ export function ObservationChart({
   series: string[];
   currency?: boolean;
 }) {
+  useDisplayLocale();
   const id = useId();
   if (!points.length) return null;
   const width = 660,
@@ -52,15 +55,15 @@ export function ObservationChart({
   const y = (value: number) =>
     top + ((max - value) / span) * (height - top - bottom);
   const format = (value: number) =>
-    currency ? money(value / 100) : value.toLocaleString("en-US");
+    currency ? money(value / 100) : value.toLocaleString(displayLocale());
   const shortDate = (at: string) =>
-    new Date(at).toLocaleDateString("en-US", {
+    new Date(at).toLocaleDateString(displayLocale(), {
       month: "short",
       day: "numeric",
       year: "2-digit",
       timeZone: "UTC",
     });
-  return (
+  return <TranslatedContent>{(
     <figure style={{ margin: 0 }}>
       <svg
         viewBox={`0 0 ${width} ${height}`}
@@ -163,7 +166,7 @@ export function ObservationChart({
                 <tr key={point.at}>
                   <td>
                     <time dateTime={point.at}>
-                      {new Date(point.at).toLocaleString("en-US", {
+                      {new Date(point.at).toLocaleString(displayLocale(), {
                         dateStyle: "medium",
                         timeStyle: "medium",
                         timeZone: "UTC",
@@ -180,7 +183,7 @@ export function ObservationChart({
         </div>
       </details>
     </figure>
-  );
+  )}</TranslatedContent>;
 }
 
 export function AllocationBars({
@@ -190,7 +193,8 @@ export function AllocationBars({
   allocation: AllocationObservation[];
   totalCents: number;
 }) {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <div className={styles.allocation}>
       <h3>Active principal by plan</h3>
       {allocation.length ? (
@@ -225,14 +229,15 @@ export function AllocationBars({
         </p>
       )}
     </div>
-  );
+  )}</TranslatedContent>;
 }
 
 export function PortfolioAnalytics() {
+  useDisplayLocale();
   const remote = useRemote<PortfolioAnalyticsResponse>("/analytics");
-  if (remote.loading || remote.error) return <LoadState {...remote} />;
+  if (remote.loading || remote.error) return <TranslatedContent>{<LoadState {...remote} />}</TranslatedContent>;
   const data = remote.data!;
-  return (
+  return <TranslatedContent>{(
     <div>
       <div className={styles.summary}>
         <div>
@@ -312,7 +317,7 @@ export function PortfolioAnalytics() {
                       {item.planName}
                       <br />
                       <time dateTime={item.at}>
-                        {new Date(item.at).toLocaleDateString("en-US", {
+                        {new Date(item.at).toLocaleDateString(displayLocale(), {
                           timeZone: "UTC",
                         })}
                       </time>
@@ -332,5 +337,5 @@ export function PortfolioAnalytics() {
         </details>
       )}
     </div>
-  );
+  )}</TranslatedContent>;
 }

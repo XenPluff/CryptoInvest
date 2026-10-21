@@ -1,15 +1,12 @@
-import type { Metadata } from "next";
+"use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight, BookOpen, ChartNoAxesCombined, Fingerprint, Layers3, Scale, ScanLine } from "lucide-react";
 import { PageIntro, PublicShell } from "@/components/public/PublicShell";
 import { businessActivities } from "@/lib/business-activities";
 import styles from "@/components/public/business.module.css";
-
-export const metadata: Metadata = {
-  title: "How value is generated",
-  description: "Explore AUREON's company-reported business activities, including AI and robotics investments, with revenue mechanics, key risks and transparency standards.",
-};
 
 const standards = [
   { icon: Fingerprint, title: "An identifiable operator", text: "Registered entities, jurisdictions, responsible people and the exact scope of applicable permissions should be available for verification." },
@@ -21,7 +18,8 @@ const standards = [
 ];
 
 export default function ApproachPage() {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <PublicShell>
       <PageIntro eyebrow="How value is generated" title="Where value" emphasis="takes shape." description="Digital infrastructure. Productive assets. Financial markets. Intelligent technology. A closer look at the commercial logic, costs and evidence behind AUREON’s stated business activities." number="08" />
       <section className={`container ${styles.context}`} aria-label="About these business descriptions">
@@ -79,5 +77,5 @@ export default function ApproachPage() {
         <Link href="/legal/risk" className={styles.inlineLink}>Read the full risk disclosure <ArrowUpRight size={15} /></Link>
       </section>
     </PublicShell>
-  );
+  )}</TranslatedContent>;
 }

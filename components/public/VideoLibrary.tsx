@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
@@ -8,8 +10,9 @@ import { aureonVideos, videoDuration, videoTime, type AureonVideo } from "@/lib/
 import styles from "./videos.module.css";
 
 export function VideoTeaser() {
-  return (
-    <section className={`container ${styles.teaser}`} aria-labelledby="video-teaser-title" lang="en">
+  useDisplayLocale();
+  return <TranslatedContent>{(
+    <section className={`container ${styles.teaser}`} aria-labelledby="video-teaser-title" >
       <Link href="/videos" className={styles.teaserArt} aria-label="Watch the AUREON introduction and video guides">
         <Image src="/videos/introduction.jpg" alt="AUREON introduction: a new perspective, with a gold orbital sphere" width={1280} height={720} sizes="(max-width: 750px) 100vw, 50vw" />
         <span className={styles.playBadge}><Play size={20} fill="currentColor" /></span>
@@ -22,10 +25,11 @@ export function VideoTeaser() {
         <Link href="/videos" className={styles.textLink}>Explore the video library <ArrowUpRight size={16} /></Link>
       </div>
     </section>
-  );
+  )}</TranslatedContent>;
 }
 
 export default function VideoLibrary() {
+  useDisplayLocale();
   const [active, setActive] = useState(aureonVideos[0]);
   const [failed, setFailed] = useState(false);
   const player = useRef<HTMLVideoElement>(null);
@@ -59,7 +63,7 @@ export default function VideoLibrary() {
     });
   }
 
-  return (
+  return <TranslatedContent>{(
     <section className={`container ${styles.library}`} aria-label="AUREON video library">
       <div className={styles.screenColumn} ref={playerSection}>
         <div className={styles.screen}>
@@ -121,5 +125,5 @@ export default function VideoLibrary() {
       </aside>
       <p className={styles.risk}>Digital assets involve substantial risk, including the loss of your entire investment. Illustrative targets are not guaranteed returns or available funds. These videos explain the platform and do not establish regulatory authorization or replace the <Link href="/legal/terms">terms</Link> and <Link href="/legal/risk">risk disclosure</Link>.</p>
     </section>
-  );
+  )}</TranslatedContent>;
 }

@@ -1,4 +1,6 @@
 "use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
@@ -25,6 +27,7 @@ interface Plan {
 }
 const percent = (rate: number) => `${Number((rate * 100).toFixed(2))}%`;
 export function PlanCatalog() {
+  useDisplayLocale();
   const [plans, setPlans] = useState<Plan[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -46,7 +49,7 @@ export function PlanCatalog() {
     void load();
   }, []);
   if (loading)
-    return (
+    return <TranslatedContent>{(
       <div
         className="public-loading"
         aria-label="Loading investment plans"
@@ -56,9 +59,9 @@ export function PlanCatalog() {
           <div key={n} className="public-skeleton" />
         ))}
       </div>
-    );
+    )}</TranslatedContent>;
   if (error)
-    return (
+    return <TranslatedContent>{(
       <div className="public-error" role="alert">
         <div>
           <h3>Plans are temporarily unavailable.</h3>
@@ -68,9 +71,9 @@ export function PlanCatalog() {
           Try again <RefreshCw size={14} />
         </button>
       </div>
-    );
+    )}</TranslatedContent>;
   if (!plans.length)
-    return (
+    return <TranslatedContent>{(
       <div className="public-error">
         <div>
           <h3>A considered pause.</h3>
@@ -80,10 +83,10 @@ export function PlanCatalog() {
           </p>
         </div>
       </div>
-    );
+    )}</TranslatedContent>;
   const daily = plans.filter((plan) => !plan.monthlyRate);
   const monthly = plans.filter((plan) => plan.monthlyRate);
-  return (
+  return <TranslatedContent>{(
     <>
       <div className="plan-grid">
         {daily.map((plan, index) => (
@@ -210,5 +213,5 @@ export function PlanCatalog() {
         </span>
       </div>
     </>
-  );
+  )}</TranslatedContent>;
 }

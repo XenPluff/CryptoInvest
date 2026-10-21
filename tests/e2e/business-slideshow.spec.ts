@@ -22,7 +22,9 @@ test.describe("touchscreen autoplay", () => {
 
 test("homepage slideshow cycles all nine pictures without playback controls or hover pauses", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.clock.install();
+  const now = new Date();
+  await page.clock.install({ time: now });
+  await page.clock.pauseAt(now);
   await page.goto("/");
   const slides = carousel(page);
   await slides.scrollIntoViewIfNeeded();

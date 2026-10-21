@@ -1,4 +1,6 @@
-import type { Metadata } from "next";
+"use client";
+import TranslatedContent from "@/components/TranslatedContent";
+import { useDisplayLocale } from "@/lib/i18n";
 import Link from "next/link";
 import {
   KeyRound,
@@ -15,11 +17,6 @@ import {
   PageIntro,
   PublicCTA,
 } from "@/components/public/PublicShell";
-export const metadata: Metadata = {
-  title: "Security & transparency",
-  description:
-    "Understand Aureon account controls, identity verification and the status of custody, assurance and regulatory information.",
-};
 const controls = [
   {
     icon: KeyRound,
@@ -65,7 +62,8 @@ const controls = [
   },
 ];
 export default function SecurityPage() {
-  return (
+  useDisplayLocale();
+  return <TranslatedContent>{(
     <PublicShell>
       <PageIntro
         eyebrow="Security & transparency"
@@ -180,5 +178,5 @@ export default function SecurityPage() {
       </section>
       <PublicCTA title="Begin with understanding." />
     </PublicShell>
-  );
+  )}</TranslatedContent>;
 }
