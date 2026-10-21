@@ -5,8 +5,17 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 21, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `0f00b644bcab258f3451094e95a97e64fcdca073` from branch
+- Running source commit: `3ae6670bb585e565dcfb5b4b9a585a528769738a` from branch
   `codex/aureon-render-preview`.
+- The [homepage investor perspective](https://aureon-preview.onrender.com/#investor-perspective)
+  is live in deployment `dep-dbcg9u6ktt5c73cpto6g`, immediately after
+  “Your next chapter” and before FAQ. Company-authored principles describe
+  plan information, transaction visibility and account protection, with four
+  working resource links. Actual hosted HTML/assets passed 1440/768/390/320px
+  English/French dark/light layouts without API fixtures or page errors.
+  Health remains connected, funding enabled and email readiness passed.
+  No invented investor identities, testimonials, ratings, outcomes or worldwide
+  impact claims were published.
 - The [company profile](https://aureon-preview.onrender.com/company-profile)
   and [28-page PDF](https://aureon-preview.onrender.com/documents/aureon-company-profile.pdf)
   are live in deployment `dep-dbcf7dbl550s738u69l0`. All 15 existing website
