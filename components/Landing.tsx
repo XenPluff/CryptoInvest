@@ -25,6 +25,7 @@ import { PublishedAnnouncements } from "./public/Journal";
 import { VideoTeaser } from "./public/VideoLibrary";
 import BusinessTeaser from "./public/BusinessTeaser";
 import CardTeaser from "./cards/CardTeaser";
+import InvestorPerspective from "./public/InvestorPerspective";
 import { api } from "@/lib/api";
 const reveal = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
 const plans = [
@@ -436,6 +437,7 @@ export default function Landing() {
             </div>
           </div>
         </section>
+        <InvestorPerspective />
         <section className="faq-section section-space">
           <div className="container faq-layout">
             <div>
