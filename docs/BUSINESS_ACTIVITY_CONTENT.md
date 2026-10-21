@@ -39,10 +39,10 @@ original form from its profile.
 The homepage's "Where value takes shape" picture cycles through all nine
 activities, one image at a time, on a five-second interval. The next responsive
 image is decoded before replacing the current one; a failed load retains the
-current image and retries. Rotation pauses on hover, offscreen or in a hidden
-tab, with an explicit pause/play control. Reduced-motion users start paused and
-can opt into rotation. The image frame keeps a fixed 3:2 ratio. Other previews
-remain static.
+current image and retries. Rotation is automatic without pause/play controls,
+including while hovered or offscreen. Hidden browser tabs suspend rotation until
+visible again. Reduced-motion preferences disable the fade while pictures keep
+cycling. The image frame keeps a fixed 3:2 ratio. Other previews remain static.
 
 The repeated "AI-generated sector illustration" picture captions have been
 removed. Image alternative text and the page's introductory source note describe

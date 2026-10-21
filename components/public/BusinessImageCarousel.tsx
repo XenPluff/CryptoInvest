@@ -1,9 +1,7 @@
 "use client";
 
 import Image, { getImageProps } from "next/image";
-import { Pause, Play } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import { useInView, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { businessActivities } from "@/lib/business-activities";
 import styles from "./business.module.css";
 
@@ -17,15 +15,9 @@ const imageProps = (index: number) => ({
 });
 
 export default function BusinessImageCarousel() {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { amount: 0.2 });
-  const reducedMotion = useReducedMotion();
   const [index, setIndex] = useState(0);
-  const [playing, setPlaying] = useState(true);
-  const [hovered, setHovered] = useState(false);
   const [pageVisible, setPageVisible] = useState(true);
 
-  useEffect(() => { if (reducedMotion) setPlaying(false); }, [reducedMotion]);
   useEffect(() => {
     const update = () => setPageVisible(!document.hidden);
     update();
@@ -34,7 +26,7 @@ export default function BusinessImageCarousel() {
   }, []);
 
   useEffect(() => {
-    if (!playing || hovered || !inView || !pageVisible) return;
+    if (!pageVisible) return;
     let canceled = false, loading = false;
     const timer = window.setInterval(async () => {
       if (loading) return;
@@ -55,17 +47,16 @@ export default function BusinessImageCarousel() {
       } finally { loading = false; }
     }, 5000);
     return () => { canceled = true; window.clearInterval(timer); };
-  }, [index, playing, hovered, inView, pageVisible]);
+  }, [index, pageVisible]);
 
   return (
-    <div ref={ref} className={styles.slideshow} role="region" aria-roledescription="carousel" aria-label="Business activity pictures" onPointerEnter={event => { if (event.pointerType === "mouse") setHovered(true); }} onPointerLeave={() => setHovered(false)}>
-      <div className={styles.slideshowFrame} aria-live={playing ? "off" : "polite"}>
+    <div className={styles.slideshow} role="region" aria-roledescription="carousel" aria-label="Business activity pictures">
+      <div className={styles.slideshowFrame} aria-live="off">
         <Image key={businessActivities[index].id} {...imageProps(index)} className={styles.slideshowPicture} />
       </div>
       <div className={styles.slideshowControls}>
         <span aria-label={`Image ${index + 1} of ${businessActivities.length}`}>{String(index + 1).padStart(2, "0")} / {String(businessActivities.length).padStart(2, "0")}</span>
         <div className={styles.slideshowProgress} aria-hidden="true">{businessActivities.map((activity, position) => <i key={activity.id} className={position === index ? styles.slideshowActive : undefined} />)}</div>
-        <button type="button" onClick={() => setPlaying(value => !value)} aria-label={playing ? "Pause business slideshow" : "Play business slideshow"}>{playing ? <Pause size={13} aria-hidden="true" /> : <Play size={13} aria-hidden="true" />}{playing ? "Pause" : "Play"}</button>
       </div>
     </div>
   );
