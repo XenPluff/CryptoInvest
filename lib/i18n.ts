@@ -161,6 +161,7 @@ const french = {
   "An extraordinary perspective.": "Une perspective d’exception.",
   EXPLORE: "DÉCOUVRIR",
   "About Aureon": "À propos d’Aureon",
+  "Company profile": "Profil de l’entreprise",
   "YOUR CONFIDENCE": "VOTRE CONFIANCE",
   "Security & custody": "Sécurité et conservation",
   "Support & FAQs": "Assistance et FAQ",

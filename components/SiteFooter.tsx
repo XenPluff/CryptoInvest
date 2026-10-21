@@ -30,6 +30,7 @@ export default function SiteFooter() {
               <Link href="/insights">{t("Market insights")}</Link>
               <Link href="/journal">{t("Journal")}</Link>
               <Link href="/about">{t("About Aureon")}</Link>
+              <Link href="/company-profile">{t("Company profile")}</Link>
               <Link href="/approach">{t("How value is generated")}</Link>
               <Link href="/videos">{t("Video guides")}</Link>
               <Link href="/cards">{t("Aureon card concepts")}</Link>

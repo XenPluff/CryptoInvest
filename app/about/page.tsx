@@ -52,6 +52,7 @@ export default function AboutPage() {
           <Link className="public-inline-button" href="/security">
             Explore our approach to transparency <ArrowUpRight size={14} />
           </Link>
+          <p><Link className="public-inline-button" href="/company-profile">Download the company profile <ArrowUpRight size={14} /></Link></p>
         </div>
       </section>
       <section className="container public-body-section public-divider">
