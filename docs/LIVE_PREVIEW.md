@@ -5,8 +5,20 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 21, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `800ea4b1c4ac87e5f83aece6502e3f97a060b1b6` from branch
+- Running source commit: `0f00b644bcab258f3451094e95a97e64fcdca073` from branch
   `codex/aureon-render-preview`.
+- The [company profile](https://aureon-preview.onrender.com/company-profile)
+  and [28-page PDF](https://aureon-preview.onrender.com/documents/aureon-company-profile.pdf)
+  are live in deployment `dep-dbcf7dbl550s738u69l0`. All 15 existing website
+  pictures and two new abstract brand visuals accompany the company overview,
+  sector profiles, process diagrams, plan snapshot, product scope and risk/policy
+  information. Hosted PDF SHA-256 matches the reviewed file and byte ranges
+  return 206; actual hosted page/cover, About/footer links and 1440/390/320px
+  English/French navigation in both themes passed without API fixtures or page
+  errors. Native hosted Chromium download was canceled in the cloud checker;
+  its hosted browser-save path is unverified. Local native browser download and
+  hosted verified-HTTPS file integrity checks passed. Health remains connected,
+  with funding enabled and passed email readiness. See [publication notes](COMPANY_PROFILE.md).
 - The homepage's "Where value takes shape" picture slideshow is live in
   deployment `dep-dbcejr1kjs5s73a5pta0`. It cycles through all nine business
   pictures one at a time on a five-second interval, without pause/play controls.
