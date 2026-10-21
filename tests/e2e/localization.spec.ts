@@ -1,5 +1,6 @@
 import { test, expect, type Page } from '@playwright/test';
 import { readFile, writeFile } from 'node:fs/promises';
+import { aureonVideos } from '../../lib/video-content';
 import { pageTitles } from '../../lib/page-titles';
 import { supportedLocales, type Locale } from '../../lib/i18n';
 const dictionaries = new Map<string, Record<string,string>>();
@@ -66,4 +67,17 @@ test('registration keeps entered credentials and consent while switching languag
  const consent=page.locator('.auth-register-form input[type="checkbox"]').first();await consent.check();
  for(const locale of supportedLocales){await choose(page,locale);for(const [name,value] of Object.entries(values))await expect(page.locator(`input[name="${name}"]`)).toHaveValue(value);await expect(consent).toBeChecked();}
  await choose(page,"en");await expect(page.locator("html")).toHaveAttribute("dir","ltr");expect(mutations).toEqual([]);
+});
+
+
+test('all five video guides show complete translated chapter headings',async({page})=>{
+ test.setTimeout(90000);await page.goto('/videos');await page.locator('details summary').first().click();
+ for(const locale of supportedLocales.filter(value=>value!=='en')){
+  await choose(page,locale);
+  for(let videoIndex=0;videoIndex<aureonVideos.length;videoIndex++){
+   await page.locator('aside button[aria-pressed]').nth(videoIndex).click();
+   const headings=page.locator('details ol li h3');const scenes=aureonVideos[videoIndex].scenes;await expect(headings).toHaveCount(scenes.length);
+   for(let i=0;i<scenes.length;i++)await expect(headings.nth(i)).toHaveText(await text(locale,scenes[i].title+' '+scenes[i].accent));
+  }
+ }
 });

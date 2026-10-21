@@ -15,8 +15,8 @@ stays in server layouts, while page content responds to language changes. The
 
 ## Content and privacy boundaries
 
-- The 2,266 registered source messages have seven bundled translation catalogs.
-  Each catalog is loaded on demand from this application. There is no runtime
+- The 2,307 registered source messages have seven bundled translation catalogs.
+  Homepage headlines have dedicated wording and word order for every language. Each catalog is loaded on demand from this application. There is no runtime
   external translation request and no account content is sent to a translator.
 - `TranslatedContent` translates React text/presentation attributes without DOM
   mutation. Routes, IDs, classes, event handlers, field values, API status enums,
@@ -55,5 +55,5 @@ prototype-shaped inputs, validated persistence and rapid-selection races. Browse
 checks cover all 25 public/404 routes in seven non-English languages, translated
 headings and registered body-copy coverage, saved preferences, narrow layouts,
 Arabic direction, unchanged private names, deposit payloads, administrator option
-values and registration-field preservation. Workspace API data in these tests is
+values, registration-field preservation and all five videos’ translated chapter headings. Workspace API data in these tests is
 browser-only fixture data; no production account or financial record is changed.

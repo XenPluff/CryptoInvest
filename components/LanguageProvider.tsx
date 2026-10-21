@@ -19,7 +19,13 @@ export default function LanguageProvider({ children }: { children: ReactNode }) 
   useEffect(() => {
     const base = pathname.startsWith("/dashboard") ? "/dashboard" : pathname.startsWith("/admin") ? "/admin" : pathname.startsWith("/journal/") ? "/journal" : pathname;
     const title = t(pageTitles[base] || "Page not found");
-    document.title = base === "/" ? title : `${title} | AUREON`;
+    const desired = base === "/" ? title : `${title} | AUREON`;
+    const apply = () => { if (document.title !== desired) document.title = desired; };
+    // Next can stream canonical metadata after hydration; retain the chosen browser title.
+    apply();
+    const observer = new MutationObserver(apply);
+    observer.observe(document.head, { childList: true, subtree: true, characterData: true });
+    return () => observer.disconnect();
   }, [pathname, t]);
   return children;
 }

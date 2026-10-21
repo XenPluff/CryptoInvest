@@ -303,6 +303,16 @@ export const localeNames: Record<Locale, string> = {
   en: "English", fr: "Français", de: "Deutsch", es: "Español",
   it: "Italiano", ru: "Русский", uk: "Українська", ar: "العربية",
 };
+export const heroHeadlines: Record<Locale, { wealth: string; prefix: string; accent: string; suffix?: string }> = {
+  en: { wealth: "Your wealth.", prefix: "A new", accent: "perspective." },
+  fr: { wealth: "Votre patrimoine.", prefix: "Un nouveau", accent: "regard." },
+  de: { wealth: "Ihr Vermögen.", prefix: "Eine neue", accent: "Perspektive." },
+  es: { wealth: "Tu patrimonio.", prefix: "Una nueva", accent: "perspectiva." },
+  it: { wealth: "Il tuo patrimonio.", prefix: "Una nuova", accent: "prospettiva." },
+  ru: { wealth: "Ваш капитал.", prefix: "Новый", accent: "взгляд." },
+  uk: { wealth: "Ваш капітал.", prefix: "Новий", accent: "погляд." },
+  ar: { wealth: "ثروتك.", prefix: "", accent: "منظور", suffix: " جديد." },
+};
 export const localeFormats: Record<Locale, string> = {
   en: "en-US", fr: "fr-FR", de: "de-DE", es: "es-ES",
   it: "it-IT", ru: "ru-RU", uk: "uk-UA", ar: "ar",
@@ -331,7 +341,7 @@ export function translate(locale: Locale, text: string): string {
   if (!translated && messages) {
     let templates = patterns.get(messages);
     if (!templates) {
-      templates = Object.entries(messages).filter(([source]) => /\{\d+\}/.test(source) && source.replace(/\{\d+\}/g, "").replace(/[^a-z]/gi, "").length >= 6)
+      templates = Object.entries(messages).filter(([source]) => /\{\d+\}/.test(source) && source.replace(/\{\d+\}/g, "").replace(/[^a-z]/gi, "").length >= 3)
         .map(([source, target]) => ({ expression: new RegExp("^" + source.split(/(\{\d+\})/g).map(part => /^\{\d+\}$/.test(part) ? "(.*?)" : part.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("") + "$"), target }));
       patterns.set(messages, templates);
     }

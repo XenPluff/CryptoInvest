@@ -340,6 +340,9 @@
   "3. Why it is processed": [
     "app/legal/privacy/page.tsx"
   ],
+  "30 days": [
+    "localization"
+  ],
   "37° 46′ 49″ N": [
     "components/Landing.tsx"
   ],
@@ -451,6 +454,9 @@
     "server/content.ts"
   ],
   "A careful": [
+    "lib/video-content.ts"
+  ],
+  "A careful beginning.": [
     "lib/video-content.ts"
   ],
   "A clear account of identity review, transaction checks, and the verification capabilities that must be completed before financial launch.": [
@@ -625,7 +631,6 @@
     "lib/i18n.ts"
   ],
   "A new": [
-    "components/Landing.tsx",
     "lib/i18n.ts",
     "lib/video-content.ts"
   ],
@@ -640,6 +645,9 @@
   ],
   "a new perspective.": [
     "components/workspace/Workspace.tsx"
+  ],
+  "A new perspective.": [
+    "lib/video-content.ts"
   ],
   "A PERSPECTIVE WORTH SHARING": [
     "components/Landing.tsx",
@@ -794,6 +802,9 @@
   "Account transfers": [
     "components/workspace/Workspace.tsx"
   ],
+  "account.": [
+    "lib/video-content.ts"
+  ],
   "ACCOUNTABILITY BY DESIGN": [
     "components/workspace/admin.tsx"
   ],
@@ -862,6 +873,9 @@
     "components/workspace/PasskeySettings.tsx"
   ],
   "Add another": [
+    "lib/video-content.ts"
+  ],
+  "Add another layer.": [
     "lib/video-content.ts"
   ],
   "Add funds": [
@@ -1290,6 +1304,9 @@
   "Asset-price volatility, reward reductions, rising network difficulty, downtime and energy costs can make production unprofitable.": [
     "lib/business-activities.ts"
   ],
+  "asset.": [
+    "lib/video-content.ts"
+  ],
   "Assets and liabilities together": [
     "app/approach/page.tsx"
   ],
@@ -1389,6 +1406,9 @@
     "components/SiteFooter.tsx",
     "components/workspace/Workspace.tsx",
     "lib/i18n.ts"
+  ],
+  "AUREON. Explore the view.": [
+    "lib/video-content.ts"
   ],
   "aureon/backups/": [
     "components/workspace/Operations.tsx"
@@ -1551,11 +1571,15 @@
     "lib/video-content.ts"
   ],
   "Begin with understanding.": [
-    "app/security/page.tsx"
+    "app/security/page.tsx",
+    "lib/video-content.ts"
   ],
   "Begin your journey": [
     "components/Landing.tsx",
     "lib/i18n.ts"
+  ],
+  "beginning.": [
+    "lib/video-content.ts"
   ],
   "BEP20": [
     "components/workspace/DepositWorkspace.tsx"
@@ -1706,6 +1730,9 @@
   "Check what": [
     "lib/video-content.ts"
   ],
+  "Check what is available.": [
+    "lib/video-content.ts"
+  ],
   "Check your inbox.": [
     "components/auth/AuthForms.tsx",
     "lib/i18n.ts"
@@ -1772,6 +1799,9 @@
   "Choose your": [
     "lib/video-content.ts"
   ],
+  "Choose your asset.": [
+    "lib/video-content.ts"
+  ],
   "Choose your currency": [
     "components/workspace/DepositWorkspace.tsx"
   ],
@@ -1796,6 +1826,9 @@
     "app/plans/page.tsx"
   ],
   "Clarity in": [
+    "lib/video-content.ts"
+  ],
+  "Clarity in the details.": [
     "lib/video-content.ts"
   ],
   "Clarity in the method.": [
@@ -1864,6 +1897,9 @@
   ],
   "Complete account setup to submit a deposit.": [
     "components/workspace/DepositWorkspace.tsx"
+  ],
+  "Complete identity review.": [
+    "lib/video-content.ts"
   ],
   "Complete identity verification and review the investment terms and risks.": [
     "components/Landing.tsx",
@@ -1947,6 +1983,9 @@
   ],
   "Confirm your current password to change passkeys.": [
     "server/passkeys.ts"
+  ],
+  "Confirm your destination.": [
+    "lib/video-content.ts"
   ],
   "Confirm your email address to complete your account registration.": [
     "app/verify-email/page.tsx",
@@ -2122,7 +2161,8 @@
     "lib/i18n.ts"
   ],
   "Create your account.": [
-    "app/how-it-works/page.tsx"
+    "app/how-it-works/page.tsx",
+    "lib/video-content.ts"
   ],
   "Create your account. Take the first step toward a more considered portfolio.": [
     "app/register/page.tsx",
@@ -2191,6 +2231,9 @@
   ],
   "Current published plan terms.": [
     "components/InvestmentCalculator.tsx"
+  ],
+  "Daily": [
+    "localization"
   ],
   "Daily rate": [
     "lib/investment.ts"
@@ -2371,6 +2414,9 @@
   ],
   "Destination wallet address": [
     "components/workspace/Workspace.tsx"
+  ],
+  "destination.": [
+    "lib/video-content.ts"
   ],
   "Digital asset investing deserves clarity. We are building an experience that makes the details visible and gives every decision room to be considered.": [
     "app/about/page.tsx"
@@ -2609,6 +2655,9 @@
   "Email verified. You can now sign in.": [
     "server/auth.ts"
   ],
+  "email.": [
+    "lib/video-content.ts"
+  ],
   "Enable an authenticator before accessing operations.": [
     "server/operations.ts"
   ],
@@ -2754,6 +2803,9 @@
     "components/workspace/Workspace.tsx"
   ],
   "Every status": [
+    "lib/video-content.ts"
+  ],
+  "Every status has a meaning.": [
     "lib/video-content.ts"
   ],
   "Every step,": [
@@ -2961,6 +3013,9 @@
     "lib/i18n.ts"
   ],
   "Follow the": [
+    "lib/video-content.ts"
+  ],
+  "Follow the review.": [
     "lib/video-content.ts"
   ],
   "Follow the status and any review message in your investor workspace. You can withdraw an active application. If a genuine program becomes available, new eligibility, privacy and issuer terms would need to be presented before further processing.": [
@@ -3551,6 +3606,9 @@
   "Keep the bucket private and configure a 30-day lifecycle for": [
     "components/workspace/Operations.tsx"
   ],
+  "Keep the reference.": [
+    "lib/video-content.ts"
+  ],
   "Keep this link": [
     "components/workspace/WalletConnections.tsx"
   ],
@@ -3571,6 +3629,9 @@
   ],
   "Know before you apply.": [
     "app/cards/page.tsx"
+  ],
+  "Know before you proceed.": [
+    "lib/video-content.ts"
   ],
   "Know how account protection works, understand the boundaries, and see exactly which external assurances still need to be provided.": [
     "app/security/page.tsx"
@@ -3608,6 +3669,9 @@
   ],
   "Laws vary by jurisdiction and may change. Access to certain products may be restricted or prohibited. The operator’s legal entity, regulatory registrations, license scope and permitted territories must be published and independently verified. Do not infer regulatory approval, deposit protection, government backing or compensation coverage from the platform’s design or terminology.": [
     "app/legal/risk/page.tsx"
+  ],
+  "layer.": [
+    "lib/video-content.ts"
   ],
   "Learn how the workspace works. Digital assets involve risk, including loss of your entire investment.": [
     "lib/video-content.ts"
@@ -3810,6 +3874,9 @@
   "Match the": [
     "lib/video-content.ts"
   ],
+  "Match the network.": [
+    "lib/video-content.ts"
+  ],
   "matching application": [
     "components/workspace/Cards.tsx"
   ],
@@ -3960,6 +4027,9 @@
   ],
   "network": [
     "components/workspace/DepositWorkspace.tsx"
+  ],
+  "network.": [
+    "lib/video-content.ts"
   ],
   "Never include passwords, recovery phrases, private wallet keys or one-time authentication codes. Our support process does not require them.": [
     "app/support/page.tsx"
@@ -4301,6 +4371,9 @@
     "components/cards/CardTeaser.tsx",
     "lib/i18n.ts"
   ],
+  "outcome.": [
+    "lib/video-content.ts"
+  ],
   "OUTSIDE THE WEBSITE": [
     "components/workspace/Operations.tsx"
   ],
@@ -4401,6 +4474,9 @@
   "Pause.": [
     "lib/video-content.ts"
   ],
+  "Pause. Find perspective.": [
+    "lib/video-content.ts"
+  ],
   "pending": [
     "localization"
   ],
@@ -4409,6 +4485,9 @@
     "components/workspace/Workspace.tsx"
   ],
   "Pending is": [
+    "lib/video-content.ts"
+  ],
+  "Pending is under review.": [
     "lib/video-content.ts"
   ],
   "pending review": [
@@ -4442,8 +4521,8 @@
     "components/workspace/Cards.tsx"
   ],
   "perspective.": [
-    "components/Landing.tsx",
-    "lib/i18n.ts"
+    "lib/i18n.ts",
+    "lib/video-content.ts"
   ],
   "physical": [
     "localization"
@@ -4491,6 +4570,9 @@
     "components/workspace/Workspace.tsx"
   ],
   "Plan your": [
+    "lib/video-content.ts"
+  ],
+  "Plan your next step.": [
     "lib/video-content.ts"
   ],
   "Plans are currently unavailable.": [
@@ -5065,6 +5147,9 @@
   "Reference plan rates.": [
     "components/InvestmentCalculator.tsx"
   ],
+  "reference.": [
+    "lib/video-content.ts"
+  ],
   "REFERRAL": [
     "components/workspace/AdminFunds.tsx"
   ],
@@ -5212,6 +5297,9 @@
   "Request withdrawal": [
     "components/workspace/Workspace.tsx"
   ],
+  "request.": [
+    "lib/video-content.ts"
+  ],
   "Requested amount": [
     "components/workspace/admin.tsx"
   ],
@@ -5345,6 +5433,12 @@
     "components/workspace/admin.tsx"
   ],
   "Review, then": [
+    "lib/video-content.ts"
+  ],
+  "Review, then request.": [
+    "lib/video-content.ts"
+  ],
+  "review.": [
     "lib/video-content.ts"
   ],
   "Rights to the assets": [
@@ -5708,6 +5802,9 @@
     "components/public/InvestorPerspective.tsx",
     "lib/i18n.ts"
   ],
+  "steps.": [
+    "lib/video-content.ts"
+  ],
   "Storage settings are present. The first uploaded archive must pass a read-back checksum check before it is recorded as successful.": [
     "components/workspace/Operations.tsx"
   ],
@@ -5749,6 +5846,9 @@
   ],
   "Submit for verification": [
     "components/workspace/DepositWorkspace.tsx"
+  ],
+  "Submit for verification.": [
+    "lib/video-content.ts"
   ],
   "Submit pre-launch application": [
     "components/workspace/Cards.tsx"
@@ -6351,6 +6451,9 @@
   "Track the": [
     "lib/video-content.ts"
   ],
+  "Track the outcome.": [
+    "lib/video-content.ts"
+  ],
   "Track the pending deposit in activity. A hash alone never credits your balance; the operator must verify and approve it.": [
     "lib/video-content.ts"
   ],
@@ -6531,6 +6634,9 @@
   "understanding-digital-assets": [
     "components/workspace/ContentOperations.tsx"
   ],
+  "understanding.": [
+    "lib/video-content.ts"
+  ],
   "Unknown investment plan requires a complete rate and duration snapshot.": [
     "lib/investment.ts"
   ],
@@ -6704,6 +6810,9 @@
   "Verification before investment.": [
     "app/security/page.tsx"
   ],
+  "verification.": [
+    "lib/video-content.ts"
+  ],
   "verified": [
     "localization"
   ],
@@ -6736,6 +6845,9 @@
   ],
   "Verify the account's email before assigning administrator access.": [
     "server/admin-provisioning.ts"
+  ],
+  "Verify the destination.": [
+    "lib/video-content.ts"
   ],
   "Verify the network and destination.": [
     "app/security/page.tsx"
@@ -6773,6 +6885,9 @@
   ],
   "Verify your email before linking a wallet.": [
     "components/workspace/WalletConnections.tsx"
+  ],
+  "Verify your email.": [
+    "lib/video-content.ts"
   ],
   "Verifying your passkey…": [
     "components/auth/PasskeyLogin.tsx"
@@ -7091,6 +7206,9 @@
   "Your account.": [
     "lib/video-content.ts"
   ],
+  "Your account. One clear view.": [
+    "lib/video-content.ts"
+  ],
   "Your account. Your control.": [
     "app/security/page.tsx"
   ],
@@ -7176,6 +7294,9 @@
   "Your first step towards a broader perspective.": [
     "components/Landing.tsx",
     "lib/i18n.ts"
+  ],
+  "Your first steps.": [
+    "lib/video-content.ts"
   ],
   "Your full name": [
     "components/auth/AuthForms.tsx",
@@ -7299,6 +7420,9 @@
   "Your records.": [
     "lib/video-content.ts"
   ],
+  "Your records. In focus.": [
+    "lib/video-content.ts"
+  ],
   "Your referral impact": [
     "components/workspace/Workspace.tsx"
   ],
@@ -7333,7 +7457,6 @@
     "components/workspace/WalletConnections.tsx"
   ],
   "Your wealth.": [
-    "components/Landing.tsx",
     "lib/i18n.ts"
   ],
   "Z": [

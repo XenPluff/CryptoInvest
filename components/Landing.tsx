@@ -2,7 +2,7 @@
 import TranslatedContent from "@/components/TranslatedContent";
 import { useDisplayLocale } from "@/lib/i18n";
 import Link from "next/link";
-import { useTranslation } from "@/lib/i18n";
+import { heroHeadlines, useTranslation } from "@/lib/i18n";
 import HeroArtwork from "./HeroArtwork";
 import { useRef, useEffect, useState } from "react";
 import {
@@ -86,7 +86,8 @@ const questions = [
 ];
 export default function Landing() {
   useDisplayLocale();
-  const { t } = useTranslation();
+  const { locale, t } = useTranslation();
+  const headline = heroHeadlines[locale];
   const reduced = useReducedMotion();
   const [faq, setFaq] = useState<number | null>(0);
   const [email, setEmail] = useState("");
@@ -161,10 +162,10 @@ export default function Landing() {
                 <span className="tiny-line" />{" "}
                 {t("A HIGHER STANDARD OF DIGITAL WEALTH")}
               </p>
-              <h1>
-                {t("Your wealth.")}
+              <h1 translate="no">
+                {headline.wealth}
                 <br />
-                {t("A new")} <em>{t("perspective.")}</em>
+                {headline.prefix && <>{headline.prefix}{" "}</>}<em>{headline.accent}</em>{headline.suffix}
               </h1>
               <p className="hero-description">
                 {t("Beyond the noise. Beyond the ordinary.")}
