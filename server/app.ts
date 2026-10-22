@@ -904,22 +904,17 @@ admin.post("/deposits/:id/review", adminFinancial, async (req, res) => {
   const body = z
     .object({
       action: z.enum(["approve", "reject"]),
-      note: z.string().trim().min(15).max(1000),
+      note: z.string().trim().min(15).max(1000).optional(),
       confirmedAmount: z.union([z.number(), z.string()]).optional(),
       ownershipEvidence: z.string().trim().min(20).max(1000).optional(),
       verificationReference: z.string().trim().min(8).max(200).optional(),
     })
     .parse(req.body);
-  if (
-    body.action === "approve" &&
-    (body.confirmedAmount === undefined ||
-      !body.ownershipEvidence ||
-      !body.verificationReference)
-  )
-    throw new HttpError(
-      400,
-      "Approval requires independently verified USD value, ownershipEvidence linking the claimant to the source of funds, and an external verificationReference. A public transaction hash alone cannot establish ownership.",
-    );
+  if (body.action === "approve" && body.confirmedAmount === undefined)
+    throw new HttpError(400, "Approval requires a confirmed USD amount.");
+  const reviewNote = body.note ?? (body.action === "approve"
+    ? "Deposit approved by administrator."
+    : "Deposit declined by administrator.");
   const deposit = await serializable(async (tx) => {
     const t = await tx.transaction.findFirst({
       where: { id: idParam(req), type: "DEPOSIT" },
@@ -939,7 +934,7 @@ admin.post("/deposits/:id/review", adminFinancial, async (req, res) => {
       data: {
         status: body.action === "approve" ? "APPROVED" : "REJECTED",
         amountCents: amount,
-        note: body.note,
+        note: reviewNote,
         reviewedAt: new Date(),
         reviewedById: userId(req),
       },
@@ -959,7 +954,7 @@ admin.post("/deposits/:id/review", adminFinancial, async (req, res) => {
       "DEPOSIT_" + body.action.toUpperCase(),
       t.id,
       {
-        note: body.note,
+        note: reviewNote,
         confirmedAmountCents: amount,
         declaredAmountCents: t.amountCents,
         ownershipEvidence: body.ownershipEvidence || null,

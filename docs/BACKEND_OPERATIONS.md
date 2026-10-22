@@ -36,9 +36,13 @@ Approval requires all of:
 
 - A current operator TOTP code.
 - `confirmedAmount`: the independently reconciled USD value.
-- `verificationReference`: an external reconciliation reference of at least 8 characters.
-- `ownershipEvidence`: at least 20 characters documenting independently established claimant/source-wallet attribution.
-- `note`: at least 15 characters documenting chain, destination, asset, confirmations, and valuation/reconciliation decisions.
+
+The deposit review UI does not ask for an evidence reference, ownership evidence
+or a written review note. The API accepts those optional fields from older
+clients, with their existing length validation. Without a supplied note, it
+records only the factual administrator decision, reviewer and timestamp; absent
+evidence remains null. Decline requires the decision and current TOTP, without
+a confirmed amount. Approval still credits the confirmed amount exactly once.
 
 A public hash to a shared deposit address does not prove the claimant sent the funds. Before enabling funding, establish an approved attribution procedure or implement per-user custody address mapping and source verification. The operator must independently verify the actual asset/contract, exact destination/network, confirmation depth, reorganization risk, and exchange valuation. No generic blockchain explorer lookup performs this review. Administrators cannot approve their own deposits.
 
@@ -82,7 +86,7 @@ Investor and administrator analytics use repeatable-read database snapshots, imm
 
 `npm test` runs investment, analytics, and provider/security tests; database integration tests are skipped unless `TEST_DATABASE_URL` is supplied. The preferred real database command is `node scripts/test-integration.mjs`: it reads the configured application connection without printing credentials, creates a new randomly named disposable `_test` database, applies every checked-in SQL migration in order, runs the API/ledger suite, and removes only that database afterward. The database role needs CREATE DATABASE permission. Production mode is refused, and application data is never reset.
 
-For manual `TEST_DATABASE_URL` use, select a disposable database whose name ends in `_test` and differs from the configured application database name. Integration tests deliberately recreate its `public` schema; never select application or production data. The suite checks real PostgreSQL concurrency, evidence/TOTP requirements, duplicate posting/refund/settlement prevention, losses and actual earnings at maturity, immutable ledger triggers, sessions and CSRF/RBAC, wallet signature/session/replay boundaries, passkey challenge isolation, consent/publication controls, encrypted identity data, funding pause, dual-operator payout reconciliation, reset-token single use, and transactional email delivery to a local sink.
+For manual `TEST_DATABASE_URL` use, select a disposable database whose name ends in `_test` and differs from the configured application database name. Integration tests deliberately recreate its `public` schema; never select application or production data. The suite checks real PostgreSQL concurrency, confirmed-amount/TOTP requirements, duplicate posting/refund/settlement prevention, losses and actual earnings at maturity, immutable ledger triggers, sessions and CSRF/RBAC, wallet signature/session/replay boundaries, passkey challenge isolation, consent/publication controls, encrypted identity data, funding pause, dual-operator payout reconciliation, reset-token single use, and transactional email delivery to a local sink.
 
 Production launch still requires external custody execution and deposit attribution, approved identity/AML checks, actual investment strategy and reconciliation, operator/legal content, monitored production email, independent security review, backup/restore testing, and deployment credentials. WalletConnect QR/mobile relay, SMS/push, live chat, and automatic multi-level commission allocation are not implemented by this API.
 

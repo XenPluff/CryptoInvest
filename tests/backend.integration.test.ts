@@ -343,10 +343,6 @@ integration("real PostgreSQL account and ledger integration", () => {
           body: {
             action: "approve",
             confirmedAmount: 300,
-            ownershipEvidence:
-              "Source wallet control independently documented using off-platform evidence.",
-            verificationReference: "test-proof-reference",
-            note: "On-chain transfer and USD valuation independently reconciled.",
             code: code(),
           },
         }),
@@ -354,84 +350,44 @@ integration("real PostgreSQL account and ledger integration", () => {
     );
     expect(reviews.map((r) => r.response.status).sort()).toEqual([200, 409]);
     expect((await request("/dashboard")).data.balance).toBe(1300);
+    const reviewed = await prisma.transaction.findUniqueOrThrow({ where: { id: deposit.id } });
+    expect(reviewed.note).toBe("Deposit approved by administrator.");
+    const approvalLog = await prisma.auditLog.findFirstOrThrow({ where: { targetId: deposit.id, action: "DEPOSIT_APPROVE" } });
+    expect(approvalLog.metadata.ownershipEvidence).toBeNull();
+    expect(approvalLog.metadata.verificationReference).toBeNull();
     expect(
       await prisma.ledgerEntry.count({
         where: { referenceId: deposit.id, kind: "VERIFIED_DEPOSIT" },
       }),
     ).toBe(1);
   });
-  test("deposit approval requires claimant evidence, reconciliation reference, and current TOTP", async () => {
+  test("deposit review keeps amount and TOTP checks without requiring evidence forms or a note", async () => {
     const created = await request("/deposits", {
       method: "POST",
-      body: {
-        walletId: wallet.id,
-        amount: 20,
-        txHash: "0x" + "e".repeat(64),
-        code: code(),
-      },
+      body: { walletId: wallet.id, amount: 20, txHash: "0x" + "e".repeat(64) },
     });
     expect(created.response.status).toBe(201);
     const id = created.data.deposit.id;
     const prior = (await request("/dashboard")).data.balance;
-    const approval = {
-      action: "approve",
-      confirmedAmount: 20,
-      note: "Verified the chain transfer, confirmations, and exact USD valuation.",
-      code: code(),
-    };
-    expect(
-      (
-        await request(`/admin/deposits/${id}/review`, {
-          method: "POST",
-          as: "adminA",
-          body: approval,
-        })
-      ).response.status,
-    ).toBe(400);
-    expect(
-      (
-        await request(`/admin/deposits/${id}/review`, {
-          method: "POST",
-          as: "adminA",
-          body: {
-            ...approval,
-            ownershipEvidence:
-              "Source wallet control independently documented.",
-          },
-        })
-      ).response.status,
-    ).toBe(400);
-    expect(
-      (
-        await request(`/admin/deposits/${id}/review`, {
-          method: "POST",
-          as: "adminA",
-          body: { ...approval, verificationReference: "external-proof-123" },
-        })
-      ).response.status,
-    ).toBe(400);
-    expect(
-      (
-        await request(`/admin/deposits/${id}/review`, {
-          method: "POST",
-          as: "adminA",
-          body: {
-            ...approval,
-            ownershipEvidence:
-              "Source wallet control independently documented.",
-            verificationReference: "external-proof-123",
-            code: undefined,
-          },
-        })
-      ).response.status,
-    ).toBe(403);
-    expect(
-      (await prisma.transaction.findUnique({ where: { id } })).status,
-    ).toBe("PENDING");
-    expect(await prisma.ledgerEntry.count({ where: { referenceId: id } })).toBe(
-      0,
-    );
+    for (const [body, status] of [
+      [{ action: "approve", confirmedAmount: 20 }, 403],
+      [{ action: "approve", confirmedAmount: 20, code: "invalid" }, 403],
+      [{ action: "approve", code: code() }, 400],
+      [{ action: "approve", confirmedAmount: 0, code: code() }, 400],
+    ] as const) {
+      expect((await request(`/admin/deposits/${id}/review`, { method: "POST", as: "adminA", body })).response.status).toBe(status);
+    }
+    expect((await prisma.transaction.findUnique({ where: { id } })).status).toBe("PENDING");
+    expect(await prisma.ledgerEntry.count({ where: { referenceId: id } })).toBe(0);
+    const declined = await request(`/admin/deposits/${id}/review`, { method: "POST", as: "adminA", body: { action: "reject", code: code() } });
+    expect(declined.response.status).toBe(200);
+    expect(declined.data.deposit.status).toBe("REJECTED");
+    expect(declined.data.deposit.note).toBe("Deposit declined by administrator.");
+    const log = await prisma.auditLog.findFirstOrThrow({ where: { targetId: id, action: "DEPOSIT_REJECT" } });
+    expect(log.metadata.ownershipEvidence).toBeNull();
+    expect(log.metadata.verificationReference).toBeNull();
     expect((await request("/dashboard")).data.balance).toBe(prior);
+    expect(await prisma.ledgerEntry.count({ where: { referenceId: id } })).toBe(0);
   });
   test("simultaneous investment and withdrawal cannot double spend the same funds", async () => {
     const results = await Promise.all([

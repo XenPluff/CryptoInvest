@@ -1201,7 +1201,7 @@
   "Apply for preliminary review": [
     "components/workspace/Cards.tsx"
   ],
-  "Approval requires independently verified USD value, ownershipEvidence linking the claimant to the source of funds, and an external verificationReference. A public transaction hash alone cannot establish ownership.": [
+  "Approval requires a confirmed USD amount.": [
     "server/app.ts"
   ],
   "Approve": [
@@ -2381,9 +2381,6 @@
   "Deposit wallet addresses": [
     "components/workspace/ProviderConnections.tsx"
   ],
-  "Depositor ownership and source-of-funds evidence": [
-    "components/workspace/admin.tsx"
-  ],
   "Deposits & withdrawals": [
     "components/public/ContactForm.tsx"
   ],
@@ -2944,9 +2941,6 @@
   "Explore two card design concepts, inspect the front and back in 3D, and register your card preferences for preliminary review.": [
     "app/cards/page.tsx"
   ],
-  "Explorer URL or confirmed transaction record": [
-    "components/workspace/admin.tsx"
-  ],
   "Export statement": [
     "components/workspace/Workspace.tsx"
   ],
@@ -3411,9 +3405,6 @@
   ],
   "Independent availability checks": [
     "components/workspace/Operations.tsx"
-  ],
-  "Independent on-chain evidence reference": [
-    "components/workspace/admin.tsx"
   ],
   "Indicative third-party market data, refreshed every minute. Prices may differ from execution prices. No orders are placed through this view.": [
     "components/public/MarketExplorer.tsx"
@@ -5208,16 +5199,10 @@
   "Record checks performed and settlement details.": [
     "components/workspace/admin.tsx"
   ],
-  "Record explorer evidence, confirmations, and verified amount.": [
-    "components/workspace/admin.tsx"
-  ],
   "Record final settlement": [
     "components/workspace/admin.tsx"
   ],
   "Record identity review": [
-    "components/workspace/admin.tsx"
-  ],
-  "Record independently verified depositor attribution. A public transaction hash alone does not establish ownership.": [
     "components/workspace/admin.tsx"
   ],
   "Record not found.": [

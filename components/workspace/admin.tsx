@@ -622,39 +622,15 @@ function FinancialReviews({ type }: { type: "deposits" | "withdrawals" }) {
                 placeholder="Required when marking paid"
               />
             )}
-            {isDeposit && (
-              <>
-                <Field
-                  label="Independent on-chain evidence reference"
-                  name="verificationReference"
-                  placeholder="Explorer URL or confirmed transaction record"
-                />
-                <Field
-                  label="Depositor ownership and source-of-funds evidence"
-                  name="ownershipEvidence"
-                >
-                  <textarea
-                    name="ownershipEvidence"
-                    minLength={20}
-                    rows={3}
-                    placeholder="Record independently verified depositor attribution. A public transaction hash alone does not establish ownership."
-                  />
-                </Field>
-              </>
-            )}
-            <Field label="Evidence and review note" name="note">
+            {!isDeposit && <Field label="Evidence and review note" name="note">
               <textarea
                 name="note"
                 required
                 minLength={15}
                 rows={3}
-                placeholder={
-                  isDeposit
-                    ? "Record explorer evidence, confirmations, and verified amount."
-                    : "Record checks performed and settlement details."
-                }
+                placeholder="Record checks performed and settlement details."
               />
-            </Field>
+            </Field>}
             <Field
               label="Operator authenticator code"
               name="code"
