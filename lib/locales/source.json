@@ -2593,9 +2593,6 @@
   "Elapsed days must be finite.": [
     "lib/investment.ts"
   ],
-  "Electricity generation evaluated through measured output and contractual cash flows.": [
-    "lib/business-activities.ts"
-  ],
   "Electricity, equipment efficiency, hardware depreciation, hosting, pool fees and network difficulty determine whether mining revenue translates into a positive net result.": [
     "lib/business-activities.ts"
   ],
@@ -3573,9 +3570,6 @@
   ],
   "Invite your network and track eligible referral commissions.": [
     "components/workspace/Workspace.tsx"
-  ],
-  "Irradiation, degradation, grid curtailment, equipment failures, buyer credit and policy changes can reduce generation or receipts.": [
-    "lib/business-activities.ts"
   ],
   "is available.": [
     "lib/video-content.ts"
@@ -4694,6 +4688,9 @@
   "Potential results may arise from realised trading gains, permitted investment income and changes in the market value of positions.": [
     "lib/business-activities.ts"
   ],
+  "Potential revenue sources include electricity sales, contracted energy services, equipment leasing and other permitted energy-related activities.": [
+    "lib/business-activities.ts"
+  ],
   "Potential sources of revenue include crop sales, livestock products, processing, distribution and agricultural service contracts.": [
     "lib/business-activities.ts"
   ],
@@ -4872,6 +4869,9 @@
     "lib/business-activities.ts"
   ],
   "Project rights, commissioning records, permits, power-purchase agreements, meter data, maintenance records and reconciled customer payments.": [
+    "lib/business-activities.ts"
+  ],
+  "Project viability depends on installation costs, energy yields, equipment performance, grid arrangements, contractual terms, maintenance and applicable energy regulations.": [
     "lib/business-activities.ts"
   ],
   "projected /": [
@@ -5790,7 +5790,7 @@
   "Solar energy": [
     "lib/business-activities.ts"
   ],
-  "Solar projects can earn revenue from metered electricity sales under power-purchase agreements or applicable market arrangements. Contract terms determine pricing and payment rights.": [
+  "Solar Energy and Renewable Infrastructure": [
     "lib/business-activities.ts"
   ],
   "Something went wrong.": [
@@ -7050,6 +7050,9 @@
     "lib/business-activities.ts"
   ],
   "We evaluate income-producing real estate and property-related businesses, including property management, leasing, asset improvement and selected property investments.": [
+    "lib/business-activities.ts"
+  ],
+  "We evaluate solar-energy assets, renewable-energy infrastructure and associated commercial opportunities.": [
     "lib/business-activities.ts"
   ],
   "We identify potential opportunities through market research, industry analysis, commercial partnerships and evaluation of business fundamentals.": [
