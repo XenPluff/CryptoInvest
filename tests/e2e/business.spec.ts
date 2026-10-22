@@ -21,9 +21,8 @@ test("all sector pictures load and original branded artwork can be downloaded", 
     await expect(article.getByText("AI-generated sector illustration", { exact: true })).toHaveCount(0);
   }
   const trading = page.locator("article#market-trading");
-  await expect(trading).toContainText("AUREON reports");
-  await expect(trading).toContainText("7–15 years of experience");
-  await expect(trading).toContainText("independent verification");
+  await expect(trading).toContainText("Trading activities must remain within approved risk limits and applicable regulatory permissions.");
+  await expect(trading.getByText("THE PEOPLE BEHIND THE PROCESS", { exact: true })).toHaveCount(0);
   await page.locator("article#crypto-mining summary").click();
   await expect(page.locator("article#crypto-mining").getByRole("heading", { name: "Records that should support the activity" })).toBeVisible();
   expect(errors).toEqual([]);

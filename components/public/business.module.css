@@ -15,6 +15,7 @@
 .revenue{margin-top:21px}.activity h3{font-family:var(--sans);font-size:11px;font-weight:500;color:var(--text);margin-bottom:8px;letter-spacing:.01em}
 .revenue p,.keyRisk p,.detail p{font-size:12px;line-height:1.9}
 .keyRisk{border-left:1px solid var(--gold);padding-left:15px;margin:22px 0 25px}.keyRisk h3{color:var(--gold-light)}
+.keyRisk p+p{margin-top:12px}
 .experience{padding:17px 18px;background:var(--surface-raised);margin-top:23px;border:1px solid var(--border)}
 .experience>span{font-size:8px;letter-spacing:.12em;color:var(--gold)}.experience p{font-size:11px;line-height:1.9;margin-top:7px}.experience strong{color:var(--text);font-weight:500}
 .detail{border-top:1px solid var(--border)}.detail summary{padding:18px 0;color:var(--text);font-size:11px;cursor:pointer;min-height:48px}.detail>div{padding:3px 0 25px}.detail p+h3{margin-top:20px}

@@ -405,9 +405,6 @@
     "components/Landing.tsx",
     "lib/i18n.ts"
   ],
-  "7–15 years of experience": [
-    "app/approach/page.tsx"
-  ],
   "7. Requirements before launch": [
     "app/legal/aml/page.tsx"
   ],
@@ -676,9 +673,6 @@
   ],
   "A prepared download is not proof that you saved it off-site. Check that the file finished downloading.": [
     "components/workspace/Operations.tsx"
-  ],
-  "A professional trading approach assessed through realized results and disciplined exposure.": [
-    "lib/business-activities.ts"
   ],
   "A reconciled outcome for a defined period, which may be negative.": [
     "app/approach/page.tsx"
@@ -1391,9 +1385,6 @@
   ],
   "AUREON Operations | {0}": [
     "server/operations.ts"
-  ],
-  "AUREON reports that its professional traders have": [
-    "app/approach/page.tsx"
   ],
   "AUREON video library": [
     "components/public/VideoLibrary.tsx"
@@ -2991,6 +2982,9 @@
   "Financial market trading": [
     "lib/business-activities.ts"
   ],
+  "Financial Market Trading": [
+    "lib/business-activities.ts"
+  ],
   "Financial operations are unavailable until the operator explicitly enables funding. Transfers must use the correct asset, blockchain network and destination address. Deposits enter review and are credited only after the operator verifies the transfer and amount. A transaction reference does not itself prove receipt.": [
     "app/legal/terms/page.tsx"
   ],
@@ -3872,9 +3866,6 @@
   "MARKETS & EXECUTION": [
     "lib/business-activities.ts"
   ],
-  "Markets can move against positions. Leverage, concentration, gaps, liquidity constraints and counterparty failure can amplify losses.": [
-    "lib/business-activities.ts"
-  ],
   "Markets move quickly. A considered investment experience should help you slow down: understand the terms, inspect the risks, and see the status of your account without ambiguity.": [
     "app/about/page.tsx"
   ],
@@ -4699,6 +4690,9 @@
   ],
   "PostgreSQL is required.": [
     "server/backups.ts"
+  ],
+  "Potential results may arise from realised trading gains, permitted investment income and changes in the market value of positions.": [
+    "lib/business-activities.ts"
   ],
   "Potential sources of revenue include mining rewards, transaction fees attributable to mining operations, hosting services and related infrastructure activities where actually conducted.": [
     "lib/business-activities.ts"
@@ -6224,9 +6218,6 @@
   "The people & the entity": [
     "app/about/page.tsx"
   ],
-  "THE PEOPLE BEHIND THE PROCESS": [
-    "app/approach/page.tsx"
-  ],
   "THE POSSIBILITIES, IN PERSPECTIVE": [
     "components/InvestmentCalculator.tsx"
   ],
@@ -6500,10 +6491,13 @@
   "Track your pre-launch application in Cards. This is not a credit approval or an issued card.": [
     "server/cards.ts"
   ],
+  "Trading activities must remain within approved risk limits and applicable regulatory permissions.": [
+    "lib/business-activities.ts"
+  ],
   "Trading and transfer fees, borrowing, settlement delays, slippage and any hedging costs can consume or reverse the apparent spread.": [
     "lib/business-activities.ts"
   ],
-  "Trading seeks gains from price movements and approved market strategies. Only closed, reconciled positions establish realized trading results; open gains remain exposed to market changes.": [
+  "Trading can result in substantial losses. Leverage, volatility, liquidity shortages, execution errors and counterparty failures can magnify negative outcomes.": [
     "lib/business-activities.ts"
   ],
   "Transaction": [
@@ -7106,6 +7100,9 @@
   ],
   "Where appropriate, we reinvest earnings, improve operating efficiency, restructure exposures or exit investments whose fundamentals no longer support continued ownership.": [
     "app/about/page.tsx"
+  ],
+  "Where appropriately authorised and commercially suitable, AUREON may use approved strategies involving financial instruments and markets.": [
+    "lib/business-activities.ts"
   ],
   "Where permitted or required by law, access or transactions may be restricted while suspicious activity, identity inconsistencies or prohibited activity is reviewed. Reports to competent authorities and restrictions on disclosure must be handled by authorized compliance personnel under applicable law. This application does not independently determine legal reporting obligations.": [
     "app/legal/aml/page.tsx"

@@ -9,6 +9,7 @@ export type BusinessActivity = {
   considerations?: string;
   margin: string;
   risk: string;
+  operatingLimits?: string;
   evidence: string;
   imageAlt: string;
 };
@@ -29,10 +30,12 @@ export const businessActivities: BusinessActivity[] = [
   },
   {
     id: "market-trading", number: "02", title: "Financial market trading", theme: "MARKETS & EXECUTION",
-    summary: "A professional trading approach assessed through realized results and disciplined exposure.",
-    revenue: "Trading seeks gains from price movements and approved market strategies. Only closed, reconciled positions establish realized trading results; open gains remain exposed to market changes.",
+    profileTitle: "Financial Market Trading",
+    summary: "Where appropriately authorised and commercially suitable, AUREON may use approved strategies involving financial instruments and markets.",
+    revenue: "Potential results may arise from realised trading gains, permitted investment income and changes in the market value of positions.",
     margin: "Execution costs, spreads, financing, slippage, hedging costs and losing positions must be included when assessing net performance.",
-    risk: "Markets can move against positions. Leverage, concentration, gaps, liquidity constraints and counterparty failure can amplify losses.",
+    risk: "Trading can result in substantial losses. Leverage, volatility, liquidity shortages, execution errors and counterparty failures can magnify negative outcomes.",
+    operatingLimits: "Trading activities must remain within approved risk limits and applicable regulatory permissions.",
     evidence: "Named trader biographies and verifiable experience, trading mandates, broker or exchange statements, risk limits and independently reconciled realized profit and loss.",
     imageAlt: "AI-generated illustration of a professional market research desk with the AUREON logo",
   },

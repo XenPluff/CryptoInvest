@@ -43,8 +43,7 @@ export default function ApproachPage() {
             <p className={styles.summary}>{activity.summary}</p>
             <div className={styles.revenue}><h3>How revenue can arise</h3><p>{activity.revenue}</p></div>
             {activity.considerations && <div className={styles.revenue}><h3>Performance considerations</h3><p>{activity.considerations}</p></div>}
-            {activity.id === "market-trading" && <div className={styles.experience}><span>THE PEOPLE BEHIND THE PROCESS</span><p>AUREON reports that its professional traders have <strong>7–15 years of experience</strong>. Individual biographies and independent verification of this experience have not been published here.</p></div>}
-            <div className={styles.keyRisk}><h3>Key risk</h3><p>{activity.risk}</p></div>
+            <div className={styles.keyRisk}><h3>Key risk</h3><p>{activity.risk}</p>{activity.operatingLimits && <p>{activity.operatingLimits}</p>}</div>
             <details className={styles.detail}>
               <summary>Costs & evidence to assess</summary>
               <div><h3>What determines the margin</h3><p>{activity.margin}</p><h3>Records that should support the activity</h3><p>{activity.evidence}</p></div>
