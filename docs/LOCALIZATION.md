@@ -15,7 +15,7 @@ stays in server layouts, while page content responds to language changes. The
 
 ## Content and privacy boundaries
 
-- The 2,329 registered source messages have seven bundled translation catalogs.
+- The 2,330 registered source messages have seven bundled translation catalogs.
   Homepage headlines have dedicated wording and word order for every language. Each catalog is loaded on demand from this application. There is no runtime
   external translation request and no account content is sent to a translator.
 - `TranslatedContent` translates React text/presentation attributes without DOM

@@ -1107,9 +1107,6 @@
   "An introduction, practical guides and a short brand film. Watch at your own pace, revisit a chapter or read the full transcript.": [
     "app/videos/page.tsx"
   ],
-  "An investment focus spanning modern artificial intelligence, intelligent automation and robotics.": [
-    "lib/business-activities.ts"
-  ],
   "An overview of your portfolio and account activity.": [
     "components/workspace/Workspace.tsx"
   ],
@@ -1276,6 +1273,9 @@
     "components/workspace/ContentOperations.tsx"
   ],
   "Artificial intelligence & robotics": [
+    "lib/business-activities.ts"
+  ],
+  "Artificial Intelligence and Robotics": [
     "lib/business-activities.ts"
   ],
   "As printed on your identity document": [
@@ -3514,9 +3514,6 @@
   "Investments are monitored against defined performance measures, budgets, operational milestones and risk thresholds.": [
     "app/about/page.tsx"
   ],
-  "Investments can generate dividends or distributions where declared, or realized gains when an ownership interest is sold. Licensing, software subscriptions and robotics services may support investee-company revenue; those receipts are separate from AUREON’s own investment returns.": [
-    "lib/business-activities.ts"
-  ],
   "Investments use your available account balance. Identity approval, verified email, and two-factor authentication are required.": [
     "components/workspace/Workspace.tsx"
   ],
@@ -4692,6 +4689,9 @@
     "lib/business-activities.ts"
   ],
   "Potential revenue sources include electricity sales, contracted energy services, equipment leasing and other permitted energy-related activities.": [
+    "lib/business-activities.ts"
+  ],
+  "Potential revenue sources include software subscriptions, licensing, technology services, automation contracts and returns from investments in relevant businesses.": [
     "lib/business-activities.ts"
   ],
   "Potential sources of revenue include crop sales, livestock products, processing, distribution and agricultural service contracts.": [
@@ -6008,7 +6008,7 @@
   "Target rate": [
     "components/InvestmentCalculator.tsx"
   ],
-  "Technology may fail to commercialize or become obsolete. Competition, data and intellectual-property restrictions, cybersecurity, robot safety, regulation and illiquidity can lead to partial or total loss.": [
+  "Technology investments may face rapid obsolescence, competitive pressure, intellectual-property disputes, cybersecurity threats and uncertainty regarding commercial adoption.": [
     "lib/business-activities.ts"
   ],
   "Tell us how we can help. Please include relevant transaction references, but never passwords, private keys or authentication codes.": [
@@ -7053,6 +7053,9 @@
     "lib/business-activities.ts"
   ],
   "We evaluate lawful arbitrage opportunities where price differences may exist between markets, instruments, venues or related assets.": [
+    "lib/business-activities.ts"
+  ],
+  "We evaluate opportunities in AI-enabled business software, automation, robotics, computing infrastructure and technology-related enterprises.": [
     "lib/business-activities.ts"
   ],
   "We evaluate solar-energy assets, renewable-energy infrastructure and associated commercial opportunities.": [

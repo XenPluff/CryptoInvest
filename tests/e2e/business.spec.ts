@@ -42,7 +42,7 @@ test("activity navigation and the homepage preview fit desktop and mobile in bot
   await page.goto("/approach");
   await page.getByRole("navigation", { name: "Explore business activities" }).getByRole("link", { name: /Artificial intelligence & robotics/ }).click();
   await expect(page).toHaveURL(/#ai-robotics$/);
-  await expect(page.getByRole("heading", { name: "Artificial intelligence & robotics", exact: true })).toBeInViewport();
+  await expect(page.getByRole("heading", { name: "Artificial Intelligence and Robotics", exact: true })).toBeInViewport();
   await page.goto("/");
   await page.getByRole("link", { name: "Explore the business model", exact: true }).click();
   await expect(page).toHaveURL(/\/approach$/);
