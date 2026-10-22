@@ -1869,7 +1869,7 @@
   "Coinbase Wallet": [
     "components/workspace/WalletConnections.tsx"
   ],
-  "Commodity-price movements, title disputes, assay differences, environmental obligations, permitting and counterparty exposure can create substantial losses.": [
+  "Commodity prices can be volatile. Physical holdings also introduce storage, insurance, transportation, authenticity and counterparty risks.": [
     "lib/business-activities.ts"
   ],
   "Communication information: support enquiries, newsletter subscriptions and account notifications.": [
@@ -2493,9 +2493,6 @@
   ],
   "Documented expertise": [
     "app/approach/page.tsx"
-  ],
-  "Documented resource activities can earn revenue through permitted production, processing or trading. A commodity holding itself does not create recurring income or guarantee appreciation.": [
-    "lib/business-activities.ts"
   ],
   "Does an admin decision approve credit?": [
     "app/cards/page.tsx"
@@ -3132,9 +3129,6 @@
   ],
   "Gold orbital sculpture representing AUREON’s perspective and connected capabilities": [
     "app/company-profile/page.tsx"
-  ],
-  "Gold, silver, copper and other resources assessed through provenance, rights and realized economics.": [
-    "lib/business-activities.ts"
   ],
   "Golden orbital sculpture": [
     "components/HeroArtwork.tsx"
@@ -4008,6 +4002,9 @@
   "Natural resources & metals": [
     "lib/business-activities.ts"
   ],
+  "Natural Resources and Precious Metals": [
+    "lib/business-activities.ts"
+  ],
   "Need a hand?": [
     "components/workspace/DepositWorkspace.tsx",
     "components/workspace/Workspace.tsx"
@@ -4683,6 +4680,9 @@
     "server/backups.ts"
   ],
   "Potential economic benefits include leasing revenue, service fees, operating income and realised disposal proceeds.": [
+    "lib/business-activities.ts"
+  ],
+  "Potential economic benefits may arise from operating income, contractual revenue, permitted trading activities or realised gains on asset sales.": [
     "lib/business-activities.ts"
   ],
   "Potential results may arise from realised trading gains, permitted investment income and changes in the market value of positions.": [
@@ -7057,6 +7057,9 @@
   ],
   "We identify potential opportunities through market research, industry analysis, commercial partnerships and evaluation of business fundamentals.": [
     "app/about/page.tsx"
+  ],
+  "We may evaluate exposure to precious and industrial metals (gold, silver and copper) and natural-resource-related assets, subject to appropriate ownership, custody, environmental, legal and commercial due diligence.": [
+    "lib/business-activities.ts"
   ],
   "We may invest in productive equipment, industrial assets and other physical assets that support commercial operations or generate contracted income.": [
     "lib/business-activities.ts"
