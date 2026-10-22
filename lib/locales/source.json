@@ -1226,7 +1226,10 @@
   "Arbitrage": [
     "lib/business-activities.ts"
   ],
-  "Arbitrage seeks to capture price differences between related assets or venues through coordinated transactions. An observed spread becomes a result only after execution and reconciliation.": [
+  "Arbitrage and Market Inefficiencies": [
+    "lib/business-activities.ts"
+  ],
+  "Arbitrage is not risk-free. Price discrepancies can disappear, transactions can fail, settlement may be delayed and counterparties may default.": [
     "lib/business-activities.ts"
   ],
   "Archive": [
@@ -2818,9 +2821,6 @@
     "components/workspace/AdminAnalytics.tsx"
   ],
   "Execution costs, spreads, financing, slippage, hedging costs and losing positions must be included when assessing net performance.": [
-    "lib/business-activities.ts"
-  ],
-  "Execution is not guaranteed. Price changes, failed transfers, exchange restrictions, illiquidity and counterparty failure mean arbitrage is not risk-free.": [
     "lib/business-activities.ts"
   ],
   "Explain how these realized amounts were verified, including the evidence source and any principal loss.": [
@@ -4688,6 +4688,9 @@
   "Potential results may arise from realised trading gains, permitted investment income and changes in the market value of positions.": [
     "lib/business-activities.ts"
   ],
+  "Potential returns depend on execution quality and the difference between purchase and sale prices after fees, spreads, funding, hedging and other costs.": [
+    "lib/business-activities.ts"
+  ],
   "Potential revenue sources include electricity sales, contracted energy services, equipment leasing and other permitted energy-related activities.": [
     "lib/business-activities.ts"
   ],
@@ -5780,9 +5783,6 @@
   "Skip to content": [
     "components/SiteHeader.tsx",
     "lib/i18n.ts"
-  ],
-  "Small price differences assessed against the full cost and risk of execution.": [
-    "lib/business-activities.ts"
   ],
   "Solar energy": [
     "lib/business-activities.ts"
@@ -7050,6 +7050,9 @@
     "lib/business-activities.ts"
   ],
   "We evaluate income-producing real estate and property-related businesses, including property management, leasing, asset improvement and selected property investments.": [
+    "lib/business-activities.ts"
+  ],
+  "We evaluate lawful arbitrage opportunities where price differences may exist between markets, instruments, venues or related assets.": [
     "lib/business-activities.ts"
   ],
   "We evaluate solar-energy assets, renewable-energy infrastructure and associated commercial opportunities.": [
