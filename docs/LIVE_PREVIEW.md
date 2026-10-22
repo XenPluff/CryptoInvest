@@ -5,8 +5,16 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 21, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `efad2592c6278e221d77b2a9688765b6b87963a9` from branch
+- Running source commit: `0ce8b1df4cc901321c3d4e43c71bf4e463b3d1ad` from branch
   `codex/aureon-render-preview`.
+- The [About Aureon overview](https://aureon-preview.onrender.com/about#who-we-are)
+  is live in deployment `dep-dbcmio6i0phs73fb65n0`. The supplied “Who We Are”
+  wording and five-step approach appear immediately before “The idea behind
+  Aureon.” All nine English paragraphs match the supplied text. Actual hosted
+  HTML/assets pass eight languages at 1440/768/390/320px in both themes
+  (64 layout states) without overflow, API fixtures or page errors. Catalogs
+  now cover 2,322 messages. Health remains connected with enabled funding
+  and passed email readiness.
 - The eight-language interface is live in deployment `dep-dbch5t3rjlhs73bfis5g`.
   German, Spanish, Italian, Russian, Ukrainian and Arabic join English and French
   across public/authentication pages and investor/admin workspaces. Arabic uses
