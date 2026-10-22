@@ -1295,6 +1295,9 @@
   "Asset registers, ownership and lien checks, leases, utilization reports, insurance terms, inspection records and valuation or disposal evidence.": [
     "lib/business-activities.ts"
   ],
+  "Asset selection considers maintenance, depreciation, utilisation, insurance, resale value and the cost of capital.": [
+    "lib/business-activities.ts"
+  ],
   "ASSET-BACKED ACTIVITY": [
     "lib/business-activities.ts"
   ],
@@ -1303,9 +1306,6 @@
   ],
   "Assets and liabilities together": [
     "app/approach/page.tsx"
-  ],
-  "Assets may depreciate, become obsolete or be difficult to sell. Damage, utilization shortfalls and lessee default can impair cash flow.": [
-    "lib/business-activities.ts"
   ],
   "AT A GLANCE": [
     "components/MarketTicker.tsx"
@@ -4546,9 +4546,6 @@
   "PHYSICAL": [
     "components/workspace/Cards.tsx"
   ],
-  "Physical assets can generate contracted leasing income, service income or realized resale margins when the company has the relevant ownership or contractual rights.": [
-    "lib/business-activities.ts"
-  ],
   "Physical card": [
     "components/workspace/Cards.tsx"
   ],
@@ -4684,6 +4681,9 @@
   ],
   "PostgreSQL is required.": [
     "server/backups.ts"
+  ],
+  "Potential economic benefits include leasing revenue, service fees, operating income and realised disposal proceeds.": [
+    "lib/business-activities.ts"
   ],
   "Potential results may arise from realised trading gains, permitted investment income and changes in the market value of positions.": [
     "lib/business-activities.ts"
@@ -4852,9 +4852,6 @@
   ],
   "Processing…": [
     "components/workspace/shared.tsx"
-  ],
-  "Productive equipment and inventory valued for what they can deliver, not just what they cost.": [
-    "lib/business-activities.ts"
   ],
   "PRODUCTIVE LAND": [
     "lib/business-activities.ts"
@@ -5993,6 +5990,9 @@
   "Tangible physical assets": [
     "lib/business-activities.ts"
   ],
+  "Tangible Physical Assets": [
+    "lib/business-activities.ts"
+  ],
   "target /": [
     "components/LiveInvestmentDisplay.tsx"
   ],
@@ -7057,6 +7057,9 @@
   ],
   "We identify potential opportunities through market research, industry analysis, commercial partnerships and evaluation of business fundamentals.": [
     "app/about/page.tsx"
+  ],
+  "We may invest in productive equipment, industrial assets and other physical assets that support commercial operations or generate contracted income.": [
+    "lib/business-activities.ts"
   ],
   "We seek to evaluate each investment according to its expected economic contribution, capital requirements, operating costs, liquidity, risk profile and potential impact on the wider company.": [
     "app/about/page.tsx"
