@@ -942,10 +942,10 @@
   "Agreements should explain allocations, fees, redemption terms, liquidity constraints, conflicts and how losses are treated. A business overview does not establish an entitlement to income.": [
     "app/approach/page.tsx"
   ],
-  "Agricultural activity can generate revenue from the sale of crops, produce and contracted agricultural services. Receipts depend on actual production, quality and delivery.": [
+  "Agriculture": [
     "lib/business-activities.ts"
   ],
-  "Agriculture": [
+  "Agriculture and Agricultural Assets": [
     "lib/business-activities.ts"
   ],
   "ahead.": [
@@ -4694,6 +4694,9 @@
   "Potential results may arise from realised trading gains, permitted investment income and changes in the market value of positions.": [
     "lib/business-activities.ts"
   ],
+  "Potential sources of revenue include crop sales, livestock products, processing, distribution and agricultural service contracts.": [
+    "lib/business-activities.ts"
+  ],
   "Potential sources of revenue include mining rewards, transaction fees attributable to mining operations, hosting services and related infrastructure activities where actually conducted.": [
     "lib/business-activities.ts"
   ],
@@ -5489,6 +5492,9 @@
   ],
   "Risk disclosure.": [
     "app/legal/risk/page.tsx"
+  ],
+  "Risks include weather, disease, input prices, transport costs, spoilage, commodity-price movements and changes in agricultural policy.": [
+    "lib/business-activities.ts"
   ],
   "Risks, policies & due diligence": [
     "app/company-profile/page.tsx"
@@ -7037,6 +7043,9 @@
     "components/Landing.tsx",
     "lib/i18n.ts"
   ],
+  "We evaluate agricultural enterprises, farming operations, food production, processing, storage and related supply-chain opportunities.": [
+    "lib/business-activities.ts"
+  ],
   "We evaluate cryptocurrency mining opportunities involving computing infrastructure, mining equipment, energy efficiency, hosting arrangements and digital-asset operations.": [
     "lib/business-activities.ts"
   ],
@@ -7051,9 +7060,6 @@
   ],
   "We’re here to help.": [
     "app/support/page.tsx"
-  ],
-  "Weather, pests, disease, input-price changes, water availability and commodity prices can materially affect yields and profitability.": [
-    "lib/business-activities.ts"
   ],
   "Website language": [
     "components/LanguageSelector.tsx",
@@ -7171,9 +7177,6 @@
   ],
   "WITHDRAWN": [
     "components/workspace/Cards.tsx"
-  ],
-  "Working with seasonal production, responsible resource use and routes to market.": [
-    "lib/business-activities.ts"
   ],
   "Workspace": [
     "components/workspace/Workspace.tsx"
