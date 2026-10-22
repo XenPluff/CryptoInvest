@@ -5,8 +5,23 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 22, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `f26d5b2c9bad40c2660d6bb311d597a7219c94ff` from branch
+- Running source commit: `ccb09761fc3e06a94cb95e77ca90b1131874f184` from branch
   `codex/aureon-render-preview`.
+- The [amount-first deposit flow](DEPOSIT_FLOW.md) is live in deployment
+  `dep-dbd6gi3ncjis73ba3aj0`. Add funds and Deposit funds open USD entry,
+  cryptocurrency/network selection and a current coin conversion. Proceed opens
+  a centered payment window with fixed coin instructions, the original address,
+  address QR code and separate copy actions. Returning users can resume after
+  reload; Done reports the hash for manual review without investor MFA or
+  immediate balance credit. Actual hosted guide copy, MP4/caption/transcript
+  SHA-256 matches, byte ranges and unauthenticated API rejection pass. Hosted
+  workspace assets pass 48 selection/payment language/width states, all six
+  original QR destinations, clipboard actions, resume and pending submission
+  with browser-only API fixtures. No production mutations or page errors
+  occurred. Provider spot prices were read from this workspace; authenticated
+  pricing from Render was not exercised with a real investor account. Health
+  reports connected database, enabled funding and passed email readiness.
+  Catalogs cover 2,378 messages; the English deposit guide follows the new flow.
 - The [account two-factor policy](TWO_FACTOR_POLICY.md) is live in deployment
   `dep-dbcra33rjlhs73eer5rg`. Investor enrollment is optional, with codes at
   enabled login and withdrawal only; enrollment confirms one setup code.
