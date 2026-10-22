@@ -5,8 +5,19 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 22, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `ccb09761fc3e06a94cb95e77ca90b1131874f184` from branch
+- Running source commit: `3f914f3c9a33808638f2a3aba27ef89ddffcce99` from branch
   `codex/aureon-render-preview`.
+- The [administrator deposit review](https://aureon-preview.onrender.com/admin/deposits)
+  is simplified in deployment `dep-dbd8nm5g1s2s73ajp9qg`. Evidence-reference,
+  ownership/source-of-funds evidence and written-note fields and their prompts
+  are removed. Approval keeps the confirmed USD amount and current admin code;
+  decline needs no note. Missing notes become a factual decision record, with
+  no generated verification evidence. Actual hosted assets pass eight languages
+  at 1440/390/320px (24 layout states), absent-field checks, required admin proof
+  and approve/decline payloads with browser-only API fixtures. Withdrawal notes
+  remain present. No production reviews or page errors occurred. Protected APIs
+  return 401; health reports connected database, enabled funding and passed
+  email readiness. Catalogs cover 2,373 messages.
 - The [amount-first deposit flow](DEPOSIT_FLOW.md) is live in deployment
   `dep-dbd6gi3ncjis73ba3aj0`. Add funds and Deposit funds open USD entry,
   cryptocurrency/network selection and a current coin conversion. Proceed opens
