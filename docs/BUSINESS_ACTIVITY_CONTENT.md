@@ -1,19 +1,19 @@
 # Business model and sector artwork
 
-`/approach` explains nine business activities and investment interests identified
+`/approach` explains ten business activities and investment interests identified
 by the owner: crypto mining, financial market trading, property management,
 agriculture, solar energy, tangible physical assets, natural resources/metals,
-arbitrage, and artificial intelligence/robotics investments. The owner also
-confirmed a claim of 7–15 years of trader
-experience in chat on October 20, 2026. No operating, financial or credential
-records were inspected as part of this website-content task. Company-supplied
-descriptions and experience claims are attributed on the page; independent
+arbitrage, artificial intelligence/robotics and strategic business investments.
+The owner supplied the public descriptions; no operating, financial or credential
+records were inspected as part of this website-content task. Independent
 verification is not asserted.
 
-The AI/robotics profile describes an investment interest, without inventing a
-named holding, owned laboratory, robot fleet or software product. It distinguishes
-revenue earned by investee businesses from dividends, distributions and realized
-investment gains that may accrue to AUREON.
+The strategic business profile uses the owner's conditional wording about equity
+interests, partnerships and acquisitions. It does not invent named holdings,
+completed deals, owned facilities or investment results. The three supplied
+paragraphs are accompanied by expandable cost and evidence considerations, as
+with the other profiles. This website update does not regenerate the existing
+company-profile PDF edition.
 
 Each profile explains a possible revenue mechanism, costs affecting net results,
 key risks and the records that should support the activity. The revenue-to-net-
@@ -29,14 +29,16 @@ investment calculations, funding settings or legal permissions.
 
 ## Artwork
 
-Nine original AI-generated sector illustrations live in
-`public/images/strategies/`, each carrying an AUREON logo watermark and the words
-"SECTOR ILLUSTRATION". The existing company brand mark was supplied as the logo
+Ten original sector illustrations live in `public/images/strategies/`,
+created with image generation and carrying AUREON branding. The original nine
+include the words "SECTOR ILLUSTRATION"; the strategic-business image contains
+only the AUREON emblem and wordmark, without an AI-generated caption. Its
+conceptual boardroom scene uses an existing sector picture as the brand/style
 reference. Source artwork is retained unchanged as PNG; website delivery uses
 Next.js responsive image handling. Each picture can be downloaded in its
 original form from its profile.
 
-The homepage's "Where value takes shape" picture cycles through all nine
+The homepage's "Where value takes shape" picture cycles through all ten
 activities, one image at a time, on a five-second interval. The next responsive
 image is decoded before replacing the current one; a failed load retains the
 current image and retries. Rotation is automatic without pause/play controls,
@@ -45,8 +47,8 @@ visible again. Reduced-motion preferences disable the fade while pictures keep
 cycling. The image frame keeps a fixed 3:2 ratio. Other previews remain static.
 
 The repeated "AI-generated sector illustration" picture captions have been
-removed. Image alternative text and the page's introductory source note describe
-the imagery. The imagery does not establish ownership, operations, staff, title,
+removed. Alternative text describes the imagery; the new picture is identified as
+conceptual artwork. The imagery does not establish ownership, operations, staff, title,
 provenance, licensing or performance. Replace illustrations with genuine project
 photography only after obtaining usage rights, validating what it shows and
 updating the captions and alternative text.

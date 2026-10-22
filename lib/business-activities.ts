@@ -109,4 +109,13 @@ export const businessActivities: BusinessActivity[] = [
     evidence: "Named investments and ownership interests, investment agreements, capitalization records, valuation methods, investee financial reports and evidence of any dividends, distributions or realized exit proceeds.",
     imageAlt: "AI-generated illustration of a modern robotics laboratory with AI computing infrastructure and the AUREON logo",
   },
+  {
+    id: "strategic-business", number: "10", title: "Strategic Business Investments", theme: "STRATEGIC CAPITAL",
+    summary: "AUREON may evaluate equity interests, partnerships, acquisitions and other commercial investments in businesses that align with its investment mandate.",
+    revenue: "Potential returns may arise from dividends, operating distributions, contractual income or realised capital gains.",
+    margin: "Acquisition valuation, transaction costs, financing, operating performance, taxes and the terms of any distributions or exit affect net returns.",
+    risk: "These investments may be illiquid and may involve minority-ownership, governance, valuation and business-execution risks.",
+    evidence: "Investment agreements, ownership registers, partnership terms, governance rights, financial statements, valuation methods and records of distributions or realised disposals.",
+    imageAlt: "Conceptual illustration of a boardroom with business models and connected investment interests, carrying the AUREON logo",
+  },
 ];

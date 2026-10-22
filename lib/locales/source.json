@@ -823,6 +823,9 @@
   "Acquisition or production costs, processing, transport, storage, financing, royalties and taxes must be accounted for against realized sales.": [
     "lib/business-activities.ts"
   ],
+  "Acquisition valuation, transaction costs, financing, operating performance, taxes and the terms of any distributions or exit affect net returns.": [
+    "lib/business-activities.ts"
+  ],
   "Activate only after receiving wallets are configured, operator review procedures are ready, and the platform is legally authorized to accept funds.": [
     "components/workspace/admin.tsx"
   ],
@@ -1383,6 +1386,9 @@
   "Aureon is the platform name. The contracting legal entity, registered address, governing law, dispute resolution process and service eligibility by jurisdiction must be supplied by the operator before financial services are offered publicly. No incorporation, registration, license or authorization is implied by this website.": [
     "app/legal/terms/page.tsx"
   ],
+  "AUREON may evaluate equity interests, partnerships, acquisitions and other commercial investments in businesses that align with its investment mandate.": [
+    "lib/business-activities.ts"
+  ],
   "AUREON MEMBER": [
     "components/cards/CardShowcase.tsx"
   ],
@@ -1925,6 +1931,9 @@
   ],
   "CONCEPT / NOT ISSUED": [
     "components/cards/CardShowcase.tsx"
+  ],
+  "Conceptual illustration of a boardroom with business models and connected investment interests, carrying the AUREON logo": [
+    "lib/business-activities.ts"
   ],
   "Concurrent account operation. Please retry.": [
     "server/app.ts"
@@ -2848,7 +2857,7 @@
   "Explore AUREON Visa and Mastercard card design concepts and submit a pre-launch application. Cards are not issued and payment functionality is unavailable.": [
     "app/cards/layout.tsx"
   ],
-  "Explore AUREON’s company-reported activities across digital infrastructure, markets, property, agriculture, energy, physical assets and AI/robotics investments, with an explanation of revenue, costs, risks and reporting.": [
+  "Explore AUREON’s company-reported activities across digital infrastructure, markets, property, agriculture, energy, physical assets, AI/robotics and strategic business investments, with an explanation of revenue, costs, risks and reporting.": [
     "app/about/page.tsx"
   ],
   "Explore AUREON’s company-reported business activities, how each can generate revenue, and the costs, risks and records that put the picture in context.": [
@@ -3452,6 +3461,9 @@
   ],
   "Investment activated": [
     "server/app.ts"
+  ],
+  "Investment agreements, ownership registers, partnership terms, governance rights, financial statements, valuation methods and records of distributions or realised disposals.": [
+    "lib/business-activities.ts"
   ],
   "Investment amount (USD)": [
     "components/workspace/Workspace.tsx"
@@ -4688,6 +4700,9 @@
   "Potential returns depend on execution quality and the difference between purchase and sale prices after fees, spreads, funding, hedging and other costs.": [
     "lib/business-activities.ts"
   ],
+  "Potential returns may arise from dividends, operating distributions, contractual income or realised capital gains.": [
+    "lib/business-activities.ts"
+  ],
   "Potential revenue sources include electricity sales, contracted energy services, equipment leasing and other permitted energy-related activities.": [
     "lib/business-activities.ts"
   ],
@@ -5845,6 +5860,12 @@
   "Stored backup size mismatch.": [
     "server/backups.ts"
   ],
+  "Strategic Business Investments": [
+    "lib/business-activities.ts"
+  ],
+  "STRATEGIC CAPITAL": [
+    "lib/business-activities.ts"
+  ],
   "Subject to applicable agreements, obligations and available liquidity.": [
     "app/approach/page.tsx"
   ],
@@ -6298,6 +6319,9 @@
   ],
   "These checks are required to submit a deposit for review.": [
     "components/workspace/DepositWorkspace.tsx"
+  ],
+  "These investments may be illiquid and may involve minority-ownership, governance, valuation and business-execution risks.": [
+    "lib/business-activities.ts"
   ],
   "These transfers move available USD balances between AUREON accounts. Cryptocurrency payouts use the withdrawal review and transaction-hash reconciliation workflow.": [
     "components/workspace/AdminFunds.tsx"

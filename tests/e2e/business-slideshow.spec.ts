@@ -20,7 +20,7 @@ test.describe("touchscreen autoplay", () => {
   });
 });
 
-test("homepage slideshow cycles all nine pictures without playback controls or hover pauses", async ({ page }) => {
+test("homepage slideshow cycles every business picture without playback controls or hover pauses", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
   const now = new Date();
   await page.clock.install({ time: now });
