@@ -274,6 +274,9 @@
   "1. Create your recovery kit": [
     "components/workspace/Operations.tsx"
   ],
+  "1. Cryptocurrency Mining and Digital Infrastructure": [
+    "lib/business-activities.ts"
+  ],
   "1. Data controller": [
     "app/legal/privacy/page.tsx"
   ],
@@ -997,9 +1000,6 @@
   "All activity": [
     "components/workspace/Workspace.tsx"
   ],
-  "All images are AI-generated sector illustrations carrying the AUREON logo. They do not document company-owned facilities, assets or personnel.": [
-    "app/approach/page.tsx"
-  ],
   "All investments involve risk.": [
     "components/workspace/Workspace.tsx"
   ],
@@ -1304,9 +1304,6 @@
   "ASSET-BACKED ACTIVITY": [
     "lib/business-activities.ts"
   ],
-  "Asset-price volatility, reward reductions, rising network difficulty, downtime and energy costs can make production unprofitable.": [
-    "lib/business-activities.ts"
-  ],
   "asset.": [
     "lib/video-content.ts"
   ],
@@ -1374,7 +1371,7 @@
     "components/auth/AuthShell.tsx",
     "lib/i18n.ts"
   ],
-  "AUREON identifies the following areas as current business activities and investment interests. These descriptions are company-supplied; supporting operating records, independently verified financial results and individual team credentials have not been published on this page.": [
+  "AUREON identifies the following areas as current business activities and investment interests.": [
     "app/approach/page.tsx"
   ],
   "AUREON introduction: a new perspective, with a gold orbital sphere": [
@@ -1931,9 +1928,6 @@
   ],
   "Completed withdrawals": [
     "components/workspace/admin.tsx"
-  ],
-  "Computing power, energy discipline and a clear view of production economics.": [
-    "lib/business-activities.ts"
   ],
   "CONCEPT / NOT ISSUED": [
     "components/cards/CardShowcase.tsx"
@@ -3642,6 +3636,9 @@
   "KEY FINGERPRINT · SHA-256": [
     "components/workspace/Operations.tsx"
   ],
+  "Key performance considerations include network difficulty, digital-asset prices, electricity costs, hardware efficiency, equipment depreciation, maintenance, mining-pool arrangements and regulatory developments.": [
+    "lib/business-activities.ts"
+  ],
   "Key risk": [
     "app/approach/page.tsx"
   ],
@@ -3958,7 +3955,7 @@
   "Minimum amount (USD)": [
     "components/workspace/admin.tsx"
   ],
-  "Mining can earn network block rewards and transaction fees by contributing computing power to supported proof-of-work networks. Pool arrangements determine how rewards are shared.": [
+  "Mining revenue is variable and may fall below operating costs. The company does not represent mining revenue as a guaranteed source of profit.": [
     "lib/business-activities.ts"
   ],
   "Mobile navigation": [
@@ -4533,6 +4530,9 @@
   "People referred": [
     "components/workspace/Workspace.tsx"
   ],
+  "Performance considerations": [
+    "app/approach/page.tsx"
+  ],
   "personal": [
     "localization"
   ],
@@ -4699,6 +4699,9 @@
   ],
   "PostgreSQL is required.": [
     "server/backups.ts"
+  ],
+  "Potential sources of revenue include mining rewards, transaction fees attributable to mining operations, hosting services and related infrastructure activities where actually conducted.": [
+    "lib/business-activities.ts"
   ],
   "PRE-LAUNCH / NO CARD ISSUANCE": [
     "components/workspace/Cards.tsx"
@@ -7039,6 +7042,9 @@
   "We bring intention, clarity, and considered design": [
     "components/Landing.tsx",
     "lib/i18n.ts"
+  ],
+  "We evaluate cryptocurrency mining opportunities involving computing infrastructure, mining equipment, energy efficiency, hosting arrangements and digital-asset operations.": [
+    "lib/business-activities.ts"
   ],
   "We identify potential opportunities through market research, industry analysis, commercial partnerships and evaluation of business fundamentals.": [
     "app/about/page.tsx"

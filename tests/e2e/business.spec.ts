@@ -7,7 +7,7 @@ test("all sector pictures load and original branded artwork can be downloaded", 
   const response = await page.goto("/approach");
   expect(response?.status()).toBe(200);
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Where value");
-  await expect(page.getByRole("region", { name: "About these business descriptions" })).toContainText("company-supplied");
+  await expect(page.getByRole("region", { name: "About these business descriptions" })).toContainText("COMPANY-REPORTED ACTIVITIES");
   for (const activity of businessActivities) {
     const article = page.locator(`article#${activity.id}`);
     const image = article.getByRole("img", { name: activity.imageAlt, exact: true });

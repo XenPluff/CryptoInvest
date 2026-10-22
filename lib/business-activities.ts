@@ -2,9 +2,11 @@ export type BusinessActivity = {
   id: string;
   number: string;
   title: string;
+  profileTitle?: string;
   theme: string;
   summary: string;
   revenue: string;
+  considerations?: string;
   margin: string;
   risk: string;
   evidence: string;
@@ -16,10 +18,12 @@ export type BusinessActivity = {
 export const businessActivities: BusinessActivity[] = [
   {
     id: "crypto-mining", number: "01", title: "Crypto mining", theme: "DIGITAL INFRASTRUCTURE",
-    summary: "Computing power, energy discipline and a clear view of production economics.",
-    revenue: "Mining can earn network block rewards and transaction fees by contributing computing power to supported proof-of-work networks. Pool arrangements determine how rewards are shared.",
+    profileTitle: "1. Cryptocurrency Mining and Digital Infrastructure",
+    summary: "We evaluate cryptocurrency mining opportunities involving computing infrastructure, mining equipment, energy efficiency, hosting arrangements and digital-asset operations.",
+    revenue: "Potential sources of revenue include mining rewards, transaction fees attributable to mining operations, hosting services and related infrastructure activities where actually conducted.",
+    considerations: "Key performance considerations include network difficulty, digital-asset prices, electricity costs, hardware efficiency, equipment depreciation, maintenance, mining-pool arrangements and regulatory developments.",
     margin: "Electricity, equipment efficiency, hardware depreciation, hosting, pool fees and network difficulty determine whether mining revenue translates into a positive net result.",
-    risk: "Asset-price volatility, reward reductions, rising network difficulty, downtime and energy costs can make production unprofitable.",
+    risk: "Mining revenue is variable and may fall below operating costs. The company does not represent mining revenue as a guaranteed source of profit.",
     evidence: "Facility or hosting agreements, energy bills, equipment inventory, hashrate records and reconciled pool payouts linked to controlled wallets.",
     imageAlt: "AI-generated illustration of a cryptocurrency mining equipment aisle with the AUREON logo",
   },

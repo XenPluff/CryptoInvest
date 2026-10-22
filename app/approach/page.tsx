@@ -24,8 +24,7 @@ export default function ApproachPage() {
       <PageIntro eyebrow="How value is generated" title="Where value" emphasis="takes shape." description="Digital infrastructure. Productive assets. Financial markets. Intelligent technology. A closer look at the commercial logic, costs and evidence behind AUREON’s stated business activities." number="08" />
       <section className={`container ${styles.context}`} aria-label="About these business descriptions">
         <span className={styles.kicker}>COMPANY-REPORTED ACTIVITIES</span>
-        <p>AUREON identifies the following areas as current business activities and investment interests. These descriptions are company-supplied; supporting operating records, independently verified financial results and individual team credentials have not been published on this page.</p>
-        <p>All images are AI-generated sector illustrations carrying the AUREON logo. They do not document company-owned facilities, assets or personnel.</p>
+        <p>AUREON identifies the following areas as current business activities and investment interests.</p>
       </section>
 
       <nav className={`container ${styles.index}`} aria-label="Explore business activities">
@@ -40,9 +39,10 @@ export default function ApproachPage() {
           </figure>
           <div className={styles.activityBody}>
             <div className={styles.activityEyebrow}><span>{activity.theme}</span><span>/{activity.number}</span></div>
-            <h2 id={`${activity.id}-title`}>{activity.title}</h2>
+            <h2 id={`${activity.id}-title`}>{activity.profileTitle ?? activity.title}</h2>
             <p className={styles.summary}>{activity.summary}</p>
             <div className={styles.revenue}><h3>How revenue can arise</h3><p>{activity.revenue}</p></div>
+            {activity.considerations && <div className={styles.revenue}><h3>Performance considerations</h3><p>{activity.considerations}</p></div>}
             {activity.id === "market-trading" && <div className={styles.experience}><span>THE PEOPLE BEHIND THE PROCESS</span><p>AUREON reports that its professional traders have <strong>7–15 years of experience</strong>. Individual biographies and independent verification of this experience have not been published here.</p></div>}
             <div className={styles.keyRisk}><h3>Key risk</h3><p>{activity.risk}</p></div>
             <details className={styles.detail}>
