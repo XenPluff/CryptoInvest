@@ -4697,6 +4697,9 @@
   "Potential sources of revenue include mining rewards, transaction fees attributable to mining operations, hosting services and related infrastructure activities where actually conducted.": [
     "lib/business-activities.ts"
   ],
+  "Potential sources of revenue include rental income, property-management fees, leasing services and realised gains on property disposals.": [
+    "lib/business-activities.ts"
+  ],
   "PRE-LAUNCH / NO CARD ISSUANCE": [
     "components/workspace/Cards.tsx"
   ],
@@ -4883,13 +4886,7 @@
   "PROPERTY & OPERATIONS": [
     "lib/business-activities.ts"
   ],
-  "Property income begins with occupancy, sound management and documented rights.": [
-    "lib/business-activities.ts"
-  ],
-  "Property is often illiquid. Tenant defaults, repairs, valuation changes, legal disputes and interest-rate movements can reduce income or capital value.": [
-    "lib/business-activities.ts"
-  ],
-  "Property management can earn contracted service fees. Where a documented ownership or investment interest exists, rental income and realized disposal gains may also contribute.": [
+  "Property valuations can fluctuate, and rental assets may face vacancy, maintenance, financing, insurance, taxation and liquidity risks.": [
     "lib/business-activities.ts"
   ],
   "Protect financial actions with a time-based code from an authenticator app. Two-factor authentication is required for investments and withdrawals.": [
@@ -5055,6 +5052,9 @@
     "components/workspace/Workspace.tsx"
   ],
   "Real estate management": [
+    "lib/business-activities.ts"
+  ],
+  "Real Estate Management": [
     "lib/business-activities.ts"
   ],
   "Real prices from the connected market data provider. An honest availability state when the source cannot be reached.": [
@@ -7038,6 +7038,9 @@
     "lib/i18n.ts"
   ],
   "We evaluate cryptocurrency mining opportunities involving computing infrastructure, mining equipment, energy efficiency, hosting arrangements and digital-asset operations.": [
+    "lib/business-activities.ts"
+  ],
+  "We evaluate income-producing real estate and property-related businesses, including property management, leasing, asset improvement and selected property investments.": [
     "lib/business-activities.ts"
   ],
   "We identify potential opportunities through market research, industry analysis, commercial partnerships and evaluation of business fundamentals.": [
