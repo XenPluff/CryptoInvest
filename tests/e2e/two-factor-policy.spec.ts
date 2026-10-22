@@ -6,6 +6,8 @@ async function fixture(page:Page,account={...user}){
   const mutations:{path:string;body:any}[]=[];
   await page.route("**/api/**",async route=>{
     const req=route.request(),path=new URL(req.url()).pathname;
+    if(path==="/api/deposit-price")return route.fulfill({json:{price:{asset:"ETH",priceUsd:"2500",source:"Browser fixture",updatedAt:new Date().toISOString(),expiresAt:new Date(Date.now()+90000).toISOString()}}});
+    if(path==="/api/deposits/quote")return route.fulfill({json:{quote:{walletId:wallet.id,asset:"ETH",network:wallet.network,address:wallet.address,amountCents:1000,cryptoAmount:"0.004",priceUsd:"2500",source:"Browser fixture",updatedAt:new Date().toISOString(),expiresAt:new Date(Date.now()+90000).toISOString(),quotedAt:new Date().toISOString(),quoteToken:"browser-only"}}});
     if(req.method()!=="GET"){
       const body=req.postDataJSON();mutations.push({path,body});
       return route.fulfill({json:path==="/api/deposits"?{deposit:{id:"browser-only",asset:"ETH",amount:10,status:"PENDING"}}:{message:"Saved for browser validation."}});
@@ -19,7 +21,7 @@ for(const enabled of [false,true])test(`investor ${enabled?"enabled":"disabled"}
   const mutations=await fixture(page,{...user,twoFactorEnabled:enabled});
   const errors:string[]=[];page.on("pageerror",e=>errors.push(e.message));
   await page.goto("/dashboard/wallets");await expect(page.locator('#dp-code')).toHaveCount(0);
-  await page.getByLabel("Declared value (USD)").fill("10");await page.getByLabel("Blockchain transaction hash").fill("a".repeat(64));await page.getByRole("checkbox").check();await page.getByRole("button",{name:"Submit for verification"}).click();
+  await page.getByLabel("Deposit amount (USD)").fill("10");await page.getByRole("button",{name:"Proceed to payment"}).click();await page.getByLabel("Blockchain transaction hash").fill("a".repeat(64));await page.getByRole("checkbox").check();await page.getByRole("button",{name:"Done — I have sent the funds"}).click();
   await expect(page.getByRole("heading",{name:"Submitted for review."})).toBeVisible();expect(mutations[0].body).not.toHaveProperty("code");
   await page.goto("/dashboard/plans");await page.getByRole("button",{name:"Choose Starter"}).click();const dialog=page.getByRole("dialog");await expect(dialog.locator('input[name="code"]')).toHaveCount(0);await dialog.getByLabel("Investment amount (USD)").fill("10");await dialog.getByRole("checkbox").check();await dialog.getByRole("button",{name:"Confirm investment"}).click();await expect.poll(()=>mutations.filter(m=>m.path==="/api/investments").length).toBe(1);expect(mutations.find(m=>m.path==="/api/investments")!.body).not.toHaveProperty("code");
   await page.goto("/dashboard/withdrawals");const form=page.locator('form').filter({has:page.getByRole("button",{name:"Request withdrawal",exact:true})});await expect(form.locator('input[name="code"]')).toHaveCount(enabled?1:0);await form.getByLabel("Amount (USD)",{exact:true}).fill("10");await form.locator('select[name="wallet"]').selectOption(wallet.id);await form.getByLabel("Destination wallet address").fill(wallet.address);await form.getByRole("checkbox").check();await form.getByRole("button",{name:"Request withdrawal",exact:true}).click();

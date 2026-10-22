@@ -35,6 +35,7 @@ import { analyticsUserRouter, analyticsAdminRouter } from "./analytics";
 import { externalFetch } from "./network";
 import { operationsRouter } from "./operations";
 import { cardAdminRouter, cardUserRouter } from "./cards";
+import { readDepositPrice, signDepositInstructions, verifyDepositInstructions } from "./deposit-pricing";
 
 export const app = express();
 app.disable("x-powered-by");
@@ -364,10 +365,23 @@ api.get("/investments", requireAuth, async (req, res) =>
     ).map(investmentJson),
   }),
 );
+api.get("/deposit-price", requireAuth, async (req, res) => {
+  const asset = z.enum(["BTC", "ETH", "USDT", "BNB", "SOL"]).parse(req.query.asset);
+  res.json({ price: await readDepositPrice(asset) });
+});
+api.post("/deposits/quote", requireAuth, financialGuard, async (req, res) => {
+  const body = entrySchema.extend({ walletId: shortText }).parse(req.body);
+  const amountCents = toCents(body.amount);
+  const wallet = await prisma.wallet.findFirst({ where: { id: body.walletId, active: true } });
+  if (!wallet) throw new HttpError(400, "Unsupported deposit network.");
+  const price = await readDepositPrice(wallet.asset);
+  res.json({ quote: signDepositInstructions(userId(req), wallet, amountCents, price, config.jwtSecret) });
+});
 api.post("/deposits", requireAuth, financialGuard, async (req, res) => {
   const body = entrySchema
     .extend({
       walletId: shortText,
+      quoteToken: z.string().max(5000).optional(),
       txHash: z
         .string()
         .trim()
@@ -381,6 +395,10 @@ api.post("/deposits", requireAuth, financialGuard, async (req, res) => {
     where: { id: body.walletId, active: true },
   });
   if (!wallet) throw new HttpError(400, "Unsupported deposit network.");
+  const amountCents = toCents(body.amount);
+  const quote = body.quoteToken ? verifyDepositInstructions(body.quoteToken, userId(req), config.jwtSecret) : null;
+  if (quote && (quote.walletId !== wallet.id || quote.asset !== wallet.asset || quote.network !== wallet.network || quote.address !== wallet.address || quote.amountCents !== amountCents))
+    throw new HttpError(400, "The deposit details do not match the payment instructions. Contact support if funds have already been sent.");
   const txHash = normalizeTxHash(wallet.network, body.txHash);
   const deposit = await serializable(async (tx) => {
     const transaction = await tx.transaction.create({
@@ -388,12 +406,14 @@ api.post("/deposits", requireAuth, financialGuard, async (req, res) => {
         userId: userId(req),
         walletId: wallet.id,
         type: "DEPOSIT",
-        amountCents: toCents(body.amount),
+        amountCents,
         asset: wallet.asset,
         network: wallet.network,
         txHash,
+        ...(quote ? { note: `Payment instructions: ${quote.cryptoAmount} ${quote.asset}; declared USD ${(amountCents / 100).toFixed(2)}; ${quote.source} USD price ${quote.priceUsd}; captured ${quote.quotedAt}. Independently verify the received amount and USD credit.` } : {}),
       },
     });
+    if (quote) await audit(tx, userId(req), "DEPOSIT_INSTRUCTIONS_REPORTED", transaction.id, quote, req.ip);
     await notify(
       tx,
       userId(req),

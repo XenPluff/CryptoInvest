@@ -6,25 +6,25 @@ GUIDE 02 / DEPOSITS
 A careful beginning.
 Open Deposit funds. Complete account checks first, and confirm deposits are open before sending anything.
 
-01 / CHOOSE YOUR CURRENCY
-Choose your asset.
-Choose a currently supported asset in the workspace. Available options are shown on the deposit page.
+01 / AMOUNT AND CURRENCY
+Set your amount.
+Enter your USD deposit amount and select an available cryptocurrency. Review the coin amount calculated from the current market price.
 
 02 / CHECK BOTH SIDES
 Match the network.
 Your sending wallet must use the exact selected network. USDT on TRC20 and ERC20 are different routes.
 
-03 / USE THE LIVE WORKSPACE
-Verify the destination.
-Copy the current address or scan its QR code in your account. Recheck the complete destination in your sending wallet.
+03 / YOUR PAYMENT WINDOW
+Proceed to payment.
+Choose Proceed to payment. Copy the receiving address and exact coin amount, or scan the address QR code and enter the amount separately.
 
 04 / YOUR SENDING WALLET
-Keep the reference.
-If you choose to transfer, allow for network fees. Keep the blockchain transaction hash. Transfers can be irreversible.
+Send the exact amount.
+Use the matching network and allow for wallet fees so the recipient receives the amount shown. The coin amount stays fixed; USD credit is confirmed during review.
 
-05 / CONFIRM YOUR TRANSFER
-Submit for verification.
-Enter the declared USD value and transaction hash. Confirm the transfer details and submit; no authenticator code is needed for deposits.
+05 / REPORT YOUR TRANSFER
+Return and choose Done.
+Return to the payment window, paste your blockchain transaction hash, confirm the transfer and choose Done. No authenticator code is needed for deposits.
 
 06 / TRANSACTION HISTORY
 Follow the review.

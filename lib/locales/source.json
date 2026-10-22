@@ -32,6 +32,9 @@
   "· target": [
     "components/LiveInvestmentDisplay.tsx"
   ],
+  "· updates every 30 seconds": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "· USD": [
     "components/InvestmentCalculator.tsx",
     "components/workspace/PortfolioAnalytics.tsx"
@@ -101,9 +104,6 @@
   "{0} critical conditions": [
     "components/workspace/Operations.tsx"
   ],
-  "{0} currencies. {1} deposit options. One clear next step.": [
-    "components/workspace/DepositWorkspace.tsx"
-  ],
   "{0} days": [
     "components/InvestmentCalculator.tsx",
     "components/LiveInvestmentDisplay.tsx",
@@ -125,9 +125,6 @@
   ],
   "{0} must be a finite nonnegative number.": [
     "lib/investment.ts"
-  ],
-  "{0} network": [
-    "components/workspace/DepositWorkspace.tsx"
   ],
   "{0} pages · English · PDF": [
     "app/company-profile/page.tsx"
@@ -189,10 +186,10 @@
   "0{0} / {1} DAYS": [
     "components/public/PlanCatalog.tsx"
   ],
-  "01 / AVAILABLE BALANCE": [
+  "01 / AMOUNT AND CURRENCY": [
     "lib/video-content.ts"
   ],
-  "01 / CHOOSE YOUR CURRENCY": [
+  "01 / AVAILABLE BALANCE": [
     "lib/video-content.ts"
   ],
   "01 / Market structure": [
@@ -219,6 +216,9 @@
   "02 / Investment horizons": [
     "app/insights/page.tsx"
   ],
+  "02 / MAKE YOUR TRANSFER": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "03 / ACCOUNT SETTINGS": [
     "lib/video-content.ts"
   ],
@@ -231,7 +231,7 @@
   "03 / RECONCILIATION": [
     "app/approach/page.tsx"
   ],
-  "03 / USE THE LIVE WORKSPACE": [
+  "03 / YOUR PAYMENT WINDOW": [
     "lib/video-content.ts"
   ],
   "04 / AGREED RIGHTS": [
@@ -246,7 +246,7 @@
   "04 / YOUR SENDING WALLET": [
     "lib/video-content.ts"
   ],
-  "05 / CONFIRM YOUR TRANSFER": [
+  "05 / REPORT YOUR TRANSFER": [
     "lib/video-content.ts"
   ],
   "05 / TRANSACTION HISTORY": [
@@ -468,9 +468,6 @@
   "A clear path from your first visit to a verified account. Take the time to understand the process before committing capital.": [
     "app/how-it-works/page.tsx"
   ],
-  "A CLEAR PATH TO YOUR ACCOUNT": [
-    "components/workspace/DepositWorkspace.tsx"
-  ],
   "A clear perspective on risk. Target returns are illustrative and never guaranteed.": [
     "components/Landing.tsx",
     "lib/i18n.ts"
@@ -557,6 +554,9 @@
   ],
   "A conversation,": [
     "app/support/page.tsx"
+  ],
+  "A current price is needed to continue.": [
+    "components/workspace/DepositWorkspace.tsx"
   ],
   "A different": [
     "app/about/page.tsx"
@@ -691,6 +691,9 @@
   "A short introduction to the AUREON experience: considered design and clearly presented records.": [
     "lib/video-content.ts"
   ],
+  "A SIMPLE WAY TO FUND": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "A slowly rotating golden orbital sculpture": [
     "components/HeroScene.tsx"
   ],
@@ -705,9 +708,6 @@
   ],
   "A suspended or unavailable account cannot be promoted.": [
     "server/admin-provisioning.ts"
-  ],
-  "A transfer on another network can result in a loss of funds. Network fees are charged by your sending wallet.": [
-    "components/workspace/DepositWorkspace.tsx"
   ],
   "A TRUSTED FOUNDATION": [
     "components/workspace/Workspace.tsx"
@@ -878,6 +878,7 @@
     "lib/video-content.ts"
   ],
   "Add funds": [
+    "components/workspace/DepositWorkspace.tsx",
     "components/workspace/Workspace.tsx"
   ],
   "Add to pre-launch list": [
@@ -1027,9 +1028,6 @@
     "components/auth/AuthForms.tsx",
     "lib/i18n.ts"
   ],
-  "Already sent your funds? Add the details below so the transfer can be reviewed.": [
-    "components/workspace/DepositWorkspace.tsx"
-  ],
   "Always check the asset, network, address, amount and applicable terms. Cryptocurrency transfers are generally irreversible, and capital can be lost.": [
     "app/how-it-works/page.tsx"
   ],
@@ -1054,8 +1052,14 @@
   "Amount (USD)": [
     "components/workspace/Workspace.tsx"
   ],
+  "Amount & currency": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "Amount must be between $0.01 and $10,000,000.": [
     "server/finance.ts"
+  ],
+  "amount.": [
+    "lib/video-content.ts"
   ],
   "An active account with verified email is required.": [
     "server/cards.ts"
@@ -1309,9 +1313,6 @@
   ],
   "ASSET-BACKED ACTIVITY": [
     "lib/business-activities.ts"
-  ],
-  "asset.": [
-    "lib/video-content.ts"
   ],
   "Assets and liabilities together": [
     "app/approach/page.tsx"
@@ -1687,6 +1688,9 @@
   "Capital is at risk. You could lose some or all of your investment. Account verification, approved KYC, and funding availability are required before investing. Read the": [
     "components/public/PlanCatalog.tsx"
   ],
+  "Captured conversion": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "Card application recorded": [
     "server/cards.ts"
   ],
@@ -1761,9 +1765,6 @@
   "Choose": [
     "components/workspace/Workspace.tsx"
   ],
-  "Choose a currently supported asset in the workspace. Available options are shown on the deposit page.": [
-    "lib/video-content.ts"
-  ],
   "Choose a horizon that fits your circumstances. Plan rates are targets for illustration; returns and capital are never guaranteed.": [
     "app/plans/page.tsx"
   ],
@@ -1787,16 +1788,22 @@
   "Choose a timestamp to play from that chapter. Visuals illustrate the process; use your current account for live details.": [
     "components/public/VideoLibrary.tsx"
   ],
+  "Choose a USD amount, cryptocurrency and matching network. Review the current conversion.": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "Choose a video": [
     "components/public/VideoLibrary.tsx"
   ],
   "Choose Create an account. Enter your name, email and a unique password, then review the terms.": [
     "lib/video-content.ts"
   ],
+  "choose Done.": [
+    "lib/video-content.ts"
+  ],
   "Choose optional authenticator protection, review account activity and contact support when you need clarification. Enabled accounts require codes at sign-in and for withdrawal requests. Funding requests follow an operator review process.": [
     "components/public/InvestorPerspective.tsx"
   ],
-  "Choose the exact asset and network, verify the current destination and track a submitted transfer.": [
+  "Choose Proceed to payment. Copy the receiving address and exact coin amount, or scan the address QR code and enter the amount separately.": [
     "lib/video-content.ts"
   ],
   "Choose the transfer network": [
@@ -1804,15 +1811,6 @@
   ],
   "Choose two different accounts.": [
     "server/admin-funds.ts"
-  ],
-  "Choose your": [
-    "lib/video-content.ts"
-  ],
-  "Choose your asset.": [
-    "lib/video-content.ts"
-  ],
-  "Choose your currency": [
-    "components/workspace/DepositWorkspace.tsx"
   ],
   "Choose your design preference, submit a pre-launch application and follow its preliminary review in your investor workspace.": [
     "components/cards/CardTeaser.tsx",
@@ -1872,11 +1870,20 @@
   "Close notifications": [
     "components/workspace/Workspace.tsx"
   ],
+  "Close payment instructions": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "Close review": [
     "components/workspace/admin.tsx"
   ],
+  "Coin amount copied": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "Coinbase Wallet": [
     "components/workspace/WalletConnections.tsx"
+  ],
+  "Come back and choose Done": [
+    "components/workspace/DepositWorkspace.tsx"
   ],
   "Commodity prices can be volatile. Physical holdings also introduce storage, insurance, transportation, authenticity and counterparty risks.": [
     "lib/business-activities.ts"
@@ -2006,9 +2013,6 @@
     "app/verify-email/page.tsx",
     "lib/i18n.ts"
   ],
-  "CONFIRM YOUR TRANSFER": [
-    "components/workspace/DepositWorkspace.tsx"
-  ],
   "Confirmed amount (USD)": [
     "components/workspace/admin.tsx"
   ],
@@ -2093,16 +2097,22 @@
   "Copy address": [
     "components/workspace/DepositWorkspace.tsx"
   ],
+  "Copy amount": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
+  "Copy coin amount": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "Copy deposit address": [
     "components/workspace/DepositWorkspace.tsx"
   ],
   "Copy link": [
     "components/workspace/Workspace.tsx"
   ],
-  "Copy the current address or scan its QR code in your account. Recheck the complete destination in your sending wallet.": [
-    "lib/video-content.ts"
+  "Copy the address and exact coin amount, or scan the address QR code. Send using your wallet app.": [
+    "components/workspace/DepositWorkspace.tsx"
   ],
-  "Copy unavailable. Select the address above to copy it manually.": [
+  "Copy unavailable. Select the address or amount to copy it manually.": [
     "components/workspace/DepositWorkspace.tsx"
   ],
   "Costs & evidence to assess": [
@@ -2226,9 +2236,6 @@
   "Cumulative verified deposit ledger credits and withdrawals recorded paid. Each step occurs at an actual posting or review timestamp. Investor registrations appear as timestamps with no change to funding totals.": [
     "components/workspace/AdminAnalytics.tsx"
   ],
-  "currencies.": [
-    "components/workspace/DepositWorkspace.tsx"
-  ],
   "Current active positions and immutable settlement credits. Projections and unverified deposits are excluded.": [
     "components/workspace/AdminAnalytics.tsx"
   ],
@@ -2294,10 +2301,10 @@
   "Decision": [
     "components/workspace/admin.tsx"
   ],
-  "Declared value": [
+  "declared value": [
     "components/workspace/DepositWorkspace.tsx"
   ],
-  "Declared value (USD)": [
+  "Declared value": [
     "components/workspace/DepositWorkspace.tsx"
   ],
   "Decline": [
@@ -2340,6 +2347,9 @@
   "Deposit addresses are operator-configured blockchain destinations. Publicly visible addresses do not prove control, security, segregation of funds or adequacy of reserves. Cold storage, custody insurance and independent custody audits have not been established through this website.": [
     "app/legal/risk/page.tsx"
   ],
+  "Deposit amount (USD)": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "Deposit currency": [
     "components/workspace/DepositWorkspace.tsx"
   ],
@@ -2355,12 +2365,12 @@
   "Deposit not found.": [
     "server/app.ts"
   ],
-  "deposit options. One clear next step.": [
-    "components/workspace/DepositWorkspace.tsx"
-  ],
   "Deposit reviews": [
     "components/workspace/Workspace.tsx",
     "components/workspace/admin.tsx"
+  ],
+  "Deposit submission is currently unavailable. Keep your transaction hash and contact support if you have sent funds.": [
+    "components/workspace/DepositWorkspace.tsx"
   ],
   "Deposit submitted": [
     "server/app.ts"
@@ -2513,6 +2523,12 @@
   ],
   "Does an admin decision approve credit?": [
     "app/cards/page.tsx"
+  ],
+  "Done — I have sent the funds": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
+  "Done & review": [
+    "components/workspace/DepositWorkspace.tsx"
   ],
   "Download": [
     "app/company-profile/page.tsx"
@@ -2735,6 +2751,9 @@
   "Enter an amount within your available USD balance. Active investment principal and target estimates are not available funds.": [
     "lib/video-content.ts"
   ],
+  "Enter an amount, choose your crypto and preview the live conversion.": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "Enter an investment amount in USD.": [
     "components/InvestmentCalculator.tsx"
   ],
@@ -2758,18 +2777,12 @@
   "Enter the current 6-digit code": [
     "components/workspace/TwoFactorSettings.tsx"
   ],
-  "Enter the declared USD value and transaction hash. Confirm the transfer details and submit; no authenticator code is needed for deposits.": [
-    "lib/video-content.ts"
-  ],
   "Enter the email address linked to your account. We’ll send you a secure password reset link.": [
     "app/forgot-password/page.tsx",
     "lib/i18n.ts"
   ],
   "Enter the independently verified transaction value.": [
     "components/workspace/admin.tsx"
-  ],
-  "Enter the USD value you are declaring for review.": [
-    "components/workspace/DepositWorkspace.tsx"
   ],
   "Enter your code to confirm this withdrawal because two-factor protection is enabled on your account.": [
     "components/workspace/Workspace.tsx"
@@ -2783,6 +2796,9 @@
   "Enter your password": [
     "components/auth/AuthForms.tsx",
     "lib/i18n.ts"
+  ],
+  "Enter your USD deposit amount and select an available cryptocurrency. Review the coin amount calculated from the current market price.": [
+    "lib/video-content.ts"
   ],
   "Entry": [
     "components/workspace/AdminFunds.tsx"
@@ -2820,6 +2836,9 @@
   ],
   "Evidence in the detail.": [
     "app/approach/page.tsx"
+  ],
+  "exact amount.": [
+    "lib/video-content.ts"
   ],
   "Excludes administrator accounts": [
     "components/workspace/AdminAnalytics.tsx"
@@ -3062,6 +3081,9 @@
   "From your connections": [
     "components/workspace/Workspace.tsx"
   ],
+  "From your wallet to your workspace.": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "Full name": [
     "components/auth/AuthForms.tsx",
     "components/public/ContactForm.tsx",
@@ -3074,6 +3096,9 @@
   ],
   "Fund with care.": [
     "app/how-it-works/page.tsx"
+  ],
+  "FUND YOUR NEXT CHAPTER": [
+    "components/workspace/DepositWorkspace.tsx"
   ],
   "Fund your next move.": [
     "components/workspace/Workspace.tsx"
@@ -3123,6 +3148,9 @@
   "Get started": [
     "components/SiteHeader.tsx",
     "lib/i18n.ts"
+  ],
+  "Getting the current market price…": [
+    "components/workspace/DepositWorkspace.tsx"
   ],
   "GitHub Actions checks public website/database health and email readiness every five minutes on a scheduled basis. GitHub may delay scheduled runs. A failed check opens one repository issue; recovery closes it.": [
     "components/workspace/Operations.tsx"
@@ -3333,9 +3361,6 @@
     "components/auth/AuthForms.tsx",
     "lib/i18n.ts"
   ],
-  "If you choose to transfer, allow for network fees. Keep the blockchain transaction hash. Transfers can be irreversible.": [
-    "lib/video-content.ts"
-  ],
   "Illustrative accumulating earnings": [
     "components/LiveInvestmentDisplay.tsx"
   ],
@@ -3425,6 +3450,12 @@
   ],
   "Invalid analytics timestamp.": [
     "lib/analytics.ts"
+  ],
+  "Invalid deposit conversion.": [
+    "lib/deposits.ts"
+  ],
+  "Invalid deposit price.": [
+    "lib/deposits.ts"
   ],
   "Invalid email, password, or authentication code.": [
     "server/auth.ts"
@@ -3616,14 +3647,8 @@
   "Keep a separate secure copy of the application encryption secrets too; database backups alone cannot recover encrypted KYC or authenticator data. A successful backup does not establish a successful restore drill.": [
     "components/workspace/Operations.tsx"
   ],
-  "Keep the": [
-    "lib/video-content.ts"
-  ],
   "Keep the bucket private and configure a 30-day lifecycle for": [
     "components/workspace/Operations.tsx"
-  ],
-  "Keep the reference.": [
-    "lib/video-content.ts"
   ],
   "Keep this link": [
     "components/workspace/WalletConnections.tsx"
@@ -3725,6 +3750,12 @@
   "Live cryptocurrency market prices and a clear introduction to market risk.": [
     "app/insights/layout.tsx"
   ],
+  "Live deposit pricing is temporarily unavailable.": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
+  "Live deposit pricing is temporarily unavailable. Refresh the price before proceeding.": [
+    "server/deposit-pricing.ts"
+  ],
   "Live market data is currently unavailable.": [
     "components/workspace/Workspace.tsx"
   ],
@@ -3733,6 +3764,9 @@
   ],
   "Live plan catalogue unavailable; confirm current terms before investing.": [
     "components/InvestmentCalculator.tsx"
+  ],
+  "Live price ·": [
+    "components/workspace/DepositWorkspace.tsx"
   ],
   "Live prices": [
     "components/workspace/Workspace.tsx"
@@ -3806,11 +3840,11 @@
     "components/Landing.tsx",
     "lib/i18n.ts"
   ],
+  "Make the transfer": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "Make your next decision an informed one.": [
     "app/about/page.tsx"
-  ],
-  "Make your transfer": [
-    "components/workspace/DepositWorkspace.tsx"
   ],
   "Manage": [
     "components/workspace/admin.tsx"
@@ -4025,7 +4059,6 @@
     "lib/business-activities.ts"
   ],
   "Need a hand?": [
-    "components/workspace/DepositWorkspace.tsx",
     "components/workspace/Workspace.tsx"
   ],
   "Need a new verification link?": [
@@ -4047,7 +4080,7 @@
   "Net results tell the story.": [
     "app/approach/page.tsx"
   ],
-  "network": [
+  "Network fees are separate. Your final USD credit is confirmed during review; a market conversion or Done does not credit your balance.": [
     "components/workspace/DepositWorkspace.tsx"
   ],
   "network.": [
@@ -4491,6 +4524,9 @@
   "Passwords are hashed, authentication sessions use HTTP-only cookies, and sensitive authentication material is protected on the server. These controls do not eliminate every security risk. Production access control, encryption, backups, incident response and monitoring require operational configuration.": [
     "app/legal/privacy/page.tsx"
   ],
+  "Paste the blockchain transaction hash to report your transfer for verification.": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "Paste your transaction hash": [
     "components/workspace/DepositWorkspace.tsx"
   ],
@@ -4502,6 +4538,18 @@
     "lib/video-content.ts"
   ],
   "Pause. Find perspective.": [
+    "lib/video-content.ts"
+  ],
+  "Pay with cryptocurrency": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
+  "Payment instructions could not be prepared.": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
+  "Payment instructions: {0} {1}; declared USD {2}; {3} USD price {4}; captured {5}. Independently verify the received amount and USD credit.": [
+    "server/app.ts"
+  ],
+  "payment.": [
     "lib/video-content.ts"
   ],
   "pending": [
@@ -4780,6 +4828,9 @@
   "Preparing encrypted archive…": [
     "components/workspace/Operations.tsx"
   ],
+  "Preparing payment…": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "Preparing your secure session…": [
     "components/auth/AuthForms.tsx",
     "lib/i18n.ts"
@@ -4799,6 +4850,9 @@
   ],
   "Price · USD": [
     "components/public/MarketExplorer.tsx"
+  ],
+  "Price unavailable": [
+    "server/deposit-pricing.ts"
   ],
   "Prices may fluctuate rapidly and without a clear cause. Markets can become illiquid. Assets, exchanges, stablecoin issuers, counterparties or the operator may fail or become insolvent. Redemptions and withdrawals may be delayed or unavailable. A stablecoin can lose its intended peg.": [
     "app/legal/risk/page.tsx"
@@ -4876,6 +4930,15 @@
   ],
   "Private storage": [
     "components/workspace/Operations.tsx"
+  ],
+  "Proceed to": [
+    "lib/video-content.ts"
+  ],
+  "Proceed to payment": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
+  "Proceed to payment.": [
+    "lib/video-content.ts"
   ],
   "Processing…": [
     "components/workspace/shared.tsx"
@@ -5109,7 +5172,7 @@
   "Receiving address": [
     "components/workspace/admin.tsx"
   ],
-  "Receiving details are temporarily paused.": [
+  "Receiving details are unavailable while deposits are paused or account setup is incomplete.": [
     "components/workspace/DepositWorkspace.tsx"
   ],
   "Recent account activity": [
@@ -5199,9 +5262,6 @@
   "Reference plan rates.": [
     "components/InvestmentCalculator.tsx"
   ],
-  "reference.": [
-    "lib/video-content.ts"
-  ],
   "REFERRAL": [
     "components/workspace/AdminFunds.tsx"
   ],
@@ -5234,6 +5294,9 @@
     "components/public/MarketExplorer.tsx",
     "components/workspace/Cards.tsx",
     "components/workspace/Operations.tsx"
+  ],
+  "Refresh price": [
+    "components/workspace/DepositWorkspace.tsx"
   ],
   "Refresh prices": [
     "components/public/MarketCurrency.tsx",
@@ -5387,14 +5450,29 @@
   "Results after costs": [
     "app/approach/page.tsx"
   ],
+  "Resume payment": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
+  "Resume this transfer to keep the same address and coin amount, including after returning from your wallet app.": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "Retry video": [
     "components/public/VideoLibrary.tsx"
   ],
   "RETURN": [
     "components/workspace/AdminFunds.tsx"
   ],
+  "Return and": [
+    "lib/video-content.ts"
+  ],
+  "Return and choose Done.": [
+    "lib/video-content.ts"
+  ],
   "Return to AUREON": [
     "components/public/NewsletterAction.tsx"
+  ],
+  "Return to the payment window, paste your blockchain transaction hash, confirm the transfer and choose Done. No authenticator code is needed for deposits.": [
+    "lib/video-content.ts"
   ],
   "Return to your dashboard": [
     "components/workspace/Workspace.tsx"
@@ -5645,6 +5723,9 @@
   "Send application/json.": [
     "server/app.ts"
   ],
+  "Send exactly": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "Send message": [
     "components/public/ContactForm.tsx"
   ],
@@ -5661,9 +5742,21 @@
     "components/auth/AuthForms.tsx",
     "lib/i18n.ts"
   ],
+  "Send the": [
+    "lib/video-content.ts"
+  ],
+  "Send the exact amount.": [
+    "lib/video-content.ts"
+  ],
+  "Send the exact coin amount below from your wallet app, then return here and choose Done.": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "Send verification link": [
     "components/auth/AuthForms.tsx",
     "lib/i18n.ts"
+  ],
+  "Send your crypto": [
+    "components/workspace/DepositWorkspace.tsx"
   ],
   "Sender": [
     "components/workspace/AdminFunds.tsx"
@@ -5693,6 +5786,18 @@
     "components/workspace/TwoFactorSettings.tsx"
   ],
   "Set up your account": [
+    "lib/video-content.ts"
+  ],
+  "Set your": [
+    "lib/video-content.ts"
+  ],
+  "Set your amount": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
+  "Set your amount.": [
+    "lib/video-content.ts"
+  ],
+  "Set your USD amount, preview the live crypto conversion, then send and report your transfer.": [
     "lib/video-content.ts"
   ],
   "Settle": [
@@ -5828,6 +5933,12 @@
   "SPECIMEN": [
     "components/cards/CardShowcase.tsx"
   ],
+  "Stale price": [
+    "server/deposit-pricing.ts"
+  ],
+  "Start a different deposit": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "Start preliminary review": [
     "components/workspace/Cards.tsx"
   ],
@@ -5884,29 +5995,11 @@
   "Submission not found.": [
     "server/app.ts"
   ],
-  "Submit a deposit": [
-    "components/workspace/DepositWorkspace.tsx"
-  ],
   "Submit an updated application": [
     "components/workspace/Cards.tsx"
   ],
-  "Submit another transfer": [
-    "components/workspace/DepositWorkspace.tsx"
-  ],
-  "Submit for": [
-    "lib/video-content.ts"
-  ],
   "Submit for identity review": [
     "components/workspace/Workspace.tsx"
-  ],
-  "Submit for review": [
-    "components/workspace/DepositWorkspace.tsx"
-  ],
-  "Submit for verification": [
-    "components/workspace/DepositWorkspace.tsx"
-  ],
-  "Submit for verification.": [
-    "lib/video-content.ts"
   ],
   "Submit pre-launch application": [
     "components/workspace/Cards.tsx"
@@ -6140,6 +6233,9 @@
     "app/about/page.tsx",
     "components/public/BusinessTeaser.tsx"
   ],
+  "The coin amount stays fixed for this transfer. Market prices can change; the final USD credit is confirmed during review.": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "THE COLLECTION": [
     "components/public/VideoLibrary.tsx"
   ],
@@ -6151,6 +6247,9 @@
   ],
   "THE CRYPTO PULSE": [
     "components/workspace/Workspace.tsx"
+  ],
+  "The deposit details do not match the payment instructions. Contact support if funds have already been sent.": [
+    "server/app.ts"
   ],
   "The details": [
     "app/legal/page.tsx"
@@ -6328,6 +6427,9 @@
   ],
   "These investments may be illiquid and may involve minority-ownership, governance, valuation and business-execution risks.": [
     "lib/business-activities.ts"
+  ],
+  "These payment instructions could not be verified. Contact support if you have already sent funds.": [
+    "server/deposit-pricing.ts"
   ],
   "These transfers move available USD balances between AUREON accounts. Cryptocurrency payouts use the withdrawal review and transaction-hash reconciliation workflow.": [
     "components/workspace/AdminFunds.tsx"
@@ -6580,9 +6682,6 @@
   "Transfer reviews": [
     "components/workspace/AdminFunds.tsx"
   ],
-  "transfer.": [
-    "components/workspace/DepositWorkspace.tsx"
-  ],
   "Transfers you create will appear here for review.": [
     "components/workspace/AdminFunds.tsx"
   ],
@@ -6729,6 +6828,9 @@
   "Unsubscribed": [
     "components/workspace/ContentOperations.tsx"
   ],
+  "Unsupported deposit currency.": [
+    "server/deposit-pricing.ts"
+  ],
   "Unsupported deposit network.": [
     "server/app.ts"
   ],
@@ -6848,14 +6950,14 @@
   "Use the contact form and choose “Privacy & data request.” Identity verification may be needed. Some records may need to be retained to meet applicable legal requirements; see the": [
     "app/support/page.tsx"
   ],
+  "Use the exact network and ensure the recipient receives the amount shown after any wallet fees. The QR code contains the address; enter the coin amount separately.": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
+  "Use the matching network and allow for wallet fees so the recipient receives the amount shown. The coin amount stays fixed; USD credit is confirmed during review.": [
+    "lib/video-content.ts"
+  ],
   "Use the RSA public key generated by the recovery kit (3072 bits or stronger).": [
     "server/operations.ts"
-  ],
-  "Use this destination for your": [
-    "components/workspace/DepositWorkspace.tsx"
-  ],
-  "Use this destination for your {0} transfer.": [
-    "components/workspace/DepositWorkspace.tsx"
   ],
   "USER": [
     "components/workspace/AdminFunds.tsx"
@@ -6884,9 +6986,6 @@
   "Verification before investment.": [
     "app/security/page.tsx"
   ],
-  "verification.": [
-    "lib/video-content.ts"
-  ],
   "verified": [
     "localization"
   ],
@@ -6914,14 +7013,8 @@
     "components/auth/AuthForms.tsx",
     "lib/i18n.ts"
   ],
-  "Verify the": [
-    "lib/video-content.ts"
-  ],
   "Verify the account's email before assigning administrator access.": [
     "server/admin-provisioning.ts"
-  ],
-  "Verify the destination.": [
-    "lib/video-content.ts"
   ],
   "Verify the network and destination.": [
     "app/security/page.tsx"
@@ -7242,6 +7335,9 @@
   "Worldwide use is not available. A future launch would require an issuing partner, regulatory and network approvals, eligible countries, cardholder agreements, underwriting and operational payment infrastructure.": [
     "app/cards/page.tsx"
   ],
+  "Wrong quote owner": [
+    "server/deposit-pricing.ts"
+  ],
   "X-Backup-SHA256": [
     "components/workspace/Operations.tsx"
   ],
@@ -7294,6 +7390,9 @@
     "components/Landing.tsx",
     "lib/i18n.ts"
   ],
+  "YOU WILL SEND": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "You’re all caught up. Account updates will appear here.": [
     "components/workspace/Workspace.tsx"
   ],
@@ -7313,6 +7412,9 @@
   "Your account does not have permission to view this workspace.": [
     "components/workspace/Workspace.tsx"
   ],
+  "Your account is valued in USD. Choose the cryptocurrency you will send below.": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "Your account.": [
     "lib/video-content.ts"
   ],
@@ -7325,7 +7427,7 @@
   "YOUR ACTIVITY": [
     "components/workspace/Workspace.tsx"
   ],
-  "Your address and QR code will be available when deposits reopen.": [
+  "Your address and exact coin amount appear in the next step.": [
     "components/workspace/DepositWorkspace.tsx"
   ],
   "Your administrator authenticator code": [
@@ -7377,6 +7479,12 @@
     "app/how-it-works/page.tsx"
   ],
   "Your deposit could not be submitted.": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
+  "Your deposit payment": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
+  "YOUR DEPOSIT, YOUR CHOICE": [
     "components/workspace/DepositWorkspace.tsx"
   ],
   "YOUR DESIGN PREFERENCE": [
@@ -7499,6 +7607,9 @@
     "components/auth/AuthForms.tsx",
     "lib/i18n.ts"
   ],
+  "Your payment instructions are ready.": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "Your perspective.": [
     "app/cards/page.tsx"
   ],
@@ -7524,9 +7635,6 @@
   "Your publication library is empty": [
     "components/workspace/ContentOperations.tsx"
   ],
-  "Your receiving address": [
-    "components/workspace/DepositWorkspace.tsx"
-  ],
   "Your record starts with real activity.": [
     "components/workspace/PortfolioAnalytics.tsx"
   ],
@@ -7542,16 +7650,10 @@
   "Your sending wallet must use the exact selected network. USDT on TRC20 and ERC20 are different routes.": [
     "lib/video-content.ts"
   ],
-  "Your sending wallet must use the same network selected here.": [
-    "components/workspace/DepositWorkspace.tsx"
-  ],
   "Your session has expired. Please sign in again.": [
     "server/auth.ts"
   ],
   "Your submitted deposits will appear here. No activity yet.": [
-    "components/workspace/DepositWorkspace.tsx"
-  ],
-  "Your transaction is checked on its network before an administrator approves the deposit. A submitted hash does not credit your balance.": [
     "components/workspace/DepositWorkspace.tsx"
   ],
   "Your transfer is pending independent on-chain verification. Your available balance has not been credited.": [

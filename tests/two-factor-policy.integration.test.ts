@@ -56,6 +56,25 @@ const connection=process.env.TEST_DATABASE_URL;
       expect((await request("/investments","POST",{planId:plan.id,amount:10},as)).status).toBe(201);
     }
   });
+  it("captures owner-bound deposit instructions and records Done as pending without crediting funds",async()=>{
+    const nativeFetch=globalThis.fetch;
+    const spy=vi.spyOn(globalThis,"fetch").mockImplementation((input,init)=>String(input).startsWith("https://api.coinbase.com/")?Promise.resolve(Response.json({data:{amount:"2500",base:"ETH",currency:"USD"}})):nativeFetch(input,init));
+    try{
+      expect((await request("/deposit-price?asset=ETH","GET",undefined,"none")).status).toBe(401);
+      const prices=await request("/deposit-price?asset=ETH");expect(prices.data.price.priceUsd).toBe("2500");
+      const response=await request("/deposits/quote","POST",{walletId:wallet.id,amount:"250.75"});expect(response.status).toBe(200);
+      const quote=response.data.quote;expect(quote.address).toBe(wallet.address);expect(quote.cryptoAmount).toBe("0.1003");
+      const body={walletId:wallet.id,amount:250.75,txHash:"0x"+randomBytes(32).toString("hex"),quoteToken:quote.quoteToken};
+      const before=await db.ledgerEntry.count({where:{userId:investor.id}});
+      expect((await request("/deposits","POST",{...body,amount:251})).status).toBe(400);
+      expect((await request("/deposits","POST",body,"protected")).status).toBe(400);
+      expect((await request("/deposits","POST",{...body,quoteToken:quote.quoteToken+"tampered"})).status).toBe(400);
+      const result=await request("/deposits","POST",body);expect(result.status).toBe(201);expect(result.data.deposit.status).toBe("PENDING");expect(result.data.deposit.note).toContain("0.1003 ETH");
+      const recorded=await db.auditLog.findFirstOrThrow({where:{action:"DEPOSIT_INSTRUCTIONS_REPORTED",targetId:result.data.deposit.id}});expect(recorded.metadata.cryptoAmount).toBe("0.1003");expect(recorded.metadata).not.toHaveProperty("quoteToken");
+      expect(await db.ledgerEntry.count({where:{userId:investor.id}})).toBe(before);
+      expect((await request("/deposits","POST",body)).status).toBe(409);
+    }finally{spy.mockRestore();}
+  });
   it("requires withdrawal codes only for live enrolled accounts and never reserves funds on failed proof",async()=>{
     expect((await request("/withdrawals","POST",withdrawal)).status).toBe(201);
     const before=await db.ledgerEntry.count({where:{userId:protectedInvestor.id}});
