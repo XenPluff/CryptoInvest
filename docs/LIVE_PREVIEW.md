@@ -2,11 +2,24 @@
 
 Website: <https://aureon-preview.onrender.com>
 
-Latest deployment verified on October 21, 2026:
+Latest deployment verified on October 22, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `d705fbaa560b4c09ed5e8f9e9adb0fd75889cdb1` from branch
+- Running source commit: `f26d5b2c9bad40c2660d6bb311d597a7219c94ff` from branch
   `codex/aureon-render-preview`.
+- The [account two-factor policy](TWO_FACTOR_POLICY.md) is live in deployment
+  `dep-dbcra33rjlhs73eer5rg`. Investor enrollment is optional, with codes at
+  enabled login and withdrawal only; enrollment confirms one setup code.
+  Administrator login, enrollment and every workspace mutation require
+  authenticator protection. Existing investor preferences are preserved;
+  administrators with previous non-MFA sessions must sign in again.
+  Actual hosted public policy copy, all three updated guide films/captions/
+  transcripts (matching SHA-256 and MP4 byte ranges), and unauthenticated API
+  rejection pass. Hosted workspace assets pass 48 investor preference/language/
+  width states, administrator code enforcement and enrollment-only screens
+  using browser-only API fixtures. No production mutations or page errors
+  occurred. Health reports connected database, enabled funding and passed
+  email readiness. Catalogs cover 2,344 messages.
 - [Strategic Business Investments](https://aureon-preview.onrender.com/approach#strategic-business)
   is live as activity 10 in deployment `dep-dbcqa85g1s2s73e5t1pg`. The exact
   supplied heading and three paragraphs follow AI/robotics, with an original
