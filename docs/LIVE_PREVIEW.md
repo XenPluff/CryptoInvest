@@ -5,8 +5,18 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 21, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `09686827754aeb0f70abeb54a05dc6300dc1d7dc` from branch
+- Running source commit: `4c96fd86bf8803a4eb5eed51ca2b5ab4e08f69f8` from branch
   `codex/aureon-render-preview`.
+- The [financial market trading profile](https://aureon-preview.onrender.com/approach#market-trading)
+  is updated in deployment `dep-dbcng7lg1s2s73dtbf3g`. The supplied heading
+  and four replacement paragraphs match exactly; the former trading copy and
+  experience panel are removed. Actual hosted HTML/assets pass eight languages
+  at 1440/768/390/320px in both themes (64 layout states), without text overflow,
+  API fixtures or page errors. All nine profiles remain and the trading image
+  loads. An initial hosted language switch exceeded the checker’s five-second
+  timeout; the complete rerun with a 20-second allowance passed without asset
+  HTTP errors. Catalogs cover 2,323 messages. Health remains connected with
+  enabled funding and passed email readiness.
 - The [cryptocurrency mining profile](https://aureon-preview.onrender.com/approach#crypto-mining)
   is updated in deployment `dep-dbcn7teq1p3s73clvg8g`. The two requested
   introductory passages and three former mining paragraphs are removed.
