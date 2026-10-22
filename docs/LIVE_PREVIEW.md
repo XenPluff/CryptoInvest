@@ -5,8 +5,16 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 21, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `89b54322f40bee4083c6f8b035f4f4577b750a1c` from branch
+- Running source commit: `d91a265656db60b9714b59ed07cdc3b16de0aa34` from branch
   `codex/aureon-render-preview`.
+- The [arbitrage profile](https://aureon-preview.onrender.com/approach#arbitrage)
+  is updated in deployment `dep-dbcpehbncjis73d7aqfg`. The supplied heading
+  and three replacement paragraphs match exactly; the former three paragraphs
+  are removed. Actual hosted HTML/assets pass eight languages at
+  1440/768/390/320px in both themes (64 layout states), without text overflow,
+  API fixtures or page errors. All nine profiles remain and the arbitrage
+  artwork loads. Catalogs cover 2,329 messages. Health remains connected with
+  enabled funding and passed email readiness.
 - The [natural resources profile](https://aureon-preview.onrender.com/approach#natural-resources)
   is updated in deployment `dep-dbcp14jncjis73d62uq0`. The new heading and
   three paragraphs replace the former copy. The opening correctly refers to
