@@ -1020,6 +1020,9 @@
   "All types": [
     "components/workspace/AdminFunds.tsx"
   ],
+  "Allocate": [
+    "app/about/page.tsx"
+  ],
   "Already have an account?": [
     "components/auth/AuthForms.tsx",
     "lib/i18n.ts"
@@ -1363,6 +1366,9 @@
   "Aureon does not describe the displayed deposit addresses as insured or independently audited. Do not transfer assets until you have reviewed the operator’s published legal and custody information.": [
     "app/security/page.tsx"
   ],
+  "AUREON does not treat diversification as a substitute for due diligence. Each proposed investment must satisfy appropriate financial, operational, legal and risk-management requirements.": [
+    "app/about/page.tsx"
+  ],
   "Aureon home": [
     "components/SiteHeader.tsx",
     "components/auth/AuthShell.tsx",
@@ -1376,6 +1382,9 @@
   ],
   "AUREON is reviewing your pre-launch application. This is not a credit or issuer decision.": [
     "lib/cards.ts"
+  ],
+  "AUREON is structured around the principle that durable business value is created through productive assets, disciplined investment, responsible management and the ability to adapt to changing economic conditions.": [
+    "app/about/page.tsx"
   ],
   "Aureon is the platform name. The contracting legal entity, registered address, governing law, dispute resolution process and service eligibility by jurisdiction must be supplied by the operator before financial services are offered publicly. No incorporation, registration, license or authorization is implied by this website.": [
     "app/legal/terms/page.tsx"
@@ -1677,6 +1686,9 @@
   ],
   "Capital in active plans": [
     "components/workspace/Workspace.tsx"
+  ],
+  "Capital is allocated according to approved investment limits, strategic priorities and the company's overall risk capacity.": [
+    "app/about/page.tsx"
   ],
   "Capital is at risk. You could lose some or all of your investment. Account verification, approved KYC, and funding availability are required before investing. Read the": [
     "components/public/PlanCatalog.tsx"
@@ -2799,6 +2811,9 @@
     "components/Landing.tsx",
     "lib/i18n.ts"
   ],
+  "Evaluate": [
+    "app/about/page.tsx"
+  ],
   "Every move, accounted for.": [
     "components/workspace/Workspace.tsx"
   ],
@@ -3275,6 +3290,9 @@
   "I understand this is a pre-launch application, not a credit approval, issued card or promise of worldwide use.": [
     "components/workspace/Cards.tsx"
   ],
+  "Identify": [
+    "app/about/page.tsx"
+  ],
   "Identity": [
     "components/workspace/admin.tsx"
   ],
@@ -3513,6 +3531,9 @@
   ],
   "Investment term progress": [
     "components/LiveInvestmentDisplay.tsx"
+  ],
+  "Investments are monitored against defined performance measures, budgets, operational milestones and risk thresholds.": [
+    "app/about/page.tsx"
   ],
   "Investments can generate dividends or distributions where declared, or realized gains when an ownership interest is sold. Licensing, software subscriptions and robotics services may support investee-company revenue; those receipts are separate from AUREON’s own investment returns.": [
     "lib/business-activities.ts"
@@ -3948,6 +3969,9 @@
     "components/public/InvestorPerspective.tsx",
     "lib/i18n.ts"
   ],
+  "Monitor": [
+    "app/about/page.tsx"
+  ],
   "Monitoring checks pending reviews, email delivery, repeated failed sign-ins, and backup coverage.": [
     "components/workspace/Operations.tsx"
   ],
@@ -4343,6 +4367,9 @@
     "components/workspace/admin.tsx",
     "lib/page-titles.ts"
   ],
+  "Optimise": [
+    "app/about/page.tsx"
+  ],
   "Original documents are in English. Translations are provided for convenience.": [
     "components/public/LegalDocument.tsx",
     "localization"
@@ -4357,10 +4384,14 @@
     "components/workspace/admin.tsx"
   ],
   "Our approach": [
+    "app/about/page.tsx",
     "components/auth/AuthShell.tsx",
     "lib/i18n.ts"
   ],
   "Our principles": [
+    "app/about/page.tsx"
+  ],
+  "Our proposed model combines direct operating activities, strategic investments and financial-market opportunities within a governed corporate structure.": [
     "app/about/page.tsx"
   ],
   "Our security": [
@@ -6998,6 +7029,9 @@
     "components/public/InvestorPerspective.tsx",
     "lib/i18n.ts"
   ],
+  "We assess financial projections, expected cash flows, valuation, management capability, liquidity, counterparty exposure and downside scenarios.": [
+    "app/about/page.tsx"
+  ],
   "We believe modern investing should make room for informed decisions. Our approach brings investment information, account records and practical guidance into one connected experience.": [
     "components/public/InvestorPerspective.tsx",
     "lib/i18n.ts"
@@ -7005,6 +7039,12 @@
   "We bring intention, clarity, and considered design": [
     "components/Landing.tsx",
     "lib/i18n.ts"
+  ],
+  "We identify potential opportunities through market research, industry analysis, commercial partnerships and evaluation of business fundamentals.": [
+    "app/about/page.tsx"
+  ],
+  "We seek to evaluate each investment according to its expected economic contribution, capital requirements, operating costs, liquidity, risk profile and potential impact on the wider company.": [
+    "app/about/page.tsx"
   ],
   "We’re here to help.": [
     "app/support/page.tsx"
@@ -7058,6 +7098,9 @@
   "When funding is available, select an asset and its exact network. Verify the destination before transferring, then submit the transaction reference for operator review.": [
     "app/how-it-works/page.tsx"
   ],
+  "Where appropriate, we reinvest earnings, improve operating efficiency, restructure exposures or exit investments whose fundamentals no longer support continued ownership.": [
+    "app/about/page.tsx"
+  ],
   "Where permitted or required by law, access or transactions may be restricted while suspicious activity, identity inconsistencies or prohibited activity is reviewed. Reports to competent authorities and restrictions on disclosure must be handled by authorized compliance personnel under applicable law. This application does not independently determine legal reporting obligations.": [
     "app/legal/aml/page.tsx"
   ],
@@ -7067,6 +7110,9 @@
     "components/public/BusinessTeaser.tsx"
   ],
   "Where value takes shape.": [
+    "app/about/page.tsx"
+  ],
+  "Who We Are": [
     "app/about/page.tsx"
   ],
   "Why does my withdrawal show as pending?": [

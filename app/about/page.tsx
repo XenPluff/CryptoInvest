@@ -3,6 +3,7 @@ import TranslatedContent from "@/components/TranslatedContent";
 import { useDisplayLocale } from "@/lib/i18n";
 import Link from "next/link";
 import { ArrowUpRight, Aperture, Compass, Scale } from "lucide-react";
+import styles from "./about.module.css";
 import {
   PublicShell,
   PageIntro,
@@ -19,6 +20,35 @@ export default function AboutPage() {
         description="Digital asset investing deserves clarity. We are building an experience that makes the details visible and gives every decision room to be considered."
         number="05"
       />
+      <section id="who-we-are" className={`container public-body-section public-divider ${styles.section}`} aria-labelledby="who-we-are-title">
+        <div className={styles.overview}>
+          <h2 id="who-we-are-title">Who We Are</h2>
+          <div className={styles.copy}>
+            <p>AUREON is structured around the principle that durable business value is created through productive assets, disciplined investment, responsible management and the ability to adapt to changing economic conditions.</p>
+            <p>Our proposed model combines direct operating activities, strategic investments and financial-market opportunities within a governed corporate structure.</p>
+            <p>We seek to evaluate each investment according to its expected economic contribution, capital requirements, operating costs, liquidity, risk profile and potential impact on the wider company.</p>
+            <p>AUREON does not treat diversification as a substitute for due diligence. Each proposed investment must satisfy appropriate financial, operational, legal and risk-management requirements.</p>
+          </div>
+        </div>
+        <div className={styles.approach}>
+          <h3>Our approach</h3>
+          <ol className={styles.steps}>
+            {[
+              ["Identify", "We identify potential opportunities through market research, industry analysis, commercial partnerships and evaluation of business fundamentals."],
+              ["Evaluate", "We assess financial projections, expected cash flows, valuation, management capability, liquidity, counterparty exposure and downside scenarios."],
+              ["Allocate", "Capital is allocated according to approved investment limits, strategic priorities and the company's overall risk capacity."],
+              ["Monitor", "Investments are monitored against defined performance measures, budgets, operational milestones and risk thresholds."],
+              ["Optimise", "Where appropriate, we reinvest earnings, improve operating efficiency, restructure exposures or exit investments whose fundamentals no longer support continued ownership."],
+            ].map(([title, text], index) => (
+              <li key={title}>
+                <span className={styles.number} aria-hidden="true">0{index + 1}</span>
+                <h4>{title}</h4>
+                <p>{text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
       <section className="container public-body-section public-divider public-mission">
         <div className="public-mission-visual" aria-hidden="true">
           <div className="public-mission-orbit" />
