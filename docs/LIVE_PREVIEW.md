@@ -5,8 +5,18 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 21, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `0ce8b1df4cc901321c3d4e43c71bf4e463b3d1ad` from branch
+- Running source commit: `09686827754aeb0f70abeb54a05dc6300dc1d7dc` from branch
   `codex/aureon-render-preview`.
+- The [cryptocurrency mining profile](https://aureon-preview.onrender.com/approach#crypto-mining)
+  is updated in deployment `dep-dbcn7teq1p3s73clvg8g`. The two requested
+  introductory passages and three former mining paragraphs are removed.
+  The supplied numbered heading and all four replacement paragraphs match
+  exactly, including visible performance considerations and variable-revenue
+  risk wording. Actual hosted HTML/assets pass eight languages at
+  1440/768/390/320px in both themes (64 layout states), with no text overflow,
+  API fixtures or page errors. All nine profiles remain, the mining image loads
+  and catalogs cover 2,324 messages. Health remains connected with enabled
+  funding and passed email readiness.
 - The [About Aureon overview](https://aureon-preview.onrender.com/about#who-we-are)
   is live in deployment `dep-dbcmio6i0phs73fb65n0`. The supplied “Who We Are”
   wording and five-step approach appear immediately before “The idea behind
