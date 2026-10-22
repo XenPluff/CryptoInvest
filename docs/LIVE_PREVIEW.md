@@ -5,8 +5,16 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 21, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `d91a265656db60b9714b59ed07cdc3b16de0aa34` from branch
+- Running source commit: `0efacc58f9ae96991ce8f7c78bd88654f0c68bb8` from branch
   `codex/aureon-render-preview`.
+- The [AI and robotics profile](https://aureon-preview.onrender.com/approach#ai-robotics)
+  is updated in deployment `dep-dbcploei0phs73fke110`. The supplied heading
+  and three replacement paragraphs match exactly; the former three paragraphs
+  are removed. Actual hosted HTML/assets pass eight languages at
+  1440/768/390/320px in both themes (64 layout states), without text overflow,
+  API fixtures or page errors. All nine profiles remain and the AI/robotics
+  artwork loads. Catalogs cover 2,330 messages. Health remains connected with
+  enabled funding and passed email readiness.
 - The [arbitrage profile](https://aureon-preview.onrender.com/approach#arbitrage)
   is updated in deployment `dep-dbcpehbncjis73d7aqfg`. The supplied heading
   and three replacement paragraphs match exactly; the former three paragraphs
