@@ -5,8 +5,16 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 21, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `fc45a746aac84b54e4ffad1787b2112c2ab796f6` from branch
+- Running source commit: `f4fe578be1db299d538049f9617d2aa8cf24bf91` from branch
   `codex/aureon-render-preview`.
+- The [solar energy profile](https://aureon-preview.onrender.com/approach#solar-energy)
+  is updated in deployment `dep-dbcoeiivcj2c73fbbtg0`. The supplied heading
+  and three replacement paragraphs match exactly; the former three paragraphs
+  are removed. Actual hosted HTML/assets pass eight languages at
+  1440/768/390/320px in both themes (64 layout states), without text overflow,
+  API fixtures or page errors. All nine profiles remain and the solar artwork
+  loads. Catalogs cover 2,326 messages. Health remains connected with enabled
+  funding and passed email readiness.
 - The [agriculture profile](https://aureon-preview.onrender.com/approach#agriculture)
   is updated in deployment `dep-dbco0smq1p3s73co8mbg`. The supplied heading
   and three replacement paragraphs match exactly; the former three paragraphs
