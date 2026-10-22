@@ -5,8 +5,18 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 21, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `4c96fd86bf8803a4eb5eed51ca2b5ab4e08f69f8` from branch
+- Running source commit: `14f458a97788b7ead6e98a807fcc1b0575c2c33a` from branch
   `codex/aureon-render-preview`.
+- The [real estate management profile](https://aureon-preview.onrender.com/approach#real-estate)
+  is updated in deployment `dep-dbcnod6q1p3s73cnegbg`. The supplied heading
+  and three replacement paragraphs match exactly; the former three paragraphs
+  are removed. Actual hosted HTML/assets pass eight languages at
+  1440/768/390/320px in both themes (64 layout states), without text overflow,
+  API fixtures or page errors. All nine profiles remain and the real-estate
+  artwork loads. The initial hosted image check exceeded five seconds; a full
+  rerun with a 20-second image allowance passed without asset HTTP errors.
+  Catalogs cover 2,324 messages. Health remains connected with enabled funding
+  and passed email readiness.
 - The [financial market trading profile](https://aureon-preview.onrender.com/approach#market-trading)
   is updated in deployment `dep-dbcng7lg1s2s73dtbf3g`. The supplied heading
   and four replacement paragraphs match exactly; the former trading copy and
