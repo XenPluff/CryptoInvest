@@ -73,7 +73,7 @@ integration("pre-launch card applications", () => {
   it("requires fresh administrator TOTP and refuses card issuance or self-review", async () => {
     const application = await db.cardApplication.findUniqueOrThrow({ where: { userId: accounts.primary.id } });
     const path = `/admin/card-applications/${application.id}/review`;
-    expect((await request(path, "admin", "POST", { ...review(1), code: "" })).status).toBe(400);
+    expect((await request(path, "admin", "POST", { ...review(1), code: "" })).status).toBe(403);
     const wrong = (Number(code()) + 123456) % 1000000;
     expect((await request(path, "admin", "POST", { ...review(1), code: String(wrong).padStart(6, "0") })).status).toBe(403);
     expect((await request(path, "admin", "POST", review(1, "ISSUED"))).status).toBe(400);

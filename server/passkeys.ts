@@ -84,11 +84,12 @@ function parse<T>(schema: z.ZodType<T>, value: unknown): T {
   return result.data;
 }
 
-// An in-flight challenge cannot survive a password reset, TOTP change, or suspension.
+// Role changes also invalidate proof obtained under the investor password policy.
 export function passkeySecurityStamp(user: User): string {
   return tokenHash(
     JSON.stringify([
       user.id,
+      user.role,
       user.passwordHash,
       user.twoFactorEnabled,
       user.twoFactorSecret,
@@ -101,7 +102,7 @@ async function freshAuthentication(
   user: User,
   input: z.infer<typeof proof>,
 ): Promise<void> {
-  if (user.twoFactorEnabled) return requireTotp(user, input.code);
+  if (user.role === "ADMIN") return requireTotp(user, input.code);
   if (
     !input.password ||
     !(await bcrypt.compare(input.password, user.passwordHash))

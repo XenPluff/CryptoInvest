@@ -166,7 +166,7 @@ integration("real PostgreSQL account and ledger integration", () => {
         server.closeAllConnections();
       });
     if (prisma) await prisma.$disconnect();
-  });
+  }, 30000);
   test("rejects cross-origin mutations and prevents ordinary users reaching admin data", async () => {
     expect(
       (
@@ -293,15 +293,14 @@ integration("real PostgreSQL account and ledger integration", () => {
       Date.now = originalNow;
     }
   });
-  test("requires TOTP for financial mutations and normalizes case-insensitive hashes", async () => {
+  test("requires enrolled withdrawal TOTP and normalizes case-insensitive hashes", async () => {
     expect(
       (
-        await request("/deposits", {
+        await request("/withdrawals", {
           method: "POST",
           body: {
-            walletId: wallet.id,
+            asset: "ETH", network: "Ethereum", address: "0x" + "2".repeat(40),
             amount: 300,
-            txHash: "0x" + "a".repeat(64),
           },
         })
       ).response.status,
@@ -812,22 +811,8 @@ integration("real PostgreSQL account and ledger integration", () => {
         })
       ).response.status,
     ).toBe(409);
-    expect(
-      (
-        await request(`/wallet-connect/links/${verified.data.link.id}`, {
-          method: "DELETE",
-          body: {},
-        })
-      ).response.status,
-    ).toBe(403);
-    expect(
-      (
-        await request(`/wallet-connect/links/${verified.data.link.id}`, {
-          method: "DELETE",
-          body: { code: code() },
-        })
-      ).response.status,
-    ).toBe(200);
+    expect((await request(`/wallet-connect/links/${verified.data.link.id}`, {method: "DELETE", as: "adminA", body: {}})).response.status).toBe(404);
+    expect((await request(`/wallet-connect/links/${verified.data.link.id}`, {method: "DELETE", body: {}})).response.status).toBe(200);
     expect((await request("/wallet-connect/links")).data.links).toEqual([]);
   });
   test("passkey enrollment needs reauthentication and consumes failed challenges once", async () => {
@@ -841,7 +826,7 @@ integration("real PostgreSQL account and ledger integration", () => {
     ).toBe(403);
     const enrollment = await request("/auth/passkeys/register/options", {
       method: "POST",
-      body: { code: code() },
+      body: { password },
     });
     expect(enrollment.response.status).toBe(200);
     expect(
@@ -939,7 +924,7 @@ integration("real PostgreSQL account and ledger integration", () => {
     const created = await request("/admin/content", {
       method: "POST",
       as: "adminA",
-      body: article,
+      body: { ...article, code: code() },
     });
     expect(created.response.status).toBe(201);
     const id = created.data.entry.id;
@@ -980,7 +965,7 @@ integration("real PostgreSQL account and ledger integration", () => {
         await request(`/admin/content/${id}`, {
           method: "PATCH",
           as: "adminA",
-          body: { ...article, title: "Unreviewed edits" },
+          body: { ...article, title: "Unreviewed edits", code: code() },
         })
       ).response.status,
     ).toBe(409);
@@ -1026,7 +1011,7 @@ integration("real PostgreSQL account and ledger integration", () => {
     const created = await request("/admin/campaigns", {
       method: "POST",
       as: "adminA",
-      body: draft,
+      body: { ...draft, code: code() },
     });
     expect(created.response.status).toBe(201);
     const campaignId = created.data.campaign.id;
@@ -1114,7 +1099,7 @@ integration("real PostgreSQL account and ledger integration", () => {
     const archived = await request("/admin/campaigns", {
       method: "POST",
       as: "adminA",
-      body: { ...draft, title: "Campaign pending archive" },
+      body: { ...draft, title: "Campaign pending archive", code: code() },
     });
     expect(archived.response.status).toBe(201);
     const archivedId = archived.data.campaign.id;
@@ -1276,7 +1261,7 @@ integration("real PostgreSQL account and ledger integration", () => {
     });
     expect(
       (await request("/admin/kyc", { as: "identity" })).response.status,
-    ).toBe(403);
+    ).toBe(401);
   });
   test("money events enqueue durable activity emails within the ledger transaction", async () => {
     expect(await prisma.emailOutbox.count()).toBeGreaterThan(0);

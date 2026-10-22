@@ -337,7 +337,7 @@ describe("WebAuthn passkey security", () => {
     );
   });
 
-  it("requires a signed-in session and fresh password or TOTP to enroll or revoke a key", async () => {
+  it("requires an investor password for passkey changes and administrator TOTP", async () => {
     expect(
       (await request("/register/options", { password })).response.status,
     ).toBe(401);
@@ -352,18 +352,27 @@ describe("WebAuthn passkey security", () => {
     ).toBe(403);
     state.user.twoFactorEnabled = true;
     state.user.twoFactorSecret = "encrypted-secret";
-    const failed = await request("/register/options", { password }, true);
+    const failed = await request("/register/options", { code: "123456" }, true);
     expect(failed.response.status).toBe(403);
+    expect((await request("/register/options", { password }, true)).response.status).toBe(200);
+    expect((await request(`/${key.id}`, { password }, true, "DELETE")).response.status).toBe(200);
+    state.user.role = "ADMIN";
+    expect((await request("/register/options", { password }, true)).response.status).toBe(403);
     expect(
       (await request("/register/options", { code: "123456" }, true)).response
         .status,
     ).toBe(200);
-    expect(
-      (await request(`/${key.id}`, { code: "123456" }, true, "DELETE")).response
-        .status,
-    ).toBe(200);
   });
 
+  it("invalidates investor password enrollment proof after an administrator promotion", async () => {
+    const key=authenticator();
+    const options=await request("/register/options",{password},true);
+    expect(options.response.status).toBe(200);
+    state.user.role="ADMIN";
+    const result=await request("/register/verify",{challengeId:options.data.challengeId,label:"Promoted account",response:key.registration(options.data.options.challenge)},true);
+    expect(result.response.status).toBe(400);
+    expect(state.keys.size).toBe(0);
+  });
   it("verifies a real ES256 registration and assertion, persists the counter, and issues one session", async () => {
     const key = await register(),
       options = await loginOptions();

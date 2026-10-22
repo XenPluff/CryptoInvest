@@ -76,7 +76,7 @@ your-domain.example {
 
 Set `APP_ORIGIN` to that exact origin before starting the API. Production cookies use `Secure`; HTTP browsing of a production instance will not establish a working session. Route the website and API through the same origin. Keep database and direct API listeners private. If the proxy runs inside another container, route it to `app:3000` on the private Docker network instead of loopback.
 
-WebAuthn passkeys use the hostname from `APP_ORIGIN` as their relying-party ID and verify the exact origin. Choose the intended hostname before production enrollment; credentials registered for localhost or another hostname do not migrate to the new hostname. Use a compatible browser/OS authenticator. Adding or removing a passkey requires current TOTP when enabled, otherwise the current password. Passkey login still requires TOTP on accounts that enabled it; financial reviews retain their TOTP requirements.
+WebAuthn passkeys use the hostname from `APP_ORIGIN` as their relying-party ID and verify the exact origin. Choose the intended hostname before production enrollment; credentials registered for localhost or another hostname do not migrate to the new hostname. Use a compatible browser/OS authenticator. Investor passkey changes require the current password, even when investor TOTP is enabled. Administrator passkey changes require current TOTP. Investor passkey login requires TOTP only when enabled; administrator sign-in and every administrator mutation require TOTP. Unenrolled administrators receive a ten-minute enrollment-only session, not workspace access.
 
 ## Account email with Brevo on the preview
 

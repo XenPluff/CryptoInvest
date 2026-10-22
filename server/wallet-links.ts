@@ -6,7 +6,7 @@ import { getAddress, verifyMessage } from "ethers";
 import { z } from "zod";
 import { prisma } from "./db";
 import { config } from "./config";
-import { requireTotp, requireVerified } from "./auth";
+import { requireVerified } from "./auth";
 import { HttpError } from "./errors";
 import { audit, serializable } from "./finance";
 
@@ -233,7 +233,6 @@ walletConnectRouter.post("/verify", async (req, res) => {
 });
 
 walletConnectRouter.delete("/links/:id", async (req, res) => {
-  await requireTotp(req.auth!.user, req.body.code);
   const userId = req.auth!.user.id;
   await serializable(async (tx) => {
     const link = await tx.walletLink.findFirst({

@@ -46,8 +46,8 @@ export default function AmlPage() {
         Deposits and withdrawals are subject to operator review. Deposit credit
         requires verification of the actual transfer and confirmed amount.
         Withdrawal review includes the destination, available balance and
-        account eligibility. Two-factor authentication is required for
-        withdrawal requests.
+        account eligibility. An authenticator code is required for withdrawal requests
+        only when the investor has enabled two-factor authentication.
       </p>
       <p>
         The operator must define risk scoring, blockchain analytics, sanctions

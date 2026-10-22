@@ -28,7 +28,7 @@ const controls = [
   {
     icon: Fingerprint,
     title: "A second layer of access.",
-    body: "Authenticator-based two-factor authentication can be enabled in account settings. Login and sensitive financial actions support one-time codes.",
+    body: "Investors may enable authenticator protection in account settings. When enabled, a code is required at sign-in and for withdrawals. Administrator sign-in and every administrator change require two-factor authentication.",
     status: "Available in your account",
     pending: false,
   },

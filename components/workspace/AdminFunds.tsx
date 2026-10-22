@@ -253,7 +253,7 @@ export function TransferManagement() {
         <p className="ws-panel-description">
           The sender’s balance is reserved immediately. Approval credits the
           recipient; declining restores the sender’s funds. Both accounts must
-          have verified email, approved identity, and two-factor authentication.
+          have verified email and approved identity.
         </p>
         <ActionForm
           key={nonce}

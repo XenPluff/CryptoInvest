@@ -382,12 +382,11 @@
   "6-digit code": [
     "components/auth/PasskeyLogin.tsx",
     "components/workspace/ContentOperations.tsx",
-    "components/workspace/DepositWorkspace.tsx",
     "components/workspace/Operations.tsx",
     "components/workspace/PasskeySettings.tsx",
-    "components/workspace/WalletConnections.tsx",
     "components/workspace/Workspace.tsx",
-    "components/workspace/admin.tsx"
+    "components/workspace/admin.tsx",
+    "components/workspace/shared.tsx"
   ],
   "6. Acceptable use": [
     "app/legal/terms/page.tsx"
@@ -907,6 +906,7 @@
   ],
   "ADMIN": [
     "components/auth/PasskeyLogin.tsx",
+    "components/workspace/TwoFactorSettings.tsx",
     "components/workspace/Workspace.tsx"
   ],
   "Administration": [
@@ -930,7 +930,10 @@
   "Administrator account changes require the separate operator account-management process.": [
     "server/app.ts"
   ],
-  "Administrators can enable or pause funding in platform settings. A pause stops new financial postings. Verified email, approved identity review and two-factor authentication are still required for investor financial activity.": [
+  "Administrator two-factor protection is enabled and required.": [
+    "components/workspace/TwoFactorSettings.tsx"
+  ],
+  "Administrators can enable or pause funding in platform settings. A pause stops new financial postings. Verified email, approved identity review are still required for investor financial activity. Investor two-factor authentication is optional; enabled accounts require codes at sign-in and for withdrawal requests.": [
     "app/support/page.tsx"
   ],
   "Administrators cannot approve their own deposits.": [
@@ -1072,7 +1075,7 @@
     "lib/i18n.ts"
   ],
   "AN EXTRA LAYER": [
-    "components/workspace/Workspace.tsx"
+    "components/workspace/TwoFactorSettings.tsx"
   ],
   "An extraordinary perspective.": [
     "components/SiteFooter.tsx",
@@ -1429,15 +1432,9 @@
   "Authenticator code": [
     "components/auth/PasskeyLogin.tsx",
     "components/workspace/ContentOperations.tsx",
-    "components/workspace/DepositWorkspace.tsx",
     "components/workspace/Operations.tsx",
+    "components/workspace/TwoFactorSettings.tsx",
     "components/workspace/Workspace.tsx"
-  ],
-  "Authenticator enabled": [
-    "components/workspace/DepositWorkspace.tsx"
-  ],
-  "Authenticator-based two-factor authentication can be enabled in account settings. Login and sensitive financial actions support one-time codes.": [
-    "app/security/page.tsx"
   ],
   "Automated document authenticity checks, biometric liveness, sanctions screening, politically exposed person screening and independent identity-provider verification have not been represented as active integrations.": [
     "app/legal/aml/page.tsx"
@@ -1609,7 +1606,7 @@
   "both": [
     "localization"
   ],
-  "Both transfer accounts must be active, email verified, identity approved, and protected by two-factor authentication.": [
+  "Both transfer accounts must be active, email verified, and identity approved.": [
     "server/admin-funds.ts"
   ],
   "bottom 50%": [
@@ -1796,6 +1793,9 @@
   "Choose Create an account. Enter your name, email and a unique password, then review the terms.": [
     "lib/video-content.ts"
   ],
+  "Choose optional authenticator protection, review account activity and contact support when you need clarification. Enabled accounts require codes at sign-in and for withdrawal requests. Funding requests follow an operator review process.": [
+    "components/public/InvestorPerspective.tsx"
+  ],
   "Choose the exact asset and network, verify the current destination and track a submitted transfer.": [
     "lib/video-content.ts"
   ],
@@ -1907,12 +1907,18 @@
   "Complete account setup to submit a deposit.": [
     "components/workspace/DepositWorkspace.tsx"
   ],
+  "Complete administrator two-factor setup before continuing.": [
+    "server/auth.ts"
+  ],
   "Complete identity review.": [
     "lib/video-content.ts"
   ],
   "Complete identity verification and review the investment terms and risks.": [
     "components/Landing.tsx",
     "lib/i18n.ts"
+  ],
+  "Complete mandatory authenticator setup before accessing account records or administration.": [
+    "components/workspace/Workspace.tsx"
   ],
   "Complete setup": [
     "components/workspace/DepositWorkspace.tsx"
@@ -2106,7 +2112,7 @@
     "app/approach/page.tsx"
   ],
   "Could not set up authentication.": [
-    "components/workspace/Workspace.tsx"
+    "components/workspace/TwoFactorSettings.tsx"
   ],
   "Country": [
     "components/workspace/Workspace.tsx",
@@ -2228,15 +2234,14 @@
   ],
   "Current authenticator code": [
     "components/workspace/AdminFunds.tsx",
-    "components/workspace/PasskeySettings.tsx",
-    "components/workspace/WalletConnections.tsx"
+    "components/workspace/PasskeySettings.tsx"
   ],
   "Current Investment Balance": [
     "components/LiveInvestmentDisplay.tsx"
   ],
   "Current password": [
     "components/workspace/PasskeySettings.tsx",
-    "components/workspace/Workspace.tsx"
+    "components/workspace/TwoFactorSettings.tsx"
   ],
   "Current published plan terms.": [
     "components/InvestmentCalculator.tsx"
@@ -2372,7 +2377,7 @@
   "Deposits & withdrawals": [
     "components/public/ContactForm.tsx"
   ],
-  "Deposits and withdrawals are subject to operator review. Deposit credit requires verification of the actual transfer and confirmed amount. Withdrawal review includes the destination, available balance and account eligibility. Two-factor authentication is required for withdrawal requests.": [
+  "Deposits and withdrawals are subject to operator review. Deposit credit requires verification of the actual transfer and confirmed amount. Withdrawal review includes the destination, available balance and account eligibility. An authenticator code is required for withdrawal requests only when the investor has enabled two-factor authentication.": [
     "app/legal/aml/page.tsx"
   ],
   "Deposits are investor funding. These amounts do not represent revenue or profit. Paid withdrawal dates reflect recorded operator review, not blockchain confirmation time.": [
@@ -2464,7 +2469,7 @@
     "app/security/page.tsx"
   ],
   "Disable two-factor authentication": [
-    "components/workspace/Workspace.tsx"
+    "components/workspace/TwoFactorSettings.tsx"
   ],
   "Disabled — prevent financial submissions": [
     "components/workspace/admin.tsx"
@@ -2664,24 +2669,14 @@
   "Enable an authenticator before accessing operations.": [
     "server/operations.ts"
   ],
-  "Enable an authenticator in account security to unlink a verified wallet.": [
-    "components/workspace/WalletConnections.tsx"
-  ],
   "Enable authenticator protection, review account activity and contact support when you need clarification. Sensitive financial actions require additional authentication, and funding requests follow an operator review process.": [
-    "components/public/InvestorPerspective.tsx",
     "lib/i18n.ts"
   ],
   "Enable repository notifications in GitHub to receive those alerts by email. This check runs independently of Render and does not use investor credentials.": [
     "components/workspace/Operations.tsx"
   ],
   "Enable two-factor authentication": [
-    "components/workspace/Workspace.tsx"
-  ],
-  "Enable two-factor authentication before entering the administrator workspace.": [
-    "components/workspace/Workspace.tsx"
-  ],
-  "Enable two-factor authentication in Account settings. Use your authenticator for current six-digit codes.": [
-    "lib/video-content.ts"
+    "components/workspace/TwoFactorSettings.tsx"
   ],
   "Enabled": [
     "components/workspace/Operations.tsx"
@@ -2761,9 +2756,9 @@
     "components/workspace/Cards.tsx"
   ],
   "Enter the current 6-digit code": [
-    "components/workspace/Workspace.tsx"
+    "components/workspace/TwoFactorSettings.tsx"
   ],
-  "Enter the declared USD value, transaction hash and current authenticator code. Confirm the details and submit.": [
+  "Enter the declared USD value and transaction hash. Confirm the transfer details and submit; no authenticator code is needed for deposits.": [
     "lib/video-content.ts"
   ],
   "Enter the email address linked to your account. We’ll send you a secure password reset link.": [
@@ -2776,11 +2771,11 @@
   "Enter the USD value you are declaring for review.": [
     "components/workspace/DepositWorkspace.tsx"
   ],
+  "Enter your code to confirm this withdrawal because two-factor protection is enabled on your account.": [
+    "components/workspace/Workspace.tsx"
+  ],
   "Enter your current code before acknowledging an alert, saving the public key, or downloading a backup.": [
     "components/workspace/Operations.tsx"
-  ],
-  "Enter your current six-digit authenticator code, confirm the destination details and choose Request withdrawal.": [
-    "lib/video-content.ts"
   ],
   "Enter your external wallet address": [
     "components/workspace/Workspace.tsx"
@@ -3098,7 +3093,7 @@
   "Funding is not enabled. The operator must complete custody, payment verification, and production configuration.": [
     "server/app.ts"
   ],
-  "Funding requires verified email, approved KYC, two-factor authentication and enabled platform funding.": [
+  "Funding requires verified email, approved KYC and enabled platform funding. Investor authenticator enrollment is optional.": [
     "lib/video-content.ts"
   ],
   "Funding status": [
@@ -3118,6 +3113,9 @@
   ],
   "German": [
     "localization"
+  ],
+  "GET": [
+    "components/workspace/shared.tsx"
   ],
   "Get help with your Aureon account, identity verification, transactions and privacy requests.": [
     "app/support/layout.tsx"
@@ -3175,6 +3173,9 @@
   "Have a referral code?": [
     "components/auth/AuthForms.tsx",
     "lib/i18n.ts"
+  ],
+  "HEAD": [
+    "components/workspace/shared.tsx"
   ],
   "healthy": [
     "localization"
@@ -3324,6 +3325,9 @@
   "Identity verification": [
     "components/public/ContactForm.tsx",
     "components/workspace/Workspace.tsx"
+  ],
+  "If two-factor protection is enabled, enter your current six-digit code. Confirm the destination details and choose Request withdrawal.": [
+    "lib/video-content.ts"
   ],
   "If you cannot find it, check your spam folder or request a new link.": [
     "components/auth/AuthForms.tsx",
@@ -3526,7 +3530,7 @@
   "Investments are monitored against defined performance measures, budgets, operational milestones and risk thresholds.": [
     "app/about/page.tsx"
   ],
-  "Investments use your available account balance. Identity approval, verified email, and two-factor authentication are required.": [
+  "Investments use your available account balance. Identity approval and verified email are required.": [
     "components/workspace/Workspace.tsx"
   ],
   "Investor": [
@@ -3558,6 +3562,9 @@
   "Investor not found.": [
     "server/admin-funds.ts"
   ],
+  "Investor two-factor authentication is optional. Enable it in Account settings for codes at sign-in and withdrawal requests.": [
+    "lib/video-content.ts"
+  ],
   "Investor workspace": [
     "components/workspace/Workspace.tsx"
   ],
@@ -3567,6 +3574,9 @@
   ],
   "Investors": [
     "components/workspace/Workspace.tsx"
+  ],
+  "Investors may enable authenticator protection in account settings. When enabled, a code is required at sign-in and for withdrawals. Administrator sign-in and every administrator change require two-factor authentication.": [
+    "app/security/page.tsx"
   ],
   "Invite someone to discover Aureon with your personal link. Commissions appear only when an eligible investment is approved.": [
     "components/workspace/Workspace.tsx"
@@ -3622,7 +3632,7 @@
     "components/workspace/Operations.tsx"
   ],
   "Key": [
-    "components/workspace/Workspace.tsx"
+    "components/workspace/TwoFactorSettings.tsx"
   ],
   "KEY FINGERPRINT · SHA-256": [
     "components/workspace/Operations.tsx"
@@ -4280,7 +4290,7 @@
     "lib/video-content.ts"
   ],
   "Open in authenticator app": [
-    "components/workspace/Workspace.tsx"
+    "components/workspace/TwoFactorSettings.tsx"
   ],
   "Open menu": [
     "components/SiteHeader.tsx",
@@ -4306,7 +4316,7 @@
     "components/auth/AuthForms.tsx",
     "lib/i18n.ts"
   ],
-  "Open Withdraw funds. Requests require approved identity, verified email, an authenticator and enabled funding.": [
+  "Open Withdraw funds. Requests require approved identity, verified email and enabled funding. An authenticator code is needed only when you enabled two-factor protection.": [
     "lib/video-content.ts"
   ],
   "Open withdrawals": [
@@ -4335,7 +4345,8 @@
     "components/workspace/admin.tsx"
   ],
   "Operator authenticator code": [
-    "components/workspace/admin.tsx"
+    "components/workspace/admin.tsx",
+    "components/workspace/shared.tsx"
   ],
   "Operator details pending": [
     "app/security/page.tsx"
@@ -4466,9 +4477,6 @@
   ],
   "Password": [
     "components/auth/AuthForms.tsx"
-  ],
-  "Password or authentication code is incorrect.": [
-    "server/auth.ts"
   ],
   "Password updated.": [
     "components/auth/AuthForms.tsx",
@@ -4668,6 +4676,7 @@
     "components/workspace/DepositWorkspace.tsx",
     "components/workspace/Operations.tsx",
     "components/workspace/PasskeySettings.tsx",
+    "components/workspace/TwoFactorSettings.tsx",
     "components/workspace/WalletConnections.tsx",
     "components/workspace/Workspace.tsx",
     "components/workspace/admin.tsx",
@@ -4776,7 +4785,7 @@
     "lib/i18n.ts"
   ],
   "Preparing…": [
-    "components/workspace/Workspace.tsx"
+    "components/workspace/TwoFactorSettings.tsx"
   ],
   "Previous": [
     "components/workspace/Cards.tsx"
@@ -4906,9 +4915,6 @@
   ],
   "Property valuations can fluctuate, and rental assets may face vacancy, maintenance, financing, insurance, taxation and liquidity risks.": [
     "lib/business-activities.ts"
-  ],
-  "Protect financial actions with a time-based code from an authenticator app. Two-factor authentication is required for investments and withdrawals.": [
-    "components/workspace/Workspace.tsx"
   ],
   "Protect your information.": [
     "app/support/page.tsx"
@@ -5545,7 +5551,7 @@
     "components/workspace/Operations.tsx"
   ],
   "Save the setup key in your authenticator app. Never share it with anyone.": [
-    "components/workspace/Workspace.tsx"
+    "components/workspace/TwoFactorSettings.tsx"
   ],
   "Save transfer decision": [
     "components/workspace/AdminFunds.tsx"
@@ -5680,14 +5686,11 @@
   "Set FUNDING_ENABLED=true in the operator deployment environment after validating custody and settlement. The dashboard cannot bypass that gate.": [
     "server/app.ts"
   ],
-  "Set up account security": [
-    "components/workspace/Workspace.tsx"
-  ],
   "Set up an authenticator before enabling two-factor authentication.": [
     "server/auth.ts"
   ],
   "Set up authenticator": [
-    "components/workspace/Workspace.tsx"
+    "components/workspace/TwoFactorSettings.tsx"
   ],
   "Set up your account": [
     "lib/video-content.ts"
@@ -5773,6 +5776,9 @@
   ],
   "Sign in with a passkey": [
     "components/auth/PasskeyLogin.tsx"
+  ],
+  "Sign in with administrator two-factor authentication to continue.": [
+    "server/auth.ts"
   ],
   "Sign in with your fingerprint, face, or device PIN. Your biometric data stays on your device.": [
     "components/workspace/PasskeySettings.tsx"
@@ -5905,7 +5911,7 @@
   "Submit pre-launch application": [
     "components/workspace/Cards.tsx"
   ],
-  "Submit the required identity details in your account. Investment access requires an approved KYC review. Enable two-factor authentication for additional protection.": [
+  "Submit the required identity details in your account. Investment access requires an approved KYC review. Optionally enable two-factor authentication for additional protection.": [
     "app/how-it-works/page.tsx"
   ],
   "Submit your details for an operator’s identity review. This form collects identity metadata; it does not upload identity documents.": [
@@ -6261,7 +6267,7 @@
   "The requested amount is reserved while the request is pending. Approval alone does not send cryptocurrency.": [
     "lib/video-content.ts"
   ],
-  "The sender’s balance is reserved immediately. Approval credits the recipient; declining restores the sender’s funds. Both accounts must have verified email, approved identity, and two-factor authentication.": [
+  "The sender’s balance is reserved immediately. Approval credits the recipient; declining restores the sender’s funds. Both accounts must have verified email and approved identity.": [
     "components/workspace/AdminFunds.tsx"
   ],
   "The service could not complete this request. Please try again or contact support.": [
@@ -6328,6 +6334,9 @@
   ],
   "This account has no recorded balance activity.": [
     "components/workspace/AdminFunds.tsx"
+  ],
+  "This account is suspended.": [
+    "server/app.ts"
   ],
   "This applicant's account is suspended.": [
     "server/cards.ts"
@@ -6595,7 +6604,7 @@
     "components/workspace/shared.tsx"
   ],
   "Two-factor authentication": [
-    "components/workspace/Workspace.tsx"
+    "components/workspace/TwoFactorSettings.tsx"
   ],
   "Two-factor authentication disabled.": [
     "server/auth.ts"
@@ -6606,8 +6615,14 @@
   "Two-factor authentication is already enabled.": [
     "server/auth.ts"
   ],
-  "Two-factor authentication must be enabled on your account.": [
-    "components/workspace/Workspace.tsx"
+  "Two-factor authentication is mandatory for administrator accounts and cannot be disabled here.": [
+    "server/auth.ts"
+  ],
+  "Two-factor authentication is mandatory for administrator sign-in and every administrator change. It cannot be disabled from this account.": [
+    "components/workspace/TwoFactorSettings.tsx"
+  ],
+  "Two-factor authentication is optional. When enabled, enter a code at sign-in and when requesting a withdrawal. Confirm one code when setting up your authenticator.": [
+    "components/workspace/TwoFactorSettings.tsx"
   ],
   "Two-factor settings changed. Please start setup again.": [
     "server/auth.ts"
@@ -6821,6 +6836,7 @@
     "components/workspace/PasskeySettings.tsx",
     "components/workspace/PortfolioAnalytics.tsx",
     "components/workspace/ProviderConnections.tsx",
+    "components/workspace/TwoFactorSettings.tsx",
     "components/workspace/WalletConnections.tsx",
     "components/workspace/Workspace.tsx",
     "components/workspace/admin.tsx",
@@ -7205,10 +7221,10 @@
   "Withdrawals are currently unavailable while platform funding is disabled.": [
     "components/workspace/Workspace.tsx"
   ],
-  "Withdrawals require approved identity review, verified email, two-factor authentication and an available balance. Requested funds are reserved pending review. Approval is distinct from actual blockchain payment. Processing is subject to security checks, network conditions, liquidity and legal obligations. Applicable fees and processing policies must be disclosed before a request is accepted.": [
+  "Withdrawals require approved identity review, verified email and an available balance. An authenticator code is required if the investor has enabled two-factor authentication. Requested funds are reserved pending review. Approval is distinct from actual blockchain payment. Processing is subject to security checks, network conditions, liquidity and legal obligations. Applicable fees and processing policies must be disclosed before a request is accepted.": [
     "app/legal/terms/page.tsx"
   ],
-  "Withdrawals require identity verification, two-factor authentication and sufficient available funds. A valid request reserves funds for review. The operator records a paid status and blockchain reference after payment.": [
+  "Withdrawals require identity verification, verified email and sufficient available funds. An authenticator code is required only if two-factor authentication is enabled on your account. A valid request reserves funds for review. The operator records a paid status and blockchain reference after payment.": [
     "app/support/page.tsx"
   ],
   "withdrawn": [
@@ -7353,6 +7369,9 @@
   ],
   "Your connected wallets": [
     "components/workspace/WalletConnections.tsx"
+  ],
+  "Your current password is incorrect.": [
+    "server/auth.ts"
   ],
   "Your dashboard separates cleared account funds, active investment principal, transaction status and illustrative time-based accrual. A ticking projection is not proof that a trade occurred or that a return has been realized.": [
     "app/how-it-works/page.tsx"

@@ -116,13 +116,15 @@ export async function issueAuthSession(
   validate?: (tx: Prisma.TransactionClient) => Promise<void>,
 ): Promise<void> {
   const sessionId = randomUUID();
-  const token = jwt.sign({}, config.jwtSecret, {
+  const setupOnly = user.role === "ADMIN" && !user.twoFactorEnabled;
+  const lifetime = setupOnly ? 10 * 60 * 1000 : sessionDuration;
+  const token = jwt.sign({ mfa: user.twoFactorEnabled, setupOnly }, config.jwtSecret, {
     algorithm: "HS256",
     subject: user.id,
     jwtid: sessionId,
     issuer,
     audience,
-    expiresIn: "7d",
+    expiresIn: lifetime / 1000,
   });
   await prisma.$transaction(async (tx) => {
     // Serialize all authentication methods with password/2FA changes and suspension.
@@ -131,6 +133,7 @@ export async function issueAuthSession(
     if (
       !current ||
       current.suspended ||
+      current.role !== user.role ||
       current.passwordHash !== user.passwordHash ||
       current.twoFactorEnabled !== user.twoFactorEnabled ||
       current.twoFactorSecret !== user.twoFactorSecret
@@ -146,7 +149,7 @@ export async function issueAuthSession(
         id: sessionId,
         userId: user.id,
         tokenHash: tokenHash(token),
-        expiresAt: new Date(Date.now() + sessionDuration),
+        expiresAt: new Date(Date.now() + lifetime),
         ip: req.ip,
         userAgent: req.get("user-agent")?.slice(0, 500),
       },
@@ -157,7 +160,7 @@ export async function issueAuthSession(
   });
   res.cookie(config.authCookie, token, {
     ...cookieOptions,
-    maxAge: sessionDuration,
+    maxAge: lifetime,
   });
 }
 
@@ -187,6 +190,22 @@ export async function requireAuth(
         "Your session has expired. Please sign in again.",
       );
     }
+    // Administrator enrollment is a short-lived, security-only session, never
+    // a password-only route into investor records or the administration APIs.
+    if (payload.setupOnly === true) {
+      if (session.user.role !== "ADMIN" || session.user.twoFactorEnabled)
+        throw new HttpError(401, "Account security settings changed. Please sign in again.");
+      const path = req.originalUrl.split("?")[0];
+      if (![
+        "GET /api/auth/me",
+        "POST /api/auth/2fa/setup",
+        "POST /api/auth/2fa/enable",
+      ].includes(`${req.method} ${path}`))
+        throw new HttpError(403, "Complete administrator two-factor setup before continuing.");
+    } else if (session.user.role === "ADMIN" &&
+      (!session.user.twoFactorEnabled || payload.mfa !== true)) {
+      throw new HttpError(401, "Sign in with administrator two-factor authentication to continue.");
+    }
     req.auth = { user: session.user, sessionId: session.id };
     next();
   } catch (error) {
@@ -194,11 +213,11 @@ export async function requireAuth(
   }
 }
 
-export function requireAdmin(
+export async function requireAdmin(
   req: Request,
   _res: Response,
   next: NextFunction,
-): void {
+): Promise<void> {
   if (!req.auth || req.auth.user.role !== "ADMIN")
     return next(new HttpError(403, "Administrator access is required."));
   if (!req.auth.user.twoFactorEnabled)
@@ -208,7 +227,11 @@ export function requireAdmin(
         "Enroll two-factor authentication in account security before accessing administration.",
       ),
     );
-  next();
+  try {
+    if (!["GET", "HEAD", "OPTIONS"].includes(req.method))
+      await requireTotp(req.auth.user, req.body?.code);
+    next();
+  } catch (error) { next(error); }
 }
 
 export function requireVerified(
@@ -428,7 +451,7 @@ authRouter.post("/login", loginLimit, async (req, res) => {
     );
   }
   await issueAuthSession(req, res, user);
-  res.json({ user: await serializeUser(user) });
+  res.json({ user: await serializeUser(user), requiresTwoFactorSetup: user.role === "ADMIN" && !user.twoFactorEnabled });
 });
 
 authRouter.post("/logout", async (req, res) => {
@@ -606,6 +629,9 @@ authRouter.post(
           id: user.id,
           twoFactorEnabled: false,
           twoFactorSecret: user.twoFactorSecret,
+          passwordHash: user.passwordHash,
+          role: user.role,
+          suspended: false,
         },
         data: { twoFactorEnabled: true },
       });
@@ -627,6 +653,14 @@ authRouter.post(
         },
       });
     });
+    if (user.role === "ADMIN") {
+      await issueAuthSession(req, res, { ...user, twoFactorEnabled: true }, "AUTH_ADMIN_ENROLLMENT_COMPLETED", async tx => {
+        const setup = await tx.session.findUnique({ where: { id: sessionId } });
+        if (!setup || setup.revokedAt || setup.expiresAt.getTime() <= Date.now())
+          throw new HttpError(401, "Your session has expired. Please sign in again.");
+        await tx.session.update({ where: { id: sessionId }, data: { revokedAt: new Date() } });
+      });
+    }
     res.json({ message: "Two-factor authentication enabled." });
   },
 );
@@ -637,20 +671,24 @@ authRouter.post(
   requireVerified,
   twoFactorLimit,
   async (req, res) => {
-    const { password, code } = parse(
-      z.object({ password: z.string().min(1).max(128), code: codeSchema }),
+    const { user, sessionId } = req.auth!;
+    if (user.role === "ADMIN")
+      throw new HttpError(403, "Two-factor authentication is mandatory for administrator accounts and cannot be disabled here.");
+    const { password } = parse(
+      z.object({ password: z.string().min(1).max(128) }),
       req.body,
     );
-    const { user, sessionId } = req.auth!;
     if (!(await bcrypt.compare(password, user.passwordHash)))
-      throw new HttpError(403, "Password or authentication code is incorrect.");
-    await requireTotp(user, code);
+      throw new HttpError(403, "Your current password is incorrect.");
     await prisma.$transaction(async (tx) => {
       const updated = await tx.user.updateMany({
         where: {
           id: user.id,
           twoFactorEnabled: true,
           twoFactorSecret: user.twoFactorSecret,
+          passwordHash: user.passwordHash,
+          role: "USER",
+          suspended: false,
         },
         data: { twoFactorEnabled: false, twoFactorSecret: null },
       });

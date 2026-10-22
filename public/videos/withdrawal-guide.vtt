@@ -5,7 +5,7 @@ NOTE Ambient instrumental music. All instructions appear on screen.
 1
 00:00:00.000 --> 00:00:08.000 line:84% position:50% size:90% align:center
 Plan your next step.
-Open Withdraw funds. Requests require approved identity, verified email, an authenticator and enabled funding.
+Open Withdraw funds. Requests require approved identity, verified email and enabled funding. An authenticator code is needed only when you enabled two-factor protection.
 
 2
 00:00:08.000 --> 00:00:16.000 line:84% position:50% size:90% align:center
@@ -20,7 +20,7 @@ Select the supported asset and network. Enter your external wallet address and c
 4
 00:00:24.000 --> 00:00:32.000 line:84% position:50% size:90% align:center
 Review, then request.
-Enter your current six-digit authenticator code, confirm the destination details and choose Request withdrawal.
+If two-factor protection is enabled, enter your current six-digit code. Confirm the destination details and choose Request withdrawal.
 
 5
 00:00:32.000 --> 00:00:40.000 line:84% position:50% size:90% align:center

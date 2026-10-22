@@ -83,6 +83,7 @@ test("operator can publish and archive a real article and save a campaign withou
     .fill(
       "This temporary text validates that an operator can publish and archive an article. No investment or financial claim is made.",
     );
+  await page.getByLabel("Operator authenticator code", {exact:true}).fill(authenticator.generate(secret));
   await page.getByRole("button", { name: "Save draft", exact: true }).click();
   await expect(page.getByRole("dialog")).not.toBeVisible();
   let row = page.getByRole("row").filter({ hasText: slug });
@@ -132,6 +133,7 @@ test("operator can publish and archive a real article and save a campaign withou
     .fill(
       "This local campaign is a draft only and must not be sent to subscribers.",
     );
+  await page.getByLabel("Operator authenticator code", {exact:true}).fill(authenticator.generate(secret));
   await page
     .getByRole("button", { name: "Save campaign draft", exact: true })
     .click();

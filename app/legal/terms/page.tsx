@@ -57,8 +57,9 @@ export default function TermsPage() {
         reference does not itself prove receipt.
       </p>
       <p>
-        Withdrawals require approved identity review, verified email, two-factor
-        authentication and an available balance. Requested funds are reserved
+        Withdrawals require approved identity review, verified email and an
+        available balance. An authenticator code is required if the investor
+        has enabled two-factor authentication. Requested funds are reserved
         pending review. Approval is distinct from actual blockchain payment.
         Processing is subject to security checks, network conditions, liquidity
         and legal obligations. Applicable fees and processing policies must be

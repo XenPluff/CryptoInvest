@@ -44,7 +44,7 @@ test.describe("Browser wallet ownership connection", () => {
     }
   });
 
-  test("opens wallet prompts only on click, verifies a real signature, and unlinks with TOTP", async ({
+  test("opens wallet prompts only on click, verifies a real signature, and unlinks without another authenticator prompt", async ({
     page,
   }) => {
     await page.exposeFunction(
@@ -143,9 +143,6 @@ test.describe("Browser wallet ownership connection", () => {
       panel.getByRole("button", { name: "Unlink from AUREON" }),
     ).toBeVisible();
     await panel.getByRole("button", { name: "Unlink from AUREON" }).click();
-    await panel
-      .getByLabel("Current authenticator code")
-      .fill(authenticator.generate(key));
     await panel.getByRole("button", { name: "Confirm unlink" }).click();
     await expect(
       panel.getByText("No wallets linked yet.", { exact: false }),

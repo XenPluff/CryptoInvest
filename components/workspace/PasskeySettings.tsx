@@ -22,8 +22,10 @@ type Credential = {
 
 export function PasskeySettings({
   twoFactorEnabled,
+  administrator = false,
 }: {
   twoFactorEnabled: boolean;
+  administrator?: boolean;
 }) {
   useDisplayLocale();
   const list = useRemote<{ credentials: Credential[] }>("/auth/passkeys");
@@ -38,8 +40,8 @@ export function PasskeySettings({
     setSupported(browserSupportsWebAuthn() && window.isSecureContext);
   }, []);
 
-  const proof = () => (twoFactorEnabled ? { code } : { password });
-  const proofPresent = twoFactorEnabled
+  const proof = () => (administrator ? { code } : { password });
+  const proofPresent = administrator
     ? /^\d{6}$/.test(code)
     : Boolean(password);
   function clearProof() {
@@ -164,7 +166,7 @@ export function PasskeySettings({
             placeholder="For example, personal phone"
           />
         </label>
-        {twoFactorEnabled ? (
+        {administrator ? (
           <label className="ws-field">
             <span>Current authenticator code</span>
             <input
@@ -194,7 +196,7 @@ export function PasskeySettings({
           </label>
         )}
         <small className="ws-muted">
-          Confirm your {twoFactorEnabled ? "authenticator code" : "password"}{" "}
+          Confirm your {administrator ? "authenticator code" : "password"}{" "}
           before adding or removing a passkey.
         </small>
         {error && <Notice tone="error">{error}</Notice>}

@@ -27,12 +27,11 @@ async function transferAccount(tx: Prisma.TransactionClient, id: string) {
   if (
     user.suspended ||
     !user.emailVerifiedAt ||
-    !user.twoFactorEnabled ||
     user.kyc?.status !== "APPROVED"
   )
     throw new HttpError(
       409,
-      "Both transfer accounts must be active, email verified, identity approved, and protected by two-factor authentication.",
+      "Both transfer accounts must be active, email verified, and identity approved.",
     );
   return user;
 }

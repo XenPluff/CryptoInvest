@@ -79,8 +79,9 @@ export default function SupportPage() {
             <p>
               Administrators can enable or pause funding in platform settings. A
               pause stops new financial postings. Verified email, approved
-              identity review and two-factor authentication are still required
-              for investor financial activity.
+              identity review are still required for investor financial activity.
+              Investor two-factor authentication is optional; enabled accounts
+              require codes at sign-in and for withdrawal requests.
             </p>
           </details>
           <details>
@@ -95,8 +96,9 @@ export default function SupportPage() {
           <details>
             <summary>Why does my withdrawal show as pending?</summary>
             <p>
-              Withdrawals require identity verification, two-factor
-              authentication and sufficient available funds. A valid request
+              Withdrawals require identity verification, verified email and
+              sufficient available funds. An authenticator code is required only
+              if two-factor authentication is enabled on your account. A valid request
               reserves funds for review. The operator records a paid status and
               blockchain reference after payment.
             </p>

@@ -25,7 +25,7 @@ const principles = [
   {
     icon: ShieldCheck,
     title: "Stay in control.",
-    text: "Enable authenticator protection, review account activity and contact support when you need clarification. Sensitive financial actions require additional authentication, and funding requests follow an operator review process.",
+    text: "Choose optional authenticator protection, review account activity and contact support when you need clarification. Enabled accounts require codes at sign-in and for withdrawal requests. Funding requests follow an operator review process.",
     href: "/security",
     link: "Understand account protection",
   },

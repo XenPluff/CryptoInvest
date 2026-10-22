@@ -15,7 +15,7 @@ stays in server layouts, while page content responds to language changes. The
 
 ## Content and privacy boundaries
 
-- The 2,338 registered source messages have seven bundled translation catalogs.
+- The 2,344 registered source messages have seven bundled translation catalogs.
   Homepage headlines have dedicated wording and word order for every language. Each catalog is loaded on demand from this application. There is no runtime
   external translation request and no account content is sent to a translator.
 - `TranslatedContent` translates React text/presentation attributes without DOM
@@ -31,7 +31,7 @@ stays in server layouts, while page content responds to language changes. The
   plan limits and API amounts remain USD. Precise illustrative investment displays
   retain their explicit USD representation and never create posted funds.
 - The existing PDF, image artwork, MP4 files, downloadable transcripts, native
-  English caption files and outgoing emails are unchanged. The website identifies
+  English caption files and outgoing emails retain their publication language. The website identifies
   English publication/video assets accurately; displayed guide text is localized.
   Browser-native controls and validation follow the browser's own language.
 - Translated legal pages retain risk, program-scope and pending-operator disclosures,

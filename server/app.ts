@@ -160,7 +160,6 @@ async function financialGuard(
         403,
         "An approved identity review is required before financial activity.",
       );
-    await requireTotp(user, req.body.code);
     next();
   } catch (error) {
     next(error);
@@ -440,6 +439,11 @@ api.post("/withdrawals", requireAuth, financialGuard, async (req, res) => {
     throw new HttpError(400, "Enter a valid Solana destination address.");
   const amount = toCents(body.amount);
   const withdrawal = await serializable(async (tx) => {
+    // Lock the live enrollment state so enabling 2FA cannot race a withdrawal.
+    await tx.$queryRaw`SELECT id FROM "User" WHERE id = ${userId(req)} FOR UPDATE`;
+    const account = await tx.user.findUniqueOrThrow({ where: { id: userId(req) } });
+    if (account.suspended) throw new HttpError(403, "This account is suspended.");
+    if (account.twoFactorEnabled) await requireTotp(account, req.body.code);
     await assertBalance(tx, userId(req), amount);
     const t = await tx.transaction.create({
       data: {

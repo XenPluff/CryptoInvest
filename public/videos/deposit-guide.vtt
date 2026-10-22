@@ -30,7 +30,7 @@ If you choose to transfer, allow for network fees. Keep the blockchain transacti
 6
 00:00:40.000 --> 00:00:48.000 line:84% position:50% size:90% align:center
 Submit for verification.
-Enter the declared USD value, transaction hash and current authenticator code. Confirm the details and submit.
+Enter the declared USD value and transaction hash. Confirm the transfer details and submit; no authenticator code is needed for deposits.
 
 7
 00:00:48.000 --> 00:00:56.000 line:84% position:50% size:90% align:center

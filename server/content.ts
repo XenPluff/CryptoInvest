@@ -268,6 +268,13 @@ contentPublicRouter.post(
 
 export const contentAdminRouter = Router();
 contentAdminRouter.use(requireAuth, requireAdmin);
+// The shared administrator guard validates this proof before draft validation.
+// Do not persist a one-time code with publication or campaign content.
+function draftBody(body: unknown) {
+  if (!body || typeof body !== "object" || Array.isArray(body)) return body;
+  const { code: _proof, ...draft } = body as Record<string, unknown>;
+  return draft;
+}
 contentAdminRouter.get("/content", async (_req, res) => {
   res.json({
     entries: await prisma.contentEntry.findMany({
@@ -277,7 +284,7 @@ contentAdminRouter.get("/content", async (_req, res) => {
   });
 });
 contentAdminRouter.post("/content", async (req, res) => {
-  const data = input(contentInputSchema, req.body);
+  const data = input(contentInputSchema, draftBody(req.body));
   const entry = await serializable(async (tx) => {
     const created = await tx.contentEntry.create({
       data: {
@@ -304,7 +311,7 @@ contentAdminRouter.post("/content", async (req, res) => {
     });
 });
 contentAdminRouter.patch("/content/:id", async (req, res) => {
-  const data = input(contentInputSchema, req.body);
+  const data = input(contentInputSchema, draftBody(req.body));
   const entry = await serializable(async (tx) => {
     const existing = await tx.contentEntry.findUnique({
       where: { id: id(req) },
@@ -405,7 +412,7 @@ contentAdminRouter.get("/campaigns", async (_req, res) => {
   });
 });
 contentAdminRouter.post("/campaigns", async (req, res) => {
-  const data = input(campaignInputSchema, req.body);
+  const data = input(campaignInputSchema, draftBody(req.body));
   const campaign = await serializable(async (tx) => {
     const created = await tx.emailCampaign.create({
       data: {
@@ -432,7 +439,7 @@ contentAdminRouter.post("/campaigns", async (req, res) => {
     });
 });
 contentAdminRouter.patch("/campaigns/:id", async (req, res) => {
-  const data = input(campaignInputSchema, req.body);
+  const data = input(campaignInputSchema, draftBody(req.body));
   const campaign = await serializable(async (tx) => {
     const existing = await tx.emailCampaign.findUnique({
       where: { id: id(req) },

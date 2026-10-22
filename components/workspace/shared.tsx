@@ -1,7 +1,7 @@
 "use client";
 import TranslatedContent from "@/components/TranslatedContent";
 import { useDisplayLocale, displayLocale } from "@/lib/i18n";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { api, money } from "@/lib/api";
 import {
   ArrowUpRight,
@@ -198,6 +198,7 @@ export function Field({
   max,
   step,
   minLength,
+  maxLength,
   inputMode,
   pattern,
   autoComplete,
@@ -214,6 +215,7 @@ export function Field({
   max?: number | string;
   step?: number | string;
   minLength?: number;
+  maxLength?: number;
   inputMode?: React.HTMLAttributes<HTMLInputElement>["inputMode"];
   pattern?: string;
   autoComplete?: string;
@@ -235,6 +237,7 @@ export function Field({
           max={max}
           step={step}
           minLength={minLength}
+          maxLength={maxLength}
           inputMode={inputMode}
           pattern={pattern}
           autoComplete={autoComplete}
@@ -262,12 +265,23 @@ export function ActionForm({
   disabled?: boolean;
 }) {
   useDisplayLocale();
+  const administratorAction = path.startsWith("/admin/") && !["GET", "HEAD"].includes(method);
+  const formRef = useRef<HTMLFormElement>(null);
+  const [needsCode, setNeedsCode] = useState(false);
+  useLayoutEffect(() => {
+    // Inspect rendered fields so code inputs inside reusable child components
+    // are respected, without duplicating their required proof field.
+    const existing = Array.from(formRef.current?.querySelectorAll('input[name="code"]') ?? [])
+      .some(input => !input.closest("[data-administrator-proof]"));
+    setNeedsCode(administratorAction && !existing);
+  }, [administratorAction, children]);
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState<{ error?: string; message?: string }>(
     {},
   );
   return <TranslatedContent>{(
     <form
+      ref={formRef}
       className="ws-form"
       onSubmit={async (e) => {
         e.preventDefault();
@@ -278,9 +292,11 @@ export function ActionForm({
           new FormData(form).entries(),
         );
         try {
+          const payload = transform ? transform(raw) : raw;
+          if (administratorAction) payload.code = raw.code;
           const d = await api(path, {
             method,
-            body: JSON.stringify(transform ? transform(raw) : raw),
+            body: JSON.stringify(payload),
           });
           setResult({ message: d.message || "Your changes have been saved." });
           onSuccess?.(d);
@@ -292,11 +308,25 @@ export function ActionForm({
                 : "The request could not be completed.",
           });
         } finally {
+          if (administratorAction) {
+            const code = form.querySelector<HTMLInputElement>('input[name="code"]');
+            if (code) code.value = "";
+          }
           setBusy(false);
         }
       }}
     >
       {children}
+      {needsCode && <div data-administrator-proof><Field
+        label="Operator authenticator code"
+        name="code"
+        required
+        inputMode="numeric"
+        pattern="[0-9]{6}"
+        maxLength={6}
+        autoComplete="one-time-code"
+        placeholder="6-digit code"
+      /></div>}
       {result.error && <Notice tone="error">{result.error}</Notice>}
       {result.message && <Notice tone="success">{result.message}</Notice>}
       <button

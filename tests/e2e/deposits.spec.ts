@@ -39,7 +39,6 @@ async function openDeposit(page: Page, options: Options = {}) {
 async function fillTransfer(page: Page) {
   await page.getByLabel("Declared value (USD)").fill("250.75");
   await page.getByLabel("Blockchain transaction hash").fill("a".repeat(64));
-  await page.getByLabel("Authenticator code").fill("123456");
 }
 
 test("all six supplied wallet destinations produce matching scannable QR codes", async ({ page, context }) => {
@@ -66,7 +65,7 @@ test("all six supplied wallet destinations produce matching scannable QR codes",
   }
 });
 
-test("network selection clears stale details and submission carries wallet, USD value, hash and authenticator code", async ({ page }) => {
+test("network selection clears stale details and submission carries wallet, USD value, hash without an authenticator code", async ({ page }) => {
   const submissions = await openDeposit(page);
   await fillTransfer(page);
   await page.locator(".dp-assets button").filter({ hasText: "USDT" }).click();
@@ -78,7 +77,7 @@ test("network selection clears stale details and submission carries wallet, USD 
   await page.getByRole("checkbox").check();
   await page.getByRole("button", { name: "Submit for verification" }).click();
   await expect(page.getByRole("heading", { name: "Submitted for review." })).toBeVisible();
-  expect(submissions).toEqual([{ walletId: "usdt-erc", amount: 250.75, txHash: "a".repeat(64), code: "123456" }]);
+  expect(submissions).toEqual([{ walletId: "usdt-erc", amount: 250.75, txHash: "a".repeat(64) }]);
   await expect(page.getByText("Your balance changes only after approval.", { exact: false })).toBeVisible();
   await expect(page.locator(".dp-history-row")).toContainText("PENDING");
   await expect(page.locator(".dp-history-row")).toContainText("$250.75");
@@ -104,7 +103,8 @@ test("paused funding hides receiving instructions and incomplete accounts cannot
   await openDeposit(page, { eligible: false });
   await expect(page.getByRole("link", { name: "Complete setup" })).toHaveAttribute("href", "/dashboard/account");
   await expect(page.getByRole("button", { name: "Submit for verification" })).toBeDisabled();
-  await expect(page.getByLabel("Authenticator code")).toBeDisabled();
+  await expect(page.getByLabel("Authenticator code")).toHaveCount(0);
+  await expect(page.getByLabel("Declared value (USD)")).toBeDisabled();
 });
 
 test("copy denial offers manual copying and mobile layouts stay within the viewport", async ({ page }) => {

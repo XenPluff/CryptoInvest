@@ -74,8 +74,8 @@ test.describe("Browser passkey enrollment and login", () => {
         });
       await panel.getByLabel("Passkey name").fill("Browser test passkey");
       await panel
-        .getByLabel("Current authenticator code")
-        .fill(authenticator.generate(secret));
+        .getByLabel("Current password")
+        .fill(password);
       await panel
         .getByRole("button", { name: "Add a passkey", exact: true })
         .click();
@@ -135,8 +135,8 @@ test.describe("Browser passkey enrollment and login", () => {
 
       await page.goto("/dashboard/account");
       await panel
-        .getByLabel("Current authenticator code")
-        .fill(authenticator.generate(secret));
+        .getByLabel("Current password")
+        .fill(password);
       await panel
         .getByRole("button", { name: "Remove Browser test passkey" })
         .click();

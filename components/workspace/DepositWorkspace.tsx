@@ -42,7 +42,6 @@ export function DepositWorkspace({ user }: { user: RecordData }) {
   const [selectedId, setSelectedId] = useState("");
   const [amount, setAmount] = useState("");
   const [txHash, setTxHash] = useState("");
-  const [code, setCode] = useState("");
   const [confirmed, setConfirmed] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -57,7 +56,6 @@ export function DepositWorkspace({ user }: { user: RecordData }) {
   const accountChecks = [
     { name: "Email verified", ready: Boolean(user.emailVerified) },
     { name: "Identity approved", ready: user.kycStatus === "APPROVED" },
-    { name: "Authenticator enabled", ready: Boolean(user.twoFactorEnabled) },
   ];
   const eligible = accountChecks.every(check => check.ready);
   const fundingOpen = Boolean(catalog.data?.fundingEnabled && wallets.length);
@@ -65,7 +63,7 @@ export function DepositWorkspace({ user }: { user: RecordData }) {
   const deposits = (activity.data?.transactions ?? []).filter(item => item.type === "DEPOSIT").slice(0, 3);
 
   useEffect(() => {
-    setAmount(""); setTxHash(""); setCode(""); setConfirmed(false);
+    setAmount(""); setTxHash(""); setConfirmed(false);
     setError(""); setReceipt(null); setCopyStatus("");
   }, [selected?.id]);
 
@@ -76,10 +74,10 @@ export function DepositWorkspace({ user }: { user: RecordData }) {
     try {
       const result = await api<{ deposit: Deposit }>("/deposits", {
         method: "POST",
-        body: JSON.stringify({ walletId: selected.id, amount: Number(amount), txHash: txHash.trim(), code: code.trim() }),
+        body: JSON.stringify({ walletId: selected.id, amount: Number(amount), txHash: txHash.trim() }),
       });
       if (!result.deposit?.id) throw new Error("Submission could not be confirmed. Check transaction activity before retrying.");
-      setReceipt(result.deposit); setAmount(""); setTxHash(""); setCode(""); setConfirmed(false);
+      setReceipt(result.deposit); setAmount(""); setTxHash(""); setConfirmed(false);
       void activity.reload();
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "Your deposit could not be submitted.");
@@ -143,7 +141,6 @@ export function DepositWorkspace({ user }: { user: RecordData }) {
               <fieldset disabled={busy || !canSubmit}>
                 <label htmlFor="dp-amount">Declared value (USD)</label><div className="dp-amount-input"><span>$</span><input id="dp-amount" name="amount" type="number" min="0.01" step="0.01" required inputMode="decimal" placeholder="0.00" value={amount} onChange={event => setAmount(event.target.value)} /><small>USD</small></div><p className="dp-field-help">Enter the USD value you are declaring for review.</p>
                 <label htmlFor="dp-hash">Blockchain transaction hash</label><input id="dp-hash" name="txHash" required autoComplete="off" spellCheck={false} placeholder={selectedNetwork?.tag === "ERC20" || selectedNetwork?.tag === "BEP20" ? "0x…" : "Paste your transaction hash"} value={txHash} onChange={event => setTxHash(event.target.value)} /><p className="dp-field-help">Find this in your sending wallet’s transaction details.</p>
-                <label htmlFor="dp-code">Authenticator code <LockKeyhole size={12} /></label><input id="dp-code" name="code" required inputMode="numeric" autoComplete="one-time-code" pattern="[0-9]{6}" maxLength={6} placeholder="6-digit code" value={code} onChange={event => setCode(event.target.value)} />
                 <label className="dp-confirm-check"><input type="checkbox" required checked={confirmed} onChange={event => setConfirmed(event.target.checked)} /><span>I sent {selected.asset} on {selectedNetwork?.name} to the address shown.</span></label>
               </fieldset>
               {error && <Notice tone="error">{error}</Notice>}

@@ -25,19 +25,19 @@ approves no credit and changes no financial balances.
 - `POST /auth/2fa/setup {}` → `{secret,otpauthUrl}`; verified email required. Provisioning secret is returned only for enrollment and encrypted at rest.
 - `POST /auth/2fa/enable {code}`; `POST /auth/2fa/disable {code,password}`.
 - `GET /auth/passkeys` → `{credentials:[{id,label,deviceType,backedUp,createdAt,lastUsedAt}]}` for the signed-in account.
-- `POST /auth/passkeys/register/options {password?,code?}` → `{options,challengeId}`. Reauthentication uses current TOTP when enrolled, otherwise the current password. `POST /auth/passkeys/register/verify {challengeId,response,label}` completes WebAuthn enrollment with required user verification. Challenges are single-use, expire after five minutes, and bind the account, session, origin, RP ID, and security state.
+- `POST /auth/passkeys/register/options {password?,code?}` → `{options,challengeId}`. Investor credential changes use the current password; administrator credential changes use current TOTP. `POST /auth/passkeys/register/verify {challengeId,response,label}` completes WebAuthn enrollment with required user verification. Challenges are single-use, expire after five minutes, and bind the account, session, origin, RP ID, and security state.
 - `POST /auth/passkeys/login/options {email}` → `{options,challengeId}` without disclosing registered credential IDs or account existence. `POST /auth/passkeys/login/verify {challengeId,response,code?}` → `{user}` and a revocable session after real signature verification. Enrolled TOTP remains required. Credential revocation/counter updates and session creation share a locked security check.
 - `DELETE /auth/passkeys/:id {password?,code?}` removes an owned credential after reauthentication. Passkeys require browser WebAuthn support and a secure origin, or localhost during development.
 
 ## Investor workspace
 
-All routes require auth. Financial routes additionally require deployment funding enabled, verified email, approved KYC, and valid TOTP. Funding defaultsfalse; server returns503until explicitly configured. Submitting a hash never auto-credits funds, and approving a withdrawal never sends cryptocurrency.
+All routes require auth. Financial routes additionally require deployment funding enabled, verified email and approved KYC. Investor TOTP enrollment is optional. Deposits and investments never request a code; withdrawals require a valid code only when the account is enrolled, rechecked under the User lock. Funding defaultsfalse; server returns503until explicitly configured. Submitting a hash never auto-credits funds, and approving a withdrawal never sends cryptocurrency.
 
 - `GET /dashboard` → `{balance,invested,totalEarned,referralEarnings,investments:[],transactions:[],notifications:[],user}`. Balance is available USD; totalEarned contains only reconciled realized earnings.
 - `GET /wallets` → `{wallets:[{id,asset,network,address}],fundingEnabled}`. Addresses are supplied by the operator; no external custody assertion.
 - `GET /wallet-connect/links` → `{links:[{id,address,chainId,provider,verifiedAt}]}`. These wallet-link routes require verified email.
 - `POST /wallet-connect/challenge {address,chainId,provider}` → 201 `{challengeId,message,expiresAt}`. Provider is `MetaMask`, `Coinbase Wallet`, or `Browser wallet`; addresses are EVM accounts. `POST /wallet-connect/verify {challengeId,signature}` verifies an actual EIP-191 ownership signature. Challenges bind account, session, origin, chain, nonce, and expiry; duplicate ownership claims and replay return 409. Linking never transfers funds or creates available balance.
-- `DELETE /wallet-connect/links/:id {code}` unlinks an owned connection after valid TOTP.
+- `DELETE /wallet-connect/links/:id {}` unlinks an owned connection using the authenticated session and ownership checks.
 - `GET /transactions` → `{transactions:[{id,type,amount,status,asset,network,txHash,address,note,createdAt}]}`; latest500records.
 - `POST /deposits {walletId,amount,txHash,code}` → `{deposit}`. Amount is declared USD; pending until independent valuation, on-chain verification, and claimant attribution. Hash format is network-specific and canonicalized; duplicate references return409.
 - `POST /withdrawals {amount,asset,network,address,code}` → `{withdrawal}`. Immediately reserves USD balance; requires manual approval, external payout, and independent reconciliation.
@@ -81,14 +81,14 @@ See `docs/BACKEND_OPERATIONS.md` for external reconciliation requirements, provi
 
 ## Administrator balances and internal transfers
 
-All mutations below require administrator role, enrolled TOTP, a current `code`, and enabled funding. Requests cannot target the acting administrator's balance. Existing ledger history is never edited.
+Every administrator mutation (including user, plan and draft changes) requires administrator role, enrolled TOTP and a current `code`. Financial mutations below also require enabled funding. Requests cannot target the acting administrator's balance. Existing ledger history is never edited.
 
 - `GET /admin/users` includes each account's available USD `balance`.
 - `GET /admin/users/:id/ledger` returns `{balance,entries:[{id,amount,amountCents,kind,referenceId,createdAt}]}` (latest 100 entries).
 - `POST /admin/balance-adjustments {userId,direction:'credit'|'debit',amount,externalReference,note,idempotencyKey,code}` returns 201 `{transaction,balance,message}`. Reference is at least 8 characters, note at least 15, key a UUID, amount a positive USD value with at most two decimals. Debits cannot exceed available balance. Reusing a request ID returns 409 without another posting.
 - `GET /admin/transactions?type=&status=` returns `{transactions:[]}` with investor details, USD `amount`, and optional `direction:'CREDIT'|'DEBIT'`. Omit empty filters; enum values are validated. Latest 1,000 records.
 - `GET /admin/transfers` returns `{transfers:[]}` with sender/recipient details and USD `amount`.
-- `POST /admin/transfers {fromUserId,toUserId,amount,note,idempotencyKey,code}` reserves sender funds and creates a PENDING internal USD transfer. Both accounts must be distinct, active, email verified, identity approved, and protected by TOTP.
+- `POST /admin/transfers {fromUserId,toUserId,amount,note,idempotencyKey,code}` reserves sender funds and creates a PENDING internal USD transfer. Both accounts must be distinct, active, email verified and identity approved. Investor TOTP enrollment is optional.
 - `POST /admin/transfers/:id/review {action:'approve'|'reject',note,code}` changes PENDING to SETTLED (credit recipient) or REJECTED (refund sender). Approval rechecks eligibility. Concurrent or repeated decisions return 409 without duplicate credit/refund. These routes never broadcast a blockchain transaction.
 
 ## Administrator operations and backups

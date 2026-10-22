@@ -10,7 +10,6 @@ import {
   ActionForm,
   CopyButton,
   DateText,
-  Field,
   LoadState,
   Notice,
   Panel,
@@ -63,10 +62,8 @@ function signatureHex(message: string) {
 
 export function WalletConnections({
   emailVerified,
-  twoFactorEnabled,
 }: {
   emailVerified: boolean;
-  twoFactorEnabled: boolean;
 }) {
   useDisplayLocale();
   const connections = useRemote<{ links: WalletLink[] }>(
@@ -333,12 +330,6 @@ export function WalletConnections({
                       setActive(null);
                   }}
                 >
-                  <Field
-                    label="Current authenticator code"
-                    name="code"
-                    required
-                    placeholder="6-digit code"
-                  />
                   <button
                     className="ws-text-button"
                     type="button"
@@ -350,7 +341,6 @@ export function WalletConnections({
               ) : (
                 <button
                   className="ws-text-button"
-                  disabled={!twoFactorEnabled}
                   onClick={() => setUnlink(link.id)}
                 >
                   Unlink from AUREON <Unplug size={14} />
@@ -363,12 +353,7 @@ export function WalletConnections({
               No wallets linked yet. Choose a wallet above to get started.
             </p>
           )}
-          {!twoFactorEnabled && !!connections.data?.links.length && (
-            <p className="ws-panel-description">
-              Enable an authenticator in account security to unlink a verified
-              wallet.
-            </p>
-          )}
+
         </>
       )}
       <p

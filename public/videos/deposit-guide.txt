@@ -24,7 +24,7 @@ If you choose to transfer, allow for network fees. Keep the blockchain transacti
 
 05 / CONFIRM YOUR TRANSFER
 Submit for verification.
-Enter the declared USD value, transaction hash and current authenticator code. Confirm the details and submit.
+Enter the declared USD value and transaction hash. Confirm the transfer details and submit; no authenticator code is needed for deposits.
 
 06 / TRANSACTION HISTORY
 Follow the review.

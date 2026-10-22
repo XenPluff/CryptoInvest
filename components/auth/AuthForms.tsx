@@ -131,6 +131,7 @@ export function LoginForm() {
     try {
       const result = await api<{
         requiresTwoFactor?: boolean;
+        requiresTwoFactorSetup?: boolean;
         user?: { role: string };
       }>("/auth/login", {
         method: "POST",
@@ -142,6 +143,9 @@ export function LoginForm() {
       if (result.requiresTwoFactor) {
         setCredentials(submitted);
         setTwoFactor(true);
+      } else if (result.requiresTwoFactorSetup) {
+        router.replace("/dashboard/account");
+        router.refresh();
       } else if (result.user) {
         const next = params.get("next");
         router.replace(

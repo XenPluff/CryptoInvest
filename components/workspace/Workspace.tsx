@@ -54,6 +54,7 @@ import { AdminContent } from "./admin";
 import { LiveInvestmentDisplay } from "@/components/LiveInvestmentDisplay";
 import { WalletConnections } from "./WalletConnections";
 import { PasskeySettings } from "./PasskeySettings";
+import { TwoFactorSettings } from "./TwoFactorSettings";
 import { PortfolioAnalytics } from "./PortfolioAnalytics";
 import { DepositWorkspace } from "./DepositWorkspace";
 import { InvestorCards } from "./Cards";
@@ -133,7 +134,7 @@ export default function Workspace({ admin = false }: { admin?: boolean }) {
   const auth = useRemote("/auth/me");
   const [mobile, setMobile] = useState(false);
   const [notices, setNotices] = useState(false);
-  const notifications = useRemote("/notifications", !!auth.data);
+  const notifications = useRemote("/notifications", Boolean(auth.data?.user && !(auth.data.user.role === "ADMIN" && !auth.data.user.twoFactorEnabled)));
   const current = nav.find((n) => n.id === section);
   const user = auth.data?.user;
   useEffect(() => {
@@ -163,19 +164,14 @@ export default function Workspace({ admin = false }: { admin?: boolean }) {
         </Link>
       </div>
     )}</TranslatedContent>;
-  if (admin && user?.role === "ADMIN" && !user.twoFactorEnabled)
+  if (user?.role === "ADMIN" && !user.twoFactorEnabled)
     return <TranslatedContent>{(
       <div className="ws-auth-loading">
         <LanguageSelector />
-        <Shield size={35} />
         <h1>Secure your operator account.</h1>
-        <p>
-          Enable two-factor authentication before entering the administrator
-          workspace.
-        </p>
-        <Link className="ws-button ws-button-gold" href="/dashboard/account">
-          Set up account security
-        </Link>
+        <p>Complete mandatory authenticator setup before accessing account records or administration.</p>
+        <TwoFactorSettings user={user} refreshUser={auth.reload} />
+        <button className="ws-text-button" onClick={async()=>{await api("/auth/logout",{method:"POST"});router.replace("/login");}}>Sign out</button>
       </div>
     )}</TranslatedContent>;
   if (admin && user?.role !== "ADMIN")
@@ -399,7 +395,7 @@ function InvestorContent({
   if (section === "plans") return <TranslatedContent>{<Plans />}</TranslatedContent>;
   if (section === "investments") return <TranslatedContent>{<Investments />}</TranslatedContent>;
   if (section === "wallets") return <TranslatedContent>{<DepositWorkspace user={user} />}</TranslatedContent>;
-  if (section === "withdrawals") return <TranslatedContent>{<Withdrawals />}</TranslatedContent>;
+  if (section === "withdrawals") return <TranslatedContent>{<Withdrawals user={user} />}</TranslatedContent>;
   if (section === "cards") return <TranslatedContent>{<InvestorCards user={user} />}</TranslatedContent>;
   if (section === "transactions") return <TranslatedContent>{<Transactions />}</TranslatedContent>;
   if (section === "referrals") return <TranslatedContent>{<Referrals />}</TranslatedContent>;
@@ -651,8 +647,8 @@ function Plans() {
             <span className="ws-eyebrow">YOUR NEXT CHAPTER</span>
             <h2 id="invest-title">Invest with <Verbatim>{selected.name}</Verbatim>.</h2>
             <p>
-              Investments use your available account balance. Identity approval,
-              verified email, and two-factor authentication are required.
+              Investments use your available account balance. Identity approval
+              and verified email are required.
             </p>
             {done ? (
               <Notice tone="success">
@@ -679,12 +675,6 @@ function Plans() {
                   max={selected.maxAmount}
                   step="0.01"
                   placeholder={String(selected.minAmount)}
-                />
-                <Field
-                  label="Authenticator code"
-                  name="code"
-                  required
-                  placeholder="6-digit code"
                 />
                 <label className="ws-checkbox">
                   <input type="checkbox" required /> I have reviewed the plan
@@ -751,7 +741,7 @@ function Investments() {
     </>
   )}</TranslatedContent>;
 }
-function Withdrawals() {
+function Withdrawals({user}: {user: RecordData}) {
   useDisplayLocale();
   const r = useRemote("/dashboard");
   const health = useRemote("/wallets");
@@ -809,13 +799,16 @@ function Withdrawals() {
             required
             placeholder="Enter your external wallet address"
           />
-          <Field
+          {user.twoFactorEnabled && <Field
             label="Authenticator code"
             name="code"
             required
+            inputMode="numeric"
+            pattern="[0-9]{6}"
+            autoComplete="one-time-code"
             placeholder="6-digit code"
-            help="Two-factor authentication must be enabled on your account."
-          />
+            help="Enter your code to confirm this withdrawal because two-factor protection is enabled on your account."
+          />}
           <label className="ws-checkbox">
             <input type="checkbox" required /> I confirm the asset, network, and
             wallet address are correct.
@@ -1003,9 +996,6 @@ function Account({
 }) {
   useDisplayLocale();
   const kyc = useRemote("/kyc");
-  const [twoFactor, setTwoFactor] = useState<RecordData | null>(null);
-  const [setupError, setSetupError] = useState("");
-  const [setupBusy, setSetupBusy] = useState(false);
   return <TranslatedContent>{(
     <div className="ws-two-column ws-account-grid">
       <div>
@@ -1107,101 +1097,10 @@ function Account({
         </Panel>
       </div>
       <div>
-        <Panel
-          title="Two-factor authentication"
-          eyebrow="AN EXTRA LAYER"
-          action={
-            <Badge value={user.twoFactorEnabled ? "enabled" : "disabled"} />
-          }
-        >
-          <div className="ws-security-visual">
-            <Shield size={45} strokeWidth={1} />
-          </div>
-          <p className="ws-panel-description">
-            Protect financial actions with a time-based code from an
-            authenticator app. Two-factor authentication is required for
-            investments and withdrawals.
-          </p>
-          {setupError && <Notice tone="error">{setupError}</Notice>}
-          {user.twoFactorEnabled ? (
-            <ActionForm
-              path="/auth/2fa/disable"
-              submit="Disable two-factor authentication"
-              onSuccess={refreshUser}
-            >
-              <Field
-                label="Current password"
-                name="password"
-                type="password"
-                required
-              />
-              <Field
-                label="Authenticator code"
-                name="code"
-                required
-                placeholder="6-digit code"
-              />
-            </ActionForm>
-          ) : twoFactor ? (
-            <>
-              <Notice>
-                Save the setup key in your authenticator app. Never share it
-                with anyone.
-              </Notice>
-              <div className="ws-copy-field">
-                <code>{twoFactor.secret}</code>
-                <CopyButton value={twoFactor.secret} label="Key" />
-              </div>
-              <a className="ws-text-button" href={twoFactor.otpauthUrl}>
-                Open in authenticator app <ArrowUpRight size={15} />
-              </a>
-              <ActionForm
-                path="/auth/2fa/enable"
-                submit="Enable two-factor authentication"
-                onSuccess={() => {
-                  setTwoFactor(null);
-                  refreshUser();
-                }}
-              >
-                <Field
-                  label="Authenticator code"
-                  name="code"
-                  required
-                  placeholder="Enter the current 6-digit code"
-                />
-              </ActionForm>
-            </>
-          ) : (
-            <button
-              disabled={setupBusy}
-              className="ws-button ws-button-gold"
-              onClick={async () => {
-                setSetupBusy(true);
-                setSetupError("");
-                try {
-                  setTwoFactor(
-                    await api("/auth/2fa/setup", { method: "POST" }),
-                  );
-                } catch (e) {
-                  setSetupError(
-                    e instanceof Error
-                      ? e.message
-                      : "Could not set up authentication.",
-                  );
-                } finally {
-                  setSetupBusy(false);
-                }
-              }}
-            >
-              {setupBusy ? "Preparing…" : "Set up authenticator"}
-              <ArrowUpRight size={16} />
-            </button>
-          )}
-        </Panel>
-        <PasskeySettings twoFactorEnabled={Boolean(user.twoFactorEnabled)} />
+        <TwoFactorSettings user={user} refreshUser={refreshUser} />
+        <PasskeySettings administrator={user.role === "ADMIN"} twoFactorEnabled={Boolean(user.twoFactorEnabled)} />
         <WalletConnections
           emailVerified={Boolean(user.emailVerified)}
-          twoFactorEnabled={Boolean(user.twoFactorEnabled)}
         />
         <Panel title="Account security">
           <ul className="ws-check-list">

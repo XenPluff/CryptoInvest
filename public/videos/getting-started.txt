@@ -20,10 +20,10 @@ Open Account settings and submit the required identity details. Wait for an appr
 
 04 / AUTHENTICATOR SETUP
 Add another layer.
-Enable two-factor authentication in Account settings. Use your authenticator for current six-digit codes.
+Investor two-factor authentication is optional. Enable it in Account settings for codes at sign-in and withdrawal requests.
 
 05 / UNDERSTAND THE PROCESS
 Know before you proceed.
-Funding requires verified email, approved KYC, two-factor authentication and enabled platform funding.
+Funding requires verified email, approved KYC and enabled platform funding. Investor authenticator enrollment is optional.
 
 Digital assets involve substantial risk, including loss of your entire investment.

@@ -17,7 +17,7 @@ const steps = [
   {
     title: "Complete verification.",
     description:
-      "Submit the required identity details in your account. Investment access requires an approved KYC review. Enable two-factor authentication for additional protection.",
+      "Submit the required identity details in your account. Investment access requires an approved KYC review. Optionally enable two-factor authentication for additional protection.",
   },
   {
     title: "Fund with care.",

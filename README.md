@@ -37,7 +37,7 @@ There are no default administrator credentials. Set `ADMIN_EMAIL`, a unique `ADM
 npm run admin:create
 ```
 
-The command refuses to overwrite or elevate an existing account. Sign in at `/login`, enroll an authenticator under account security, and use `/admin`. Financial reviews require TOTP. Withdrawal approval and payout reconciliation require different administrators.
+The command refuses to overwrite or elevate an existing account. Sign in at `/login`, enroll an authenticator under account security, and use `/admin`. Administrator sign-in and every administrator change require TOTP. Before enrollment, a ten-minute session permits only authenticator setup. Investor enrollment is optional; enabled investors use codes at login and withdrawal only. Withdrawal approval and payout reconciliation require different administrators.
 
 For an existing verified, active account, an authorized operator can set
 `ADMIN_EMAIL` and run `npm run admin:promote`. This preserves credentials and
