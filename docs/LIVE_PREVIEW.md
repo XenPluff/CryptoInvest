@@ -5,8 +5,19 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 21, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `0efacc58f9ae96991ce8f7c78bd88654f0c68bb8` from branch
+- Running source commit: `d705fbaa560b4c09ed5e8f9e9adb0fd75889cdb1` from branch
   `codex/aureon-render-preview`.
+- [Strategic Business Investments](https://aureon-preview.onrender.com/approach#strategic-business)
+  is live as activity 10 in deployment `dep-dbcqa85g1s2s73e5t1pg`. The exact
+  supplied heading and three paragraphs follow AI/robotics, with an original
+  1536×1024 picture containing only AUREON branding. Actual hosted HTML/assets
+  pass eight languages at 1440/768/390/320px in both themes (64 layout states),
+  navigation, image decoding, matching original-PNG SHA-256 and a complete
+  ten-image homepage cycle with wraparound. No API fixtures or page errors
+  occurred. Catalogs cover 2,338 messages. Health remains connected with
+  enabled funding and passed email readiness. The homepage market feed returned
+  503 during this check; live quote availability is not established by these
+  content/media checks. The existing company-profile PDF edition is unchanged.
 - The [AI and robotics profile](https://aureon-preview.onrender.com/approach#ai-robotics)
   is updated in deployment `dep-dbcploei0phs73fke110`. The supplied heading
   and three replacement paragraphs match exactly; the former three paragraphs
