@@ -11,6 +11,13 @@ against the dark footer. The logo grid, image opacity, text and translations
 are unchanged. The interpretation (30% transparency = 70% opacity) was stated
 to the owner before implementation.
 
+Published in source `c227c3b5ba5ee2f18af075c697c86f23e500e80b`, Render deployment
+`dep-dbgsvi9srm7s73enqtqg`. Hosted verification passed on October 28, 2026:
+four desktop/mobile/theme states, exact `0.7` computed opacity and theme base
+colors, unchanged reference order and all twelve original image hashes, no
+navigation or animations, and no page errors. No investor records were changed.
+
+
 ### Faded-black caption
 
 The owner requested a faded-black color for “External resources”. The light
