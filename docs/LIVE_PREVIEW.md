@@ -5,8 +5,21 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `b4355d76258f29105afb5e48198055ea364236e4` from branch
+- Running source commit: `a38d9f7aca579e0abb257677f875d5ff0936d8d6` from branch
   `codex/aureon-render-preview`.
+- The Industry Resources row now has one connected, translucent light-ash rail
+  in deployment `dep-dbh5ko3l550s73c7pgi0`. Separate pale cards, gaps,
+  borders and rounded corners are removed. All 24 logos/names are plain,
+  non-interactive references with no links or keyboard targets. Original image
+  files and order are preserved; dark-mode wordmarks use a light-grey display
+  filter for readability. The continuous loop still advances on hover and
+  reduced motion keeps static horizontal scrolling. Production build and six
+  local/hosted checks pass across twelve English/Arabic theme/width states.
+  All 21 images decode; tiles and loop groups meet without gaps, clicks open
+  nothing, and there are no page errors, overflows or mutations. Hosted checks
+  use actual GET APIs without fixtures and isolate this row from the unchanged
+  external ticker. Health remains connected, funding enabled and email readiness
+  passed. See [logo-row details](ORGANIZATION_LOGOS.md).
 - The separate “Track all markets on TradingView” text link is removed in
   deployment `dep-dbh4qt59fdbs738c77j0`. Its 32px row and unused styles
   are removed; the 58px live iframe and native TradingView logo remain inside a
