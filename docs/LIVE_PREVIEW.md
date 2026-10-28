@@ -5,8 +5,19 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `ca0b6495561bfb82f3c6ede4cc13c30eeea2b3f6` from branch
+- Running source commit: `020536e8ca8144a6adbc4506cc130e939e2da5b5` from branch
   `codex/aureon-render-preview`.
+- White backgrounds are removed from the footer education references in deployment
+  `dep-dbgqrrfb9u1s7391pomg`. Tiles are transparent with no borders. ESMA's
+  embedded white matte blends into each theme, and ISO's white outer margin is
+  clipped without removing its red field or white letters. Wordmarks render
+  lighter in dark mode; light mode retains their colors. Actual hosted HTML/assets
+  pass 16 English/Arabic theme/width states, transparent tile styles, decoding,
+  no click navigation or animation, and all five unchanged source-image hashes.
+  Both hosted theme screenshots show background-free presentation, without page
+  errors, API fixtures or production mutations. Health remains connected with
+  enabled funding and passed email readiness. Labels and the external-education
+  context remain unchanged.
 - The standard ISO organization logo is live as the fifth education reference in
   deployment `dep-dbgqi3p42hec73dpgimg`. The original official-homepage PNG
   appears in the existing static, non-clickable footer section with its shared

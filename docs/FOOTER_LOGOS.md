@@ -18,6 +18,13 @@ red field and white internal lettering are preserved. No image pixels, brand
 geometry, text, source hashes, resource labels or reference order are modified.
 The resources remain static and non-clickable.
 
+Published in source `020536e8ca8144a6adbc4506cc130e939e2da5b5`, Render deployment
+`dep-dbgqrrfb9u1s7391pomg`. Hosted verification passed on October 28, 2026:
+16 English/Arabic theme/width states, transparent tile styles, dark/light theme
+screenshots, all five unchanged original image hashes, no navigation or animation,
+and no page errors. No investor records were changed.
+
+
 ### ISO education reference
 
 The follow-up upload `file_000000007b9c8243bca96f2348368952` (`download.avif`)
