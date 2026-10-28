@@ -5,8 +5,17 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `e30a5651634a154a641cbd34afe74b7cd9475af5` from branch
+- Running source commit: `52f47815fa85923f9a5de60f440c56836c5716d5` from branch
   `codex/aureon-render-preview`.
+- The homepage “A global perspective” principle and its small globe icon are
+  removed, along with their adjacent divider, in deployment `dep-dbh6p9uc6qcc73822ou0`.
+  The remaining security principle, homepage artwork and CTA remain in place.
+  Production build and focused local/hosted browser checks pass across twelve
+  English/Arabic dark/light states at 1440/390/320px: no removed label/icon or
+  orphaned divider, no overflow or page errors. Hosted HTML/assets and GET APIs
+  are actual responses without fixtures or mutations; the unchanged external
+  ticker is isolated. Health remains connected, funding enabled and email
+  readiness passed. Results are in `.aureon/hero-global-removal/`.
 - The Industry Resources row now uses solid white in both themes, deployed in
   `dep-dbh6gi0u01pc7389klqg`. Wordmarks render black and text dark green-grey
   for contrast. Original image files, order, connected tiles, non-clickable
