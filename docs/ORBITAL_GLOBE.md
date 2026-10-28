@@ -10,9 +10,11 @@ rotates and responds gently to the pointer. This is illustrative artwork.
 
 `HeroScene` renders the scene with React Three Fiber and Three.js. Lighting and
 textures are generated locally; no external texture or environment request is
-needed. `HeroArtwork` uses the matching transparent renderer capture on small
-screens, with reduced motion, while hidden, or outside the viewport. The same
-poster is used if WebGL fails, with a simple SVG as a last-resort image fallback.
+needed. `HeroArtwork` animates on desktop and mobile. It uses the matching transparent
+renderer capture with reduced motion, while hidden, or outside the viewport.
+The same poster is used if WebGL fails, with a simple SVG as a last-resort image
+fallback. Compact canvases render at device pixel ratio 1; larger canvases cap
+at 1.5 to limit GPU cost.
 
 The 5,482 land samples in `lib/orbital-land.json` were generated from the
 [public-domain Natural Earth 1:110m land geometry](https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_land.geojson).
@@ -62,6 +64,44 @@ review artifacts in `.aureon/orbit-preview/` now also include:
   advance animation frames, render pointer response and fit a compact canvas.
 - `options-typecheck.log`: client TypeScript verification.
 
-All alternatives remain undeployed. A selection is needed before integrating
-an alternative into `HeroArtwork`; that integration will reuse its existing
-mobile/reduced-motion and visibility behavior with the selected scene's poster.
+All alternatives remain undeployed. The owner selected **01 — Obsidian**.
+Solaris and Nexus remain isolated review components.
+
+
+## Selected Obsidian with cryptocurrency appearances
+
+The selected scene now includes three small decorative cryptocurrency logos.
+Each follows a two-second CSS animation, fades completely out before its next
+appearance, and receives a new random symbol and position. The cycles are
+staggered; concurrent symbols do not duplicate and placement favors separation.
+The fixed three-element pool prevents accumulating nodes or timers. Its local
+state updates do not rerender the Three.js canvas or interrupt the globe clock.
+
+Seven locally bundled assets (BTC, ETH, SOL, USDT, USDC, BNB and XRP) come from
+[cryptocurrency-icons](https://github.com/spothq/cryptocurrency-icons/tree/master/svg/color).
+The source CC0 license is preserved at `public/images/crypto/LICENSE.txt`.
+No remote logo requests are made at runtime. The logos are non-interactive
+decoration, hidden from assistive technology. They stop with the globe offscreen
+or when the document is hidden. Reduced motion retains the static poster
+without flashing logos. Mobile now runs the actual 3D scene.
+
+New local review artifacts:
+
+- `obsidian-crypto-animation.mp4`: updated isolated desktop animation.
+- `obsidian-crypto-mobile-animation.mp4`: actual mobile homepage animation.
+- `obsidian-crypto-homepage.png` / `obsidian-crypto-mobile.png`: homepage stills.
+- `obsidian-crypto-mobile-detail.png`: closer mobile capture at device scale 2.
+- `obsidian-crypto-check-result.json`: nine focused browser checks, no page
+  errors or API mutations. Verifies seven decoded assets, two-second CSS timing,
+  fade-out, random cycles, animation at 1440/390/320px, reduced motion, the
+  hidden-document event handler and offscreen teardown.
+- `obsidian-crypto-build.log`: passing production build and type checks.
+
+The mobile recording additionally verifies a render pixel ratio of 1 on an
+emulated device with device scale 2. Software WebGL checks allow event-delivery
+slack; a strict wall-clock cycle sample initially arrived before every queued
+iteration event, so verification polls for completed cycles while separately
+checking the exact 2,000ms CSS duration and fully transparent ending phase.
+This is not a frame-rate measurement on physical mobile hardware.
+
+This updated version remains a review draft, with no deployment performed.
