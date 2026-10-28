@@ -2,6 +2,15 @@
 
 ## External resources
 
+### Thirty percent transparency
+
+The owner requested 30% transparency for the caption. This is implemented as
+`opacity:.7` (70% opacity) on the caption alone. Its base color is black in
+light mode and `#b8b8b8` in dark mode, producing a readable subdued-grey result
+against the dark footer. The logo grid, image opacity, text and translations
+are unchanged. The interpretation (30% transparency = 70% opacity) was stated
+to the owner before implementation.
+
 ### Faded-black caption
 
 The owner requested a faded-black color for “External resources”. The light

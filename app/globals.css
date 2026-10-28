@@ -982,8 +982,8 @@ p {
 }
 .footer-identity-with-logos { width:320px; max-width:100%; min-width:0; }
 .footer-education { width:320px; max-width:100%; margin:22px 0 0; }
-.footer-education figcaption { margin-bottom:10px; font-size:9px; line-height:1.6; letter-spacing:.1em; color:#818181; }
-:root[data-theme="light"] .footer-education figcaption { color:rgba(0,0,0,.65); }
+.footer-education figcaption { margin-bottom:10px; font-size:9px; line-height:1.6; letter-spacing:.1em; color:#b8b8b8; opacity:.7; }
+:root[data-theme="light"] .footer-education figcaption { color:#000; }
 .footer-education-logos { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px 8px; margin:0; padding:0; list-style:none; }
 .footer-education-logo { display:flex; flex-direction:column; align-items:center; min-width:0; height:74px; padding:4px 0; gap:6px; border:0; background:transparent; }
 .footer-education-art { display:flex; align-items:center; justify-content:center; width:100%; height:40px; flex-shrink:0; overflow:hidden; }
