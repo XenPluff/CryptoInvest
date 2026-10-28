@@ -48,3 +48,12 @@ repeated-settlement rejection. Initial runs caught a refresh rendering bug
 (restored before the clean integration rerun). Local checks create no production
 records or emails. Hosted checks and running source are recorded in
 [Live preview](LIVE_PREVIEW.md) and [Validation](VALIDATION.md).
+
+The release is live in Render deployment `dep-dbh7cn7lk1mc73an6log`, source
+`e5aa6bd281c7893dcb8203d082f4c266dc725941`. All six hosted portfolio browser cases
+pass against deployed HTML/assets using isolated private-account responses,
+with no production financial writes. Actual unauthenticated portfolio/dashboard/
+analytics APIs return 401. Health reports connected database, enabled funding
+and passed email readiness. Hosted screenshots and logs are stored with the
+local evidence under `.aureon/portfolio/`. Automatic deployment remains disabled;
+subsequent documentation commits do not change this running source.

@@ -5,8 +5,24 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `52f47815fa85923f9a5de60f440c56836c5716d5` from branch
+- Running source commit: `e5aa6bd281c7893dcb8203d082f4c266dc725941` from branch
   `codex/aureon-render-preview`.
+- The redesigned investor portfolio and consistent realized-earnings totals are
+  live in deployment `dep-dbh7cn7lk1mc73an6log`. My Investments now has posted
+  earnings/active principal/returned principal/settled-position totals, filters,
+  search, dates and settlement details with net results. Overview and My
+  Investments use shared integer-cent ledger calculations in repeatable-read
+  snapshots. Both pages and analytics refresh every 15 seconds while visible,
+  keeping existing data during background reads and marking temporary failures.
+  Settled cards show actual proceeds; active targets remain estimates.
+  Production build, 169 unit tests, 26 disposable-PostgreSQL checks and eight
+  local browser cases are verified. Six hosted cases pass against actual
+  deployed HTML/assets with browser-only account fixtures, covering earnings
+  updates, failure recovery, filters, hidden tabs, authorization expiry and
+  English/Arabic desktop/mobile fit. No production account or ledger records
+  were changed by verification. Real portfolio, dashboard and analytics APIs
+  return 401 without authentication; health remains connected, funding enabled
+  and email readiness passed. See [portfolio behavior](INVESTOR_PORTFOLIO.md).
 - The homepage “A global perspective” principle and its small globe icon are
   removed, along with their adjacent divider, in deployment `dep-dbh6p9uc6qcc73822ou0`.
   The remaining security principle, homepage artwork and CTA remain in place.
