@@ -22,7 +22,7 @@ export default function OrganizationMarquee() {
     <div className={styles.viewport}>
       <div id="organization-logo-track" className={styles.track} style={{ "--logo-duration": `${organizationReferences.length * 5}s` } as CSSProperties}>
         {[false, true].map(duplicate => <ul key={String(duplicate)} className={styles.group} aria-hidden={duplicate || undefined}>
-          {organizationReferences.map(organization => <li key={organization.id} className={styles.tile}><a href={organization.href} target="_blank" rel="noopener noreferrer" tabIndex={duplicate ? -1 : undefined} translate="no"><OrganizationMark {...organization} /></a></li>)}
+          {organizationReferences.map(organization => <li key={organization.id} className={styles.tile}><div className={styles.mark} translate="no"><OrganizationMark {...organization} /></div></li>)}
         </ul>)}
       </div>
     </div>
