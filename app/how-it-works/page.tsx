@@ -15,9 +15,9 @@ const steps = [
       "Register with your name, email and a unique passphrase. Verify your email using the secure link sent to your inbox.",
   },
   {
-    title: "Complete verification.",
+    title: "Secure your account.",
     description:
-      "Submit the required identity details in your account. Investment access requires an approved KYC review. Optionally enable two-factor authentication for additional protection.",
+      "Identity review is optional for deposits. Complete it before investing or withdrawing. You can also enable two-factor authentication for additional protection.",
   },
   {
     title: "Fund with care.",

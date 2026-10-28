@@ -32,7 +32,21 @@ valid data, the API returns 503. Live-price expiry only gates starting a payment
 existing instructions remain reportable for seven days after issuance. Contact
 support if an older transfer needs reporting or the receiving mapping changed.
 
-Investor two-factor preferences, email/KYC requirements, funding controls,
-administrator proof and independent review rules remain in effect. The English
+Identity review is optional for deposit quotes, submissions and reviewed deposit
+credits. Newly registered, email-verified accounts can fund without submitting
+identity details or waiting for identity approval. Existing identity statuses
+are preserved; pending or rejected identity review does not block deposits.
+Investments and withdrawals retain their identity-approval requirements.
+
+Investor two-factor preferences, email verification, funding controls,
+administrator proof and independent transfer review remain in effect. The English
 deposit guide and all interface catalogs follow this flow. Existing dated PDF
 editions are unchanged snapshots.
+
+Regression validation uses `npm run test:integration -- --deposit-identity`
+against a separate disposable PostgreSQL database. It exercises no identity
+record, pending, rejected and approved review states, signed quotes, pending
+deposits without auto-credit, and actual operator-approved funding. Email and
+funding gates remain enforced; investment/withdrawal identity gates still apply.
+The dedicated identity case is isolated from the MFA suite to preserve the
+existing financial request limit and avoid leaking test state between cases.

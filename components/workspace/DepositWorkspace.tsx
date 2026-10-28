@@ -64,7 +64,6 @@ export function DepositWorkspace({ user }: { user: RecordData }) {
   const selected = wallets.find(wallet => wallet.id === selectedId) ?? wallets[0];
   const accountChecks = [
     { name: "Email verified", ready: Boolean(user.emailVerified) },
-    { name: "Identity approved", ready: user.kycStatus === "APPROVED" },
   ];
   const eligible = accountChecks.every(check => check.ready);
   const fundingOpen = Boolean(catalog.data?.fundingEnabled && wallets.length);
@@ -142,7 +141,7 @@ export function DepositWorkspace({ user }: { user: RecordData }) {
     {!wallets.length ? <div className="dp-no-wallets"><Wallet size={30} /><h2>No receiving wallets available</h2><p>Deposit details will appear here when a receiving wallet is available.</p><Link href="/support">Contact support <ArrowUpRight size={14} /></Link></div> : <div className="dp-layout">
       <div className="dp-main">
         <section className="dp-panel dp-selection" aria-labelledby="dp-choose-heading">
-          <div className="dp-section-heading"><span className="dp-step">01</span><div><span className="dp-small-label">YOUR DEPOSIT, YOUR CHOICE</span><h2 id="dp-choose-heading">Add funds</h2><p>Enter an amount, choose your crypto and preview the live conversion.</p></div></div>
+          <div className="dp-section-heading"><span className="dp-step">01</span><div><span className="dp-small-label">YOUR DEPOSIT, YOUR CHOICE</span><h2 id="dp-choose-heading">Add funds</h2><p>Enter an amount, choose your crypto and preview the live conversion. Identity verification is optional for deposits.</p></div></div>
           {quote ? <div className="dp-saved-payment"><Wallet size={25} /><h3>Your payment instructions are ready.</h3><p>Resume this transfer to keep the same address and coin amount, including after returning from your wallet app.</p><strong><Verbatim>{quote.cryptoAmount} {quote.asset}</Verbatim></strong><span>{money(quote.amountCents / 100)} · <Verbatim>{network(quote.network).name}</Verbatim></span><button className="dp-primary-button" onClick={() => setPaymentOpen(true)}>Resume payment <ArrowRight size={16} /></button><button className="ws-text-button" onClick={clearDraft}>Start a different deposit</button></div> : <form className="dp-form" onSubmit={proceed}>
             <fieldset disabled={busy || !canSubmit}>
               <label htmlFor="dp-amount">Deposit amount (USD)</label><div className="dp-amount-input"><span>$</span><input id="dp-amount" name="amount" type="number" min="0.01" max="10000000" step="0.01" required inputMode="decimal" placeholder="0.00" value={amount} onChange={event => setAmount(event.target.value)} /><small>USD</small></div><p className="dp-field-help">Your account is valued in USD. Choose the cryptocurrency you will send below.</p>

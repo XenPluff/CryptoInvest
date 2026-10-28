@@ -11,9 +11,10 @@ was set up correctly.
 Withdrawal requests re-read enrollment while locking the account inside the
 financial transaction. A client-supplied preference cannot bypass the check, and
 enabling an authenticator between authentication and the withdrawal transaction
-cannot bypass it. Email verification, identity approval, enabled funding,
-destination validation, available-balance checks and manual transaction reviews
-remain separate requirements.
+cannot bypass it. Email verification, enabled funding, destination validation,
+available-balance checks and manual transaction reviews remain separate
+requirements. Identity approval is optional for deposits; investment subscriptions
+and withdrawals still require an approved identity review.
 
 Administrators must enroll and cannot disable protection through account settings.
 Password or passkey login must verify TOTP before a full administrator session is

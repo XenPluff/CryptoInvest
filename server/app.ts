@@ -141,33 +141,22 @@ async function fundingEnabled() {
       ?.value !== "false"
   );
 }
-async function financialGuard(
-  req: Request,
-  _res: Response,
-  next: NextFunction,
-) {
-  try {
-    if (!(await fundingEnabled()))
-      throw new HttpError(
-        503,
-        "Funding is not enabled. The operator must complete custody, payment verification, and production configuration.",
-      );
-    const user = req.auth!.user;
-    if (!user.emailVerifiedAt)
-      throw new HttpError(403, "Verify your email before financial activity.");
-    if (
-      (await prisma.kycSubmission.findUnique({ where: { userId: user.id } }))
-        ?.status !== "APPROVED"
-    )
-      throw new HttpError(
-        403,
-        "An approved identity review is required before financial activity.",
-      );
-    next();
-  } catch (error) {
-    next(error);
-  }
+function financialAccess(requireIdentity: boolean) {
+  return async (req: Request, _res: Response, next: NextFunction) => {
+    try {
+      if (!(await fundingEnabled()))
+        throw new HttpError(503, "Funding is not enabled. The operator must complete custody, payment verification, and production configuration.");
+      const user = req.auth!.user;
+      if (!user.emailVerifiedAt)
+        throw new HttpError(403, "Verify your email before financial activity.");
+      if (requireIdentity && (await prisma.kycSubmission.findUnique({ where: { userId: user.id } }))?.status !== "APPROVED")
+        throw new HttpError(403, "An approved identity review is required before financial activity.");
+      next();
+    } catch (error) { next(error); }
+  };
 }
+const financialGuard = financialAccess(true);
+const depositGuard = financialAccess(false);
 async function adminFinancial(
   req: Request,
   _res: Response,
@@ -334,7 +323,7 @@ api.get("/deposit-price", requireAuth, async (req, res) => {
   const asset = z.enum(["BTC", "ETH", "USDT", "BNB", "SOL"]).parse(req.query.asset);
   res.json({ price: await readDepositPrice(asset) });
 });
-api.post("/deposits/quote", requireAuth, financialGuard, async (req, res) => {
+api.post("/deposits/quote", requireAuth, depositGuard, async (req, res) => {
   const body = entrySchema.extend({ walletId: shortText }).parse(req.body);
   const amountCents = toCents(body.amount);
   const wallet = await prisma.wallet.findFirst({ where: { id: body.walletId, active: true } });
@@ -342,7 +331,7 @@ api.post("/deposits/quote", requireAuth, financialGuard, async (req, res) => {
   const price = await readDepositPrice(wallet.asset);
   res.json({ quote: signDepositInstructions(userId(req), wallet, amountCents, price, config.jwtSecret) });
 });
-api.post("/deposits", requireAuth, financialGuard, async (req, res) => {
+api.post("/deposits", requireAuth, depositGuard, async (req, res) => {
   const body = entrySchema
     .extend({
       walletId: shortText,

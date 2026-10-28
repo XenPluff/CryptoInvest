@@ -13,7 +13,7 @@ const wallets = [
 ];
 
 const rates: Record<string, string> = { BTC: "80000", ETH: "2500", USDT: "0.99896", BNB: "750", SOL: "100" };
-type Options = { funding?: boolean; eligible?: boolean; fail?: boolean; pricingUnavailable?: boolean };
+type Options = { funding?: boolean; eligible?: boolean; identity?: string; fail?: boolean; pricingUnavailable?: boolean };
 async function openDeposit(page: Page, options: Options = {}) {
   const submissions: Record<string, any>[] = [];
   const transactions: Record<string, any>[] = [];
@@ -22,7 +22,7 @@ async function openDeposit(page: Page, options: Options = {}) {
     let data: unknown;
     const asset = url.searchParams.get("asset") || "BTC";
     const price = (symbol: string) => ({ asset: symbol, priceUsd: rates[symbol], source: "Browser price fixture", updatedAt: new Date().toISOString(), expiresAt: new Date(Date.now() + 90000).toISOString() });
-    if (path === "/api/auth/me") data = { user: { id: "browser-only", name: "Investor Review", email: "review@example.test", role: "USER", emailVerified: true, kycStatus: options.eligible === false ? "PENDING" : "APPROVED", twoFactorEnabled: true } };
+    if (path === "/api/auth/me") data = { user: { id: "browser-only", name: "Investor Review", email: "review@example.test", role: "USER", emailVerified: options.eligible !== false, kycStatus: options.identity ?? "APPROVED", twoFactorEnabled: true } };
     else if (path === "/api/notifications") data = { notifications: [] };
     else if (path === "/api/wallets") data = { wallets, fundingEnabled: options.funding !== false };
     else if (path === "/api/transactions") data = { transactions };
@@ -170,5 +170,18 @@ test("payment instructions fit all eight interface languages and preserve canoni
     }
     if (locale === "ar") await page.screenshot({ path: ".aureon/screenshots/deposit-payment-arabic.png", fullPage: true });
     await page.locator(".dp-close").click();
+  }
+});
+
+test("identity review is optional and new investors can report deposits before approval", async ({ page }) => {
+  for (const identity of ["NOT_SUBMITTED", "PENDING", "REJECTED"]) {
+    await page.unroute("**/api/**");
+    const submissions = await openDeposit(page, { identity });
+    await expect(page.getByText("Identity approved", { exact: true })).toHaveCount(0);
+    await expect(page.getByText(/Identity verification is optional for deposits/)).toBeVisible();
+    await expect(page.getByLabel("Deposit amount (USD)")).toBeEnabled();
+    await proceed(page); await reportTransfer(page);
+    await expect(page.getByRole("heading", { name: "Submitted for review." })).toBeVisible();
+    expect(submissions).toHaveLength(1);
   }
 });

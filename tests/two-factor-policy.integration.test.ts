@@ -91,7 +91,7 @@ const connection=process.env.TEST_DATABASE_URL;
     });
     try{const before=await db.ledgerEntry.count({where:{userId:investor.id}});expect((await request("/withdrawals","POST",withdrawal)).status).toBe(403);expect(await db.ledgerEntry.count({where:{userId:investor.id}})).toBe(before);}finally{spy.mockRestore();await db.user.update({where:{id:investor.id},data:{twoFactorEnabled:false,twoFactorSecret:null}});}
   });
-  it("preserves email, identity and funding gates regardless of the investor preference",async()=>{
+  it("preserves email, investment/withdrawal identity and funding gates regardless of the investor preference",async()=>{
     await db.user.update({where:{id:investor.id},data:{emailVerifiedAt:null}});
     expect((await request("/withdrawals","POST",withdrawal)).status).toBe(403);
     await db.user.update({where:{id:investor.id},data:{emailVerifiedAt:new Date()}});

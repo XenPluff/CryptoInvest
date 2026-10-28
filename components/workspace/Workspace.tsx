@@ -432,8 +432,8 @@ function Overview({ user }: { user: RecordData }) {
           <div>
             <strong>Your journey begins with a secure foundation.</strong>
             <p>
-              Verify your email and identity to unlock investment and withdrawal
-              features.
+              Verify your email to deposit funds. Identity approval is required
+              for investments and withdrawals.
             </p>
           </div>
           <Link href="/dashboard/account" className="ws-button ws-button-small">
@@ -980,6 +980,7 @@ function Account({
           eyebrow="A TRUSTED FOUNDATION"
           action={<Badge value={user.kycStatus || "not_submitted"} />}
         >
+          <p className="ws-panel-description">Identity review is optional for deposits. Approval is required for investments and withdrawals.</p>
           {user.kycStatus === "APPROVED" ? (
             <Notice tone="success">
               Your identity review has been approved.

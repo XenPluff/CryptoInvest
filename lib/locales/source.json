@@ -1222,7 +1222,6 @@
   ],
   "APPROVED": [
     "components/workspace/AdminFunds.tsx",
-    "components/workspace/DepositWorkspace.tsx",
     "components/workspace/Workspace.tsx"
   ],
   "Approved deposit value": [
@@ -1961,9 +1960,6 @@
   ],
   "Complete verification": [
     "components/workspace/Workspace.tsx"
-  ],
-  "Complete verification.": [
-    "app/how-it-works/page.tsx"
   ],
   "completed": [
     "localization"
@@ -2789,7 +2785,7 @@
   "Enter an amount within your available USD balance. Active investment principal and target estimates are not available funds.": [
     "lib/video-content.ts"
   ],
-  "Enter an amount, choose your crypto and preview the live conversion.": [
+  "Enter an amount, choose your crypto and preview the live conversion. Identity verification is optional for deposits.": [
     "components/workspace/DepositWorkspace.tsx"
   ],
   "Enter an investment amount in USD.": [
@@ -3364,9 +3360,6 @@
   "Identity": [
     "components/workspace/admin.tsx"
   ],
-  "Identity approved": [
-    "components/workspace/DepositWorkspace.tsx"
-  ],
   "Identity details received for manual review. This submission does not replace a regulated identity/AML verification provider.": [
     "server/app.ts"
   ],
@@ -3378,6 +3371,12 @@
   ],
   "Identity review complete": [
     "server/app.ts"
+  ],
+  "Identity review is optional for deposits. Approval is required for investments and withdrawals.": [
+    "components/workspace/Workspace.tsx"
+  ],
+  "Identity review is optional for deposits. Complete it before investing or withdrawing. You can also enable two-factor authentication for additional protection.": [
+    "app/how-it-works/page.tsx"
   ],
   "Identity review outcomes, financial records and administrative audit events are retained to support account operations and review. The operator must establish jurisdiction-specific retention periods, access controls, data protection procedures and evidence preservation. Personal information must be handled in accordance with the privacy notice and applicable law.": [
     "app/legal/aml/page.tsx"
@@ -5744,6 +5743,9 @@
     "components/auth/AuthForms.tsx",
     "lib/i18n.ts"
   ],
+  "Secure your account.": [
+    "app/how-it-works/page.tsx"
+  ],
   "Secure your operator account.": [
     "components/workspace/Workspace.tsx"
   ],
@@ -6094,9 +6096,6 @@
   ],
   "Submit pre-launch application": [
     "components/workspace/Cards.tsx"
-  ],
-  "Submit the required identity details in your account. Investment access requires an approved KYC review. Optionally enable two-factor authentication for additional protection.": [
-    "app/how-it-works/page.tsx"
   ],
   "Submit your details for an operator’s identity review. This form collects identity metadata; it does not upload identity documents.": [
     "components/workspace/Workspace.tsx"
@@ -7185,9 +7184,6 @@
   "Verify your email address to secure your Aureon account.": [
     "app/verify-email/page.tsx"
   ],
-  "Verify your email and identity to unlock investment and withdrawal features.": [
-    "components/workspace/Workspace.tsx"
-  ],
   "Verify your email before continuing.": [
     "server/auth.ts"
   ],
@@ -7199,6 +7195,9 @@
   ],
   "Verify your email before linking a wallet.": [
     "components/workspace/WalletConnections.tsx"
+  ],
+  "Verify your email to deposit funds. Identity approval is required for investments and withdrawals.": [
+    "components/workspace/Workspace.tsx"
   ],
   "Verify your email.": [
     "lib/video-content.ts"
