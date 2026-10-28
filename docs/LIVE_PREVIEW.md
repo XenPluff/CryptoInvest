@@ -5,8 +5,17 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `ea29c0b8fbb12c9fad108f081bd0e1a0dd704fbb` from branch
+- Running source commit: `b4355d76258f29105afb5e48198055ea364236e4` from branch
   `codex/aureon-render-preview`.
+- The separate “Track all markets on TradingView” text link is removed in
+  deployment `dep-dbh4qt59fdbs738c77j0`. Its 32px row and unused styles
+  are removed; the 58px live iframe and native TradingView logo remain inside a
+  compact 60px band. Production build and six local/hosted checks pass, covering
+  all four real price streams, six desktop/mobile/theme states, continued quote
+  updates and all eight language selections without a parent text link.
+  Actual hosted HTML, GET APIs and provider responses pass without fixtures,
+  page/provider/socket errors or mutations. Health remains connected with
+  funding enabled and email readiness passed. See [ticker details](TRADINGVIEW.md).
 - The homepage market band now uses TradingView's live Ticker Tape widget in
   deployment `dep-dbh40gbbc2fs73emb4ig`. Bitcoin, Ethereum and Tether use
   Coinbase USD pairs; BNB uses Binance USDT, with explicit pair labels. Native
