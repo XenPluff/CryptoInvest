@@ -5,9 +5,19 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `6aba7c4272d77dc1029b3f938bd50edb693dfc30` from branch
+- Running source commit: `e7605e49a6868b5be6b413153f0b266c3eb780ea` from branch
   `codex/aureon-render-preview`.
-- The Industry Resources logo-row fill and border are removed in deployment
+- The Industry Resources row has one shared white background at 10% opacity
+  in both themes, deployed in `dep-dbh6acflk1mc73fcnmvg`. Transparent tiles
+  remain connected and unclickable, with unchanged image files, order and
+  continuous motion. Production build and six local/hosted checks pass across
+  twelve English/Arabic dark/light states at 1440/390/320px, covering exact
+  background color, decoding, fit, looping, reduced motion and no navigation.
+  Actual hosted GET checks use no fixtures or mutations and report no page
+  errors; the unchanged external ticker is isolated. Health remains connected
+  with enabled funding and passed email readiness. See
+  [current logo-row treatment](ORGANIZATION_LOGOS.md).
+- Previously, the Industry Resources logo-row fill and border were removed in deployment
   `dep-dbh60pflk1mc73fbrnj0`. Its viewport and tiles are transparent in
   both themes; the ash theme override is removed. All 24 references remain
   unclickable, with 21 original images in unchanged order and continuous motion.
@@ -18,7 +28,7 @@ Latest deployment verified on October 28, 2026:
   no page errors; the unrelated external ticker is isolated. Health remains
   connected with enabled funding and passed email readiness. See
   [current logo-row treatment](ORGANIZATION_LOGOS.md).
-- The Industry Resources row now has one connected, translucent light-ash rail
+- The earlier Industry Resources row had one connected, translucent light-ash rail
   in deployment `dep-dbh5ko3l550s73c7pgi0`. Separate pale cards, gaps,
   borders and rounded corners are removed. All 24 logos/names are plain,
   non-interactive references with no links or keyboard targets. Original image

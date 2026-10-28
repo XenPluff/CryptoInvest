@@ -51,7 +51,27 @@ is video media and is not treated as a logo. No financial or administrative API,
 receiving address, account setting or company credential has been changed.
 
 
-## Current transparent row
+## Current translucent white row
+
+The Industry Resources row has a shared white background at 10% opacity
+(`rgba(255,255,255,.1)`) in both themes, deployed in `dep-dbh6acflk1mc73fcnmvg`,
+source `e7605e49a6868b5be6b413153f0b266c3eb780ea`. Individual tiles stay transparent,
+without gaps, borders or rounded corners. All 24 resources remain unclickable;
+21 original local images and their order are unchanged. The 120-second loop
+continues on hover; reduced motion retains static horizontal scrolling.
+
+The production build and six focused local/hosted checks pass across twelve
+English/Arabic dark/light states at 1440/390/320px. Checks verify exact background
+color, image decoding, order, fit, seamless looping, movement on hover,
+reduced motion and no navigation/popups. Hosted checks use actual HTML, assets
+and content GET APIs without fixtures, page errors or mutations; the unchanged
+external TradingView frame is isolated. Health reports HTTP 200, connected
+database, enabled funding and passed email readiness. Results and screenshots
+are in `.aureon/organization-white/`, with deployment/health metadata under
+`.aureon/validation/` using the `organization-white` prefix. Documentation-only
+commits do not automatically redeploy the running source.
+
+## Previous background-free row
 
 The logo-row background and its border are removed in Render deployment
 `dep-dbh60pflk1mc73fbrnj0`, source
