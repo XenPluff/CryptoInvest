@@ -20,7 +20,7 @@ must accurately identify the relationship and link to its supporting record.
 The uploaded `footer_logo.svg` is Sygnum; `pantera_white.svg` is Pantera Capital.
 Both originals are preserved locally. Their white artwork uses a dark display
 filter in light mode. Wordmarks use a light-grey display filter in dark mode
-for contrast against the ash-tinted rail. Original asset bytes are unchanged. BNY, BitGo, Standard Chartered and Dukascopy marks were
+for contrast against the dark section surface. Original asset bytes are unchanged. BNY, BitGo, Standard Chartered and Dukascopy marks were
 extracted from their official website headers. Swissquote's wordmark comes from
 its official header asset; LMAX uses its official website header PNG.
 
@@ -51,9 +51,34 @@ is video media and is not treated as a logo. No financial or administrative API,
 receiving address, account setting or company credential has been changed.
 
 
-## Connected ash background
+## Current transparent row
 
-The owner-requested connected, translucent ash treatment is live in Render
+The logo-row background and its border are removed in Render deployment
+`dep-dbh60pflk1mc73fbrnj0`, source
+`6aba7c4272d77dc1029b3f938bd50edb693dfc30`. The viewport and individual tiles have
+transparent backgrounds in both themes, and the row has no border. The light
+ash theme override is removed. Logos sit directly on the section surface,
+keeping their existing spacing, order, dark-mode contrast and non-interactive
+image/name wrappers.
+
+Production build and six focused local/hosted checks pass across twelve
+English/Arabic dark/light states at 1440/390/320px. All 24 entries remain
+non-interactive; 21 original local images decode in the same order. Checks
+verify transparent computed backgrounds and zero row borders, no overflow,
+equal-width loop groups without a seam gap, continued movement on hover,
+static reduced-motion scrolling and no navigation or popups when clicked.
+
+Hosted checks use actual HTML, assets and content GET APIs without fixtures,
+page errors or mutations, isolating the unchanged external TradingView frame.
+Health is HTTP 200, database connected, funding enabled and email readiness
+passed. Results and screenshots are in `.aureon/organization-transparent/`;
+deployment and health metadata are in `.aureon/validation/` with the
+`organization-transparent` prefix. Documentation commits after this source do
+not redeploy it automatically.
+
+## Previous ash treatment
+
+The connected, translucent ash treatment was introduced in Render
 deployment `dep-dbh5ko3l550s73c7pgi0`, source
 `a38d9f7aca579e0abb257677f875d5ff0936d8d6`. The background belongs to the full
 viewport rather than individual logo cards: `rgba(214,220,216,.12)` in dark
