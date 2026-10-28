@@ -5,8 +5,17 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 27, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `47024a52213c8aa77f36a586f928d7afb5359c0e` from branch
+- Running source commit: `65205b2d0b2036f611326fca9f9979d063794dd6` from branch
   `codex/aureon-render-preview`.
+- The static Investor.gov education resource is live beneath the footer tagline
+  in deployment `dep-dbgougvlk1mc7394c0e0`. The exact supplied SEC-hosted PNG is
+  compact and non-clickable, with a translated external-education heading and
+  no-endorsement note. Actual hosted HTML/assets pass eight languages, two themes
+  and four widths (64 states), original image SHA-256, no navigation or animations
+  and no page errors, without API fixtures or production mutations. Health remains
+  connected with funding enabled and email readiness passed. Credential-logo data
+  remains empty; this resource makes no regulatory registration or endorsement
+  claim. Catalogs cover 2,379 messages. See [footer scope](FOOTER_LOGOS.md).
 - The [logo row](https://aureon-preview.onrender.com/#industry-resources) has no
   explanatory caption or play/pause controls in deployment
   `dep-dbgmrtuc6qcc73c4hec0`. Its animation keeps advancing on hover and keyboard

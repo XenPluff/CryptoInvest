@@ -9,6 +9,9 @@ The original image is stored unchanged at
 `public/images/footer-logos/investor-gov.png` (20,839 bytes; SHA-256
 `04bafe74854dcd35d0333c887f9cfe38f8b9e029996b6c97f46eb08079de718a`).
 
+Published in source `65205b2d0b2036f611326fca9f9979d063794dd6`, Render deployment
+`dep-dbgougvlk1mc7394c0e0`; hosted footer verification passed on October 27, 2026.
+
 Its visible heading is “External investor education” and its accompanying note
 is “Educational resource only; no SEC endorsement of AUREON.” Both are translated
 across the site's languages. The image has no link, button, action, animation
