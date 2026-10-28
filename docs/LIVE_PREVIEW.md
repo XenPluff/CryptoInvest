@@ -2,11 +2,24 @@
 
 Website: <https://aureon-preview.onrender.com>
 
-Latest deployment verified on October 22, 2026:
+Latest deployment verified on October 27, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `3f914f3c9a33808638f2a3aba27ef89ddffcce99` from branch
+- Running source commit: `4dc45ef767aba43746427c696bd9eb91261a212a` from branch
   `codex/aureon-render-preview`.
+- The compact [organization row](https://aureon-preview.onrender.com/#industry-resources)
+  is live in deployment `dep-dbgmfnei0phs73aq6vcg`, directly before the card
+  concept. Twenty-four identifiable external organization/publication references
+  move together in one continuous horizontal loop. Twenty-one local image marks
+  load and match their source-file SHA-256; three unavailable publication marks
+  use readable names. Actual hosted HTML/assets pass eight languages, two themes
+  and four widths (64 states), loop/wrap/pause, placement, duplicate accessibility
+  and reduced-motion scrolling, without API fixtures or page errors. Health
+  remains connected with enabled funding and passed email readiness. Catalogs
+  cover 2,378 messages. The row explicitly identifies external resources;
+  relationship/credential claims, certification/award/regulator badges and
+  unreadable unidentified images remain pending supporting records/original
+  files. See [asset and claim scope](ORGANIZATION_LOGOS.md).
 - The [administrator deposit review](https://aureon-preview.onrender.com/admin/deposits)
   is simplified in deployment `dep-dbd8nm5g1s2s73ajp9qg`. Evidence-reference,
   ownership/source-of-funds evidence and written-note fields and their prompts
