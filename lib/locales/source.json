@@ -992,6 +992,9 @@
   "AI-generated product design study. No payment function.": [
     "app/cards/page.tsx"
   ],
+  "AICPA — American Institute of Certified Public Accountants": [
+    "components/SiteFooter.tsx"
+  ],
   "Alert acknowledged. Monitoring continues until the condition clears.": [
     "components/workspace/Operations.tsx"
   ],
@@ -1597,9 +1600,6 @@
   ],
   "Blockchain transaction hash": [
     "components/workspace/DepositWorkspace.tsx"
-  ],
-  "Blockdaemon": [
-    "components/SiteFooter.tsx"
   ],
   "BNB": [
     "components/workspace/DepositWorkspace.tsx"

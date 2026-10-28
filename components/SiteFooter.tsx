@@ -38,7 +38,7 @@ export default function SiteFooter() {
                   <img src="/images/footer-logos/sec.png" alt="U.S. Securities and Exchange Commission" width={1248} height={316} loading="lazy" draggable={false} translate="no" />
                 </div>
                 <div className="footer-education-logo">
-                  <img src="/images/footer-logos/blockdaemon.svg" alt="Blockdaemon" width={150} height={33} loading="lazy" draggable={false} translate="no" />
+                  <img src="/images/footer-logos/aicpa.png" alt="AICPA — American Institute of Certified Public Accountants" width={1200} height={630} loading="lazy" draggable={false} translate="no" />
                 </div>
                 <div className="footer-education-logo">
                   <img src="/images/footer-logos/esma.jpg" alt="ESMA — European Securities and Markets Authority" width={991} height={458} loading="lazy" draggable={false} translate="no" />

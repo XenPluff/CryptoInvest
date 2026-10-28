@@ -2,6 +2,26 @@
 
 ## Investor education resources
 
+### AICPA replacement
+
+The owner explicitly chose a standard AICPA organization logo to replace the
+Blockdaemon footer tile. The uploaded `download.avif` is an AICPA SOC assurance
+seal; it was inspected and is not included in the website. The replacement is
+the ordinary AICPA logo published as the official site's Open Graph image at
+<https://www.aicpa-cima.com/>:
+<https://images.ctfassets.net/rb9cdnjh59cm/43ZKFkefBBGDMM3VoBYWIP/b4d7a47dedb6d7232936e0c8beb6e764/Logo_1200x630.png>.
+
+The original PNG is stored unchanged as
+`public/images/footer-logos/aicpa.png` (176,913 bytes, 1200×630; SHA-256
+`d6dd4e21fd826f32f07a52d4fc488eadcfdef18a94868dacd6ee1259e2695c48`).
+The third education tile now identifies “AICPA — American Institute of Certified
+Public Accountants”. It retains the shared external-education heading and
+no-affiliation/endorsement note, with no link, button or animation. This does not
+claim a SOC report, audit, certification, membership or AICPA relationship.
+Blockdaemon's separate homepage industry-resource reference is unchanged.
+
+### Earlier resource additions
+
 The owner approved a static, non-clickable Investor.gov resource beneath the
 footer tagline. It uses the exact PNG supplied from the SEC website:
 <https://www.sec.gov/files/styles/card_with_sidebar_1x/public/images/sec-logo-investor-1x.png?itok=D8Qe5r5P>.
