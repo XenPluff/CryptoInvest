@@ -5,8 +5,17 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 27, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `4dc45ef767aba43746427c696bd9eb91261a212a` from branch
+- Running source commit: `47024a52213c8aa77f36a586f928d7afb5359c0e` from branch
   `codex/aureon-render-preview`.
+- The [logo row](https://aureon-preview.onrender.com/#industry-resources) has no
+  explanatory caption or play/pause controls in deployment
+  `dep-dbgmrtuc6qcc73c4hec0`. Its animation keeps advancing on hover and keyboard
+  focus, with seamless full-group wrap. Actual hosted HTML/assets pass 64
+  language/theme/width states, all 21 image hashes, caption/control absence,
+  hover/focus motion and card-section placement without API fixtures or page
+  errors. Device reduced-motion preferences still use static horizontal
+  scrolling. Health remains connected with enabled funding and passed email
+  readiness; catalogs cover 2,375 messages.
 - The compact [organization row](https://aureon-preview.onrender.com/#industry-resources)
   is live in deployment `dep-dbgmfnei0phs73aq6vcg`, directly before the card
   concept. Twenty-four identifiable external organization/publication references
