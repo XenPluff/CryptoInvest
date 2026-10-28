@@ -11,7 +11,6 @@ import {
   ArrowDown,
   ShieldCheck,
   Fingerprint,
-  Globe2,
   Layers3,
   ChevronRight,
   Plus,
@@ -189,10 +188,6 @@ export default function Landing() {
               <div className="hero-principles">
                 <span>
                   <ShieldCheck size={15} /> {t("Security in the details")}
-                </span>
-                <i />
-                <span>
-                  <Globe2 size={15} /> {t("A global perspective")}
                 </span>
               </div>
             </motion.div>
