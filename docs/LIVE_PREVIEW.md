@@ -5,8 +5,23 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `19cede13f0ebc43aa6f1a7bad1bdad132d225dc0` from branch
+- Running source commit: `6f93ae4e1bcbad66cf01177e4e57d2a14930090d` from branch
   `codex/aureon-render-preview`.
+- Identity approval is optional for deposit quotes, submissions and reviewed
+  funding in deployment `dep-dbh8i1e1egvs73eqtf5g`. Newly registered,
+  email-verified investors can fund with no identity submission or while review
+  is pending/rejected. The deposit form no longer gates on “Identity approved”;
+  deposit, overview, account and how-it-works copy explain the scope. Actual
+  identity statuses are preserved; investments/withdrawals keep approval checks.
+  Build, 169 unit tests, 41 disposable-PostgreSQL checks (29 ledger + 11 MFA +
+  one dedicated identity regression) and 15 local browser cases are verified.
+  Eight hosted deposit cases pass against deployed HTML/assets using browser-only
+  private records and deposit fixtures. They cover all six QR destinations,
+  reporting without identity approval, email/funding gates, eight languages and
+  desktop/mobile fit. Real health remains connected with funding enabled,
+  passed email readiness and an advancing automatic-settlement heartbeat. No
+  production account, identity status, deposit or balance was changed by checks.
+  See [deposit access and flow](DEPOSIT_FLOW.md).
 - Automatic settlement of administrator-verified investment proceeds is enabled
   in deployment `dep-dbh86pe7bikc73fhic00`, with
   `AUTOMATIC_SETTLEMENT_ENABLED=true`. The additive verification table starts

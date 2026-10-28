@@ -50,3 +50,14 @@ deposits without auto-credit, and actual operator-approved funding. Email and
 funding gates remain enforced; investment/withdrawal identity gates still apply.
 The dedicated identity case is isolated from the MFA suite to preserve the
 existing financial request limit and avoid leaking test state between cases.
+
+The optional-identity change is live in deployment `dep-dbh8i1e1egvs73eqtf5g`, source
+`6f93ae4e1bcbad66cf01177e4e57d2a14930090d`. Production build, 169 unit cases,
+41 disposable-database checks and 15 local browser cases are verified. Eight
+hosted deposit cases pass on actual HTML/assets with isolated private-account
+and transaction responses, including no/pending/rejected identity approval,
+six original QR destinations and all eight interface languages. Funding and
+email readiness remain enabled/passed; the automatic-settlement heartbeat
+advances. No production accounts, identity records, deposits or balances were
+modified by verification. Evidence is in `.aureon/optional-deposit-identity/`.
+Documentation-only commits do not redeploy the running source automatically.
