@@ -5,8 +5,16 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `6c0f5d216fb263e14db0e5cc4d64225462f51900` from branch
+- Running source commit: `a260a8f62721ee7b2ea3de044f94dd9e00fa934d` from branch
   `codex/aureon-render-preview`.
+- The “External resources” caption now uses faded black (65% black) in light
+  mode and readable charcoal-grey (`#818181`) in dark mode, live in deployment
+  `dep-dbgsqhgm7kps73eo3ki0`. Actual hosted HTML/assets pass four desktop/
+  mobile/theme states with exact computed-color checks, the unchanged caption,
+  thirteen references, twelve original image hashes, static/non-clickable
+  behavior and no former paragraph. No page errors, API fixtures or production
+  mutations occurred. Health remains connected with enabled funding and passed
+  email readiness. Translations and source images are unchanged.
 - A single muted-grey “External resources” label is live in deployment
   `dep-dbgsivh42hec73dubsg0`. It replaces the former heading and explanatory
   paragraph above/below the logo grid. Both former lines are absent from the

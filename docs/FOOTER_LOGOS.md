@@ -9,6 +9,13 @@ theme now uses 65% black (`rgba(0,0,0,.65)`); dark mode uses a readable subdued
 charcoal-grey (`#818181`). This only changes the caption's color. The text,
 translations, reference list, dimensions and non-clickable grid are unchanged.
 
+Published in source `a260a8f62721ee7b2ea3de044f94dd9e00fa934d`, Render deployment
+`dep-dbgsqhgm7kps73eo3ki0`. Hosted verification passed on October 28, 2026:
+four desktop/mobile/theme states with exact computed colors, unchanged reference
+order and image hashes, no navigation or animations, and no page errors. No
+investor records were changed.
+
+
 ### Single muted-grey label
 
 The owner approved replacing the former education heading and explanatory
