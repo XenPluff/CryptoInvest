@@ -51,13 +51,15 @@ import {
   useRemote,
 } from "./shared";
 import { AdminContent } from "./admin";
-import { LiveInvestmentDisplay } from "@/components/LiveInvestmentDisplay";
 import { WalletConnections } from "./WalletConnections";
 import { PasskeySettings } from "./PasskeySettings";
 import { TwoFactorSettings } from "./TwoFactorSettings";
 import { PortfolioAnalytics } from "./PortfolioAnalytics";
 import { DepositWorkspace } from "./DepositWorkspace";
 import { InvestorCards } from "./Cards";
+import { InvestmentPortfolio } from "./InvestmentPortfolio";
+import { usePortfolioRemote } from "./usePortfolioRemote";
+import { PortfolioRefresh } from "./PortfolioRefresh";
 
 const investorNav = [
   { id: "", name: "Overview", icon: LayoutDashboard },
@@ -410,14 +412,14 @@ function InvestorContent({
 
 function Overview({ user }: { user: RecordData }) {
   useDisplayLocale();
-  const r = useRemote("/dashboard");
+  const r = usePortfolioRemote("/dashboard");
   const markets = useRemote("/markets");
   if (r.loading || r.error) return <TranslatedContent>{<LoadState {...r} />}</TranslatedContent>;
   const d = r.data!;
   const stats = [
     ["Available balance", d.balance, Wallet, "Ready for your next move"],
     ["Total invested", d.invested, TrendingUp, "Capital in active plans"],
-    ["Realized earnings", d.totalEarned, Activity, "Accrued to your account"],
+    ["Realized earnings", d.totalEarned, Activity, "Posted investment earnings"],
     ["Referral earnings", d.referralEarnings, Gift, "From your connections"],
   ];
   return <TranslatedContent>{(
@@ -439,6 +441,7 @@ function Overview({ user }: { user: RecordData }) {
           </Link>
         </div>
       ) : null}
+      <PortfolioRefresh {...r} />
       <div className="ws-stats-grid">
         {stats.map(([label, value, Icon, note], i) => (
           <div
@@ -451,7 +454,7 @@ function Overview({ user }: { user: RecordData }) {
                 {typeof Icon !== "number" && <Icon size={17} />}
               </span>
             </div>
-            <strong>{money(Number(value || 0))}</strong>
+            <strong data-portfolio-stat={i === 2 ? "realized-earnings" : undefined}>{money(Number(value || 0))}</strong>
             <span className="ws-stat-note">{String(note)}</span>
             {i === 0 && <span className="ws-stat-decoration" />}
           </div>
@@ -689,57 +692,7 @@ function Plans() {
   )}</TranslatedContent>;
 }
 function Investments() {
-  useDisplayLocale();
-  const r = useRemote("/investments");
-  return <TranslatedContent>{(
-    <>
-      <LoadState {...r} />
-      {r.data?.investments?.length ? (
-        <div className="ws-investments-grid">
-          {r.data.investments.map((investment: RecordData) => (
-            <Panel
-              key={investment.id}
-              title={`${investment.planName} plan`}
-              action={<Badge value={investment.status} />}
-            >
-              <LiveInvestmentDisplay
-                planType={investment.planSlug}
-                principalAmount={investment.principalAmount}
-                startTimestamp={investment.startTimestamp}
-                dailyRate={investment.dailyRate}
-                monthlyRate={investment.monthlyRate}
-                durationDays={investment.durationDays}
-              />
-              <div className="ws-investment-realized">
-                <span>Realized earnings</span>
-                <strong>{money(investment.earnedAmount || 0)}</strong>
-              </div>
-              <small className="ws-muted">
-                Investment {investment.id} · Started{" "}
-                <DateText value={investment.startTimestamp} />
-              </small>
-            </Panel>
-          ))}
-        </div>
-      ) : (
-        !r.loading &&
-        !r.error && (
-          <Panel>
-            <Empty title="Your investment story starts here">
-              Choose a plan to begin building your portfolio.
-              <br />
-              <Link
-                href="/dashboard/plans"
-                className="ws-button ws-button-gold"
-              >
-                Explore plans <ArrowUpRight size={15} />
-              </Link>
-            </Empty>
-          </Panel>
-        )
-      )}
-    </>
-  )}</TranslatedContent>;
+  return <InvestmentPortfolio />;
 }
 function Withdrawals({user}: {user: RecordData}) {
   useDisplayLocale();

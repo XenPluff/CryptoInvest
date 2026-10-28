@@ -26,9 +26,6 @@
   "· Resolved": [
     "components/workspace/Operations.tsx"
   ],
-  "· Started": [
-    "components/workspace/Workspace.tsx"
-  ],
   "· target": [
     "components/LiveInvestmentDisplay.tsx"
   ],
@@ -57,16 +54,12 @@
   "(max-width: 900px) 100vw, 50vw": [
     "components/public/BusinessImageCarousel.tsx"
   ],
-  "(min-width: 651px)": [
-    "components/HeroArtwork.tsx"
-  ],
   "(optional)": [
     "components/auth/AuthForms.tsx",
     "lib/i18n.ts"
   ],
   "(prefers-reduced-motion: reduce)": [
     "components/HeroArtwork.tsx",
-    "components/HeroScene.tsx",
     "components/LiveInvestmentDisplay.tsx",
     "components/cards/CardShowcase.tsx",
     "components/public/VideoLibrary.tsx"
@@ -133,7 +126,7 @@
     "server/operations.ts"
   ],
   "{0} plan": [
-    "components/workspace/Workspace.tsx"
+    "components/workspace/InvestmentPortfolio.tsx"
   ],
   "{0} posted ledger {1} · USD": [
     "components/workspace/PortfolioAnalytics.tsx"
@@ -345,9 +338,6 @@
   ],
   "30 days": [
     "localization"
-  ],
-  "37° 46′ 49″ N": [
-    "components/Landing.tsx"
   ],
   "3D DESIGN PREVIEW": [
     "components/cards/CardShowcase.tsx"
@@ -596,7 +586,6 @@
     "lib/i18n.ts"
   ],
   "A global perspective": [
-    "components/Landing.tsx",
     "lib/i18n.ts"
   ],
   "A good beginning.": [
@@ -693,9 +682,6 @@
   ],
   "A SIMPLE WAY TO FUND": [
     "components/workspace/DepositWorkspace.tsx"
-  ],
-  "A slowly rotating golden orbital sculpture": [
-    "components/HeroScene.tsx"
   ],
   "A submitted deposit awaits operator verification. It is credited only after approval.": [
     "lib/video-content.ts"
@@ -804,9 +790,6 @@
   "ACCOUNTABILITY BY DESIGN": [
     "components/workspace/admin.tsx"
   ],
-  "Accrued to your account": [
-    "components/workspace/Workspace.tsx"
-  ],
   "Accruing target": [
     "components/LiveInvestmentDisplay.tsx"
   ],
@@ -832,10 +815,12 @@
     "localization"
   ],
   "Active": [
+    "components/workspace/InvestmentPortfolio.tsx",
     "components/workspace/admin.tsx"
   ],
   "ACTIVE": [
     "components/workspace/AdminFunds.tsx",
+    "components/workspace/InvestmentPortfolio.tsx",
     "lib/analytics.ts"
   ],
   "Active investors": [
@@ -845,7 +830,8 @@
     "components/workspace/PortfolioAnalytics.tsx"
   ],
   "Active principal": [
-    "components/workspace/AdminAnalytics.tsx"
+    "components/workspace/AdminAnalytics.tsx",
+    "components/workspace/InvestmentPortfolio.tsx"
   ],
   "Active principal by plan": [
     "components/workspace/PortfolioAnalytics.tsx"
@@ -998,8 +984,14 @@
   "Alert acknowledged. The underlying condition continues to be monitored.": [
     "server/operations.ts"
   ],
+  "ALL": [
+    "components/workspace/InvestmentPortfolio.tsx"
+  ],
   "All activity": [
     "components/workspace/Workspace.tsx"
+  ],
+  "All investments": [
+    "components/workspace/InvestmentPortfolio.tsx"
   ],
   "All investments involve risk.": [
     "components/workspace/Workspace.tsx"
@@ -1317,9 +1309,6 @@
   "Assets and liabilities together": [
     "app/approach/page.tsx"
   ],
-  "AT A GLANCE": [
-    "components/MarketTicker.tsx"
-  ],
   "At least 12 characters": [
     "components/auth/AuthForms.tsx",
     "lib/i18n.ts"
@@ -1595,11 +1584,20 @@
     "components/Landing.tsx",
     "lib/i18n.ts"
   ],
+  "BINANCE:BNBUSDT": [
+    "components/MarketTicker.tsx"
+  ],
+  "Bitcoin / USD": [
+    "components/MarketTicker.tsx"
+  ],
   "Blockchain transaction hash": [
     "components/workspace/DepositWorkspace.tsx"
   ],
   "BNB": [
     "components/workspace/DepositWorkspace.tsx"
+  ],
+  "BNB / USDT": [
+    "components/MarketTicker.tsx"
   ],
   "BNB Smart Chain": [
     "components/workspace/DepositWorkspace.tsx"
@@ -1680,6 +1678,7 @@
     "localization"
   ],
   "Capital in active plans": [
+    "components/workspace/InvestmentPortfolio.tsx",
     "components/workspace/Workspace.tsx"
   ],
   "Capital is allocated according to approved investment limits, strategic priorities and the company's overall risk capacity.": [
@@ -1776,7 +1775,7 @@
     "lib/page-titles.ts"
   ],
   "Choose a plan to begin building your portfolio.": [
-    "components/workspace/Workspace.tsx"
+    "components/workspace/InvestmentPortfolio.tsx"
   ],
   "Choose a section from your navigation.": [
     "components/workspace/admin.tsx"
@@ -1882,6 +1881,15 @@
   "Coinbase Wallet": [
     "components/workspace/WalletConnections.tsx"
   ],
+  "COINBASE:BTCUSD": [
+    "components/MarketTicker.tsx"
+  ],
+  "COINBASE:ETHUSD": [
+    "components/MarketTicker.tsx"
+  ],
+  "COINBASE:USDTUSD": [
+    "components/MarketTicker.tsx"
+  ],
   "Come back and choose Done": [
     "components/workspace/DepositWorkspace.tsx"
   ],
@@ -1941,6 +1949,9 @@
   ],
   "completed": [
     "localization"
+  ],
+  "Completed settlements": [
+    "components/workspace/InvestmentPortfolio.tsx"
   ],
   "Completed withdrawals": [
     "components/workspace/admin.tsx"
@@ -2123,6 +2134,9 @@
   ],
   "Costs & losses": [
     "app/approach/page.tsx"
+  ],
+  "Could not refresh account data. The amounts shown are from the last successful update.": [
+    "components/workspace/PortfolioRefresh.tsx"
   ],
   "Could not set up authentication.": [
     "components/workspace/TwoFactorSettings.tsx"
@@ -2813,8 +2827,14 @@
     "components/Landing.tsx",
     "lib/i18n.ts"
   ],
+  "Ethereum / USD": [
+    "components/MarketTicker.tsx"
+  ],
   "Evaluate": [
     "app/about/page.tsx"
+  ],
+  "Every investment, in focus.": [
+    "components/workspace/InvestmentPortfolio.tsx"
   ],
   "Every move, accounted for.": [
     "components/workspace/Workspace.tsx"
@@ -2912,7 +2932,7 @@
     "lib/i18n.ts"
   ],
   "Explore plans": [
-    "components/workspace/Workspace.tsx"
+    "components/workspace/InvestmentPortfolio.tsx"
   ],
   "Explore Shareholder": [
     "components/public/PlanCatalog.tsx"
@@ -2971,9 +2991,6 @@
   "FAQ answer": [
     "components/workspace/ContentOperations.tsx"
   ],
-  "FEED UNAVAILABLE": [
-    "components/MarketTicker.tsx"
-  ],
   "Films & field notes": [
     "app/videos/page.tsx",
     "components/public/VideoLibrary.tsx"
@@ -2983,6 +3000,9 @@
   ],
   "Filter identity status": [
     "components/workspace/admin.tsx"
+  ],
+  "Filter investments": [
+    "components/workspace/InvestmentPortfolio.tsx"
   ],
   "Filter publications": [
     "components/public/Journal.tsx"
@@ -3485,17 +3505,11 @@
     "components/SiteFooter.tsx",
     "lib/i18n.ts"
   ],
-  "Investment": [
-    "components/workspace/Workspace.tsx"
-  ],
   "INVESTMENT": [
     "components/workspace/AdminFunds.tsx"
   ],
   "Investment {0}": [
     "server/app.ts"
-  ],
-  "Investment {0} · Started": [
-    "components/workspace/Workspace.tsx"
   ],
   "Investment activated": [
     "server/app.ts"
@@ -3545,6 +3559,9 @@
     "components/public/PlanCatalog.tsx",
     "components/workspace/Workspace.tsx",
     "lib/i18n.ts"
+  ],
+  "Investment reference": [
+    "components/workspace/InvestmentPortfolio.tsx"
   ],
   "Investment settled": [
     "server/app.ts"
@@ -3701,9 +3718,6 @@
   "Language could not load. Please try again.": [
     "components/LanguageSelector.tsx",
     "localization"
-  ],
-  "LAST AVAILABLE": [
-    "components/MarketTicker.tsx"
   ],
   "Last available prices": [
     "components/workspace/Workspace.tsx"
@@ -3890,6 +3904,7 @@
   "Market insights": [
     "app/insights/layout.tsx",
     "app/insights/page.tsx",
+    "components/MarketTicker.tsx",
     "components/SiteFooter.tsx",
     "components/SiteHeader.tsx",
     "lib/i18n.ts",
@@ -4078,7 +4093,8 @@
     "components/workspace/AdminAnalytics.tsx"
   ],
   "Net result": [
-    "app/approach/page.tsx"
+    "app/approach/page.tsx",
+    "components/workspace/InvestmentPortfolio.tsx"
   ],
   "Net results tell the story.": [
     "app/approach/page.tsx"
@@ -4189,6 +4205,9 @@
   ],
   "No matching applications": [
     "components/workspace/Cards.tsx"
+  ],
+  "No matching investments": [
+    "components/workspace/InvestmentPortfolio.tsx"
   ],
   "No matching investors": [
     "components/workspace/admin.tsx"
@@ -4410,6 +4429,7 @@
     "localization"
   ],
   "Original principal": [
+    "components/workspace/InvestmentPortfolio.tsx",
     "components/workspace/PortfolioAnalytics.tsx"
   ],
   "Original principal:": [
@@ -4736,8 +4756,15 @@
   "Posted account activity, including investment allocations and withdrawal reserves. This chart shows available balance rather than investment performance. Dates are UTC.": [
     "components/workspace/PortfolioAnalytics.tsx"
   ],
+  "Posted investment earnings": [
+    "components/workspace/InvestmentPortfolio.tsx",
+    "components/workspace/Workspace.tsx"
+  ],
   "posted ledger": [
     "components/workspace/PortfolioAnalytics.tsx"
+  ],
+  "Posted to your account": [
+    "components/workspace/InvestmentPortfolio.tsx"
   ],
   "PostgreSQL backup did not complete ({0}).": [
     "server/backups.ts"
@@ -4801,7 +4828,6 @@
     "components/workspace/Cards.tsx"
   ],
   "PRECISION IN EVERY ORBIT": [
-    "components/Landing.tsx",
     "lib/i18n.ts"
   ],
   "Prefer to watch? Explore the video guides": [
@@ -4883,6 +4909,9 @@
   ],
   "principal return": [
     "lib/analytics.ts"
+  ],
+  "Principal returned": [
+    "components/workspace/InvestmentPortfolio.tsx"
   ],
   "Principal returned (USD)": [
     "components/workspace/admin.tsx"
@@ -5160,11 +5189,15 @@
     "lib/analytics.ts"
   ],
   "Realized earnings": [
+    "components/workspace/InvestmentPortfolio.tsx",
     "components/workspace/PortfolioAnalytics.tsx",
     "components/workspace/Workspace.tsx"
   ],
   "Realized earnings (USD)": [
     "components/workspace/admin.tsx"
+  ],
+  "Realized earnings are posted income. Active plan targets are estimates and are shown separately.": [
+    "components/workspace/InvestmentPortfolio.tsx"
   ],
   "Realized earnings credited to investors": [
     "components/workspace/AdminAnalytics.tsx"
@@ -5235,6 +5268,9 @@
   "RECORDED BALANCE": [
     "components/workspace/AdminFunds.tsx"
   ],
+  "Recorded settlement proceeds": [
+    "components/workspace/InvestmentPortfolio.tsx"
+  ],
   "Recorded transactions will appear here.": [
     "components/workspace/AdminFunds.tsx"
   ],
@@ -5290,7 +5326,11 @@
   "Refresh": [
     "components/public/MarketExplorer.tsx",
     "components/workspace/Cards.tsx",
-    "components/workspace/Operations.tsx"
+    "components/workspace/Operations.tsx",
+    "components/workspace/PortfolioRefresh.tsx"
+  ],
+  "Refresh portfolio": [
+    "components/workspace/PortfolioRefresh.tsx"
   ],
   "Refresh price": [
     "components/workspace/DepositWorkspace.tsx"
@@ -5426,6 +5466,9 @@
   ],
   "RESERVE, REVIEW, THEN SETTLE": [
     "components/workspace/AdminFunds.tsx"
+  ],
+  "Reset filters": [
+    "components/workspace/InvestmentPortfolio.tsx"
   ],
   "Reset your password": [
     "app/forgot-password/page.tsx",
@@ -5651,6 +5694,9 @@
   "Search card applicants": [
     "components/workspace/Cards.tsx"
   ],
+  "Search investments": [
+    "components/workspace/InvestmentPortfolio.tsx"
+  ],
   "Search investors": [
     "components/workspace/admin.tsx"
   ],
@@ -5806,8 +5852,12 @@
   "Settle an investment only after independently establishing its realized result. Projected counters never authorize wallet credits. Settlement requires an evidence reference and is recorded in the ledger.": [
     "components/workspace/admin.tsx"
   ],
+  "Settled": [
+    "components/workspace/InvestmentPortfolio.tsx"
+  ],
   "SETTLED": [
     "components/workspace/AdminFunds.tsx",
+    "components/workspace/InvestmentPortfolio.tsx",
     "lib/analytics.ts"
   ],
   "SETTLED AND ACTIVE": [
@@ -5816,11 +5866,17 @@
   "Settled investment earnings": [
     "components/workspace/PortfolioAnalytics.tsx"
   ],
+  "Settled investments": [
+    "components/workspace/InvestmentPortfolio.tsx"
+  ],
   "Settled positions": [
     "components/workspace/PortfolioAnalytics.tsx"
   ],
   "Settlement evidence and reasoning": [
     "components/workspace/admin.tsx"
+  ],
+  "Settlement recorded": [
+    "components/workspace/InvestmentPortfolio.tsx"
   ],
   "Settlement transaction hash": [
     "components/workspace/admin.tsx"
@@ -5852,6 +5908,9 @@
   ],
   "Show what matters, explain the terms, and keep the next step visible. Distinguish illustrative projections from actual transaction records.": [
     "app/about/page.tsx"
+  ],
+  "Showing last confirmed update": [
+    "components/workspace/PortfolioRefresh.tsx"
   ],
   "Sign in": [
     "app/login/page.tsx",
@@ -5943,6 +6002,7 @@
     "lib/video-content.ts"
   ],
   "Started": [
+    "components/workspace/InvestmentPortfolio.tsx",
     "components/workspace/Operations.tsx",
     "components/workspace/admin.tsx"
   ],
@@ -6137,6 +6197,12 @@
   "Term completed": [
     "components/LiveInvestmentDisplay.tsx"
   ],
+  "Term ended. Awaiting settlement.": [
+    "components/workspace/InvestmentPortfolio.tsx"
+  ],
+  "Term ends": [
+    "components/workspace/InvestmentPortfolio.tsx"
+  ],
   "Term target": [
     "components/LiveInvestmentDisplay.tsx"
   ],
@@ -6164,6 +6230,9 @@
   ],
   "Terms of service.": [
     "app/legal/terms/page.tsx"
+  ],
+  "Tether / USD": [
+    "components/MarketTicker.tsx"
   ],
   "That record or transaction reference already exists.": [
     "server/app.ts"
@@ -6217,7 +6286,6 @@
     "lib/i18n.ts"
   ],
   "THE AUREON SPHERE — 001": [
-    "components/Landing.tsx",
     "lib/i18n.ts"
   ],
   "The backup download did not finish. Request another archive.": [
@@ -6299,11 +6367,7 @@
     "components/public/MarketCurrency.tsx"
   ],
   "THE LONG VIEW ↗": [
-    "components/Landing.tsx",
     "lib/i18n.ts"
-  ],
-  "THE MARKET": [
-    "components/MarketTicker.tsx"
   ],
   "The market at a glance": [
     "app/insights/page.tsx"
@@ -6358,6 +6422,7 @@
   ],
   "The request could not be completed.": [
     "components/workspace/shared.tsx",
+    "components/workspace/usePortfolioRemote.ts",
     "lib/api.ts"
   ],
   "The requested amount is reserved while the request is pending. Approval alone does not send cryptocurrency.": [
@@ -6611,6 +6676,9 @@
   "Total invested": [
     "components/workspace/Workspace.tsx"
   ],
+  "Total proceeds": [
+    "components/workspace/InvestmentPortfolio.tsx"
+  ],
   "Track the": [
     "lib/video-content.ts"
   ],
@@ -6637,6 +6705,9 @@
   ],
   "Trading can result in substantial losses. Leverage, volatility, liquidity shortages, execution errors and counterparty failures can magnify negative outcomes.": [
     "lib/business-activities.ts"
+  ],
+  "TradingView — {0}": [
+    "components/MarketTicker.tsx"
   ],
   "Transaction": [
     "components/workspace/AdminFunds.tsx",
@@ -6698,6 +6769,9 @@
     "components/public/Journal.tsx",
     "components/public/PlanCatalog.tsx",
     "components/workspace/shared.tsx"
+  ],
+  "Try another plan name or reference, or reset your filters.": [
+    "components/workspace/InvestmentPortfolio.tsx"
   ],
   "Two-factor authentication": [
     "components/workspace/TwoFactorSettings.tsx"
@@ -6806,6 +6880,9 @@
   "understanding.": [
     "lib/video-content.ts"
   ],
+  "uniform vec3 tint; varying vec3 n; varying vec3 v; void main(){float rim=pow(1.-max(dot(normalize(n),normalize(v)),0.),3.8);gl_FragColor=vec4(tint,rim*.35);}": [
+    "components/orbit/OrbitalGlobe.tsx"
+  ],
   "Unknown investment plan requires a complete rate and duration snapshot.": [
     "lib/investment.ts"
   ],
@@ -6857,6 +6934,9 @@
   ],
   "Updated {0}": [
     "components/public/MarketExplorer.tsx"
+  ],
+  "Updates automatically": [
+    "components/workspace/PortfolioRefresh.tsx"
   ],
   "Updating…": [
     "components/workspace/Cards.tsx"
@@ -6918,6 +6998,11 @@
     "components/auth/PasskeyLogin.tsx",
     "components/cards/CardShowcase.tsx",
     "components/cards/CardTeaser.tsx",
+    "components/orbit/CryptoSignals.tsx",
+    "components/orbit/GlobeConceptScene.tsx",
+    "components/orbit/GlobeConcepts.tsx",
+    "components/orbit/GlobePoster.tsx",
+    "components/orbit/OrbitalGlobe.tsx",
     "components/public/BusinessImageCarousel.tsx",
     "components/public/ContactForm.tsx",
     "components/public/InvestorPerspective.tsx",
@@ -6932,15 +7017,18 @@
     "components/workspace/Cards.tsx",
     "components/workspace/ContentOperations.tsx",
     "components/workspace/DepositWorkspace.tsx",
+    "components/workspace/InvestmentPortfolio.tsx",
     "components/workspace/Operations.tsx",
     "components/workspace/PasskeySettings.tsx",
     "components/workspace/PortfolioAnalytics.tsx",
+    "components/workspace/PortfolioRefresh.tsx",
     "components/workspace/ProviderConnections.tsx",
     "components/workspace/TwoFactorSettings.tsx",
     "components/workspace/WalletConnections.tsx",
     "components/workspace/Workspace.tsx",
     "components/workspace/admin.tsx",
     "components/workspace/shared.tsx",
+    "components/workspace/usePortfolioRemote.ts",
     "lib/api.ts",
     "lib/i18n.ts",
     "lib/ui-store.ts"
@@ -6977,6 +7065,9 @@
   ],
   "var(--surface, #121713)": [
     "components/public/MarketCurrency.tsx"
+  ],
+  "varying vec3 n; varying vec3 v; void main(){vec4 p=modelViewMatrix*vec4(position,1.);n=normalize(normalMatrix*normal);v=-p.xyz;gl_Position=projectionMatrix*p;}": [
+    "components/orbit/OrbitalGlobe.tsx"
   ],
   "Verification": [
     "components/workspace/Operations.tsx"
@@ -7552,7 +7643,7 @@
     "components/LiveInvestmentDisplay.tsx"
   ],
   "Your investment story starts here": [
-    "components/workspace/Workspace.tsx"
+    "components/workspace/InvestmentPortfolio.tsx"
   ],
   "YOUR INVITATION": [
     "components/workspace/Workspace.tsx"
@@ -7610,6 +7701,9 @@
   ],
   "Your perspective.": [
     "app/cards/page.tsx"
+  ],
+  "YOUR PORTFOLIO": [
+    "components/workspace/InvestmentPortfolio.tsx"
   ],
   "Your portfolio in focus. Your decisions in context. A workspace built around the way you see the future.": [
     "components/Landing.tsx",
@@ -7674,8 +7768,5 @@
   ],
   "Z": [
     "lib/investment.ts"
-  ],
-  "Track all markets on TradingView": [
-    "components/MarketTicker.tsx"
   ]
 }

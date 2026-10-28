@@ -660,6 +660,38 @@ integration("real PostgreSQL account and ledger integration", () => {
     expect(after.balance).toBe(before.balance + 2.5);
     expect(after.totalEarned).toBe(before.totalEarned + 2.5);
   });
+  test("both portfolio endpoints reconcile posted earnings, ignore stale caches and isolate users", async () => {
+    const before = (await request("/dashboard")).data;
+    const created = await request("/investments", { method: "POST", body: { planId: plan.id, amount: 100, code: code() } });
+    expect(created.response.status).toBe(201);
+    const id = created.data.investment.id;
+    await prisma.investment.update({ where: { id }, data: { startTimestamp: new Date(Date.now() - 8 * 86400000) } });
+    const body = { principalReturned: 90.01, realizedEarnings: 0.29, externalReference: "portfolio-reconciliation-029", note: "Principal and income independently reconciled for the portfolio endpoint regression.", code: code() };
+    expect((await request(`/admin/investments/${id}/settle`, { method: "POST", as: "adminA", body })).response.status).toBe(200);
+    expect((await request(`/admin/investments/${id}/settle`, { method: "POST", as: "adminB", body })).response.status).toBe(409);
+    // Simulate a stale legacy display cache; only posted ledger records may determine earnings.
+    await prisma.investment.update({ where: { id }, data: { earnedCents: 999999 } });
+    try {
+      const dashboard = (await request("/dashboard")).data;
+      const portfolio = (await request("/investments")).data;
+      const analytics = (await request("/analytics")).data;
+      expect(portfolio.summary).toEqual(dashboard.summary);
+      expect(portfolio.totalEarned).toBe(dashboard.totalEarned);
+      expect(Math.round(dashboard.totalEarned * 100)).toBe(Math.round(before.totalEarned * 100) + 29);
+      expect(portfolio.summary.realizedEarningsCents).toBe(analytics.summary.realizedEarningsCents);
+      expect(portfolio.investments.reduce((sum: number, i: any) => sum + i.earnedCents, 0)).toBe(portfolio.summary.realizedEarningsCents);
+      const position = portfolio.investments.find((i: any) => i.id === id);
+      expect(position).toMatchObject({ status: "SETTLED", earnedCents: 29, earnedAmount: 0.29, principalReturnedCents: 9001, principalReturned: 90.01 });
+      expect(dashboard.balance).toBeCloseTo(before.balance - 9.7, 2);
+      const other = (await request("/investments", { as: "adminA" })).data;
+      expect(other.investments).toEqual([]);
+      expect(other.summary.realizedEarningsCents).toBe(0);
+      expect((await request("/investments", { as: "anonymous" })).response.status).toBe(401);
+      expect((await request("/dashboard", { as: "anonymous" })).response.status).toBe(401);
+    } finally {
+      await prisma.investment.update({ where: { id }, data: { earnedCents: 29 } });
+    }
+  });
   test("the operator funding pause is enforced by the server", async () => {
     await prisma.setting.upsert({
       where: { key: "fundingEnabled" },

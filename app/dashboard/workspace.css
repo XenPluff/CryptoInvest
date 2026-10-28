@@ -2055,3 +2055,56 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Recorded portfolio totals and investment lifecycle. */
+.ws-portfolio-refresh { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; margin-bottom:20px; font-size:var(--type-small); color:#98a18b; }
+.ws-portfolio-refresh > div { display:flex; align-items:center; flex-wrap:wrap; gap:9px; }
+.ws-portfolio-refresh time { color:#6f7c65; }
+.ws-portfolio-refresh > p { flex-basis:100%; margin:0; color:#d5b46a; line-height:1.5; }
+.ws-refresh-dot { width:6px; height:6px; border-radius:50%; background:#8abf9b; }
+.ws-refresh-stale { background:#d5b46a; }
+.ws-portfolio-refresh button:disabled { opacity:.6; cursor:wait; }
+.ws-portfolio-heading { display:flex; justify-content:space-between; align-items:center; gap:24px; margin:32px 0 24px; }
+.ws-portfolio-heading h2 { font:var(--type-subheading) Georgia,serif; color:#e5e4d6; margin:8px 0 10px; }
+.ws-portfolio-heading p { color:#98a18b; font-size:var(--type-small); line-height:1.7; max-width:600px; margin:0; }
+.ws-portfolio-heading > a { flex-shrink:0; }
+.ws-portfolio-toolbar { display:flex; align-items:center; justify-content:space-between; gap:18px; margin-bottom:22px; flex-wrap:wrap; }
+.ws-portfolio-filters { display:flex; gap:6px; flex-wrap:wrap; }
+.ws-portfolio-filters button { display:flex; align-items:center; gap:9px; padding:12px 14px; border:1px solid #ffffff10; border-radius:5px; color:#a8b19b; background:#111615; font-size:var(--type-small); cursor:pointer; }
+.ws-portfolio-filters button[aria-pressed="true"] { color:#e0c179; background:#c9a24b10; border-color:#c9a24b60; }
+.ws-portfolio-filters button span { font-size:var(--type-caption); color:#89977d; }
+.ws-portfolio-search { display:flex; align-items:center; gap:9px; padding:0 12px; background:#0d1110; border:1px solid #ffffff14; border-radius:5px; color:#89977d; max-width:300px; }
+.ws-portfolio-search input { min-width:0; width:100%; padding:13px 0; border:0; background:transparent; color:#d5dccb; font:inherit; font-size:var(--type-ui); outline-offset:3px; }
+.ws-portfolio-positions > section { min-width:0; }
+.ws-portfolio-positions .ws-panel-header { gap:12px; align-items:flex-start; }
+.ws-portfolio-positions .ws-panel-header h2 { overflow-wrap:anywhere; }
+.ws-portfolio-positions .ws-badge { flex-shrink:0; }
+.ws-position-principal { display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; margin-bottom:18px; color:#98a18b; font-size:var(--type-small); }
+.ws-position-principal strong { color:#dedfcf; font-size:var(--type-ui); overflow-wrap:anywhere; }
+.ws-position-settlement { padding:22px; border:1px solid #8abf9b30; border-radius:7px; background:linear-gradient(135deg,#8abf9b09,transparent); }
+.ws-settlement-title { display:flex; align-items:center; gap:9px; color:#a9cdb2; font-size:var(--type-ui); margin-bottom:18px; }
+.ws-position-settlement dl { margin:0; }
+.ws-position-settlement dl > div { display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; padding:12px 0; font-size:var(--type-small); color:#98a18b; }
+.ws-position-settlement dd { margin:0; color:#dbe4ce; font-size:var(--type-ui); overflow-wrap:anywhere; }
+.ws-position-settlement .ws-settlement-total { margin-top:8px; border-top:1px solid #ffffff12; }
+.ws-settlement-total dd { color:#b8d4a9; font-weight:600; }
+.ws-position-settlement p { margin:16px 0 0; font-size:var(--type-caption); color:#94a285; line-height:1.6; }
+.ws-position-dates { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; margin:20px 0 16px; font-size:var(--type-small); }
+.ws-position-dates dt { color:#859477; margin-bottom:6px; }
+.ws-position-dates dd { margin:0; color:#c2ccb5; }
+.ws-position-reference { border-top:1px solid #ffffff0a; padding-top:14px; font-size:var(--type-caption); color:#8d9b7d; overflow-wrap:anywhere; }
+.ws-position-reference summary { cursor:pointer; padding:5px 0; }
+.ws-position-reference > span { display:block; margin-top:9px; }
+@media(max-width:760px) {
+ .ws-portfolio-heading { align-items:flex-start; flex-direction:column; }
+ .ws-portfolio-toolbar { align-items:stretch; flex-direction:column; }
+ .ws-portfolio-search { max-width:none; }
+ .ws-portfolio-filters button { padding:12px 10px; }
+ .ws-portfolio-positions { grid-template-columns:minmax(0,1fr); }
+ .ws-position-settlement { padding:16px; }
+ .ws-portfolio-summary .ws-stat-card strong { overflow-wrap:anywhere; }
+}
+
+.ws-position-pending { color:#d5b46a; font-size:var(--type-small); line-height:1.6; }
+.ws-position-settlement dd.ws-negative { color:#df9d90; }
+.ws-position-settlement dd.ws-positive { color:#a9cdb2; }

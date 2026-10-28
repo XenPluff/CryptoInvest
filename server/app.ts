@@ -6,6 +6,7 @@ import { Prisma, Transaction, Investment, Plan } from "@prisma/client";
 import { z, ZodError } from "zod";
 import PDFDocument from "pdfkit";
 import { prisma } from "./db";
+import { readInvestorPortfolio } from "./investor-portfolio";
 import { HttpError } from "./errors";
 import {
   authRouter,
@@ -297,52 +298,19 @@ api.get("/wallets", requireAuth, async (_req, res) =>
 );
 api.get("/dashboard", requireAuth, async (req, res) => {
   const id = userId(req);
-  const [
-    balance,
-    investments,
-    transactions,
-    notifications,
-    earnings,
-    referrals,
-  ] = await Promise.all([
-    balanceCents(prisma, id),
-    prisma.investment.findMany({
-      where: { userId: id },
-      orderBy: { startTimestamp: "desc" },
-    }),
-    prisma.transaction.findMany({
-      where: { userId: id },
-      orderBy: { createdAt: "desc" },
-      take: 100,
-    }),
-    prisma.notification.findMany({
-      where: { userId: id },
-      orderBy: { createdAt: "desc" },
-      take: 20,
-    }),
-    prisma.ledgerEntry.aggregate({
-      where: { userId: id, kind: "REALIZED_EARNINGS" },
-      _sum: { amountCents: true },
-    }),
-    prisma.ledgerEntry.aggregate({
-      where: { userId: id, kind: "REFERRAL_COMMISSION" },
-      _sum: { amountCents: true },
-    }),
-  ]);
-  res.json({
-    balance: money(balance),
-    invested: money(
-      investments
-        .filter((i) => i.status === "ACTIVE")
-        .reduce((sum, i) => sum + i.principalCents, 0),
-    ),
-    totalEarned: money(earnings._sum.amountCents || 0),
-    referralEarnings: money(referrals._sum.amountCents || 0),
-    investments: investments.map(investmentJson),
-    transactions: transactions.map(transactionJson),
-    notifications,
-    user: await serializeUser(req.auth!.user),
-  });
+  const result = await prisma.$transaction(async tx => {
+    const [balance, portfolio, transactions, notifications, referrals] = await Promise.all([
+      balanceCents(tx, id),
+      readInvestorPortfolio(tx, id),
+      tx.transaction.findMany({ where: { userId: id }, orderBy: { createdAt: "desc" }, take: 100 }),
+      tx.notification.findMany({ where: { userId: id }, orderBy: { createdAt: "desc" }, take: 20 }),
+      tx.ledgerEntry.aggregate({ where: { userId: id, kind: "REFERRAL_COMMISSION" }, _sum: { amountCents: true } }),
+    ]);
+    return { ...portfolio, balance: money(balance), invested: money(portfolio.summary.activePrincipalCents),
+      referralEarnings: money(referrals._sum.amountCents ?? 0),
+      transactions: transactions.map(transactionJson), notifications };
+  }, { isolationLevel: Prisma.TransactionIsolationLevel.RepeatableRead });
+  res.json({ ...result, user: await serializeUser(req.auth!.user) });
 });
 api.get("/transactions", requireAuth, async (req, res) =>
   res.json({
@@ -355,16 +323,11 @@ api.get("/transactions", requireAuth, async (req, res) =>
     ).map(transactionJson),
   }),
 );
-api.get("/investments", requireAuth, async (req, res) =>
-  res.json({
-    investments: (
-      await prisma.investment.findMany({
-        where: { userId: userId(req) },
-        orderBy: { startTimestamp: "desc" },
-      })
-    ).map(investmentJson),
-  }),
-);
+api.get("/investments", requireAuth, async (req, res) => {
+  const result = await prisma.$transaction(tx => readInvestorPortfolio(tx, userId(req)),
+    { isolationLevel: Prisma.TransactionIsolationLevel.RepeatableRead });
+  res.json(result);
+});
 api.get("/deposit-price", requireAuth, async (req, res) => {
   const asset = z.enum(["BTC", "ETH", "USDT", "BNB", "SOL"]).parse(req.query.asset);
   res.json({ price: await readDepositPrice(asset) });

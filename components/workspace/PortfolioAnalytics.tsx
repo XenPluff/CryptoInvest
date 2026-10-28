@@ -7,7 +7,8 @@ import type {
   AllocationObservation,
   PortfolioAnalyticsResponse,
 } from "@/lib/analytics";
-import { LoadState, useRemote } from "./shared";
+import { LoadState } from "./shared";
+import { usePortfolioRemote } from "./usePortfolioRemote";
 import styles from "./analytics.module.css";
 
 const colors = ["#c9a24b", "#8abf9b", "#9aaee4"];
@@ -234,7 +235,7 @@ export function AllocationBars({
 
 export function PortfolioAnalytics() {
   useDisplayLocale();
-  const remote = useRemote<PortfolioAnalyticsResponse>("/analytics");
+  const remote = usePortfolioRemote<PortfolioAnalyticsResponse>("/analytics");
   if (remote.loading || remote.error) return <TranslatedContent>{<LoadState {...remote} />}</TranslatedContent>;
   const data = remote.data!;
   return <TranslatedContent>{(

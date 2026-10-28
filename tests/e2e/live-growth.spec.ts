@@ -25,6 +25,7 @@ async function loadClockFixture(page: Page, shareholder = false) {
   await page.route("**/api/investments", (route) =>
     route.fulfill({
       json: {
+        summary: { activePrincipalCents: shareholder ? 100000000 : 10000, realizedEarningsCents: 0, principalReturnedCents: 0, activePositions: 1, settledPositions: 0 },
         investments: [
           {
             id: "ui-clock-investment",
@@ -67,7 +68,7 @@ test("UI clock fixture: minimum Starter balance visibly ticks each second and fr
   await page.clock.runFor(1000);
   await expect(balance).toHaveText("$100.000057USD");
   await expect(earnings).toHaveText("+$0.000057");
-  await expect(page.getByText("$0.00", { exact: true })).toBeVisible();
+  await expect(page.locator('[data-position-earnings="ui-clock-investment"]')).toHaveText("$0.00");
   await expect(
     page.getByText(/Extra decimal places are not settled money/),
   ).toBeVisible();
