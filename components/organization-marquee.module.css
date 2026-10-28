@@ -1,7 +1,7 @@
 .section { padding:38px 0 32px; border-block:1px solid var(--border); background:var(--surface); overflow:hidden; }
 .heading { display:flex; align-items:center; justify-content:space-between; gap:24px; margin-bottom:24px; }
 .heading .description { font-size:var(--type-body); line-height:var(--type-leading-body); color:var(--muted); margin-top:10px; }
-.viewport { overflow:hidden; direction:ltr; background:transparent; mask-image:linear-gradient(to right,transparent,#000 4%,#000 96%,transparent); }
+.viewport { overflow:hidden; direction:ltr; background:rgba(255,255,255,.1); mask-image:linear-gradient(to right,transparent,#000 4%,#000 96%,transparent); }
 .track { display:flex; width:max-content; animation:logo-drift var(--logo-duration) linear infinite; will-change:transform; }
 .group { display:flex; align-items:center; flex-shrink:0; gap:0; margin:0; padding:0; list-style:none; }
 .tile { flex:0 0 190px; width:190px; height:78px; background:transparent; border:0; border-radius:0; }
