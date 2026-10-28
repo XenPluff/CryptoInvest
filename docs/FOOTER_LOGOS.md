@@ -39,6 +39,16 @@ objects or external image requests. CBIZ's SVG contains only static graphics.
 The full-color FinCEN seal retains its internal colors; other wordmarks use the
 existing theme-aware presentation. ISO's internal white lettering is preserved.
 
+Published in source `af2d7de4d05f40e6b0ceff4276c3dc1a2b0b5718`, Render deployment
+`dep-dbgs1poae00c73d97clg`. Hosted verification passed on October 28, 2026:
+all twelve original asset hashes, thirteen references in order, three columns,
+16 English/Arabic theme/width states, no click navigation or animations, and no
+page errors. Both theme screenshots confirm the compact grid. Initial status
+reads had transient proxy 502 responses; the first hosted width assertion timed
+out. The diagnostic run passed every state without code changes or reproducing
+overflow. No investor records were changed.
+
+
 ### Background-free footer presentation
 
 The owner requested removal of the white backgrounds in this section. The

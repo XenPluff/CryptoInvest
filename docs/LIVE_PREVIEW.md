@@ -5,8 +5,21 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `020536e8ca8144a6adbc4506cc130e939e2da5b5` from branch
+- Running source commit: `af2d7de4d05f40e6b0ceff4276c3dc1a2b0b5718` from branch
   `codex/aureon-render-preview`.
+- The compact ordered education-reference grid is live in deployment
+  `dep-dbgs1poae00c73d97clg`. Thirteen references use three small columns,
+  twelve official-source local logos and a readable CB Insights fallback name.
+  Certification and award badges are not published; AICPA is not duplicated.
+  The references remain static, non-clickable and background-free, with small
+  names, the external-education heading and no-affiliation/endorsement note.
+  Actual hosted HTML/assets pass all twelve source hashes, source order, three
+  columns, no navigation or animations and 16 English/Arabic theme/width states,
+  without API fixtures, page errors or production mutations. Both theme
+  screenshots confirm the compact arrangement. Initial proxy status-read errors
+  recovered; an initial width assertion timeout did not recur in the diagnostic
+  run, without code changes. Health remains connected with enabled funding and
+  passed email readiness. Catalogs cover 2,378 messages.
 - White backgrounds are removed from the footer education references in deployment
   `dep-dbgqrrfb9u1s7391pomg`. Tiles are transparent with no borders. ESMA's
   embedded white matte blends into each theme, and ISO's white outer margin is
