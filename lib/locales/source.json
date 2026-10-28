@@ -1598,6 +1598,9 @@
   "Blockchain transaction hash": [
     "components/workspace/DepositWorkspace.tsx"
   ],
+  "Blockdaemon": [
+    "components/SiteFooter.tsx"
+  ],
   "BNB": [
     "components/workspace/DepositWorkspace.tsx"
   ],
@@ -2620,7 +2623,7 @@
   "Educational reading to support your own research. This material is not personal investment advice.": [
     "app/insights/page.tsx"
   ],
-  "Educational resource only; no SEC endorsement of AUREON.": [
+  "Educational resources only; no affiliation or endorsement of AUREON is implied.": [
     "components/SiteFooter.tsx"
   ],
   "Elapsed days must be finite.": [
@@ -2811,6 +2814,9 @@
   ],
   "Escape": [
     "components/workspace/shared.tsx"
+  ],
+  "ESMA — European Securities and Markets Authority": [
+    "components/SiteFooter.tsx"
   ],
   "Establish your foundation.": [
     "components/Landing.tsx",

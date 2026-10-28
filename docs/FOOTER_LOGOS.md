@@ -17,6 +17,32 @@ from <https://www.sec.gov/themes/custom/uswds_sec/dist/img/logos/sec-logo-1x.png
 Both marks share the education heading and note below, in two static,
 non-clickable tiles. Neither is presented as an AUREON credential.
 
+The next owner request identifies Blockdaemon and ESMA as additional external
+education resources. Four other attachments did not render and cannot be
+identified or published from the supplied message. No badges are inferred from
+earlier uploads.
+
+- Blockdaemon: the current purple wordmark is taken from the official homepage
+  header, <https://www.blockdaemon.com/>, whose image source is
+  <https://cdn.prod.website-files.com/6a454e50f799e4616f7f1eba/6a84e41e53e82d99bf0b1ed9_Purple-Logo%20Lockup.svg>.
+  This differs from the older cyan mark visible in the message; the owner was
+  informed of that difference. Stored unchanged as `blockdaemon.svg` (4,323
+  bytes; SHA-256 `4a0cfe0fb73bf3968203373ee21deb6fb4be20d3d3f6c8e9e0d9681f2bbefad2`).
+  The SVG contains no script, foreign object, embedded image, event handler,
+  external request or imported stylesheet.
+- ESMA: the logo comes from the European Union's official
+  [ESMA profile](https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies/european-securities-and-markets-authority-esma_en),
+  using its [original image source](https://european-union.europa.eu/sites/default/files/styles/oe_theme_medium_no_crop/public/2023-01/ESMA%20Main%20Colour.jpg?itok=Opap-03M).
+  Stored unchanged as `esma.jpg` (28,879 bytes, 991×458; SHA-256
+  `0e71a2fbd2b34a3b8bde37c70744f2495a9bc0db905d86760da3140a7f1f0cff`).
+  The ESMA homepage itself returned HTTP 403; the official EU profile and image
+  returned HTTP 200. This is an education reference, not an authorization claim.
+
+These files live under `public/images/footer-logos/`. All four tiles are static
+and non-clickable. The heading stays “External investor education”; the shared
+note is now “Educational resources only; no affiliation or endorsement of AUREON
+is implied.” Both are translated across the site's languages.
+
 The two-resource footer is published in source `746d8a2bb0945217fc2a1a97f38089bf7ddae2cd`, Render
 deployment `dep-dbgpi9ei0phs738lqgi0`. Actual hosted HTML/assets passed 64
 language/theme/width states and both original PNG hashes on October 27, 2026.
@@ -24,9 +50,8 @@ language/theme/width states and both original PNG hashes on October 27, 2026.
 Published in source `65205b2d0b2036f611326fca9f9979d063794dd6`, Render deployment
 `dep-dbgougvlk1mc7394c0e0`; hosted footer verification passed on October 27, 2026.
 
-Its visible heading is “External investor education” and its accompanying note
-is “Educational resource only; no SEC endorsement of AUREON.” Both are translated
-across the site's languages. The images have no link, button, action, animation
+The original two-resource version used the accompanying note “Educational
+resource only; no SEC endorsement of AUREON.” The images have no link, button, action, animation
 or hover effect. This placement makes no registration or credential claim.
 
 ## Pending credential layout
