@@ -18,9 +18,8 @@ must accurately identify the relationship and link to its supporting record.
 ## Asset scope
 
 The uploaded `footer_logo.svg` is Sygnum; `pantera_white.svg` is Pantera Capital.
-Both originals are preserved locally. Their white artwork uses a dark display
-filter in light mode. Wordmarks use a light-grey display filter in dark mode
-for contrast against the dark section surface. Original asset bytes are unchanged. BNY, BitGo, Standard Chartered and Dukascopy marks were
+Both originals are preserved locally. All wordmarks use a black display filter in both themes for contrast against
+the solid white row. Text references use dark green-grey in both themes. Original asset bytes are unchanged. BNY, BitGo, Standard Chartered and Dukascopy marks were
 extracted from their official website headers. Swissquote's wordmark comes from
 its official header asset; LMAX uses its official website header PNG.
 
@@ -51,7 +50,29 @@ is video media and is not treated as a logo. No financial or administrative API,
 receiving address, account setting or company credential has been changed.
 
 
-## Current translucent white row
+## Current solid white row
+
+The connected Industry Resources strip uses solid white (`#fff`) in both
+site themes, deployed in `dep-dbh6gi0u01pc7389klqg`, source
+`e30a5651634a154a641cbd34afe74b7cd9475af5`. All wordmarks use a black display
+filter, and resource text uses `#34413a` in both themes for legibility on white.
+Original images are unchanged; individual tiles remain transparent, without
+gaps, borders or rounding. Soft outer-edge fading, existing sizes/order,
+non-clickable wrappers and the continuous 120-second loop are retained.
+
+Production build and six focused local/hosted browser checks pass across twelve
+English/Arabic dark/light states at 1440/390/320px. They verify solid white
+background, dark text/wordmark rendering, decoding of all 21 images, all 24
+non-interactive references in order, fit, seamless looping, motion on hover,
+static reduced-motion scrolling and no navigation/popups. Hosted checks use
+actual HTML/assets and content GET APIs without fixtures, page errors or
+mutations; the unchanged external ticker is isolated. Health is HTTP 200 with
+connected database, funding enabled and email readiness passed. Results and
+screenshots are in `.aureon/organization-solid-white/`, with matching deployment
+and health metadata in `.aureon/validation/`. Documentation commits do not
+automatically redeploy the running source.
+
+## Previous translucent white row
 
 The Industry Resources row has a shared white background at 10% opacity
 (`rgba(255,255,255,.1)`) in both themes, deployed in `dep-dbh6acflk1mc73fcnmvg`,

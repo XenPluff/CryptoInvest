@@ -5,9 +5,19 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `e7605e49a6868b5be6b413153f0b266c3eb780ea` from branch
+- Running source commit: `e30a5651634a154a641cbd34afe74b7cd9475af5` from branch
   `codex/aureon-render-preview`.
-- The Industry Resources row has one shared white background at 10% opacity
+- The Industry Resources row now uses solid white in both themes, deployed in
+  `dep-dbh6gi0u01pc7389klqg`. Wordmarks render black and text dark green-grey
+  for contrast. Original image files, order, connected tiles, non-clickable
+  wrappers and continuous motion are retained. Production build and six
+  local/hosted checks pass across twelve English/Arabic theme/width states,
+  including exact background and contrast styles, decoding, fit, loop, hover,
+  reduced motion and no navigation. Actual hosted GET checks use no fixtures,
+  mutations or page errors, isolating the unchanged external ticker. Health
+  remains connected with funding enabled and email readiness passed. See
+  [current logo-row treatment](ORGANIZATION_LOGOS.md).
+- Previously, the Industry Resources row used one shared white background at 10% opacity
   in both themes, deployed in `dep-dbh6acflk1mc73fcnmvg`. Transparent tiles
   remain connected and unclickable, with unchanged image files, order and
   continuous motion. Production build and six local/hosted checks pass across
