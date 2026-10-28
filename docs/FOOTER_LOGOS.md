@@ -2,6 +2,13 @@
 
 ## External resources
 
+### Faded-black caption
+
+The owner requested a faded-black color for “External resources”. The light
+theme now uses 65% black (`rgba(0,0,0,.65)`); dark mode uses a readable subdued
+charcoal-grey (`#818181`). This only changes the caption's color. The text,
+translations, reference list, dimensions and non-clickable grid are unchanged.
+
 ### Single muted-grey label
 
 The owner approved replacing the former education heading and explanatory
