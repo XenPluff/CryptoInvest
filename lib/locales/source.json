@@ -992,9 +992,6 @@
   "AI-generated product design study. No payment function.": [
     "app/cards/page.tsx"
   ],
-  "AICPA — American Institute of Certified Public Accountants": [
-    "components/SiteFooter.tsx"
-  ],
   "Alert acknowledged. Monitoring continues until the condition clears.": [
     "components/workspace/Operations.tsx"
   ],
@@ -2815,9 +2812,6 @@
   "Escape": [
     "components/workspace/shared.tsx"
   ],
-  "ESMA — European Securities and Markets Authority": [
-    "components/SiteFooter.tsx"
-  ],
   "Establish your foundation.": [
     "components/Landing.tsx",
     "lib/i18n.ts"
@@ -3615,9 +3609,6 @@
     "components/workspace/Workspace.tsx",
     "lib/page-titles.ts"
   ],
-  "Investor.gov — U.S. Securities and Exchange Commission": [
-    "components/SiteFooter.tsx"
-  ],
   "Investors": [
     "components/workspace/Workspace.tsx"
   ],
@@ -3635,9 +3626,6 @@
   ],
   "Is the live investment counter a realized profit?": [
     "app/support/page.tsx"
-  ],
-  "ISO — International Organization for Standardization": [
-    "components/SiteFooter.tsx"
   ],
   "issued": [
     "localization"
@@ -6746,9 +6734,6 @@
   ],
   "Type QUEUE CAMPAIGN to confirm": [
     "components/workspace/ContentOperations.tsx"
-  ],
-  "U.S. Securities and Exchange Commission": [
-    "components/SiteFooter.tsx"
   ],
   "Ukrainian": [
     "localization"

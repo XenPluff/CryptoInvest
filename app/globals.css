@@ -981,15 +981,19 @@ p {
   line-height: 1.8;
 }
 .footer-identity-with-logos { width:320px; max-width:100%; min-width:0; }
-.footer-education { width:260px; max-width:100%; margin:22px 0 0; }
+.footer-education { width:320px; max-width:100%; margin:22px 0 0; }
 .footer-education figcaption { margin-bottom:10px; font-size:9px; line-height:1.6; letter-spacing:.1em; text-transform:uppercase; }
-.footer-education-logos { display:grid; gap:10px; }
-.footer-education-logo { display:flex; align-items:center; justify-content:center; width:230px; max-width:100%; padding:12px; border:0; background:transparent; }
-.footer-education-logo img { display:block; width:100%; height:auto; object-fit:contain; pointer-events:none; user-select:none; }
-:root:not([data-theme="light"]) .footer-education-logo img:not(.footer-education-iso) { filter:grayscale(1) invert(1); }
-.footer-education-logo .footer-education-matte { mix-blend-mode:screen; }
-:root[data-theme="light"] .footer-education-logo .footer-education-matte { mix-blend-mode:multiply; }
-.footer-education-logo .footer-education-iso { clip-path:inset(30.15873% 39.58333%); }
+.footer-education-logos { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px 8px; margin:0; padding:0; list-style:none; }
+.footer-education-logo { display:flex; flex-direction:column; align-items:center; min-width:0; height:74px; padding:4px 0; gap:6px; border:0; background:transparent; }
+.footer-education-art { display:flex; align-items:center; justify-content:center; width:100%; height:40px; flex-shrink:0; overflow:hidden; }
+.footer-education-logo img { display:block; max-width:100%; max-height:40px; width:auto; height:auto; object-fit:contain; pointer-events:none; user-select:none; }
+.footer-education-name { width:100%; text-align:center; font-size:9px; line-height:12px; overflow-wrap:break-word; }
+.footer-education-text { font-size:11px; font-weight:600; text-align:center; }
+.footer-education-logo:has(.footer-education-text) .footer-education-name { visibility:hidden; }
+:root:not([data-theme="light"]) .footer-education-logo img:not([data-presentation="iso"]):not([data-presentation="color"]) { filter:grayscale(1) invert(1); }
+.footer-education-logo img[data-presentation="matte"] { width:140%; max-width:none; max-height:none; height:auto; flex-shrink:0; mix-blend-mode:screen; }
+:root[data-theme="light"] .footer-education-logo img[data-presentation="matte"] { mix-blend-mode:multiply; }
+.footer-education-logo img[data-presentation="iso"] { width:192px; height:100.8px; max-width:none; max-height:none; flex-shrink:0; clip-path:inset(30.15873% 39.58333%); }
 .footer-education p { margin-top:9px; font-size:10px; line-height:1.7; }
 .footer-education,.footer-education * { animation:none!important; transition:none!important; transform:none!important; }
 .footer-logo-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; width:100%; max-width:320px; margin:22px 0 0; padding:0; list-style:none; }

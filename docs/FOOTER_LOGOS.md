@@ -2,6 +2,43 @@
 
 ## Investor education resources
 
+### Compact resource grid
+
+The owner requested smaller logos arranged in order. The section now uses
+`lib/education-resources.json` to render a static, non-clickable three-column
+grid, at most 320px wide, with 40px image areas, 74px rows and small readable
+organization labels. The existing five references remain first; new references
+follow the upload order: FinCEN, CFTC, ASIC, FINMA, Central Bank of Ireland, FCA,
+CBIZ and CB Insights. AICPA is not duplicated.
+
+There are thirteen references: twelve local logo images and a readable CB
+Insights name fallback. The CB Insights homepage, research page and favicon
+returned HTTP 403; no image is fabricated. The owner was informed before
+implementation. The CBIZ ISO 27001 seal, AICPA SOC seal and CB Insights Blockchain
+50 award badge are not published. They are represented only by ordinary
+organization references under the existing education heading and
+no-affiliation/endorsement note. No regulatory, audit, certification, award or
+relationship claim is made for AUREON.
+
+New original assets come from the official sites:
+
+| Reference | Original asset source | SHA-256 |
+| --- | --- | --- |
+| FinCEN | <https://www.fincen.gov/themes/custom/fincen/logo.png> | `b9165b4cef1148639df0344575ac0b24bd301cd434128cecef516a3c36d80bc6` |
+| CFTC | <https://www.cftc.gov/sites/all/themes/cftc/images/Final-CFTC-Logo-Long.png> | `435176b9f22593848e9f69c39ecc4d577f373177c3b3ccff77ac45fd584cc73a` |
+| ASIC | <https://download.asic.gov.au/asic-nextgen/img/asic-logo.svg> | `6d6204d0a53859e784b835fda394e51837c1ee65446282896ea627e4437e00c5` |
+| FINMA | <https://www.finma.ch/~/media/finma/images/logo/finma-logo.png> | `035c96ed13637c80568bf239d25a9bc9e14d984b92c54d15285ba4ea0d2ae707` |
+| Central Bank of Ireland | <https://www.centralbank.ie/images/default-source/logos/logo.png?sfvrsn=3dff671a_5> | `bbe43f6d15e41e88737e3f11c53c86bfc55839f3510b265abd3b4f800fc68436` |
+| FCA | <https://www.fca.org.uk/themes/custom/fca/images/logo.png> | `b496e1dd3a7bf10198e335bb0cb647bb372b16113faadf19783477b5e866a7e4` |
+| CBIZ | <https://www.cbiz.com/wp-content/uploads/2024/11/brand.svg> | `ab6c118e0d2467b8a987ecc7bfbf1d8451b631505fc5310e7dd6c52695671207` |
+
+All assets stay under `public/images/footer-logos/`, with no hotlinked images.
+The ASIC SVG embeds a static PNG as a data URI; its XML, references and decoded
+PNG signature were inspected. There are no scripts, event handlers, foreign
+objects or external image requests. CBIZ's SVG contains only static graphics.
+The full-color FinCEN seal retains its internal colors; other wordmarks use the
+existing theme-aware presentation. ISO's internal white lettering is preserved.
+
 ### Background-free footer presentation
 
 The owner requested removal of the white backgrounds in this section. The

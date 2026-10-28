@@ -8,6 +8,7 @@ import { AureonMark } from "./SiteHeader";
 import { SUPPORT_EMAIL, SUPPORT_EMAIL_URL } from "@/lib/contact";
 import FooterLogoGrid from "./FooterLogoGrid";
 import footerLogos from "@/lib/footer-logos.json";
+import educationResources from "@/lib/education-resources.json";
 export default function SiteFooter() {
   useDisplayLocale();
   const { t } = useTranslation();
@@ -30,23 +31,14 @@ export default function SiteFooter() {
             <FooterLogoGrid logos={footerLogos} label={t("Company information")} />
             <figure className="footer-education">
               <figcaption>{t("External investor education")}</figcaption>
-              <div className="footer-education-logos">
-                <div className="footer-education-logo">
-                  <img src="/images/footer-logos/investor-gov.png" alt="Investor.gov — U.S. Securities and Exchange Commission" width={326} height={81} loading="lazy" draggable={false} translate="no" />
-                </div>
-                <div className="footer-education-logo">
-                  <img src="/images/footer-logos/sec.png" alt="U.S. Securities and Exchange Commission" width={1248} height={316} loading="lazy" draggable={false} translate="no" />
-                </div>
-                <div className="footer-education-logo">
-                  <img src="/images/footer-logos/aicpa.png" alt="AICPA — American Institute of Certified Public Accountants" width={1200} height={630} loading="lazy" draggable={false} translate="no" />
-                </div>
-                <div className="footer-education-logo">
-                  <img src="/images/footer-logos/esma.jpg" alt="ESMA — European Securities and Markets Authority" width={991} height={458} loading="lazy" draggable={false} translate="no" className="footer-education-matte" />
-                </div>
-                <div className="footer-education-logo">
-                  <img src="/images/footer-logos/iso.png" alt="ISO — International Organization for Standardization" width={1200} height={630} loading="lazy" draggable={false} translate="no" className="footer-education-iso" />
-                </div>
-              </div>
+              <ul className="footer-education-logos">
+                {educationResources.map(resource => <li key={resource.id} className="footer-education-logo" data-resource={resource.id}>
+                  <span className="footer-education-art">
+                    {resource.image ? <img src={resource.image} alt={resource.name} width={resource.width} height={resource.height} loading="lazy" draggable={false} translate="no" data-presentation={resource.presentation || undefined} /> : <span className="footer-education-text" translate="no">{resource.name}</span>}
+                  </span>
+                  <span className="footer-education-name" translate="no" aria-hidden={resource.image ? true : undefined}>{resource.label}</span>
+                </li>)}
+              </ul>
               <p>{t("Educational resources only; no affiliation or endorsement of AUREON is implied.")}</p>
             </figure>
           </div>

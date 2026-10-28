@@ -1,0 +1,119 @@
+[
+  {
+    "id": "investor-gov",
+    "label": "Investor.gov",
+    "name": "Investor.gov — U.S. Securities and Exchange Commission",
+    "image": "/images/footer-logos/investor-gov.png",
+    "width": 326,
+    "height": 80,
+    "presentation": ""
+  },
+  {
+    "id": "sec",
+    "label": "SEC",
+    "name": "U.S. Securities and Exchange Commission",
+    "image": "/images/footer-logos/sec.png",
+    "width": 1248,
+    "height": 316,
+    "presentation": ""
+  },
+  {
+    "id": "aicpa",
+    "label": "AICPA",
+    "name": "AICPA — American Institute of Certified Public Accountants",
+    "image": "/images/footer-logos/aicpa.png",
+    "width": 1200,
+    "height": 630,
+    "presentation": ""
+  },
+  {
+    "id": "esma",
+    "label": "ESMA",
+    "name": "ESMA — European Securities and Markets Authority",
+    "image": "/images/footer-logos/esma.jpg",
+    "width": 991,
+    "height": 458,
+    "presentation": "matte"
+  },
+  {
+    "id": "iso",
+    "label": "ISO",
+    "name": "ISO — International Organization for Standardization",
+    "image": "/images/footer-logos/iso.png",
+    "width": 1200,
+    "height": 630,
+    "presentation": "iso"
+  },
+  {
+    "id": "fincen",
+    "label": "FinCEN",
+    "name": "FinCEN — Financial Crimes Enforcement Network",
+    "image": "/images/footer-logos/fincen.png",
+    "width": 400,
+    "height": 400,
+    "presentation": "color"
+  },
+  {
+    "id": "cftc",
+    "label": "CFTC",
+    "name": "CFTC — Commodity Futures Trading Commission",
+    "image": "/images/footer-logos/cftc.png",
+    "width": 1200,
+    "height": 349,
+    "presentation": ""
+  },
+  {
+    "id": "asic",
+    "label": "ASIC",
+    "name": "ASIC — Australian Securities and Investments Commission",
+    "image": "/images/footer-logos/asic.svg",
+    "width": 312,
+    "height": 66,
+    "presentation": ""
+  },
+  {
+    "id": "finma",
+    "label": "FINMA",
+    "name": "FINMA — Swiss Financial Market Supervisory Authority",
+    "image": "/images/footer-logos/finma.png",
+    "width": 412,
+    "height": 94,
+    "presentation": ""
+  },
+  {
+    "id": "central-bank-ireland",
+    "label": "Central Bank of Ireland",
+    "name": "Central Bank of Ireland",
+    "image": "/images/footer-logos/central-bank-ireland.png",
+    "width": 288,
+    "height": 126,
+    "presentation": ""
+  },
+  {
+    "id": "fca",
+    "label": "FCA",
+    "name": "FCA — Financial Conduct Authority",
+    "image": "/images/footer-logos/fca.png",
+    "width": 320,
+    "height": 101,
+    "presentation": ""
+  },
+  {
+    "id": "cbiz",
+    "label": "CBIZ",
+    "name": "CBIZ",
+    "image": "/images/footer-logos/cbiz.svg",
+    "width": 144,
+    "height": 37,
+    "presentation": ""
+  },
+  {
+    "id": "cb-insights",
+    "label": "CB Insights",
+    "name": "CB Insights",
+    "image": "",
+    "width": 0,
+    "height": 0,
+    "presentation": "text"
+  }
+]
