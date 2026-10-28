@@ -22,6 +22,13 @@ the shared external-education heading and no-affiliation/endorsement note.
 Its alt text identifies the International Organization for Standardization.
 Credential-logo data remains empty.
 
+Published in source `ca0b6495561bfb82f3c6ede4cc13c30eeea2b3f6`, Render deployment
+`dep-dbgqi3p42hec73dpgimg`. Hosted verification passed on October 28, 2026:
+all five original image hashes, 16 English/Arabic theme/width states, successful
+decoding, no click navigation or animations, and no page errors. No investor
+records were changed.
+
+
 ### AICPA replacement
 
 The owner explicitly chose a standard AICPA organization logo to replace the

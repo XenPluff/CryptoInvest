@@ -5,8 +5,17 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `fc313304c783b8256f022c7a2300952d340ef432` from branch
+- Running source commit: `ca0b6495561bfb82f3c6ede4cc13c30eeea2b3f6` from branch
   `codex/aureon-render-preview`.
+- The standard ISO organization logo is live as the fifth education reference in
+  deployment `dep-dbgqi3p42hec73dpgimg`. The original official-homepage PNG
+  appears in the existing static, non-clickable footer section with its shared
+  external-education heading and no-affiliation/endorsement note. The uploaded
+  ISO 27001 Certified badge is not published. Actual hosted HTML/assets pass all
+  five source-image hashes, decoding, no navigation or animations, and 16
+  English/Arabic theme/width states without API fixtures, page errors or
+  production mutations. Health remains connected with enabled funding and passed
+  email readiness. Catalogs cover 2,383 messages; credential-logo data stays empty.
 - The standard AICPA organization logo replaces the third footer education tile
   in deployment `dep-dbgqde8ae00c73d5hq00`. The exact official-site PNG loads
   beneath the existing external-education heading with the no-affiliation/
