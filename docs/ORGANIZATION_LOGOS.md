@@ -3,8 +3,9 @@
 The compact row sits directly between the investment packages and Aureon card
 concept section. Two equal-width groups provide a continuous horizontal loop.
 Duplicate marks are hidden from assistive technology and skipped in keyboard
-navigation. Motion pauses on hover, keyboard focus or the pause control; reduced
-motion preferences use a static row with horizontal scrolling. Image failures
+navigation. There are no play/pause controls or explanatory caption beneath the
+row. Motion continues on hover and keyboard focus; device reduced-motion
+preferences use a static row with horizontal scrolling. Image failures
 fall back to the organization's readable name.
 
 The current heading identifies external industry resources. The row makes no

@@ -3803,9 +3803,6 @@
     "components/SiteHeader.tsx",
     "lib/i18n.ts"
   ],
-  "Logos identify external resources. They do not imply an AUREON partnership, endorsement, certification or regulatory approval.": [
-    "components/OrganizationMarquee.tsx"
-  ],
   "Longer time horizons can change how you experience volatility, but they do not guarantee recovery or returns. Understand lockups, withdrawal restrictions and the terms that apply to your capital.": [
     "app/insights/page.tsx"
   ],
@@ -4533,9 +4530,6 @@
   "PATCH": [
     "components/workspace/ContentOperations.tsx",
     "components/workspace/admin.tsx"
-  ],
-  "Pause logo scrolling": [
-    "components/OrganizationMarquee.tsx"
   ],
   "Pause.": [
     "lib/video-content.ts"
@@ -5446,9 +5440,6 @@
   ],
   "Results after costs": [
     "app/approach/page.tsx"
-  ],
-  "Resume logo scrolling": [
-    "components/OrganizationMarquee.tsx"
   ],
   "Resume payment": [
     "components/workspace/DepositWorkspace.tsx"
