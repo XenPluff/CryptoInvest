@@ -59,3 +59,17 @@ viewport-unit sizes; the sign-in page checks target its main fields explicitly,
 since the passkey form also contains an email input. No application accounts or
 financial records are created by these checks. Live deployment verification is
 recorded separately in `LIVE_PREVIEW.md` and `VALIDATION.md`.
+
+## Live verification
+
+Published on October 28, 2026 in source `e7bbdb8c32753ad32b0d61161ad17d7b72c041d3`, Render
+deployment `dep-dbgvvion74is73dh28dg` at <https://aureon-preview.onrender.com>.
+Actual hosted HTML/assets pass the 28-route English/Arabic core (352 states),
+plus all-eight-language home/deposit navigation (48 states): 400 sampled states
+with no page overflow, unexpected heading size or page errors. Browser-only
+fixtures populate public and private views, without server data changes.
+A page-load timeout interrupted the initial navigation continuation; the focused
+retry used cached immutable hosted assets and settled fonts/layout, passing the
+remaining 48 states without source changes. Real health reports a connected
+database, enabled funding and passed email readiness. No production financial
+record, account, message, approval or backup was created by verification.

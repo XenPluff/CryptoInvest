@@ -5,8 +5,25 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `c227c3b5ba5ee2f18af075c697c86f23e500e80b` from branch
+- Running source commit: `e7bbdb8c32753ad32b0d61161ad17d7b72c041d3` from branch
   `codex/aureon-render-preview`.
+- The website-wide text scale is live in deployment `dep-dbgvvion74is73dh28dg`:
+  18px reading copy, 16px navigation/buttons/controls, 12–14px supporting text,
+  22px panel/card titles, responsive section headings up to 36px and main headings
+  up to 48px. Public pages, sign-in forms and both workspaces use shared tokens.
+  Layout updates support translated navigation, wrapped actions/search, inputs,
+  long footer labels and narrow operations/financial cards. Existing artwork,
+  branding, image files and the company-profile PDF are unchanged.
+  The production build, six localization cases and all 18 existing isolated
+  browser cases pass. Actual hosted HTML/assets pass the 28-route core in
+  English/Arabic (352 states) and all-eight-language home/deposit navigation
+  (48 states), totaling 400 sampled states without overflow or page errors.
+  Browser-only API fixtures populate public/private views; no production account,
+  transaction, email or backup is created. A page-load timeout in the initial
+  navigation continuation was resolved by a focused verification retry with
+  cached immutable assets and settled fonts/layout; no source change was needed.
+  Real health remains connected with enabled funding and passed email readiness.
+  See [text sizes and scope](TYPOGRAPHY.md).
 - The “External resources” caption is at 30% transparency (70% opacity) in
   deployment `dep-dbgsvi9srm7s73enqtqg`. The caption alone has `opacity:.7`,
   using black in light mode and a readable subdued-grey result in dark mode.
