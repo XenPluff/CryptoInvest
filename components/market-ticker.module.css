@@ -12,16 +12,3 @@
   border: 0;
   color-scheme: normal;
 }
-.attribution {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 32px;
-  padding: 3px 12px;
-  font-size: var(--type-caption);
-  line-height: 1.5;
-  text-align: center;
-}
-.attribution a { color: var(--muted); text-decoration: none; }
-.attribution a:hover { color: var(--text); text-decoration: underline; }
-.attribution a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }

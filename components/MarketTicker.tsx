@@ -34,10 +34,5 @@ export default function MarketTicker() {
     <iframe key={`${theme}-${providerLocale}`} className={styles.widget}
       src={src} title={`TradingView — ${t("Market insights")}`}
       height={58} loading="lazy" referrerPolicy="origin" />
-    <div className={styles.attribution}>
-      <a href="https://www.tradingview.com/markets/cryptocurrencies/prices/" target="_blank" rel="noopener noreferrer">
-        {t("Track all markets on TradingView")}
-      </a>
-    </div>
   </div>;
 }
