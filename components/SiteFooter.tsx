@@ -15,7 +15,7 @@ export default function SiteFooter() {
     <footer className="site-footer">
       <div className="container">
         <div className="footer-top">
-          <div className={footerLogos.length ? "footer-identity-with-logos" : undefined}>
+          <div className="footer-identity-with-logos">
             <Link href="/" className="brand">
               <AureonMark />
               <span>
@@ -28,6 +28,13 @@ export default function SiteFooter() {
               {t("An extraordinary perspective.")}
             </p>
             <FooterLogoGrid logos={footerLogos} label={t("Company information")} />
+            <figure className="footer-education">
+              <figcaption>{t("External investor education")}</figcaption>
+              <div className="footer-education-logo">
+                <img src="/images/footer-logos/investor-gov.png" alt="Investor.gov — U.S. Securities and Exchange Commission" width={326} height={81} loading="lazy" draggable={false} translate="no" />
+              </div>
+              <p>{t("Educational resource only; no SEC endorsement of AUREON.")}</p>
+            </figure>
           </div>
           <div className="footer-links">
             <div>

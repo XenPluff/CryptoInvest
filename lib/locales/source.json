@@ -2620,6 +2620,9 @@
   "Educational reading to support your own research. This material is not personal investment advice.": [
     "app/insights/page.tsx"
   ],
+  "Educational resource only; no SEC endorsement of AUREON.": [
+    "components/SiteFooter.tsx"
+  ],
   "Elapsed days must be finite.": [
     "lib/investment.ts"
   ],
@@ -2952,6 +2955,9 @@
   ],
   "External evidence reference": [
     "components/workspace/admin.tsx"
+  ],
+  "External investor education": [
+    "components/SiteFooter.tsx"
   ],
   "External organizations and publications, in one place.": [
     "components/OrganizationMarquee.tsx"
@@ -3602,6 +3608,9 @@
   "INVESTOR WORKSPACE": [
     "components/workspace/Workspace.tsx",
     "lib/page-titles.ts"
+  ],
+  "Investor.gov — U.S. Securities and Exchange Commission": [
+    "components/SiteFooter.tsx"
   ],
   "Investors": [
     "components/workspace/Workspace.tsx"

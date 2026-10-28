@@ -2374,5 +2374,8 @@
   "· target": "· цільовий",
   "· updates every 30 seconds": "· оновлення кожні 30 секунд",
   "” and cancel its pending messages. Messages already accepted by the provider cannot be recalled.": "\"і скасувати повідомлення, які очікують на розгляд. Повідомлення, які вже прийняті постачальником, не можна відкликати.",
-  "•••• &nbsp;•••• &nbsp;•••• &nbsp;••••": "••••  ••••  ••••  ••••"
+  "•••• &nbsp;•••• &nbsp;•••• &nbsp;••••": "••••  ••••  ••••  ••••",
+  "External investor education": "Зовнішній освітній ресурс для інвесторів",
+  "Educational resource only; no SEC endorsement of AUREON.": "Лише освітній ресурс; SEC не схвалює AUREON.",
+  "Investor.gov — U.S. Securities and Exchange Commission": "Investor.gov — U.S. Securities and Exchange Commission"
 }

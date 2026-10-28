@@ -1,4 +1,20 @@
-# Footer logo layout — awaiting assets and verification
+# Footer resources and pending credential logos
+
+## Investor education resource
+
+The owner approved a static, non-clickable Investor.gov resource beneath the
+footer tagline. It uses the exact PNG supplied from the SEC website:
+<https://www.sec.gov/files/styles/card_with_sidebar_1x/public/images/sec-logo-investor-1x.png?itok=D8Qe5r5P>.
+The original image is stored unchanged at
+`public/images/footer-logos/investor-gov.png` (20,839 bytes; SHA-256
+`04bafe74854dcd35d0333c887f9cfe38f8b9e029996b6c97f46eb08079de718a`).
+
+Its visible heading is “External investor education” and its accompanying note
+is “Educational resource only; no SEC endorsement of AUREON.” Both are translated
+across the site's languages. The image has no link, button, action, animation
+or hover effect. This placement makes no registration or credential claim.
+
+## Pending credential layout
 
 A static, non-interactive three-column grid is prepared immediately after
 “A considered approach. An extraordinary perspective.” in `SiteFooter`.
@@ -8,9 +24,9 @@ click handlers, focus targets, animations or hover transitions. Logo images
 ignore pointer input and cannot be dragged.
 
 `lib/footer-logos.json` is deliberately empty. Consequently the normal footer
-renders no grid or placeholder and keeps its existing layout. The existing
-homepage marquee remains unchanged. This footer addition is a draft and has
-not been deployed.
+renders no credential grid or placeholder. The existing homepage marquee remains
+unchanged. The credential grid remains a draft; the separate Investor.gov
+educational resource does not populate it.
 
 The remaining identifiable images supplied in chat are regulator/authority
 marks, an AICPA SOC seal, a CBIZ ISO 27001 badge and a Blockchain 50/2022 award.
