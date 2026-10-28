@@ -5,8 +5,16 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 27, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `65205b2d0b2036f611326fca9f9979d063794dd6` from branch
+- Running source commit: `746d8a2bb0945217fc2a1a97f38089bf7ddae2cd` from branch
   `codex/aureon-render-preview`.
+- The additional SEC education logo is live in deployment `dep-dbgpi9ei0phs738lqgi0`.
+  Two compact, static, non-clickable tiles beneath the footer tagline share the
+  external-education heading and no-endorsement note. Actual hosted HTML/assets
+  pass 64 language/theme/width states, both original image SHA-256 matches,
+  decoding, no interactive elements or click navigation, and no animations or
+  page errors. No API fixtures or production mutations were used. Health remains
+  connected with enabled funding and passed email readiness. Catalogs cover
+  2,380 messages. Credential-logo data remains empty.
 - The static Investor.gov education resource is live beneath the footer tagline
   in deployment `dep-dbgougvlk1mc7394c0e0`. The exact supplied SEC-hosted PNG is
   compact and non-clickable, with a translated external-education heading and

@@ -17,6 +17,10 @@ from <https://www.sec.gov/themes/custom/uswds_sec/dist/img/logos/sec-logo-1x.png
 Both marks share the education heading and note below, in two static,
 non-clickable tiles. Neither is presented as an AUREON credential.
 
+The two-resource footer is published in source `746d8a2bb0945217fc2a1a97f38089bf7ddae2cd`, Render
+deployment `dep-dbgpi9ei0phs738lqgi0`. Actual hosted HTML/assets passed 64
+language/theme/width states and both original PNG hashes on October 27, 2026.
+
 Published in source `65205b2d0b2036f611326fca9f9979d063794dd6`, Render deployment
 `dep-dbgougvlk1mc7394c0e0`; hosted footer verification passed on October 27, 2026.
 
