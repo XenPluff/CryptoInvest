@@ -2,6 +2,22 @@
 
 ## Investor education resources
 
+### Background-free footer presentation
+
+The owner requested removal of the white backgrounds in this section. The
+education tiles now have a transparent background and no border. The source
+image files are unchanged: Investor.gov, SEC and AICPA already carry transparency.
+Dark mode renders these wordmarks and ESMA in lighter monochrome for contrast;
+light mode keeps their original colors.
+
+ESMA's JPEG has an embedded white matte, which is blended into the actual footer
+backdrop using screen blending in dark mode and multiply in light mode. ISO's
+official PNG has a white outer margin: a CSS inset clips just that margin using
+its original red-square bounds (x=475–725, y=190–440 in the 1200×630 image). Its
+red field and white internal lettering are preserved. No image pixels, brand
+geometry, text, source hashes, resource labels or reference order are modified.
+The resources remain static and non-clickable.
+
 ### ISO education reference
 
 The follow-up upload `file_000000007b9c8243bca96f2348368952` (`download.avif`)

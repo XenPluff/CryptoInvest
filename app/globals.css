@@ -984,8 +984,12 @@ p {
 .footer-education { width:260px; max-width:100%; margin:22px 0 0; }
 .footer-education figcaption { margin-bottom:10px; font-size:9px; line-height:1.6; letter-spacing:.1em; text-transform:uppercase; }
 .footer-education-logos { display:grid; gap:10px; }
-.footer-education-logo { display:flex; align-items:center; justify-content:center; width:230px; max-width:100%; padding:12px; border:1px solid #c9a24b24; border-radius:5px; background:#fff; }
+.footer-education-logo { display:flex; align-items:center; justify-content:center; width:230px; max-width:100%; padding:12px; border:0; background:transparent; }
 .footer-education-logo img { display:block; width:100%; height:auto; object-fit:contain; pointer-events:none; user-select:none; }
+:root:not([data-theme="light"]) .footer-education-logo img:not(.footer-education-iso) { filter:grayscale(1) invert(1); }
+.footer-education-logo .footer-education-matte { mix-blend-mode:screen; }
+:root[data-theme="light"] .footer-education-logo .footer-education-matte { mix-blend-mode:multiply; }
+.footer-education-logo .footer-education-iso { clip-path:inset(30.15873% 39.58333%); }
 .footer-education p { margin-top:9px; font-size:10px; line-height:1.7; }
 .footer-education,.footer-education * { animation:none!important; transition:none!important; transform:none!important; }
 .footer-logo-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; width:100%; max-width:320px; margin:22px 0 0; padding:0; list-style:none; }
