@@ -5,8 +5,19 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `260851fbf3cd664d024c1ff88cf9c94b2677d1b3` from branch
+- Running source commit: `8d02274e3cc5781c8468ce7ea65392539bf5627f` from branch
   `codex/aureon-render-preview`.
+- The requested globe labels are removed in deployment `dep-dbh2op59el5s73ak2030`:
+  the plus sign, “PRECISION IN EVERY ORBIT”, “THE AUREON SPHERE — 001”,
+  geographic coordinates and “THE LONG VIEW ↗”. The decorative scene is hidden
+  from accessibility tools inside the existing labelled artwork, so the renderer
+  is not separately announced as “canvas”. The globe, random two-second crypto
+  logo appearances and bottom “A WORLD OF POSSIBILITY.” caption remain.
+  Production build and ten local/hosted browser checks pass, including label
+  absence, renderer semantics and ongoing animation at 1440/390/320px. Actual
+  hosted verification uses GET APIs without fixtures, page/request errors or
+  mutations. All eight image hashes match; health remains connected, funding
+  enabled and email readiness passed.
 - The owner-selected Obsidian globe is live in deployment
   `dep-dbh23ucs728c73ckj8jg`. The dark metallic globe has gold continent lights,
   orbital trails and a subtle blue rim. Three decorative cryptocurrency logos

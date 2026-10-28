@@ -2,8 +2,8 @@
 
 **Selected Obsidian concept is live** at <https://aureon-preview.onrender.com>.
 The owner approved deployment on October 28, 2026. Render deployment
-`dep-dbh23ucs728c73ckj8jg` runs source
-`260851fbf3cd664d024c1ff88cf9c94b2677d1b3`. The working/source branch is
+`dep-dbh2op59el5s73ak2030` runs source
+`8d02274e3cc5781c8468ce7ea65392539bf5627f`. The working/source branch is
 `codex/aureon-orbital-globe`; the Render branch is `codex/aureon-render-preview`.
 
 The hero replaces the angular crystal and wire cage with an obsidian globe,
@@ -134,3 +134,27 @@ Results are `.aureon/validation/obsidian-hosted-check-result.json` and
 
 Automatic Render deployments remain disabled. Documentation commits after the
 source above do not change the running deployment.
+
+
+## Decorative label removal
+
+The owner's requested label removal is live in deployment `dep-dbh2op59el5s73ak2030`
+with source `8d02274e3cc5781c8468ce7ea65392539bf5627f`. The top plus sign and
+“PRECISION IN EVERY ORBIT / THE AUREON SPHERE — 001”, geographic coordinates,
+and “THE LONG VIEW ↗” are removed from `Landing`. The decorative scene wrapper
+has `aria-hidden="true"` inside the existing labelled artwork. The renderer
+remains in place for the animation, with no separately exposed “canvas” detail
+or visible canvas text. The bottom “A WORLD OF POSSIBILITY.” caption is retained.
+
+Production build and ten focused local/hosted checks pass: removed text and
+semantics, seven decoded logos, two-second appearance/fade, randomized cycles,
+advancing animation and fitted layouts at 1440/390/320px, reduced motion, the
+hidden-document event handler and offscreen teardown. Hosted checks use actual
+HTML, assets and GET APIs, without fixtures, page errors, request failures or
+mutations. Eight image hashes match source; public health reports connected
+database, enabled funding and passed email readiness.
+
+Results: `.aureon/validation/globe-label-removal-hosted-check-result.json` and
+`globe-label-removal-hosted-assets.json`. Hosted screenshots:
+`.aureon/orbit-preview/globe-label-removal-hosted-homepage.png` and
+`globe-label-removal-hosted-mobile.png`.
