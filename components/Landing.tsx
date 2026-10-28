@@ -27,6 +27,7 @@ import { PublishedAnnouncements } from "./public/Journal";
 import { VideoTeaser } from "./public/VideoLibrary";
 import BusinessTeaser from "./public/BusinessTeaser";
 import CardTeaser from "./cards/CardTeaser";
+import OrganizationMarquee from "./OrganizationMarquee";
 import InvestorPerspective from "./public/InvestorPerspective";
 import { api } from "@/lib/api";
 const reveal = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
@@ -390,6 +391,7 @@ export default function Landing() {
             </p>
           </div>
         </section>
+        <OrganizationMarquee />
         <CardTeaser />
         <section className="journey-section section-space">
           <div className="container journey-layout">

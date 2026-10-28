@@ -1,0 +1,175 @@
+[
+  {
+    "id": "sygnum",
+    "name": "Sygnum",
+    "href": "https://www.sygnum.com/",
+    "image": "/images/organizations/sygnum.svg",
+    "wordmark": true,
+    "ink": true
+  },
+  {
+    "id": "pantera",
+    "name": "Pantera Capital",
+    "href": "https://panteracapital.com/",
+    "image": "/images/organizations/pantera.svg",
+    "wordmark": true,
+    "ink": true
+  },
+  {
+    "id": "bny",
+    "name": "BNY",
+    "href": "https://www.bny.com/corporate/global/en.html",
+    "image": "/images/organizations/bny.svg",
+    "wordmark": true,
+    "ink": false
+  },
+  {
+    "id": "bitgo",
+    "name": "BitGo",
+    "href": "https://www.bitgo.com/",
+    "image": "/images/organizations/bitgo.svg",
+    "wordmark": true,
+    "ink": false
+  },
+  {
+    "id": "standard-chartered",
+    "name": "Standard Chartered",
+    "href": "https://www.sc.com/en/",
+    "image": "/images/organizations/standard-chartered.svg",
+    "wordmark": true,
+    "ink": false
+  },
+  {
+    "id": "swissquote",
+    "name": "Swissquote",
+    "href": "https://www.swissquote.com/en-ch/private",
+    "image": "/images/organizations/swissquote.svg",
+    "wordmark": true,
+    "ink": false
+  },
+  {
+    "id": "dukascopy",
+    "name": "Dukascopy",
+    "href": "https://www.dukascopy.com/swiss/english/home/",
+    "image": "/images/organizations/dukascopy.svg",
+    "wordmark": true,
+    "ink": false
+  },
+  {
+    "id": "lmax",
+    "name": "LMAX Group",
+    "href": "https://www.lmax.com/",
+    "image": "/images/organizations/lmax.png",
+    "wordmark": true,
+    "ink": false
+  },
+  {
+    "id": "financial-times",
+    "name": "Financial Times",
+    "href": "https://www.ft.com/",
+    "wordmark": false
+  },
+  {
+    "id": "bloomberg",
+    "name": "Bloomberg",
+    "href": "https://www.bloomberg.com/",
+    "wordmark": false,
+    "image": "/images/organizations/bloomberg.ico"
+  },
+  {
+    "id": "financial-news",
+    "name": "Financial News",
+    "href": "https://www.fnlondon.com/",
+    "wordmark": false
+  },
+  {
+    "id": "sunday-times",
+    "name": "The Sunday Times",
+    "href": "https://www.thetimes.com/",
+    "wordmark": false,
+    "image": "/images/organizations/sunday-times.png"
+  },
+  {
+    "id": "city-am",
+    "name": "City A.M.",
+    "href": "https://www.cityam.com/",
+    "wordmark": false,
+    "image": "/images/organizations/city-am.png"
+  },
+  {
+    "id": "hedge-funds-review",
+    "name": "Hedge Funds Review",
+    "href": "https://www.risk.net/hedge-funds-review",
+    "wordmark": false,
+    "image": "/images/organizations/hedge-funds-review.png"
+  },
+  {
+    "id": "euromoney",
+    "name": "Euromoney",
+    "href": "https://www.euromoney.com/",
+    "wordmark": false,
+    "image": "/images/organizations/euromoney.png"
+  },
+  {
+    "id": "fx-markets",
+    "name": "FX Markets",
+    "href": "https://www.fx-markets.com/",
+    "wordmark": false,
+    "image": "/images/organizations/fx-markets.ico"
+  },
+  {
+    "id": "wall-street-journal",
+    "name": "The Wall Street Journal",
+    "href": "https://www.wsj.com/",
+    "wordmark": false
+  },
+  {
+    "id": "the-block",
+    "name": "The Block",
+    "href": "https://www.theblock.co/",
+    "wordmark": false,
+    "image": "/images/organizations/the-block.ico"
+  },
+  {
+    "id": "cointelegraph",
+    "name": "Cointelegraph",
+    "href": "https://cointelegraph.com/",
+    "wordmark": false,
+    "image": "/images/organizations/cointelegraph.svg"
+  },
+  {
+    "id": "coindesk",
+    "name": "CoinDesk",
+    "href": "https://www.coindesk.com/",
+    "wordmark": false,
+    "image": "/images/organizations/coindesk.ico"
+  },
+  {
+    "id": "the-banker",
+    "name": "The Banker",
+    "href": "https://www.thebanker.com/",
+    "wordmark": false,
+    "image": "/images/organizations/the-banker.svg"
+  },
+  {
+    "id": "reuters",
+    "name": "Reuters",
+    "href": "https://www.reuters.com/",
+    "wordmark": false,
+    "image": "/images/organizations/reuters.ico"
+  },
+  {
+    "id": "the-trade",
+    "name": "The TRADE",
+    "href": "https://www.thetradenews.com/",
+    "wordmark": false,
+    "image": "/images/organizations/the-trade.ico"
+  },
+  {
+    "id": "blockdaemon",
+    "name": "Blockdaemon",
+    "href": "https://www.blockdaemon.com/",
+    "wordmark": false,
+    "image": "/images/organizations/blockdaemon.png"
+  }
+]

@@ -2950,6 +2950,9 @@
   "External evidence reference": [
     "components/workspace/admin.tsx"
   ],
+  "External organizations and publications, in one place.": [
+    "components/OrganizationMarquee.tsx"
+  ],
   "Facility or hosting agreements, energy bills, equipment inventory, hashrate records and reconciled pool payouts linked to controlled wallets.": [
     "lib/business-activities.ts"
   ],
@@ -3412,6 +3415,9 @@
   "Indicative third-party prices in the selected currency, refreshed every minute. Account balances and investment amounts remain in USD. Prices may differ from execution prices.": [
     "components/public/MarketCurrency.tsx"
   ],
+  "INDUSTRY RESOURCES": [
+    "components/OrganizationMarquee.tsx"
+  ],
   "Information is used to operate accounts, verify access, review identity, maintain transaction records, prevent abuse, support users and meet applicable recordkeeping obligations. The operator must establish and document a valid legal basis for each processing activity, including contract, legal obligation, legitimate interest or consent where appropriate.": [
     "app/legal/privacy/page.tsx"
   ],
@@ -3796,6 +3802,9 @@
   "Log in": [
     "components/SiteHeader.tsx",
     "lib/i18n.ts"
+  ],
+  "Logos identify external resources. They do not imply an AUREON partnership, endorsement, certification or regulatory approval.": [
+    "components/OrganizationMarquee.tsx"
   ],
   "Longer time horizons can change how you experience volatility, but they do not guarantee recovery or returns. Understand lockups, withdrawal restrictions and the terms that apply to your capital.": [
     "app/insights/page.tsx"
@@ -4524,6 +4533,9 @@
   "PATCH": [
     "components/workspace/ContentOperations.tsx",
     "components/workspace/admin.tsx"
+  ],
+  "Pause logo scrolling": [
+    "components/OrganizationMarquee.tsx"
   ],
   "Pause.": [
     "lib/video-content.ts"
@@ -5434,6 +5446,9 @@
   ],
   "Results after costs": [
     "app/approach/page.tsx"
+  ],
+  "Resume logo scrolling": [
+    "components/OrganizationMarquee.tsx"
   ],
   "Resume payment": [
     "components/workspace/DepositWorkspace.tsx"
@@ -6897,6 +6912,7 @@
     "components/LanguageSelector.tsx",
     "components/LiveInvestmentDisplay.tsx",
     "components/MarketTicker.tsx",
+    "components/OrganizationMarquee.tsx",
     "components/SiteFooter.tsx",
     "components/SiteHeader.tsx",
     "components/ThemeProvider.tsx",
