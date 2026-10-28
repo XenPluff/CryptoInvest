@@ -43,7 +43,12 @@ and non-clickable. The heading stays “External investor education”; the shar
 note is now “Educational resources only; no affiliation or endorsement of AUREON
 is implied.” Both are translated across the site's languages.
 
-The two-resource footer is published in source `746d8a2bb0945217fc2a1a97f38089bf7ddae2cd`, Render
+The four-resource footer is live in source `f98b5ee8708864bffacd4bf2f211db63f451587b`, Render
+deployment `dep-dbgpujnlk1mc7396mfq0`. Hosted verification passed on October 28,
+2026: all four original asset hashes, 64 language/theme/width states, static
+presentation and no click navigation. No production investor records were changed.
+
+The earlier two-resource footer was published in source `746d8a2bb0945217fc2a1a97f38089bf7ddae2cd`, Render
 deployment `dep-dbgpi9ei0phs738lqgi0`. Actual hosted HTML/assets passed 64
 language/theme/width states and both original PNG hashes on October 27, 2026.
 

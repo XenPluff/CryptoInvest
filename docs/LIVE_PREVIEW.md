@@ -2,11 +2,21 @@
 
 Website: <https://aureon-preview.onrender.com>
 
-Latest deployment verified on October 27, 2026:
+Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `746d8a2bb0945217fc2a1a97f38089bf7ddae2cd` from branch
+- Running source commit: `f98b5ee8708864bffacd4bf2f211db63f451587b` from branch
   `codex/aureon-render-preview`.
+- Blockdaemon and ESMA education references are live in deployment
+  `dep-dbgpujnlk1mc7396mfq0`. Four compact, static, non-clickable footer tiles
+  use official-source local images under the external-education heading. The
+  shared translated note clarifies that no affiliation or endorsement of AUREON
+  is implied. Actual hosted HTML/assets pass all four original image hashes,
+  decoding, no click navigation or animations, and 64 language/theme/width states
+  without API fixtures, page errors or production mutations. Health remains
+  connected with funding enabled and email readiness passed. Catalogs cover
+  2,382 messages. Four unreadable attachments remain unidentified and unpublished;
+  credential-logo data remains empty. See [footer scope](FOOTER_LOGOS.md).
 - The additional SEC education logo is live in deployment `dep-dbgpi9ei0phs738lqgi0`.
   Two compact, static, non-clickable tiles beneath the footer tagline share the
   external-education heading and no-endorsement note. Actual hosted HTML/assets
