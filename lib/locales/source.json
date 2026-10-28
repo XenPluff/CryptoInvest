@@ -1891,6 +1891,9 @@
   "Communication information: support enquiries, newsletter subscriptions and account notifications.": [
     "app/legal/privacy/page.tsx"
   ],
+  "Company information": [
+    "components/SiteFooter.tsx"
+  ],
   "Company profile": [
     "components/SiteFooter.tsx",
     "lib/i18n.ts"

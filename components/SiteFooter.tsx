@@ -6,6 +6,8 @@ import { useTranslation } from "@/lib/i18n";
 import { ArrowUpRight } from "lucide-react";
 import { AureonMark } from "./SiteHeader";
 import { SUPPORT_EMAIL, SUPPORT_EMAIL_URL } from "@/lib/contact";
+import FooterLogoGrid from "./FooterLogoGrid";
+import footerLogos from "@/lib/footer-logos.json";
 export default function SiteFooter() {
   useDisplayLocale();
   const { t } = useTranslation();
@@ -13,7 +15,7 @@ export default function SiteFooter() {
     <footer className="site-footer">
       <div className="container">
         <div className="footer-top">
-          <div>
+          <div className={footerLogos.length ? "footer-identity-with-logos" : undefined}>
             <Link href="/" className="brand">
               <AureonMark />
               <span>
@@ -25,6 +27,7 @@ export default function SiteFooter() {
               <br />
               {t("An extraordinary perspective.")}
             </p>
+            <FooterLogoGrid logos={footerLogos} label={t("Company information")} />
           </div>
           <div className="footer-links">
             <div>

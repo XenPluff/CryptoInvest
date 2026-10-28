@@ -980,6 +980,13 @@ p {
   font-size: 11px;
   line-height: 1.8;
 }
+.footer-identity-with-logos { width:320px; max-width:100%; min-width:0; }
+.footer-logo-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; width:100%; max-width:320px; margin:22px 0 0; padding:0; list-style:none; }
+.footer-logo-grid li { display:flex; align-items:center; justify-content:center; min-width:0; height:56px; padding:9px; border:1px solid #c9a24b24; border-radius:5px; background:#f5f4ef; cursor:default; }
+.footer-logo-grid img { display:block; width:100%; max-width:96px; height:36px; object-fit:contain; pointer-events:none; user-select:none; }
+.footer-logo-grid .footer-logo-ink { filter:brightness(0); }
+.footer-logo-grid,.footer-logo-grid * { animation:none!important; transition:none!important; transform:none!important; }
+@media(max-width:420px) { .footer-logo-grid { gap:8px; }.footer-logo-grid li { height:52px; padding:8px; }.footer-logo-grid img { height:32px; } }
 .footer-links {
   display: flex;
   gap: 65px;
