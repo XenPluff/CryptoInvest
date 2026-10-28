@@ -13,6 +13,14 @@ The thirteen references, source images, order, dimensions and non-clickable
 static presentation are unchanged. The heading continues to identify the logos
 as external resources.
 
+Published in source `6c0f5d216fb263e14db0e5cc4d64225462f51900`, Render deployment
+`dep-dbgsivh42hec73dubsg0`. Hosted verification passed on October 28, 2026:
+all sixteen English/Arabic theme/width states, translated single-caption text and
+computed muted-grey colors, absence of both former lines and the paragraph,
+all twelve unchanged image hashes and the thirteen-reference grid. No investor
+records were changed.
+
+
 ### Compact resource grid
 
 The owner requested smaller logos arranged in order. The section now uses

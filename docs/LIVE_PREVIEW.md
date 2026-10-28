@@ -5,8 +5,19 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `af2d7de4d05f40e6b0ceff4276c3dc1a2b0b5718` from branch
+- Running source commit: `6c0f5d216fb263e14db0e5cc4d64225462f51900` from branch
   `codex/aureon-render-preview`.
+- A single muted-grey “External resources” label is live in deployment
+  `dep-dbgsivh42hec73dubsg0`. It replaces the former heading and explanatory
+  paragraph above/below the logo grid. Both former lines are absent from the
+  rendered figure; the new caption is translated across the site's languages.
+  Actual hosted HTML/assets pass sixteen English/Arabic theme/width states,
+  caption text and computed grey colors, no paragraph, the unchanged thirteen
+  references and twelve image hashes, order, three columns and static,
+  non-clickable behavior without page errors, API fixtures or production
+  mutations. The browser check settles resize layout with reduced motion.
+  Health remains connected with enabled funding and passed email readiness.
+  Catalogs cover 2,377 messages.
 - The compact ordered education-reference grid is live in deployment
   `dep-dbgs1poae00c73d97clg`. Thirteen references use three small columns,
   twelve official-source local logos and a readable CB Insights fallback name.
