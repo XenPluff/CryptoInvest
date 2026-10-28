@@ -5,8 +5,24 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `e7bbdb8c32753ad32b0d61161ad17d7b72c041d3` from branch
+- Running source commit: `260851fbf3cd664d024c1ff88cf9c94b2677d1b3` from branch
   `codex/aureon-render-preview`.
+- The owner-selected Obsidian globe is live in deployment
+  `dep-dbh23ucs728c73ckj8jg`. The dark metallic globe has gold continent lights,
+  orbital trails and a subtle blue rim. Three decorative cryptocurrency logos
+  continuously appear in random positions and fade fully out on staggered
+  two-second cycles, choosing among seven local symbols without concurrent
+  duplicates. The actual 3D globe animates on desktop and mobile; compact canvases
+  use pixel ratio 1. Reduced motion uses the matching poster without flashing
+  logos, and hidden/offscreen artwork unmounts. Solaris and Nexus are unmounted
+  review components. Production build and nine focused local browser checks pass.
+  Actual hosted HTML, assets and GET APIs repeat all nine checks at
+  1440/390/320px without page errors, request failures, fixtures or mutations.
+  The poster and seven SVGs match source SHA-256 hashes. Health remains connected,
+  funding enabled and email readiness passed. A verification-script serialization
+  error in the synthetic hidden-document check was fixed and the full hosted
+  check rerun successfully; no deployed source change was needed. See
+  [globe implementation and previews](ORBITAL_GLOBE.md).
 - The website-wide text scale is live in deployment `dep-dbgvvion74is73dh28dg`:
   18px reading copy, 16px navigation/buttons/controls, 12–14px supporting text,
   22px panel/card titles, responsive section headings up to 36px and main headings

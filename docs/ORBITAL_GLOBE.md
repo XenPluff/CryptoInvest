@@ -1,7 +1,10 @@
 # Orbital globe concept
 
-This is an **undeployed review draft** on `codex/aureon-orbital-globe`.
-The live Render deployment has not been changed.
+**Selected Obsidian concept is live** at <https://aureon-preview.onrender.com>.
+The owner approved deployment on October 28, 2026. Render deployment
+`dep-dbh23ucs728c73ckj8jg` runs source
+`260851fbf3cd664d024c1ff88cf9c94b2677d1b3`. The working/source branch is
+`codex/aureon-orbital-globe`; the Render branch is `codex/aureon-render-preview`.
 
 The hero replaces the angular crystal and wire cage with an obsidian globe,
 champagne-gold continent lights, elevated surface arcs, three orbital tracks,
@@ -64,8 +67,8 @@ review artifacts in `.aureon/orbit-preview/` now also include:
   advance animation frames, render pointer response and fit a compact canvas.
 - `options-typecheck.log`: client TypeScript verification.
 
-All alternatives remain undeployed. The owner selected **01 — Obsidian**.
-Solaris and Nexus remain isolated review components.
+The owner selected **01 — Obsidian**, which is deployed.
+Solaris and Nexus remain isolated review components, unmounted by the homepage.
 
 
 ## Selected Obsidian with cryptocurrency appearances
@@ -104,4 +107,30 @@ iteration event, so verification polls for completed cycles while separately
 checking the exact 2,000ms CSS duration and fully transparent ending phase.
 This is not a frame-rate measurement on physical mobile hardware.
 
-This updated version remains a review draft, with no deployment performed.
+The owner approved this updated version for deployment. The selected scene is
+now live; Solaris and Nexus are not mounted or shown on the website.
+
+
+## Hosted deployment verification
+
+Deployment `dep-dbh23ucs728c73ckj8jg` became live with the exact approved source
+`260851fbf3cd664d024c1ff88cf9c94b2677d1b3`. The hosted browser run repeats all
+nine focused checks against actual HTML, immutable assets and read-only GET
+APIs, with no API fixtures, page errors, failed requests or production mutations.
+It covers 1440/390/320px animation and fit, two-second CSS duration and fade-out,
+random logo cycles, reduced motion, hidden-document handler and offscreen teardown.
+The synthetic visibility test initially hit a TypeScript-loader serialization
+helper in its browser-evaluated callback. Passing the browser-only callback as
+a plain JavaScript string fixed the verification script; the complete rerun
+passed, without changing deployed source.
+
+All seven cryptocurrency SVGs and the transparent globe poster match their
+local source SHA-256 hashes over verified HTTPS. Public health is HTTP 200,
+database connected, funding enabled and email readiness `checks_passed`.
+Results are `.aureon/validation/obsidian-hosted-check-result.json` and
+`obsidian-hosted-assets.json`; hosted screenshots are
+`.aureon/orbit-preview/obsidian-crypto-hosted-homepage.png` and
+`obsidian-crypto-hosted-mobile.png`.
+
+Automatic Render deployments remain disabled. Documentation commits after the
+source above do not change the running deployment.
