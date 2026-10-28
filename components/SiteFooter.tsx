@@ -30,8 +30,13 @@ export default function SiteFooter() {
             <FooterLogoGrid logos={footerLogos} label={t("Company information")} />
             <figure className="footer-education">
               <figcaption>{t("External investor education")}</figcaption>
-              <div className="footer-education-logo">
-                <img src="/images/footer-logos/investor-gov.png" alt="Investor.gov — U.S. Securities and Exchange Commission" width={326} height={81} loading="lazy" draggable={false} translate="no" />
+              <div className="footer-education-logos">
+                <div className="footer-education-logo">
+                  <img src="/images/footer-logos/investor-gov.png" alt="Investor.gov — U.S. Securities and Exchange Commission" width={326} height={81} loading="lazy" draggable={false} translate="no" />
+                </div>
+                <div className="footer-education-logo">
+                  <img src="/images/footer-logos/sec.png" alt="U.S. Securities and Exchange Commission" width={1248} height={316} loading="lazy" draggable={false} translate="no" />
+                </div>
               </div>
               <p>{t("Educational resource only; no SEC endorsement of AUREON.")}</p>
             </figure>

@@ -1,6 +1,6 @@
 # Footer resources and pending credential logos
 
-## Investor education resource
+## Investor education resources
 
 The owner approved a static, non-clickable Investor.gov resource beneath the
 footer tagline. It uses the exact PNG supplied from the SEC website:
@@ -9,12 +9,20 @@ The original image is stored unchanged at
 `public/images/footer-logos/investor-gov.png` (20,839 bytes; SHA-256
 `04bafe74854dcd35d0333c887f9cfe38f8b9e029996b6c97f46eb08079de718a`).
 
+The owner also requested the SEC wordmark as an external investor-education
+resource. Its original PNG is stored unchanged at
+`public/images/footer-logos/sec.png` (31,878 bytes, 1248×316; SHA-256
+`8a5f7a788a7bb9d609f18f2b6869c1696c06704bf4fb0d8f696309afcda3bbeb`),
+from <https://www.sec.gov/themes/custom/uswds_sec/dist/img/logos/sec-logo-1x.png>.
+Both marks share the education heading and note below, in two static,
+non-clickable tiles. Neither is presented as an AUREON credential.
+
 Published in source `65205b2d0b2036f611326fca9f9979d063794dd6`, Render deployment
 `dep-dbgougvlk1mc7394c0e0`; hosted footer verification passed on October 27, 2026.
 
 Its visible heading is “External investor education” and its accompanying note
 is “Educational resource only; no SEC endorsement of AUREON.” Both are translated
-across the site's languages. The image has no link, button, action, animation
+across the site's languages. The images have no link, button, action, animation
 or hover effect. This placement makes no registration or credential claim.
 
 ## Pending credential layout

@@ -6738,6 +6738,9 @@
   "Type QUEUE CAMPAIGN to confirm": [
     "components/workspace/ContentOperations.tsx"
   ],
+  "U.S. Securities and Exchange Commission": [
+    "components/SiteFooter.tsx"
+  ],
   "Ukrainian": [
     "localization"
   ],
