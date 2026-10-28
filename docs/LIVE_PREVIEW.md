@@ -5,8 +5,17 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `f98b5ee8708864bffacd4bf2f211db63f451587b` from branch
+- Running source commit: `fc313304c783b8256f022c7a2300952d340ef432` from branch
   `codex/aureon-render-preview`.
+- The standard AICPA organization logo replaces the third footer education tile
+  in deployment `dep-dbgqde8ae00c73d5hq00`. The exact official-site PNG loads
+  beneath the existing external-education heading with the no-affiliation/
+  endorsement note. No SOC assurance seal is published. Actual hosted HTML/assets
+  pass all four source-image hashes, AICPA presence and Blockdaemon footer absence,
+  no navigation or animations, and 16 English/Arabic theme/width states without
+  API fixtures, page errors or production mutations. Health remains connected
+  with enabled funding and passed email readiness. Catalogs cover 2,382 messages;
+  the separate homepage Blockdaemon industry-resource reference is unchanged.
 - Blockdaemon and ESMA education references are live in deployment
   `dep-dbgpujnlk1mc7396mfq0`. Four compact, static, non-clickable footer tiles
   use official-source local images under the external-education heading. The

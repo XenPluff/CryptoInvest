@@ -20,6 +20,13 @@ no-affiliation/endorsement note, with no link, button or animation. This does no
 claim a SOC report, audit, certification, membership or AICPA relationship.
 Blockdaemon's separate homepage industry-resource reference is unchanged.
 
+Published in source `fc313304c783b8256f022c7a2300952d340ef432`, Render deployment
+`dep-dbgqde8ae00c73d5hq00`. Hosted verification passed on October 28, 2026:
+16 English/Arabic theme/width states, four original asset hashes, successful image
+decoding, AICPA presence and Blockdaemon footer absence, no click navigation or
+animations, and no page errors. No investor records were changed.
+
+
 ### Earlier resource additions
 
 The owner approved a static, non-clickable Investor.gov resource beneath the
