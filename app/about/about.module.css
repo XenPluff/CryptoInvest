@@ -6,20 +6,20 @@
 }
 
 .overview h2 {
-  font-size: clamp(40px, 4.5vw, 58px);
+  font-size: var(--type-section);
   line-height: 1.1;
   color: var(--text);
 }
 
 .copy p {
-  font-size: 13px;
-  line-height: 1.95;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   color: var(--muted);
 }
 
 .copy p + p { margin-top: 18px; }
 .approach { margin-top: 49px; }
-.approach > h3 { font-size: 34px; margin-bottom: 26px; }
+.approach > h3 { font-size: var(--type-card-title); margin-bottom: 26px; }
 .steps {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -30,9 +30,9 @@
 }
 
 .steps li { min-width: 0; border-top: 1px solid var(--border); padding-top: 22px; }
-.number { font-size: 10px; color: var(--gold); letter-spacing: .12em; }
-.steps h4 { font-family: var(--serif); font-size: 27px; font-weight: 400; color: var(--text); margin: 17px 0 12px; }
-.steps p { font-size: 12px; line-height: 1.9; color: var(--muted); }
+.number { font-size: var(--type-small); color: var(--gold); letter-spacing: .12em; }
+.steps h4 { font-family: var(--serif); font-size: var(--type-subheading); font-weight: 400; color: var(--text); margin: 17px 0 12px; }
+.steps p { font-size: var(--type-body); line-height: var(--type-leading-body); color: var(--muted); }
 .section { scroll-margin-top: 25px; overflow-wrap: anywhere; }
 
 @media (max-width: 1000px) {
@@ -42,9 +42,9 @@
 
 @media (max-width: 650px) {
   .overview { grid-template-columns: 1fr; gap: 24px; }
-  .copy p { font-size: 12px; }
+  .copy p { font-size: var(--type-body); }
   .approach { margin-top: 35px; }
-  .approach > h3 { font-size: 30px; }
+  .approach > h3 { font-size: var(--type-card-title); }
   .steps { grid-template-columns: 1fr; gap: 25px; }
   .steps h4 { margin-top: 12px; }
 }

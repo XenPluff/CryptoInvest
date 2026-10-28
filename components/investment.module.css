@@ -52,26 +52,26 @@
 .eyebrow {
   margin: 0 0 7px;
   text-transform: uppercase;
-  font-size: 9px;
+  font-size: var(--type-small);
   font-weight: 600;
   letter-spacing: 1.5px;
   color: var(--iv-muted);
 }
 .liveTitle {
-  font-size: 15px;
+  font-size: var(--type-body);
   font-weight: 500;
   margin: 0;
 }
 .liveTitle span {
   color: var(--iv-muted);
-  font-size: 12px;
+  font-size: var(--type-body);
 }
 .liveBadge {
   display: flex;
   align-items: center;
   gap: 6px;
   margin-left: auto;
-  font-size: 9px;
+  font-size: var(--type-small);
   color: #c5cbbd;
   background: #9da78b0b;
   padding: 6px 8px;
@@ -93,7 +93,7 @@
   border-color: #c9a24b22;
 }
 .balanceLabel {
-  font-size: 11px;
+  font-size: var(--type-ui);
   font-weight: 400;
   color: var(--iv-muted);
   margin: 0 0 9px;
@@ -107,7 +107,7 @@
   align-items: baseline;
   flex-wrap: wrap;
   gap: 6px 10px;
-  font-size: clamp(22px, 8cqw, 43px);
+  font-size: clamp(var(--type-ui), 8cqw, var(--type-section));
   line-height: 1.15;
   font-weight: 400;
   letter-spacing: -1.5px;
@@ -123,7 +123,7 @@
   opacity: 0.65;
 }
 .currencyUnit {
-  font-size: 10px;
+  font-size: var(--type-small);
   letter-spacing: 1px;
   font-weight: 400;
   color: var(--iv-muted);
@@ -139,7 +139,7 @@
   display: flex;
   gap: 8px;
   align-items: center;
-  font-size: clamp(16px, 6cqw, 22px);
+  font-size: clamp(var(--type-ui), 6cqw, var(--type-section));
   font-weight: 400;
   color: var(--iv-gold);
   margin: 0;
@@ -152,20 +152,20 @@
 }
 .rateBlock span {
   display: block;
-  font-size: 21px;
+  font-size: var(--type-card-title);
   color: var(--iv-gold);
   font-weight: 400;
 }
 .rateBlock small {
   display: block;
-  font-size: 9px;
+  font-size: var(--type-small);
   color: var(--iv-muted);
   margin-top: 5px;
 }
 .progressLabels {
   display: flex;
   justify-content: space-between;
-  font-size: 10px;
+  font-size: var(--type-small);
   margin-bottom: 10px;
   color: var(--iv-muted);
   font-variant-numeric: tabular-nums;
@@ -191,7 +191,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
-  font-size: 9px;
+  font-size: var(--type-small);
   color: var(--iv-muted);
 }
 .liveFooter b {
@@ -203,7 +203,7 @@
   display: flex;
   align-items: flex-start;
   gap: 7px;
-  font-size: 9px;
+  font-size: var(--type-small);
   line-height: 1.7;
   color: var(--iv-muted);
   margin: 23px 0 0;
@@ -230,7 +230,7 @@
 .calcHeading h2 {
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 400;
-  font-size: 32px;
+  font-size: var(--type-section);
   letter-spacing: -1px;
   margin: 0;
 }
@@ -242,7 +242,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 9px;
+  font-size: var(--type-small);
   white-space: nowrap;
 }
 .calcBody {
@@ -257,7 +257,7 @@
 }
 .inputLabel {
   display: block;
-  font-size: 11px;
+  font-size: var(--type-ui);
   color: var(--iv-muted);
   margin-bottom: 10px;
 }
@@ -272,7 +272,7 @@
   border-radius: 7px;
   width: 100%;
   padding: 15px;
-  font-size: 13px;
+  font-size: var(--type-ui);
   outline: none;
   appearance: none;
 }
@@ -300,7 +300,7 @@
   position: absolute;
   left: 15px;
   top: 15px;
-  font-size: 14px;
+  font-size: var(--type-body);
   color: var(--iv-gold);
 }
 .amountInput {
@@ -308,7 +308,7 @@
   font-variant-numeric: tabular-nums;
 }
 .amountHint {
-  font-size: 9px;
+  font-size: var(--type-small);
   line-height: 1.6;
   color: var(--iv-muted);
   margin: 9px 0 0;
@@ -316,7 +316,7 @@
 .dayLabel {
   display: flex;
   justify-content: space-between;
-  font-size: 11px;
+  font-size: var(--type-ui);
   margin-bottom: 15px;
   color: var(--iv-muted);
 }
@@ -334,7 +334,7 @@
 .rangeLabels {
   display: flex;
   justify-content: space-between;
-  font-size: 9px;
+  font-size: var(--type-small);
   color: var(--iv-muted);
   margin-top: 11px;
 }
@@ -349,7 +349,7 @@
 .calcValue {
   display: block;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 44px;
+  font-size: var(--type-section);
   letter-spacing: -1px;
   line-height: 1.15;
   margin: 0 0 13px;
@@ -357,7 +357,7 @@
   font-variant-numeric: tabular-nums;
 }
 .calcProfit {
-  font-size: 11px;
+  font-size: var(--type-ui);
   color: var(--iv-gold);
   margin: 0;
   display: flex;
@@ -366,7 +366,7 @@
 }
 .calcProfit > span {
   color: var(--iv-muted);
-  font-size: 10px;
+  font-size: var(--type-small);
   margin-left: 4px;
 }
 .chart {
@@ -379,7 +379,7 @@
 .chartLabels {
   display: flex;
   justify-content: space-between;
-  font-size: 9px;
+  font-size: var(--type-small);
   color: var(--iv-muted);
   margin-top: 10px;
 }
@@ -397,15 +397,15 @@
   gap: 8px;
 }
 .calcBreakdown span {
-  font-size: 9px;
+  font-size: var(--type-small);
   color: var(--iv-muted);
 }
 .calcBreakdown b {
-  font-size: 11px;
+  font-size: var(--type-ui);
   font-weight: 400;
 }
 .disclaimer {
-  font-size: 10px;
+  font-size: var(--type-small);
   line-height: 1.8;
   color: var(--iv-muted);
   margin: 25px 0 0;
@@ -415,7 +415,7 @@
   gap: 8px;
   align-items: flex-start;
   margin-top: 30px;
-  font-size: 10px;
+  font-size: var(--type-small);
   line-height: 1.8;
   color: var(--iv-muted);
   border-top: 1px solid var(--iv-line);
@@ -427,13 +427,13 @@
   color: var(--iv-gold);
 }
 .calcError {
-  font-size: 11px;
+  font-size: var(--type-ui);
   line-height: 1.7;
   color: #e5b49c;
   margin: 0;
 }
 .source {
-  font-size: 9px;
+  font-size: var(--type-small);
   color: var(--iv-muted);
   line-height: 1.6;
   margin: 0;
@@ -451,10 +451,10 @@
     margin-bottom: 30px;
   }
   .calcHeading h2 {
-    font-size: 27px;
+    font-size: var(--type-section);
   }
   .calcHeading > span {
-    font-size: 8px;
+    font-size: var(--type-caption);
     padding: 6px;
   }
   .calcBody {
@@ -467,7 +467,7 @@
     padding: 28px 0 0;
   }
   .calcValue {
-    font-size: 40px;
+    font-size: var(--type-section);
   }
   .liveCard {
     padding: 22px;
@@ -476,24 +476,24 @@
     gap: 9px;
   }
   .liveBadge {
-    font-size: 8px;
+    font-size: var(--type-caption);
     padding: 5px 6px;
   }
   .liveTitle {
-    font-size: 14px;
+    font-size: var(--type-body);
   }
   .liveTitle span {
-    font-size: 10px;
+    font-size: var(--type-small);
   }
   .planIcon {
     width: 36px;
     height: 36px;
   }
   .liveFooter {
-    font-size: 8px;
+    font-size: var(--type-caption);
   }
   .targetNote {
-    font-size: 9px;
+    font-size: var(--type-small);
   }
 }
 @media (prefers-reduced-motion: reduce) {

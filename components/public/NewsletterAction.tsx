@@ -29,7 +29,7 @@ export function NewsletterAction({
             size={30}
             style={{ color: "var(--gold)", marginBottom: 24 }}
           />
-          <h2 style={{ fontSize: 36 }}>
+          <h2 style={{ fontSize: "var(--type-section)" }}>
             {action === "confirm"
               ? "You’re on the list."
               : "Your preference is saved."}
@@ -41,7 +41,7 @@ export function NewsletterAction({
         </div>
       ) : !valid ? (
         <div role="alert">
-          <h2 style={{ fontSize: 36 }}>This link is incomplete.</h2>
+          <h2 style={{ fontSize: "var(--type-section)" }}>This link is incomplete.</h2>
           <p>
             Please open the full link from your email. You can also contact{" "}
             <Link href="/support">support</Link> for help.

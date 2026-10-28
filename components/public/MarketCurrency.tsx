@@ -55,7 +55,7 @@ export function MarketCurrencySelector() {
         display: "inline-flex",
         alignItems: "center",
         gap: 9,
-        fontSize: 11,
+        fontSize: "var(--type-ui)",
       }}
     >
       <span>{translateCopy(copy.en.currency)}</span>

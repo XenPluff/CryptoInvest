@@ -9,7 +9,7 @@
   font-weight: 400;
 }
 .public-main h1 {
-  font-size: clamp(3.3rem, 7vw, 6.4rem);
+  font-size: var(--type-display);
   line-height: 1.02;
   letter-spacing: -0.055em;
   margin: 23px 0 0;
@@ -23,7 +23,7 @@
   padding-bottom: 75px;
 }
 .public-breadcrumb {
-  font-size: 11px;
+  font-size: var(--type-ui);
   letter-spacing: 0.09em;
   display: flex;
   gap: 17px;
@@ -53,18 +53,18 @@
   max-width: 350px;
 }
 .public-section-number {
-  font-size: 10px;
+  font-size: var(--type-small);
   letter-spacing: 0.18em;
   color: var(--gold);
 }
 .public-intro-note p {
   color: var(--muted);
-  font-size: 14px;
-  line-height: 1.9;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   margin: 22px 0 0;
 }
 .public-main .eyebrow {
-  font-size: 10px;
+  font-size: var(--type-small);
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--gold);
@@ -83,15 +83,15 @@
   margin-bottom: 34px;
 }
 .public-section-top h2 {
-  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-size: var(--type-section);
   letter-spacing: -0.04em;
   line-height: 1.1;
   margin: 12px 0 0;
 }
 .public-section-top > p {
   max-width: 360px;
-  font-size: 13px;
-  line-height: 1.85;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   color: var(--muted);
 }
 .public-cta {
@@ -104,14 +104,14 @@
   align-items: center;
 }
 .public-cta h2 {
-  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-size: var(--type-section);
   letter-spacing: -0.04em;
   margin: 14px 0;
 }
 .public-cta p:not(.eyebrow) {
   color: var(--muted);
-  font-size: 13px;
-  line-height: 1.8;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   max-width: 500px;
 }
 .public-main .button {
@@ -150,13 +150,13 @@
   flex-wrap: wrap;
 }
 .public-error h3 {
-  font-size: 24px;
+  font-size: var(--type-card-title);
   margin: 0 0 9px;
 }
 .public-error p {
   color: var(--muted);
-  font-size: 13px;
-  line-height: 1.7;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   margin: 0;
 }
 .public-inline-button {
@@ -169,11 +169,11 @@
   display: inline-flex;
   gap: 8px;
   align-items: center;
-  font-size: 12px;
+  font-size: var(--type-ui);
 }
 .public-notice {
-  font-size: 12px;
-  line-height: 1.85;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   color: var(--muted);
   padding: 20px 24px;
   border: 1px solid var(--border);
@@ -217,7 +217,7 @@
   );
 }
 .plan-index {
-  font-size: 10px;
+  font-size: var(--type-small);
   color: var(--muted);
   letter-spacing: 0.13em;
 }
@@ -228,26 +228,26 @@
   margin-bottom: 33px;
 }
 .public-plan-card h3 {
-  font-size: 26px;
+  font-size: var(--type-card-title);
   letter-spacing: -0.025em;
   margin: 0 0 26px;
 }
 .public-plan-rate {
-  font-size: 37px;
+  font-size: var(--type-section);
   line-height: 1;
   letter-spacing: -0.04em;
   font-family: var(--serif, Georgia, serif);
   color: var(--text);
 }
 .public-plan-rate span {
-  font-size: 12px;
+  font-size: var(--type-body);
   letter-spacing: 0;
   color: var(--muted);
   font-family: var(--sans, Arial, sans-serif);
   margin-inline-start: 6px;
 }
 .public-plan-rate-label {
-  font-size: 10px;
+  font-size: var(--type-small);
   color: var(--muted);
   margin-top: 10px;
   margin-bottom: 29px;
@@ -261,7 +261,7 @@
   display: flex;
   justify-content: space-between;
   gap: 9px;
-  font-size: 11px;
+  font-size: var(--type-ui);
   line-height: 2.6;
 }
 .plan-meta dt {
@@ -272,7 +272,7 @@
 }
 .public-plan-card .button {
   width: 100%;
-  font-size: 11px;
+  font-size: var(--type-ui);
   padding: 13px 10px;
 }
 .public-shareholder {
@@ -290,27 +290,27 @@
   );
 }
 .public-shareholder h3 {
-  font-size: 32px;
+  font-size: var(--type-card-title);
   margin: 9px 0;
 }
 .public-shareholder p {
-  font-size: 12px;
+  font-size: var(--type-body);
   color: var(--muted);
-  line-height: 1.8;
+  line-height: var(--type-leading-body);
 }
 .public-shareholder .plan-meta {
   border: 0;
   padding: 0;
 }
 .public-shareholder .public-plan-rate {
-  font-size: 43px;
+  font-size: var(--type-section);
 }
 .public-shareholder .button {
   margin-top: 12px;
-  font-size: 11px;
+  font-size: var(--type-ui);
 }
 .plan-caption {
-  font-size: 11px;
+  font-size: var(--type-ui);
   color: var(--muted);
   line-height: 1.8;
   margin-top: 20px;
@@ -321,7 +321,7 @@
 .public-comparison table {
   border-collapse: collapse;
   width: 100%;
-  font-size: 12px;
+  font-size: var(--type-body);
   min-width: 650px;
 }
 .public-comparison th,
@@ -333,7 +333,7 @@
 }
 .public-comparison th {
   color: var(--muted);
-  font-size: 10px;
+  font-size: var(--type-small);
   letter-spacing: 0.08em;
   font-weight: 400;
   text-transform: uppercase;
@@ -347,14 +347,14 @@
   gap: 80px;
 }
 .public-faq h2 {
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-size: var(--type-section);
   letter-spacing: -0.04em;
   line-height: 1.1;
   margin: 14px 0;
 }
 .public-faq-intro p:last-child {
-  font-size: 13px;
-  line-height: 1.9;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   color: var(--muted);
 }
 .public-faq details {
@@ -365,8 +365,8 @@
   cursor: pointer;
   list-style: none;
   position: relative;
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
 }
 .public-faq summary::-webkit-details-marker {
   display: none;
@@ -376,7 +376,7 @@
   position: absolute;
   right: 2px;
   color: var(--gold);
-  font-size: 20px;
+  font-size: var(--type-card-title);
   top: 19px;
 }
 .public-faq details[open] summary:after {
@@ -385,8 +385,8 @@
 .public-faq details p {
   margin: 0;
   padding-bottom: 24px;
-  font-size: 12px;
-  line-height: 1.9;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   max-width: 90%;
   color: var(--muted);
 }
@@ -398,7 +398,7 @@
   padding: 20px 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  font-size: 11px;
+  font-size: var(--type-ui);
   color: var(--muted);
   margin-bottom: 30px;
 }
@@ -419,7 +419,7 @@
   border-collapse: collapse;
 }
 .public-market-table th {
-  font-size: 10px;
+  font-size: var(--type-small);
   font-weight: 400;
   color: var(--muted);
   text-transform: uppercase;
@@ -434,7 +434,7 @@
 .public-market-table td {
   padding: 25px 20px;
   border-bottom: 1px solid var(--border);
-  font-size: 15px;
+  font-size: var(--type-body);
   text-align: end;
 }
 .public-market-table td:first-child {
@@ -457,12 +457,12 @@
   background: var(--surface);
 }
 .public-asset strong {
-  font-size: 14px;
+  font-size: var(--type-body);
   font-weight: 400;
   display: block;
 }
 .public-asset small {
-  font-size: 10px;
+  font-size: var(--type-small);
   color: var(--muted);
   display: block;
   margin-top: 5px;
@@ -485,14 +485,14 @@
   padding-top: 25px;
 }
 .public-reading-card h3 {
-  font-size: 27px;
+  font-size: var(--type-card-title);
   line-height: 1.25;
   letter-spacing: -0.025em;
   margin: 17px 0;
 }
 .public-reading-card p {
-  font-size: 13px;
-  line-height: 1.9;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   color: var(--muted);
 }
 .public-pillar-grid {
@@ -513,13 +513,13 @@
   stroke-width: 1.2;
 }
 .public-pillar h3 {
-  font-size: 25px;
+  font-size: var(--type-card-title);
   margin: 0 0 15px;
   letter-spacing: -0.025em;
 }
 .public-pillar p {
-  font-size: 12px;
-  line-height: 1.9;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   color: var(--muted);
   margin: 0;
 }
@@ -527,7 +527,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 9px;
+  font-size: var(--type-small);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-top: 25px;
@@ -549,14 +549,14 @@
   align-items: center;
 }
 .public-security-grid h2 {
-  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  font-size: var(--type-section);
   letter-spacing: -0.04em;
   line-height: 1.1;
   margin: 14px 0 23px;
 }
 .public-security-grid p {
-  font-size: 13px;
-  line-height: 1.9;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   color: var(--muted);
 }
 .public-custody-steps {
@@ -581,15 +581,15 @@
   place-items: center;
   border: 1px solid var(--border);
   color: var(--gold);
-  font-size: 10px;
+  font-size: var(--type-small);
 }
 .public-custody-step strong {
   font-weight: 400;
-  font-size: 13px;
+  font-size: var(--type-body);
 }
 .public-custody-step p {
-  font-size: 11px;
-  line-height: 1.7;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   margin: 7px 0 0;
 }
 .public-mission {
@@ -637,24 +637,24 @@
   right: 28px;
   display: flex;
   justify-content: space-between;
-  font-size: 9px;
+  font-size: var(--type-small);
   letter-spacing: 0.15em;
   color: var(--muted);
 }
 .public-mission h2 {
-  font-size: clamp(2.5rem, 4vw, 3.6rem);
+  font-size: var(--type-section);
   letter-spacing: -0.045em;
   line-height: 1.1;
   margin: 17px 0 25px;
 }
 .public-mission p {
-  font-size: 13px;
-  line-height: 1.95;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   color: var(--muted);
 }
 .public-mission a {
   margin-top: 24px;
-  font-size: 12px;
+  font-size: var(--type-body);
 }
 .public-process {
   display: grid;
@@ -667,18 +667,18 @@
 }
 .public-process-step > span {
   color: var(--gold);
-  font-size: 12px;
+  font-size: var(--type-body);
   letter-spacing: 0.1em;
 }
 .public-process-step h3 {
-  font-size: 27px;
+  font-size: var(--type-card-title);
   letter-spacing: -0.025em;
   line-height: 1.15;
   margin: 27px 0 14px;
 }
 .public-process-step p {
-  font-size: 12px;
-  line-height: 1.9;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   color: var(--muted);
 }
 .public-contact-grid {
@@ -687,13 +687,13 @@
   gap: 90px;
 }
 .public-contact-grid h2 {
-  font-size: 40px;
+  font-size: var(--type-section);
   letter-spacing: -0.035em;
   margin: 14px 0 22px;
 }
 .public-contact-grid p {
-  font-size: 13px;
-  line-height: 1.9;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   color: var(--muted);
 }
 .public-contact-note {
@@ -702,7 +702,7 @@
   margin-top: 30px;
 }
 .public-contact-note strong {
-  font-size: 12px;
+  font-size: var(--type-body);
   font-weight: 400;
   display: block;
   margin: 12px 0;
@@ -714,7 +714,7 @@
 }
 .public-form label {
   display: block;
-  font-size: 11px;
+  font-size: var(--type-ui);
   margin-bottom: 9px;
   color: var(--muted);
 }
@@ -729,7 +729,7 @@
   background: var(--surface);
   color: var(--text);
   font: inherit;
-  font-size: 13px;
+  font-size: var(--type-ui);
   padding: 15px 16px;
   outline: none;
   transition: border-color 0.2s;
@@ -755,8 +755,8 @@
   padding: 15px 24px;
 }
 .public-form-message {
-  font-size: 12px;
-  line-height: 1.8;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   border: 1px solid var(--border);
   padding: 16px 20px;
   margin-bottom: 20px;
@@ -783,7 +783,7 @@
   gap: 2px;
 }
 .public-legal-nav a {
-  font-size: 12px;
+  font-size: var(--type-ui);
   padding: 15px 17px;
   color: var(--muted);
   text-decoration: none;
@@ -798,14 +798,14 @@
   max-width: 740px;
 }
 .public-legal-content h2 {
-  font-size: 29px;
+  font-size: var(--type-section);
   letter-spacing: -0.025em;
   margin: 35px 0 16px;
 }
 .public-legal-content p,
 .public-legal-content li {
-  font-size: 13px;
-  line-height: 1.95;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   color: var(--muted);
 }
 .public-legal-content li {
@@ -823,7 +823,7 @@
 }
 .public-legal-content .public-notice p {
   margin: 0;
-  font-size: 12px;
+  font-size: var(--type-body);
 }
 .public-legal-cards {
   display: grid;
@@ -848,19 +848,19 @@
   margin-bottom: 25px;
 }
 .public-legal-card h2 {
-  font-size: 30px;
+  font-size: var(--type-section);
   letter-spacing: -0.03em;
   margin: 0 0 14px;
   color: var(--text);
 }
 .public-legal-card p {
-  font-size: 12px;
-  line-height: 1.9;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   color: var(--muted);
   margin: 0 0 30px;
 }
 .public-legal-card span {
-  font-size: 11px;
+  font-size: var(--type-ui);
   color: var(--gold);
   margin-top: auto;
   display: flex;
@@ -930,7 +930,7 @@
     max-width: 450px;
   }
   .public-intro h1 {
-    font-size: clamp(3.3rem, 13vw, 5rem);
+    font-size: var(--type-display);
   }
   .public-body-section {
     padding: 45px 0;
@@ -976,10 +976,10 @@
     padding: 20px 5px;
   }
   .public-market-table th {
-    font-size: 9px;
+    font-size: var(--type-small);
   }
   .public-market-table td {
-    font-size: 12px;
+    font-size: var(--type-body);
   }
   .public-asset {
     gap: 10px;
@@ -989,10 +989,10 @@
     width: 32px;
   }
   .public-asset strong {
-    font-size: 12px;
+    font-size: var(--type-body);
   }
   .public-market-bar {
-    font-size: 10px;
+    font-size: var(--type-small);
     flex-wrap: wrap;
   }
   .public-mission-visual {
@@ -1007,7 +1007,7 @@
     width: 260px;
   }
   .public-mission-monogram {
-    font-size: 85px;
+    font-size: var(--type-display);
   }
   .public-legal-grid {
     grid-template-columns: 1fr;
@@ -1022,7 +1022,7 @@
   .public-legal-nav a {
     padding: 10px 12px;
     border: 1px solid var(--border);
-    font-size: 10px;
+    font-size: var(--type-ui);
   }
   .public-legal-nav a.active {
     border-color: var(--gold);
@@ -1056,10 +1056,10 @@
     gap: 25px;
   }
   .public-process-step h3 {
-    font-size: 24px;
+    font-size: var(--type-card-title);
   }
   .public-process-step p {
-    font-size: 11px;
+    font-size: var(--type-body);
   }
   .public-asset-mark {
     display: none;

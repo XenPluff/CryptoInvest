@@ -1,5 +1,16 @@
 @import "tailwindcss";
 :root {
+  --type-caption: 0.75rem;
+  --type-small: 0.875rem;
+  --type-ui: 1rem;
+  --type-body: 1.125rem;
+  --type-card-title: 1.375rem;
+  --type-subheading: 1.75rem;
+  --type-number: 2rem;
+  --type-section: clamp(1.75rem, 1.5vw + 1rem, 2.25rem);
+  --type-display: clamp(2rem, 2.5vw + 1rem, 3rem);
+  --type-brand: 1.75rem;
+  --type-leading-body: 1.5;
   --bg: #0a0a0c;
   --surface: #111113;
   --surface-raised: #19191b;
@@ -36,7 +47,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font: 14px/1.65 var(--sans);
+  font: var(--type-body)/var(--type-leading-body) var(--sans);
   -webkit-font-smoothing: antialiased;
 }
 ::selection {
@@ -115,7 +126,7 @@ h2 {
   letter-spacing: -0.035em;
 }
 h2 {
-  font-size: clamp(38px, 4vw, 59px);
+  font-size: var(--type-section);
 }
 h1 em,
 h2 em {
@@ -131,7 +142,7 @@ p {
   margin: 0 auto;
 }
 .eyebrow {
-  font-size: 9px;
+  font-size: var(--type-small);
   font-weight: 500;
   letter-spacing: 2.2px;
   line-height: 1.5;
@@ -142,7 +153,7 @@ p {
 }
 .eyebrow > span:not(.tiny-line) {
   color: var(--muted);
-  font-size: 9px;
+  font-size: var(--type-small);
 }
 .tiny-line {
   height: 1px;
@@ -157,7 +168,7 @@ p {
   gap: 30px;
   min-height: 48px;
   padding: 13px 22px;
-  font-size: 11px;
+  font-size: var(--type-ui);
   line-height: 1.5;
   letter-spacing: 0.2px;
   white-space: nowrap;
@@ -191,7 +202,7 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 15px;
-  font-size: 11px;
+  font-size: var(--type-ui);
   line-height: 1.5;
 }
 .text-link > span {
@@ -223,8 +234,8 @@ p {
   gap: 35px;
 }
 .split-heading > p {
-  font-size: 12px;
-  line-height: 1.9;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   padding-bottom: 4px;
   max-width: 360px;
 }
@@ -236,13 +247,13 @@ p {
   flex-shrink: 0;
 }
 .brand > span {
-  font-size: 25px;
+  font-size: var(--type-brand);
   line-height: 1.1;
   letter-spacing: 5.5px;
   font-weight: 500;
 }
 .brand small {
-  font-size: 5.4px;
+  font-size: var(--type-caption);
   letter-spacing: 2.25px;
   color: var(--muted);
   display: block;
@@ -271,7 +282,7 @@ p {
 }
 .desktop-nav a {
   color: var(--muted);
-  font-size: 10px;
+  font-size: var(--type-ui);
   transition: color 0.2s;
 }
 .desktop-nav a.active,
@@ -295,10 +306,10 @@ p {
   color: var(--gold-light);
 }
 .login-link {
-  font-size: 11px;
+  font-size: var(--type-ui);
 }
 .header-join {
-  font-size: 10px;
+  font-size: var(--type-ui);
   padding: 10px 15px;
   border: 1px solid #c9a24b66;
   display: flex;
@@ -362,14 +373,14 @@ p {
   z-index: 2;
 }
 .hero h1 {
-  font-size: clamp(62px, 6.2vw, 91px);
+  font-size: var(--type-display);
   margin: 27px 0 25px;
   line-height: 1.02;
   letter-spacing: -3.6px;
 }
 .hero-description {
-  font-size: 12px;
-  line-height: 1.85;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   letter-spacing: 0.1px;
 }
 .hero-ctas {
@@ -382,7 +393,7 @@ p {
   gap: 24px;
 }
 .hero-ctas .text-link {
-  font-size: 10px;
+  font-size: var(--type-ui);
   gap: 11px;
 }
 .hero-principles {
@@ -390,7 +401,7 @@ p {
   align-items: center;
   gap: 15px;
   margin-top: 44px;
-  font-size: 8px;
+  font-size: var(--type-caption);
   color: var(--muted);
   letter-spacing: 0.2px;
 }
@@ -436,25 +447,25 @@ p {
   align-items: center;
   gap: 14px;
   z-index: 3;
-  font-size: 7px;
+  font-size: var(--type-caption);
   letter-spacing: 1.7px;
   line-height: 1.9;
   color: #b6a37b;
 }
 .orbit-label small {
-  font-size: 6px;
+  font-size: var(--type-caption);
   color: var(--muted);
   letter-spacing: 1.6px;
 }
 .crosshair {
-  font-size: 28px;
+  font-size: var(--type-subheading);
   font-weight: 300;
   opacity: 0.6;
 }
 .art-coordinate {
   position: absolute;
   top: 50%;
-  font-size: 6px;
+  font-size: var(--type-caption);
   letter-spacing: 2px;
   color: #b2a68a;
   writing-mode: vertical-rl;
@@ -471,7 +482,7 @@ p {
   position: absolute;
   bottom: 21px;
   right: 20px;
-  font-size: 7px;
+  font-size: var(--type-caption);
   letter-spacing: 2px;
   color: var(--muted);
   display: flex;
@@ -499,7 +510,7 @@ p {
   justify-content: space-between;
   padding-top: 17px;
   padding-bottom: 21px;
-  font-size: 7px;
+  font-size: var(--type-caption);
   letter-spacing: 1.4px;
   color: #858580;
 }
@@ -564,7 +575,7 @@ p {
   flex: 0 0 125px;
 }
 .market-label span {
-  font-size: 7px;
+  font-size: var(--type-caption);
   letter-spacing: 1.7px;
   line-height: 1.8;
   color: var(--muted);
@@ -572,7 +583,7 @@ p {
 .market-label strong {
   font-weight: 400;
   color: var(--text);
-  font-size: 7px;
+  font-size: var(--type-caption);
 }
 .ticker-asset {
   display: flex;
@@ -593,7 +604,7 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: var(--type-body);
   flex-shrink: 0;
 }
 .coin-eth {
@@ -615,24 +626,24 @@ p {
   min-width: 85px;
 }
 .asset-name {
-  font-size: 10px;
+  font-size: var(--type-small);
   display: block;
   white-space: nowrap;
 }
 .asset-name small {
-  font-size: 7px;
+  font-size: var(--type-caption);
   margin-inline-start: 5px;
   color: var(--muted);
 }
 .asset-price {
-  font-size: 11px;
+  font-size: var(--type-ui);
   display: flex;
   gap: 9px;
   margin-top: 4px;
   align-items: center;
 }
 .asset-price small {
-  font-size: 7px;
+  font-size: var(--type-caption);
   display: flex;
   align-items: center;
 }
@@ -673,26 +684,26 @@ p {
   margin-bottom: 26px;
 }
 .principle-top > span {
-  font-size: 8px;
+  font-size: var(--type-caption);
   letter-spacing: 1px;
   color: var(--muted);
 }
 .principle h3 {
   font-family: var(--serif);
-  font-size: 26px;
+  font-size: var(--type-card-title);
   letter-spacing: -0.4px;
   margin-bottom: 13px;
 }
 .principle > p {
-  font-size: 11px;
-  line-height: 1.9;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   max-width: 300px;
 }
 .principle > a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 10px;
+  font-size: var(--type-small);
   margin-top: 31px;
   border-top: 1px solid var(--border);
   padding-top: 17px;
@@ -728,34 +739,34 @@ p {
   align-items: center;
 }
 .plan-card-top .eyebrow {
-  font-size: 6px;
+  font-size: var(--type-caption);
   letter-spacing: 1.5px;
 }
 .plan-card-top > span:last-child {
-  font-size: 9px;
+  font-size: var(--type-small);
   color: var(--muted);
 }
 .landing-plan h3 {
   font-family: var(--serif);
-  font-size: 35px;
+  font-size: var(--type-card-title);
   display: flex;
   justify-content: space-between;
   margin-top: 26px;
 }
 .landing-plan h3 span {
   font-family: var(--sans);
-  font-size: 18px;
+  font-size: var(--type-card-title);
   font-weight: 400;
   color: var(--gold);
   padding-top: 8px;
 }
 .landing-plan > p {
-  font-size: 10px;
+  font-size: var(--type-body);
   margin-top: 4px;
 }
 .plan-rate {
   font-family: var(--serif);
-  font-size: 75px;
+  font-size: var(--type-display);
   letter-spacing: -3px;
   line-height: 1;
   margin-top: 33px;
@@ -764,7 +775,7 @@ p {
   gap: 8px;
 }
 .plan-rate > span {
-  font-size: 31px;
+  font-size: var(--type-subheading);
   letter-spacing: 0;
   display: flex;
   flex-direction: column;
@@ -773,12 +784,12 @@ p {
 }
 .plan-rate small {
   font-family: var(--sans);
-  font-size: 9px;
+  font-size: var(--type-small);
   letter-spacing: 0;
   color: var(--muted);
 }
 .target-caption {
-  font-size: 6px;
+  font-size: var(--type-caption);
   letter-spacing: 1.7px;
   color: var(--muted);
   display: block;
@@ -795,7 +806,7 @@ p {
   justify-content: space-between;
   gap: 10px;
   margin-bottom: 10px;
-  font-size: 9px;
+  font-size: var(--type-small);
 }
 .plan-card-details span {
   color: var(--muted);
@@ -807,7 +818,7 @@ p {
   width: 100%;
   justify-content: space-between;
   min-height: 40px;
-  font-size: 10px;
+  font-size: var(--type-ui);
   padding: 10px 16px;
 }
 .plans-disclosure {
@@ -815,7 +826,7 @@ p {
   justify-content: center;
   align-items: center;
   gap: 8px;
-  font-size: 8px;
+  font-size: var(--type-body);
   margin-top: 25px;
   text-align: center;
   flex-wrap: wrap;
@@ -837,8 +848,8 @@ p {
   margin-top: 23px;
 }
 .section-intro {
-  font-size: 12px;
-  line-height: 1.9;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   margin: 23px 0 30px;
 }
 .journey-steps {
@@ -857,17 +868,17 @@ p {
 .journey-step > span {
   font-family: var(--serif);
   color: var(--gold);
-  font-size: 24px;
+  font-size: var(--type-card-title);
   line-height: 1.4;
 }
 .journey-step h3 {
   font-family: var(--serif);
-  font-size: 25px;
+  font-size: var(--type-card-title);
   margin-bottom: 8px;
 }
 .journey-step p {
-  font-size: 11px;
-  line-height: 1.9;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
 }
 .journey-step > svg {
   color: var(--gold);
@@ -896,7 +907,7 @@ p {
   justify-content: space-between;
   gap: 20px;
   padding: 23px 0;
-  font-size: 12px;
+  font-size: var(--type-ui);
 }
 .faq-item:first-child > button {
   padding-top: 8px;
@@ -905,8 +916,8 @@ p {
   color: var(--gold);
 }
 .faq-item p {
-  font-size: 11px;
-  line-height: 1.9;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   padding-bottom: 23px;
   max-width: 95%;
 }
@@ -924,12 +935,12 @@ p {
   gap: 40px;
 }
 .newsletter-inner h2 {
-  font-size: 43px;
+  font-size: var(--type-section);
   margin-top: 12px;
   letter-spacing: -1px;
 }
 .newsletter-inner > div > p:last-child {
-  font-size: 10px;
+  font-size: var(--type-body);
   margin-top: 12px;
 }
 .newsletter-inner form {
@@ -952,7 +963,7 @@ p {
   outline: 0;
   padding: 8px 0;
   width: 100%;
-  font-size: 11px;
+  font-size: var(--type-ui);
 }
 .newsletter-input button {
   border: 0;
@@ -961,8 +972,8 @@ p {
   padding: 5px;
 }
 .newsletter-inner form > p {
-  font-size: 7px;
-  line-height: 1.9;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   margin-top: 13px;
   min-height: 15px;
 }
@@ -977,19 +988,19 @@ p {
 }
 .footer-top > div > p {
   margin-top: 22px;
-  font-size: 11px;
-  line-height: 1.8;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
 }
 .footer-identity-with-logos { width:320px; max-width:100%; min-width:0; }
 .footer-education { width:320px; max-width:100%; margin:22px 0 0; }
-.footer-education figcaption { margin-bottom:10px; font-size:9px; line-height:1.6; letter-spacing:.1em; color:#b8b8b8; opacity:.7; }
+.footer-education figcaption { margin-bottom:10px; font-size:var(--type-small); line-height:1.6; letter-spacing:.1em; color:#b8b8b8; opacity:.7; }
 :root[data-theme="light"] .footer-education figcaption { color:#000; }
 .footer-education-logos { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px 8px; margin:0; padding:0; list-style:none; }
 .footer-education-logo { display:flex; flex-direction:column; align-items:center; min-width:0; height:74px; padding:4px 0; gap:6px; border:0; background:transparent; }
 .footer-education-art { display:flex; align-items:center; justify-content:center; width:100%; height:40px; flex-shrink:0; overflow:hidden; }
 .footer-education-logo img { display:block; max-width:100%; max-height:40px; width:auto; height:auto; object-fit:contain; pointer-events:none; user-select:none; }
-.footer-education-name { width:100%; text-align:center; font-size:9px; line-height:12px; overflow-wrap:break-word; }
-.footer-education-text { font-size:11px; font-weight:600; text-align:center; }
+.footer-education-name { width:100%; text-align:center; font-size:var(--type-small); line-height:1.5; overflow-wrap:break-word; }
+.footer-education-text { font-size:var(--type-ui); font-weight:600; text-align:center; }
 .footer-education-logo:has(.footer-education-text) .footer-education-name { visibility:hidden; }
 :root:not([data-theme="light"]) .footer-education-logo img:not([data-presentation="iso"]):not([data-presentation="color"]) { filter:grayscale(1) invert(1); }
 .footer-education-logo img[data-presentation="matte"] { width:140%; max-width:none; max-height:none; height:auto; flex-shrink:0; mix-blend-mode:screen; }
@@ -1013,13 +1024,13 @@ p {
   gap: 10px;
 }
 .footer-links > div > span {
-  font-size: 7px;
+  font-size: var(--type-caption);
   color: var(--gold);
   letter-spacing: 1.4px;
   margin-bottom: 11px;
 }
 .footer-links a {
-  font-size: 10px;
+  font-size: var(--type-small);
   color: var(--muted);
 }
 .footer-links a:hover {
@@ -1038,14 +1049,14 @@ p {
 }
 .risk-notice > span {
   color: var(--gold);
-  font-size: 7px;
+  font-size: var(--type-body);
   letter-spacing: 1px;
   white-space: nowrap;
   padding-top: 2px;
 }
 .risk-notice > p {
-  font-size: 8px;
-  line-height: 1.8;
+  font-size: var(--type-body);
+  line-height: var(--type-leading-body);
   max-width: 950px;
 }
 .footer-bottom {
@@ -1053,7 +1064,7 @@ p {
   justify-content: space-between;
   padding: 22px 0;
   color: var(--muted);
-  font-size: 7px;
+  font-size: var(--type-caption);
   gap: 20px;
 }
 .footer-bottom > div {
@@ -1061,7 +1072,7 @@ p {
   gap: 20px;
 }
 .footer-edition {
-  font-size: 6px;
+  font-size: var(--type-caption);
   letter-spacing: 1.1px;
   margin-inline-start: 30px;
   color: #938b75;
@@ -1098,27 +1109,27 @@ p {
     margin-inline-end: 12px;
   }
   .desktop-nav a {
-    font-size: 9px;
+    font-size: var(--type-ui);
   }
   .header-actions {
     gap: 13px;
   }
   .brand > span {
-    font-size: 21px;
+    font-size: var(--type-brand);
     letter-spacing: 4px;
   }
   .brand small {
-    font-size: 4.9px;
+    font-size: var(--type-caption);
     letter-spacing: 1.8px;
   }
   .hero h1 {
-    font-size: 75px;
+    font-size: var(--type-display);
   }
   .hero-ctas {
     gap: 15px;
   }
   .hero-ctas .text-link {
-    font-size: 9px;
+    font-size: var(--type-ui);
     gap: 7px;
   }
   .hero-ctas .button {
@@ -1182,11 +1193,11 @@ p {
     grid-template-columns: 1.1fr 1fr;
   }
   .hero h1 {
-    font-size: 62px;
+    font-size: var(--type-display);
     letter-spacing: -2px;
   }
   .hero .eyebrow {
-    font-size: 7px;
+    font-size: var(--type-caption);
     letter-spacing: 1.8px;
   }
   .hero-art {
@@ -1199,7 +1210,7 @@ p {
   }
   .hero-principles {
     margin-top: 30px;
-    font-size: 7px;
+    font-size: var(--type-caption);
     gap: 10px;
   }
   .hero-copy {
@@ -1209,12 +1220,12 @@ p {
     inset: 20px -50px 10px -50px;
   }
   .orbit-label {
-    font-size: 6px;
+    font-size: var(--type-caption);
     right: 0;
     top: 25px;
   }
   .orbit-label small {
-    font-size: 5px;
+    font-size: var(--type-caption);
   }
   .coordinate-right {
     right: -10px;
@@ -1225,17 +1236,17 @@ p {
   .art-caption {
     right: 0;
     bottom: 20px;
-    font-size: 6px;
+    font-size: var(--type-caption);
     letter-spacing: 1px;
   }
   .caption-line {
     width: 20px;
   }
   .hero-description {
-    font-size: 11px;
+    font-size: var(--type-body);
   }
   .hero-bottom {
-    font-size: 6px;
+    font-size: var(--type-caption);
   }
   .market-inner {
     gap: 10px;
@@ -1249,7 +1260,7 @@ p {
     gap: 8px;
   }
   .asset-name {
-    font-size: 9px;
+    font-size: var(--type-small);
   }
   .asset-name small {
     display: none;
@@ -1257,31 +1268,31 @@ p {
   .coin-icon {
     width: 24px;
     height: 24px;
-    font-size: 15px;
+    font-size: var(--type-body);
   }
   .asset-price {
-    font-size: 10px;
+    font-size: var(--type-small);
     gap: 4px;
     flex-wrap: wrap;
   }
   .asset-price small {
-    font-size: 6px;
+    font-size: var(--type-caption);
   }
   .section-space {
     padding: 80px 0;
   }
   .split-heading > p {
-    font-size: 11px;
+    font-size: var(--type-body);
     max-width: 300px;
   }
   .principle-grid {
     gap: 25px;
   }
   .principle h3 {
-    font-size: 23px;
+    font-size: var(--type-card-title);
   }
   .principle > p {
-    font-size: 10px;
+    font-size: var(--type-body);
   }
   .landing-plans {
     gap: 13px;
@@ -1290,24 +1301,24 @@ p {
     padding: 21px 18px;
   }
   .plan-card-top .eyebrow {
-    font-size: 5px;
+    font-size: var(--type-caption);
     letter-spacing: 1.1px;
   }
   .landing-plan > p {
     min-height: 33px;
-    font-size: 9px;
+    font-size: var(--type-body);
   }
   .landing-plan h3 {
-    font-size: 31px;
+    font-size: var(--type-card-title);
   }
   .plan-rate {
-    font-size: 65px;
+    font-size: var(--type-display);
   }
   .target-caption {
-    font-size: 5px;
+    font-size: var(--type-caption);
   }
   .plan-card-details > div {
-    font-size: 8px;
+    font-size: var(--type-caption);
   }
   .journey-layout,
   .faq-layout {
@@ -1317,10 +1328,10 @@ p {
     gap: 15px;
   }
   .journey-step h3 {
-    font-size: 23px;
+    font-size: var(--type-card-title);
   }
   .journey-step p {
-    font-size: 10px;
+    font-size: var(--type-body);
   }
   .footer-links {
     gap: 25px;
@@ -1329,10 +1340,10 @@ p {
     gap: 25px;
   }
   .footer-links a {
-    font-size: 9px;
+    font-size: var(--type-small);
   }
   .footer-links > div > span {
-    font-size: 6px;
+    font-size: var(--type-caption);
   }
   .footer-edition {
     display: none;
@@ -1346,14 +1357,14 @@ p {
     height: 75px;
   }
   .brand > span {
-    font-size: 21px;
+    font-size: var(--type-brand);
   }
   .brand > svg {
     width: 25px;
     height: 25px;
   }
   .brand small {
-    font-size: 4.4px;
+    font-size: var(--type-caption);
   }
   .header-actions {
     gap: 12px;
@@ -1362,7 +1373,7 @@ p {
     display: none;
   }
   .header-join {
-    font-size: 9px;
+    font-size: var(--type-ui);
     padding: 8px 10px;
     gap: 10px;
   }
@@ -1381,7 +1392,7 @@ p {
     padding: 49px 0 16px;
   }
   .hero .eyebrow {
-    font-size: 7px;
+    font-size: var(--type-caption);
     letter-spacing: 1.4px;
     gap: 9px;
   }
@@ -1389,14 +1400,14 @@ p {
     width: 18px;
   }
   .hero h1 {
-    font-size: 66px;
+    font-size: var(--type-display);
     letter-spacing: -2px;
     margin-top: 26px;
     margin-bottom: 22px;
   }
   .hero-description {
-    font-size: 12px;
-    line-height: 1.85;
+    font-size: var(--type-body);
+    line-height: var(--type-leading-body);
   }
   .hero-ctas {
     flex-direction: row;
@@ -1405,13 +1416,13 @@ p {
     margin-top: 29px;
   }
   .hero-ctas .button {
-    font-size: 10px;
+    font-size: var(--type-ui);
     padding: 12px 15px;
     min-height: 44px;
     gap: 15px;
   }
   .hero-ctas .text-link {
-    font-size: 9px;
+    font-size: var(--type-ui);
     gap: 7px;
   }
   .hero-ctas .text-link > span {
@@ -1419,7 +1430,7 @@ p {
     height: 24px;
   }
   .hero-principles {
-    font-size: 7px;
+    font-size: var(--type-caption);
     margin-top: 28px;
   }
   .hero-art {
@@ -1439,12 +1450,12 @@ p {
   .coordinate-left,
   .coordinate-right {
     top: 45%;
-    font-size: 5px;
+    font-size: var(--type-caption);
   }
   .hero-bottom {
     padding-top: 15px;
     padding-bottom: 16px;
-    font-size: 5px;
+    font-size: var(--type-caption);
     gap: 20px;
     letter-spacing: 0.7px;
     align-items: flex-start;
@@ -1474,13 +1485,13 @@ p {
     display: none;
   }
   .market-label span {
-    font-size: 6px;
+    font-size: var(--type-caption);
     letter-spacing: 1.3px;
     display: flex;
     gap: 6px;
   }
   .market-label strong {
-    font-size: 6px;
+    font-size: var(--type-caption);
   }
   .market-label svg {
     width: 12px;
@@ -1510,13 +1521,13 @@ p {
     margin-inline-start: auto;
   }
   .asset-name {
-    font-size: 10px;
+    font-size: var(--type-small);
   }
   .asset-price {
-    font-size: 11px;
+    font-size: var(--type-ui);
   }
   .asset-price small {
-    font-size: 7px;
+    font-size: var(--type-caption);
     margin-inline-start: 4px;
   }
   .coin-icon {
@@ -1533,11 +1544,11 @@ p {
     margin-bottom: 34px;
   }
   .section-heading h2 {
-    font-size: 43px;
+    font-size: var(--type-section);
     margin-top: 20px;
   }
   .split-heading > p {
-    font-size: 11px;
+    font-size: var(--type-body);
     margin-top: 25px;
     max-width: none;
   }
@@ -1545,7 +1556,7 @@ p {
     display: none;
   }
   .eyebrow {
-    font-size: 7px;
+    font-size: var(--type-caption);
     letter-spacing: 1.8px;
   }
   .principle-grid {
@@ -1569,15 +1580,15 @@ p {
     height: 28px;
   }
   .principle h3 {
-    font-size: 28px;
+    font-size: var(--type-card-title);
   }
   .principle > p {
-    font-size: 12px;
+    font-size: var(--type-body);
     max-width: none;
   }
   .principle > a {
     margin-top: 20px;
-    font-size: 11px;
+    font-size: var(--type-ui);
     border-top: 0;
     padding-top: 0;
   }
@@ -1592,36 +1603,36 @@ p {
     padding: 26px;
   }
   .plan-card-top .eyebrow {
-    font-size: 7px;
+    font-size: var(--type-caption);
     letter-spacing: 1.4px;
   }
   .landing-plan h3 {
-    font-size: 38px;
+    font-size: var(--type-card-title);
     margin-top: 23px;
   }
   .landing-plan > p {
-    font-size: 11px;
+    font-size: var(--type-body);
     min-height: auto;
   }
   .plan-rate {
-    font-size: 76px;
+    font-size: var(--type-display);
     margin-top: 25px;
   }
   .target-caption {
-    font-size: 7px;
+    font-size: var(--type-caption);
   }
   .plan-card-details > div {
-    font-size: 11px;
+    font-size: var(--type-ui);
   }
   .landing-plan .button {
-    font-size: 11px;
+    font-size: var(--type-ui);
     min-height: 45px;
   }
   .plans-disclosure {
-    font-size: 8px;
+    font-size: var(--type-body);
     text-align: start;
     justify-content: flex-start;
-    line-height: 1.8;
+    line-height: var(--type-leading-body);
   }
   .journey-layout,
   .faq-layout {
@@ -1630,10 +1641,10 @@ p {
   }
   .journey-layout h2,
   .faq-layout h2 {
-    font-size: 43px;
+    font-size: var(--type-section);
   }
   .section-intro {
-    font-size: 12px;
+    font-size: var(--type-body);
     margin: 23px 0 25px;
   }
   .journey-steps {
@@ -1644,20 +1655,20 @@ p {
     padding: 24px 0;
   }
   .journey-step h3 {
-    font-size: 27px;
+    font-size: var(--type-card-title);
   }
   .journey-step p {
-    font-size: 11px;
+    font-size: var(--type-body);
   }
   .faq-list {
     margin-top: 3px;
   }
   .faq-item > button {
-    font-size: 12px;
+    font-size: var(--type-ui);
     padding: 20px 0;
   }
   .faq-item p {
-    font-size: 11px;
+    font-size: var(--type-body);
   }
   .newsletter-section {
     padding: 42px 0;
@@ -1666,11 +1677,11 @@ p {
     display: block;
   }
   .newsletter-inner h2 {
-    font-size: 44px;
+    font-size: var(--type-section);
   }
   .newsletter-inner > div > p:last-child {
-    font-size: 11px;
-    line-height: 1.8;
+    font-size: var(--type-body);
+    line-height: var(--type-leading-body);
   }
   .newsletter-inner form {
     width: 100%;
@@ -1678,7 +1689,7 @@ p {
     margin-top: 30px;
   }
   .newsletter-inner form > p {
-    font-size: 8px;
+    font-size: var(--type-body);
   }
   .site-footer {
     padding: 40px 0 0;
@@ -1688,7 +1699,7 @@ p {
     padding-bottom: 30px;
   }
   .footer-top > div > p {
-    font-size: 11px;
+    font-size: var(--type-body);
     margin-top: 18px;
   }
   .footer-links {
@@ -1698,26 +1709,26 @@ p {
     margin-top: 35px;
   }
   .footer-links > div > span {
-    font-size: 7px;
+    font-size: var(--type-caption);
   }
   .footer-links a {
-    font-size: 10px;
+    font-size: var(--type-small);
   }
   .risk-notice {
     display: block;
     padding: 24px 0;
   }
   .risk-notice > span {
-    font-size: 7px;
+    font-size: var(--type-body);
   }
   .risk-notice > p {
-    font-size: 9px;
+    font-size: var(--type-body);
     margin-top: 12px;
-    line-height: 1.8;
+    line-height: var(--type-leading-body);
   }
   .footer-bottom {
     display: block;
-    font-size: 8px;
+    font-size: var(--type-caption);
     padding: 20px 0;
   }
   .footer-bottom > div {
@@ -1755,6 +1766,6 @@ p {
 .ticker-signal {
   margin-inline-start: auto;
   color: var(--muted);
-  font-size: 18px;
+  font-size: var(--type-body);
   opacity: 0.55;
 }

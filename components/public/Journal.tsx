@@ -131,7 +131,7 @@ export function Journal() {
                     ? "Questions & answers"
                     : "Announcement"}
               </p>
-              <h2 style={{ fontSize: 30, margin: "20px 0" }}>
+              <h2 style={{ fontSize: "var(--type-section)", margin: "20px 0" }}>
                 <Link href={`/journal/${entry.slug}`}>{entry.title}</Link>
               </h2>
               <p>{entry.summary}</p>
@@ -167,7 +167,7 @@ export function Journal() {
             size={32}
             style={{ margin: "0 auto 24px", color: "var(--gold)" }}
           />
-          <h2 style={{ fontSize: 36 }}>A considered perspective takes time.</h2>
+          <h2 style={{ fontSize: "var(--type-section)" }}>A considered perspective takes time.</h2>
           <p>
             There are no published{" "}
             {kind === "ARTICLE"
@@ -202,14 +202,14 @@ export function JournalArticle({ slug }: { slug: string }) {
           <h1
             style={{
               fontFamily: "var(--serif)",
-              fontSize: "clamp(40px,6vw,68px)",
+              fontSize: "var(--type-display)",
               lineHeight: 1.1,
               margin: "24px 0",
             }}
           >
             {r.data.entry.title}
           </h1>
-          <p style={{ fontSize: 19, lineHeight: 1.8 }}>
+          <p style={{ fontSize: "var(--type-body)", lineHeight: "var(--type-leading-body)" }}>
             {r.data.entry.summary}
           </p>
           <p style={{ margin: "20px 0 36px", color: "var(--muted)" }}>
@@ -227,7 +227,7 @@ export function JournalArticle({ slug }: { slug: string }) {
               whiteSpace: "pre-wrap",
               overflowWrap: "anywhere",
               lineHeight: 1.9,
-              fontSize: 17,
+              fontSize: "var(--type-ui)",
             }}
           >
             <Verbatim>{r.data.entry.body}</Verbatim>

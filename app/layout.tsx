@@ -8,6 +8,7 @@ import "@fontsource/dm-sans/600.css";
 import "./globals.css";
 import LanguageProvider from "@/components/LanguageProvider";
 import "@/components/language.css";
+import "./typography-layout.css";
 import ThemeProvider from "@/components/ThemeProvider";
 export const metadata: Metadata = {
   title: {

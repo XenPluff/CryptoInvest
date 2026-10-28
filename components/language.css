@@ -9,7 +9,7 @@
   background: transparent;
   color: var(--text, #f3f0e8);
   font: inherit;
-  font-size: 10px;
+  font-size: var(--type-ui);
   letter-spacing: 0.04em;
   border: 0;
   border-radius: 2px;
@@ -26,12 +26,12 @@
   color: var(--text, #f3f0e8);
 }
 .legal-language-note {
-  font-size: 10px;
+  font-size: var(--type-small);
   padding: 0 0 15px;
   color: var(--muted, #989991);
 }
 .auth-legal-language {
-  font-size: 9px;
+  font-size: var(--type-small);
   color: var(--auth-muted, #8d8e94);
 }
 @media (min-width: 1051px) {
@@ -43,7 +43,7 @@
     gap: 16px;
   }
   html[lang="fr"] .desktop-nav a {
-    font-size: 9px;
+    font-size: var(--type-ui);
   }
 }
 @media (max-width: 650px) {
@@ -54,7 +54,7 @@
     display: none;
   }
   .language-selector select {
-    font-size: 9px;
+    font-size: var(--type-ui);
     min-width: 36px;
   }
   .site-header .header-actions {
@@ -74,7 +74,7 @@
   align-items: flex-start;
   gap: 9px;
   margin-top: 15px;
-  font-size: 10px;
+  font-size: var(--type-small);
   line-height: 1.7;
   color: var(--muted);
 }
@@ -92,10 +92,10 @@
 
 /* A compact selector keeps all eight native language names available on small screens. */
 .language-selector select { width: 106px; max-width: 100%; text-overflow: ellipsis; }
-.language-error { position: absolute; top: 100%; padding: 8px; background: var(--surface); font-size: 11px; z-index: 60; }
+.language-error { position: absolute; top: 100%; padding: 8px; background: var(--surface); font-size: var(--type-ui); z-index: 60; }
 .language-selector { position: relative; }
 html:not([lang="en"]) .desktop-nav { gap: 14px; margin-inline-end: 12px; }
-html:not([lang="en"]) .desktop-nav a { font-size: 9px; }
+html:not([lang="en"]) .desktop-nav a { font-size: var(--type-ui); }
 html:not([lang="en"]) .header-inner { gap: 16px; }
 html[dir="rtl"] { text-align: right; }
 html[dir="rtl"] body { font-family: Tahoma, Arial, sans-serif; }

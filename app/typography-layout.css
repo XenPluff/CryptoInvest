@@ -1,0 +1,82 @@
+/* Room for the shared 18px reading and 16px interface scales. */
+.hero h1 { letter-spacing:-.035em; }
+.hero-description { max-width:39rem; }
+.hero-ctas,.hero-principles,.footer-bottom,.footer-bottom>div { flex-wrap:wrap; }
+.split-heading>p { max-width:30rem; }
+.brand small { max-width:14rem; letter-spacing:.1em; line-height:1.5; white-space:normal; }
+.header-inner { gap:16px; }
+.desktop-nav { gap:12px; margin-inline-end:0; }
+.desktop-nav a { white-space:nowrap; }
+.header-actions { gap:10px; }
+.header-join { gap:14px; }
+.header-join,.login-link { white-space:nowrap; }
+.site-header .language-selector select { width:85px; }
+.footer-links { gap:32px; flex-wrap:wrap; }
+.footer-links>div { min-width:0; overflow-wrap:anywhere; }
+.footer-education-logo { height:auto; min-height:96px; }
+.footer-education-name { line-height:1.45; }
+.risk-notice { align-items:flex-start; }
+.risk-notice>span { flex-shrink:0; max-width:12rem; white-space:normal; overflow-wrap:anywhere; }
+.newsletter-inner form { min-width:0; }
+.button { white-space:normal; text-align:center; }
+.ws-page-heading { align-items:flex-start; flex-wrap:wrap; }
+.ws-page-heading>div { min-width:0; }
+.ws-nav-link { height:auto; min-height:48px; padding-block:10px; }
+.ws-nav-link>span { min-width:0; overflow-wrap:anywhere; }
+.ws-nav-link svg { flex-shrink:0; }
+.ws-shell .ws-nav-link { min-width:0; overflow-wrap:anywhere; }
+.ws-shell .ws-support { flex-wrap:wrap; overflow-wrap:anywhere; }
+.ws-shell .ws-button,.ws-shell .ws-text-button { max-width:100%; white-space:normal; overflow-wrap:anywhere; }
+.ws-shell .ws-panel-header { flex-wrap:wrap; align-items:flex-start; }
+.ws-shell .ws-panel-header>div { min-width:0; max-width:100%; }
+.ws-shell .ws-search { min-width:0; max-width:100%; }
+.ws-shell .ws-search input { min-width:0; width:12rem; max-width:100%; }
+.ws-form-grid { min-width:0; }
+.ws-field input,.ws-field select,.ws-field textarea { min-height:48px; }
+.ws-table-wrap { max-width:100%; }
+.ws-stat-card { min-width:0; }
+.ws-stat-card>strong { overflow-wrap:anywhere; }
+.auth-bottom,.auth-bottom>div { flex-wrap:wrap; }
+.auth-page input:not([type="checkbox"]):not([type="radio"]),.auth-page select,.auth-page textarea { min-height:48px; }
+.auth-page .auth-password-toggle { min-height:48px; }
+.language-selector select { min-height:40px; }
+@media(max-width:1350px) {
+  .desktop-nav,html:not([lang="en"]) .desktop-nav { display:none; }
+  .site-header .mobile-toggle { display:flex; }
+  .site-header .header-actions { margin-inline-start:auto; }
+}
+@media(max-width:1700px) {
+  html:not([lang="en"]) .desktop-nav { display:none; }
+  html:not([lang="en"]) .site-header .mobile-toggle { display:flex; }
+  html:not([lang="en"]) .site-header .header-actions { margin-inline-start:auto; }
+}
+@media(max-width:900px) {
+  .split-heading { align-items:flex-start; flex-direction:column; }
+  .hero-ctas { gap:16px; }
+  .footer-top { gap:36px; }
+}
+@media(max-width:650px) {
+  .site-header { height:auto; min-height:98px; }
+  .header-inner { padding-block:14px; gap:10px; }
+  .site-header .header-join,.site-header .login-link { display:none; }
+  .site-header .header-actions { gap:8px; }
+  .site-header .language-selector select { width:72px; }
+  .brand { min-width:0; flex-shrink:1; }
+  .brand>span { min-width:0; }
+  .brand small { max-width:11rem; letter-spacing:.04em; overflow-wrap:anywhere; }
+  .brand>svg { flex-shrink:0; }
+  .hero h1 { letter-spacing:-.035em; }
+  .hero-principles { gap:12px; }
+  .hero-ctas { align-items:stretch; }
+  .hero-ctas .button { justify-content:center; }
+  .footer-links { width:100%; gap:28px; grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .risk-notice { flex-direction:column; }
+  .footer-bottom>div { gap:14px; }
+  .ws-topbar { height:auto; min-height:78px; padding-block:12px; }
+  .ws-content { padding-inline:18px; }
+  .ws-page-heading h1 { overflow-wrap:anywhere; }
+  .ws-page-heading .ws-button { max-width:100%; }
+}
+@media(max-width:480px) {
+  .ws-shell .ws-stats-grid { grid-template-columns:minmax(0,1fr); }
+}

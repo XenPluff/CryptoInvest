@@ -1,6 +1,6 @@
 .section { padding:38px 0 32px; border-block:1px solid var(--border); background:var(--surface); overflow:hidden; }
 .heading { display:flex; align-items:center; justify-content:space-between; gap:24px; margin-bottom:24px; }
-.heading .description { font-size:13px; line-height:1.7; color:var(--muted); margin-top:10px; }
+.heading .description { font-size:var(--type-body); line-height:var(--type-leading-body); color:var(--muted); margin-top:10px; }
 .tile a:focus-visible { outline:2px solid var(--gold); outline-offset:4px; }
 .viewport { overflow:hidden; direction:ltr; mask-image:linear-gradient(to right,transparent,#000 4%,#000 96%,transparent); }
 .track { display:flex; width:max-content; animation:logo-drift var(--logo-duration) linear infinite; will-change:transform; }
@@ -10,10 +10,10 @@
 .wordmark { display:block; width:auto; max-width:156px; max-height:38px; height:auto; object-fit:contain; }
 .symbol { display:block; flex-shrink:0; width:27px; height:27px; object-fit:contain; }
 .ink { filter:brightness(0); }
-.name { font-family:var(--font-dm-sans),sans-serif; font-size:13px; font-weight:600; line-height:1.35; letter-spacing:-.25px; }
+.name { font-family:var(--font-dm-sans),sans-serif; font-size:var(--type-body); font-weight:600; line-height:1.35; letter-spacing:-.25px; }
 @keyframes logo-drift { from { transform:translate3d(0,0,0); } to { transform:translate3d(-50%,0,0); } }
 @media(max-width:650px) {
- .section { padding:28px 0 23px; }.heading { gap:14px; margin-bottom:19px; }.heading .description { font-size:12px; }.tile { flex-basis:158px; width:158px; height:66px; }.tile a { padding:12px; gap:8px; }.wordmark { max-width:132px; max-height:30px; }.symbol { width:23px; height:23px; }.name { font-size:11px; }.group { gap:12px; padding-right:12px; }
+ .section { padding:28px 0 23px; }.heading { gap:14px; margin-bottom:19px; }.heading .description { font-size:var(--type-body); }.tile { flex-basis:158px; width:158px; height:66px; }.tile a { padding:12px; gap:8px; }.wordmark { max-width:132px; max-height:30px; }.symbol { width:23px; height:23px; }.name { font-size:var(--type-ui); }.group { gap:12px; padding-right:12px; }
 }
 @media(prefers-reduced-motion:reduce) {
  .track { animation:none; will-change:auto; }.group[aria-hidden="true"] { display:none; }.viewport { overflow-x:auto; mask-image:none; padding-inline:20px; scroll-padding-inline:20px; }

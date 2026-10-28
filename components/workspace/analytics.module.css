@@ -10,19 +10,19 @@
 .caption,
 .meta {
   color: var(--muted, #91a181);
-  font-size: 10px;
+  font-size: var(--type-small);
   line-height: 1.8;
 }
 .summary strong {
   display: block;
-  font-size: 32px;
+  font-size: var(--type-subheading);
   font-weight: 400;
   letter-spacing: -1px;
   color: var(--text, #d4d6b4);
 }
 .summary small {
   display: block;
-  font-size: 10px;
+  font-size: var(--type-small);
   color: var(--muted, #91a181);
 }
 .chart {
@@ -33,7 +33,7 @@
 }
 .chart text {
   fill: var(--muted, #91a181);
-  font-size: 10px;
+  font-size: var(--type-small);
   font-family: inherit;
 }
 .chart line {
@@ -44,7 +44,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  font-size: 10px;
+  font-size: var(--type-small);
   margin: 8px 0;
   color: var(--muted, #91a181);
 }
@@ -70,15 +70,15 @@
 }
 .empty strong {
   font:
-    22px Georgia,
+    var(--type-card-title) Georgia,
     serif;
   font-weight: 400;
   color: var(--text, #d4d6b4);
 }
 .empty p {
-  font-size: 11px;
+  font-size: var(--type-body);
   color: var(--muted, #91a181);
-  line-height: 1.9;
+  line-height: var(--type-leading-body);
   max-width: 390px;
 }
 .allocation {
@@ -87,7 +87,7 @@
   padding-top: 18px;
 }
 .allocation h3 {
-  font-size: 11px;
+  font-size: var(--type-card-title);
   font-weight: 500;
   margin: 0 0 15px;
   color: var(--text, #cbd2ba);
@@ -99,7 +99,7 @@
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  font-size: 10px;
+  font-size: var(--type-small);
   color: var(--muted, #91a181);
   margin-bottom: 7px;
 }
@@ -120,7 +120,7 @@
   border-radius: 3px;
 }
 .details {
-  font-size: 10px;
+  font-size: var(--type-small);
   color: var(--muted, #91a181);
   margin-top: 18px;
 }
@@ -132,7 +132,7 @@
 }
 .dataTable {
   width: 100%;
-  font-size: 10px;
+  font-size: var(--type-small);
   border-collapse: collapse;
   margin-top: 10px;
 }
@@ -164,34 +164,34 @@
 .stats span {
   display: block;
   color: var(--muted, #91a181);
-  font-size: 10px;
+  font-size: var(--type-small);
   line-height: 1.7;
 }
 .stats strong {
   font-weight: 400;
   display: block;
-  font-size: 20px;
+  font-size: var(--type-card-title);
   margin-top: 6px;
   color: var(--text, #cbd2ba);
 }
 @media (max-width: 600px) {
   .summary strong {
-    font-size: 27px;
+    font-size: var(--type-subheading);
   }
   .chart text {
-    font-size: 11px;
+    font-size: var(--type-ui);
   }
   .stats {
     grid-template-columns: 1fr 1fr;
     gap: 14px;
   }
   .stats strong {
-    font-size: 18px;
+    font-size: var(--type-body);
   }
   .allocationLabel {
-    font-size: 10px;
+    font-size: var(--type-small);
   }
   .dataTable {
-    font-size: 9px;
+    font-size: var(--type-small);
   }
 }
