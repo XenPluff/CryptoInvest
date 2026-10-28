@@ -71,3 +71,15 @@ financial records or external emails are created during verification.
 
 Deployment, activation and hosted verification are recorded in
 [Live preview](LIVE_PREVIEW.md) and [Validation](VALIDATION.md).
+
+Live activation is verified in deployment `dep-dbh86pe7bikc73fhic00`, source
+`19cede13f0ebc43aa6f1a7bad1bdad132d225dc0`. Render accepted the single-key environment
+update, and actual service health reports `enabled:true`, funding enabled and
+an advancing worker heartbeat. Eight hosted browser cases pass using deployed
+HTML/assets with isolated account/verification fixtures. Actual unauthenticated
+investor account endpoints return 401. Database and email readiness remain
+passed. Test records and credits were never sent to production; the new live
+verification table was not seeded. Validation metadata and logs are in
+`.aureon/automatic-settlement/` and `.aureon/validation/automatic-settlement-*`.
+Automatic deployment remains disabled; subsequent documentation-only commits
+do not replace the running source above.

@@ -5,8 +5,21 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `e5aa6bd281c7893dcb8203d082f4c266dc725941` from branch
+- Running source commit: `19cede13f0ebc43aa6f1a7bad1bdad132d225dc0` from branch
   `codex/aureon-render-preview`.
+- Automatic settlement of administrator-verified investment proceeds is enabled
+  in deployment `dep-dbh86pe7bikc73fhic00`, with
+  `AUTOMATIC_SETTLEMENT_ENABLED=true`. The additive verification table starts
+  empty. Actual unpaid profits can be verified during an active term and are
+  credited by a 15-second worker; final principal returns retain maturity and
+  evidence controls. No target counter or historical estimate becomes a credit.
+  Health reports mode enabled, funding enabled and an advancing worker heartbeat;
+  database connectivity and email readiness remain passed. Build, 169 unit tests,
+  29 disposable-PostgreSQL checks and 10 local browser cases pass. Eight hosted
+  browser cases pass against actual deployed HTML/assets with browser-only
+  private-account and verification fixtures. Real account endpoints return 401
+  without authentication. No production profits, accounts, ledger postings or
+  emails were created by verification. See [automatic settlement](AUTOMATIC_SETTLEMENT.md).
 - The redesigned investor portfolio and consistent realized-earnings totals are
   live in deployment `dep-dbh7cn7lk1mc73an6log`. My Investments now has posted
   earnings/active principal/returned principal/settled-position totals, filters,
