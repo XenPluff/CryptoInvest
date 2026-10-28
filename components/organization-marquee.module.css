@@ -1,7 +1,7 @@
 .section { padding:38px 0 32px; border-block:1px solid var(--border); background:var(--surface); overflow:hidden; }
 .heading { display:flex; align-items:center; justify-content:space-between; gap:24px; margin-bottom:24px; }
 .heading .description { font-size:var(--type-body); line-height:var(--type-leading-body); color:var(--muted); margin-top:10px; }
-.viewport { overflow:hidden; direction:ltr; background:rgba(214,220,216,.12); border-block:1px solid rgba(207,215,210,.08); mask-image:linear-gradient(to right,transparent,#000 4%,#000 96%,transparent); }
+.viewport { overflow:hidden; direction:ltr; background:transparent; mask-image:linear-gradient(to right,transparent,#000 4%,#000 96%,transparent); }
 .track { display:flex; width:max-content; animation:logo-drift var(--logo-duration) linear infinite; will-change:transform; }
 .group { display:flex; align-items:center; flex-shrink:0; gap:0; margin:0; padding:0; list-style:none; }
 .tile { flex:0 0 190px; width:190px; height:78px; background:transparent; border:0; border-radius:0; }
@@ -10,7 +10,6 @@
 .symbol { display:block; flex-shrink:0; width:27px; height:27px; object-fit:contain; pointer-events:none; }
 .ink { filter:brightness(0); }
 :global(:root:not([data-theme="light"])) .wordmark { filter:grayscale(1) brightness(0) invert(.86); }
-:global(:root[data-theme="light"]) .viewport { background:rgba(176,184,179,.17); border-color:rgba(94,105,98,.08); }
 :global(:root[data-theme="light"]) .mark { color:#34413a; }
 .name { font-family:var(--font-dm-sans),sans-serif; font-size:var(--type-body); font-weight:600; line-height:1.35; letter-spacing:-.25px; }
 @keyframes logo-drift { from { transform:translate3d(0,0,0); } to { transform:translate3d(-50%,0,0); } }
