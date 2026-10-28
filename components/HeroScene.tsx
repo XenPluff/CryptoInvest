@@ -17,7 +17,7 @@ function AdaptiveResolution() {
   return null;
 }
 export default function HeroScene() {
-  return <div className={styles.scene}>
+  return <div className={styles.scene} aria-hidden="true">
     <SceneBoundary>
       <Canvas camera={{ position: [0, 0.18, 6.9], fov: 42 }} dpr={[1, 1.5]}
         gl={{ alpha: true, antialias: true, powerPreference: "low-power" }} fallback={<GlobePoster />}>

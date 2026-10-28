@@ -197,22 +197,8 @@ export default function Landing() {
               </div>
             </motion.div>
             <div className="hero-art">
-              <div className="orbit-label orbit-label-top">
-                <span className="crosshair">+</span>
-                <span>
-                  {t("PRECISION IN EVERY ORBIT")}
-                  <br />
-                  <small>{t("THE AUREON SPHERE — 001")}</small>
-                </span>
-              </div>
               <div className="orbital-aura" />
               <HeroArtwork />
-              <div className="art-coordinate coordinate-left">
-                37° 46′ 49″ N
-              </div>
-              <div className="art-coordinate coordinate-right">
-                {t("THE LONG VIEW ↗")}
-              </div>
               <div className="art-caption">
                 <span className="gold-dot" /> {t("A WORLD OF POSSIBILITY.")}
                 <span className="caption-line" />
