@@ -5,8 +5,23 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `8d02274e3cc5781c8468ce7ea65392539bf5627f` from branch
+- Running source commit: `ea29c0b8fbb12c9fad108f081bd0e1a0dd704fbb` from branch
   `codex/aureon-render-preview`.
+- The homepage market band now uses TradingView's live Ticker Tape widget in
+  deployment `dep-dbh40gbbc2fs73emb4ig`. Bitcoin, Ethereum and Tether use
+  Coinbase USD pairs; BNB uses Binance USDT, with explicit pair labels. Native
+  provider branding and linked, translated attribution remain visible. The old
+  “FEED UNAVAILABLE” state, custom asset strip and homepage `/api/markets`
+  polling are removed. Other market views and deposit pricing are unchanged.
+  A provider-origin iframe matches the site's theme and supported widget
+  locale; only its exact frame origin is added to the first-party CSP.
+  Production build and six localization/catalog cases pass. Local and hosted
+  browser checks verify real provider prices and live updates, six desktop/
+  mobile/theme states, advancing ticker content and all eight site languages.
+  The hosted run observes 57 quote frames and 54 price updates without
+  page, provider-request or socket errors, API fixtures or mutations. Health
+  remains connected with enabled funding and passed email readiness; the eight
+  existing globe image hashes are unchanged. See [widget scope](TRADINGVIEW.md).
 - The requested globe labels are removed in deployment `dep-dbh2op59el5s73ak2030`:
   the plus sign, “PRECISION IN EVERY ORBIT”, “THE AUREON SPHERE — 001”,
   geographic coordinates and “THE LONG VIEW ↗”. The decorative scene is hidden

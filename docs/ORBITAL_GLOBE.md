@@ -1,9 +1,10 @@
 # Orbital globe concept
 
 **Selected Obsidian concept is live** at <https://aureon-preview.onrender.com>.
-The owner approved deployment on October 28, 2026. Render deployment
-`dep-dbh2op59el5s73ak2030` runs source
-`8d02274e3cc5781c8468ce7ea65392539bf5627f`. The working/source branch is
+The owner approved deployment on October 28, 2026. The globe label-removal deployment
+`dep-dbh2op59el5s73ak2030` used source
+`8d02274e3cc5781c8468ce7ea65392539bf5627f`. The current overall deployment is recorded in [Live preview](LIVE_PREVIEW.md).
+The working/source branch is
 `codex/aureon-orbital-globe`; the Render branch is `codex/aureon-render-preview`.
 
 The hero replaces the angular crystal and wire cage with an obsidian globe,
