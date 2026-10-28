@@ -30,7 +30,8 @@ available on both main pages. Independent requests can observe different
 settlement times until the next refresh; each response is internally consistent.
 
 Realized earnings increase when actual reconciled income is posted by the
-existing settlement workflow. Elapsed time alone does not post earnings or
+settlement workflow. The subsequent [automatic-settlement release](AUTOMATIC_SETTLEMENT.md)
+adds administrator-verified periodic profit credits and automatic final posting. Elapsed time alone does not post earnings or
 make projected targets withdrawable. Existing evidence, maturity, administrator
 TOTP, audit and exactly-once settlement controls remain in place.
 
@@ -57,3 +58,7 @@ analytics APIs return 401. Health reports connected database, enabled funding
 and passed email readiness. Hosted screenshots and logs are stored with the
 local evidence under `.aureon/portfolio/`. Automatic deployment remains disabled;
 subsequent documentation commits do not change this running source.
+
+The original manual-only settlement description above records the portfolio
+redesign. [Automatic verified settlement](AUTOMATIC_SETTLEMENT.md) now describes
+the active verification queue and worker; rates and target counters remain separate.

@@ -441,7 +441,7 @@ function Overview({ user }: { user: RecordData }) {
           </Link>
         </div>
       ) : null}
-      <PortfolioRefresh {...r} />
+      <PortfolioRefresh {...r} automaticSettlement={d.automaticSettlement} />
       <div className="ws-stats-grid">
         {stats.map(([label, value, Icon, note], i) => (
           <div

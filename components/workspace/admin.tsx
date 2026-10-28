@@ -22,6 +22,8 @@ import { AdminAnalytics } from "./AdminAnalytics";
 import { ProviderConnections } from "./ProviderConnections";
 import { Operations } from "./Operations";
 import { AdminCards } from "./Cards";
+import { usePortfolioRemote } from "./usePortfolioRemote";
+import { PortfolioRefresh } from "./PortfolioRefresh";
 import {
   BalanceManagement,
   TransferManagement,
@@ -1017,8 +1019,12 @@ function AdminDialog({
 
 function InvestmentSettlements() {
   useDisplayLocale();
-  const r = useRemote("/admin/investments");
+  const r = usePortfolioRemote("/admin/investments");
+  const automatic = Boolean(r.data?.automaticSettlement?.enabled);
   const [selected, setSelected] = useState<RecordData | null>(null);
+  const [settlementKind, setSettlementKind] = useState("PROFIT");
+  const profitOnly = automatic && settlementKind === "PROFIT";
+  if (r.loading || r.error) return <LoadState {...r} />;
   return <TranslatedContent>{(
     <>
       <Notice>
@@ -1026,6 +1032,8 @@ function InvestmentSettlements() {
         result. Projected counters never authorize wallet credits. Settlement
         requires an evidence reference and is recorded in the ledger.
       </Notice>
+      {automatic && <Notice>Automatic settlement is enabled. Verify additional unpaid profits for automatic credit. Return principal only through a verified final settlement at maturity.</Notice>}
+      <PortfolioRefresh {...r} />
       <Panel title="Investment settlement ledger">
         <LoadState {...r} />
         {r.data?.investments?.length ? (
@@ -1052,15 +1060,15 @@ function InvestmentSettlements() {
                       <DateText value={i.startTimestamp} />
                     </td>
                     <td>
-                      <Badge value={i.status} />
+                      <Badge value={i.verifiedSettlements?.some((record: RecordData) => !record.processedAt) ? "QUEUED" : i.status} />
                     </td>
                     <td>
                       <button
                         className="ws-button ws-button-small"
-                        disabled={String(i.status).toLowerCase() !== "active"}
-                        onClick={() => setSelected(i)}
+                        disabled={String(i.status).toLowerCase() !== "active" || Boolean(i.verifiedSettlements?.some((record: RecordData) => !record.processedAt))}
+                        onClick={() => { setSettlementKind("PROFIT"); setSelected(i); }}
                       >
-                        Settle
+                        {automatic ? "Verify profits" : "Settle"}
                       </button>
                     </td>
                   </tr>
@@ -1085,13 +1093,15 @@ function InvestmentSettlements() {
           <p className="ws-muted">
             Original principal: {money(selected.principalAmount)}. Enter only
             verified amounts backed by an external evidence record.
+            {automatic && " Enter additional, unpaid profit only. Previously credited income must not be included again."}
           </p>
           <ActionForm
-            path={`/admin/investments/${selected.id}/settle`}
-            submit="Record final settlement"
+            path={`/admin/investments/${selected.id}/${automatic ? "verify-settlement" : "settle"}`}
+            submit={automatic ? "Verify and queue settlement" : "Record final settlement"}
             transform={(d) => ({
               ...d,
-              principalReturned: Number(d.principalReturned),
+              ...(automatic ? { verified: true, kind: settlementKind } : {}),
+              principalReturned: profitOnly ? 0 : Number(d.principalReturned),
               realizedEarnings: Number(d.realizedEarnings),
             })}
             onSuccess={() => {
@@ -1099,8 +1109,11 @@ function InvestmentSettlements() {
               setSelected(null);
             }}
           >
+            {automatic && <Field label="Credit type" name="kind"><select name="kind" value={settlementKind} onChange={event => setSettlementKind(event.target.value)}>
+              <option value="PROFIT">Verified profit credit</option><option value="FINAL">Final settlement at maturity</option>
+            </select></Field>}
             <div className="ws-form-row">
-              <Field
+              {!profitOnly && <Field
                 label="Principal returned (USD)"
                 name="principalReturned"
                 required
@@ -1109,9 +1122,9 @@ function InvestmentSettlements() {
                 min="0"
                 max={selected.principalAmount}
                 defaultValue={selected.principalAmount}
-              />
+              />}
               <Field
-                label="Realized earnings (USD)"
+                label={automatic ? "Additional verified profit (USD)" : "Realized earnings (USD)"}
                 name="realizedEarnings"
                 required
                 type="number"

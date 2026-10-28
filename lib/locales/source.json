@@ -88,6 +88,9 @@
   "{0} {1} remaining": [
     "components/LiveInvestmentDisplay.tsx"
   ],
+  "{0} {1}; reference {2}": [
+    "server/investment-settlements.ts"
+  ],
   "{0} / AUREON": [
     "components/public/PublicShell.tsx"
   ],
@@ -704,6 +707,9 @@
   "A valid two-factor authentication code is required.": [
     "server/auth.ts"
   ],
+  "A verified profit credit must be greater than zero.": [
+    "server/investment-settlements.ts"
+  ],
   "A wider horizon.": [
     "components/Landing.tsx",
     "lib/i18n.ts"
@@ -873,6 +879,9 @@
   "Added": [
     "components/workspace/PasskeySettings.tsx"
   ],
+  "Additional verified profit (USD)": [
+    "components/workspace/admin.tsx"
+  ],
   "Address": [
     "components/workspace/WalletConnections.tsx"
   ],
@@ -930,7 +939,7 @@
     "server/app.ts"
   ],
   "Administrators cannot settle their own investments.": [
-    "server/app.ts"
+    "server/investment-settlements.ts"
   ],
   "Agreements should explain allocations, fees, redemption terms, liquidity constraints, conflicts and how losses are treated. A business overview does not establish an entitlement to income.": [
     "app/approach/page.tsx"
@@ -1440,6 +1449,15 @@
   ],
   "Automatic off-site backups": [
     "components/workspace/Operations.tsx"
+  ],
+  "Automatic settlement enabled": [
+    "components/workspace/PortfolioRefresh.tsx"
+  ],
+  "Automatic settlement is disabled.": [
+    "server/investment-settlements.ts"
+  ],
+  "Automatic settlement is enabled. Verify additional unpaid profits for automatic credit. Return principal only through a verified final settlement at maturity.": [
+    "components/workspace/admin.tsx"
   ],
   "Availability": [
     "components/workspace/admin.tsx"
@@ -2223,6 +2241,9 @@
   "Credit balance": [
     "components/workspace/AdminFunds.tsx"
   ],
+  "Credit type": [
+    "components/workspace/admin.tsx"
+  ],
   "CRITICAL": [
     "components/workspace/Operations.tsx"
   ],
@@ -2762,6 +2783,9 @@
   "Enter a valid USD amount.": [
     "server/finance.ts"
   ],
+  "Enter additional, unpaid profit only. Previously credited income must not be included again.": [
+    "components/workspace/admin.tsx"
+  ],
   "Enter an amount within your available USD balance. Active investment principal and target estimates are not available funds.": [
     "lib/video-content.ts"
   ],
@@ -3010,6 +3034,9 @@
   "Filter review status": [
     "components/workspace/admin.tsx"
   ],
+  "Final settlement at maturity": [
+    "components/workspace/admin.tsx"
+  ],
   "Financial access requires verified email and an approved identity status in the application. Users must supply accurate information and cooperate with lawful requests. The operator may require further evidence of identity, residence, source of funds, source of wealth or beneficial ownership before accepting or processing activity.": [
     "app/legal/aml/page.tsx"
   ],
@@ -3136,7 +3163,8 @@
     "components/workspace/DepositWorkspace.tsx"
   ],
   "Funding is disabled.": [
-    "server/app.ts"
+    "server/app.ts",
+    "server/investment-settlements.ts"
   ],
   "Funding is not enabled. The operator must complete custody, payment verification, and production configuration.": [
     "server/app.ts"
@@ -3531,7 +3559,7 @@
     "lib/business-activities.ts"
   ],
   "Investment not found.": [
-    "server/app.ts"
+    "server/investment-settlements.ts"
   ],
   "Investment operations": [
     "components/workspace/AdminAnalytics.tsx"
@@ -3562,9 +3590,6 @@
   ],
   "Investment reference": [
     "components/workspace/InvestmentPortfolio.tsx"
-  ],
-  "Investment settled": [
-    "server/app.ts"
   ],
   "Investment settlement ledger": [
     "components/workspace/admin.tsx"
@@ -3763,6 +3788,9 @@
   ],
   "Lifetime": [
     "components/workspace/Workspace.tsx"
+  ],
+  "Lifetime proceeds": [
+    "components/workspace/InvestmentPortfolio.tsx"
   ],
   "Live cryptocurrency market prices and a clear introduction to market risk.": [
     "app/insights/layout.tsx"
@@ -4435,7 +4463,7 @@
   "Original principal:": [
     "components/workspace/admin.tsx"
   ],
-  "Original principal: {0}. Enter only verified amounts backed by an external evidence record.": [
+  "Original principal: {0}. Enter only verified amounts backed by an external evidence record. {1}": [
     "components/workspace/admin.tsx"
   ],
   "Our approach": [
@@ -4917,7 +4945,7 @@
     "components/workspace/admin.tsx"
   ],
   "Principal returned cannot exceed the original principal. Record any genuine additional proceeds as realized earnings.": [
-    "server/app.ts"
+    "server/investment-settlements.ts"
   ],
   "Principal returned to investors": [
     "components/workspace/AdminAnalytics.tsx"
@@ -4977,6 +5005,15 @@
   ],
   "PRODUCTIVE LAND": [
     "lib/business-activities.ts"
+  ],
+  "PROFIT": [
+    "components/workspace/admin.tsx"
+  ],
+  "Profit credits cannot return investment principal.": [
+    "server/investment-settlements.ts"
+  ],
+  "Profit credits require a verified settlement record.": [
+    "server/investment-settlements.ts"
   ],
   "program information": [
     "components/workspace/Cards.tsx"
@@ -5095,6 +5132,9 @@
   ],
   "Queued": [
     "components/workspace/ProviderConnections.tsx"
+  ],
+  "QUEUED": [
+    "components/workspace/admin.tsx"
   ],
   "Queued counts represent unique recipient records. Provider acceptance and inbox delivery are separate events; no inbox delivery guarantee is implied.": [
     "components/workspace/ContentOperations.tsx"
@@ -5228,12 +5268,6 @@
   ],
   "Recipient account": [
     "components/workspace/AdminFunds.tsx"
-  ],
-  "Reconciled proceeds have been posted to your available balance. Actual returns may differ from target estimates.": [
-    "server/app.ts"
-  ],
-  "Reconciled settlement {0}; reference {1}": [
-    "server/app.ts"
   ],
   "Record a supported correction or reconciled credit. Debits cannot exceed available funds. Every adjustment is a new entry with your identity, reason, and reference.": [
     "components/workspace/AdminFunds.tsx"
@@ -6517,11 +6551,14 @@
   "This deposit has already been reviewed.": [
     "server/app.ts"
   ],
+  "This evidence reference or final settlement is already recorded.": [
+    "server/investment-settlements.ts"
+  ],
   "This investment has not reached maturity.": [
-    "server/app.ts"
+    "server/investment-settlements.ts"
   ],
   "This investment is already settled.": [
-    "server/app.ts"
+    "server/investment-settlements.ts"
   ],
   "This is an explanatory framework, not a financial statement or a description of a verified allocation formula. Company revenue does not automatically become investor earnings. Target estimates are not settled profits or available account funds.": [
     "app/approach/page.tsx"
@@ -6577,6 +6614,9 @@
   ],
   "This unsubscribe link is invalid. Please contact support for help.": [
     "server/content.ts"
+  ],
+  "This verified settlement has already been processed.": [
+    "server/investment-settlements.ts"
   ],
   "This wallet is already linked to another account.": [
     "server/wallet-links.ts"
@@ -6675,9 +6715,6 @@
   ],
   "Total invested": [
     "components/workspace/Workspace.tsx"
-  ],
-  "Total proceeds": [
-    "components/workspace/InvestmentPortfolio.tsx"
   ],
   "Track the": [
     "lib/video-content.ts"
@@ -7091,8 +7128,23 @@
   "Verified funding activity": [
     "components/workspace/AdminAnalytics.tsx"
   ],
+  "Verified proceeds are already queued for automatic settlement.": [
+    "server/investment-settlements.ts"
+  ],
+  "Verified proceeds are queued for automatic settlement.": [
+    "server/app.ts"
+  ],
+  "Verified proceeds queued for automatic settlement.": [
+    "components/workspace/InvestmentPortfolio.tsx"
+  ],
+  "Verified profit credit": [
+    "components/workspace/admin.tsx"
+  ],
   "Verified settlement or trade record reference": [
     "components/workspace/admin.tsx"
+  ],
+  "Verified settlement records cannot be overridden during posting.": [
+    "server/investment-settlements.ts"
   ],
   "Verified users can request withdrawals from their available balance when funding is enabled. Requests are reviewed, and the transaction hash is recorded when a payment is sent. Funds allocated to an active investment are unavailable until settled.": [
     "components/Landing.tsx",
@@ -7101,6 +7153,12 @@
   "Verify & sign in": [
     "components/auth/AuthForms.tsx",
     "lib/i18n.ts"
+  ],
+  "Verify and queue settlement": [
+    "components/workspace/admin.tsx"
+  ],
+  "Verify profits": [
+    "components/workspace/admin.tsx"
   ],
   "Verify the account's email before assigning administrator access.": [
     "server/admin-provisioning.ts"
@@ -7210,6 +7268,9 @@
   ],
   "Volatility is a feature of the landscape.": [
     "app/insights/page.tsx"
+  ],
+  "Wait for queued profit credits before verifying the final settlement.": [
+    "server/investment-settlements.ts"
   ],
   "waitlisted": [
     "localization"

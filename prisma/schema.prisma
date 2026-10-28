@@ -233,6 +233,7 @@ model Investment {
   status InvestmentStatus @default(ACTIVE)
   earnedCents Int @default(0)
   settledAt DateTime?
+  verifiedSettlements VerifiedInvestmentSettlement[]
   @@index([userId, status])
 }
 model KycSubmission {
@@ -454,4 +455,20 @@ model CampaignRecipient {
   queuedAt DateTime @default(now())
   @@unique([campaignId, subscriberId])
   @@index([subscriberId])
+}
+
+model VerifiedInvestmentSettlement {
+  id String @id @default(cuid())
+  investmentId String
+  investment Investment @relation(fields: [investmentId], references: [id])
+  kind String @default("FINAL")
+  principalReturnedCents Int
+  realizedEarningsCents Int
+  externalReference String
+  note String
+  verifiedById String
+  verifiedAt DateTime @default(now())
+  processedAt DateTime?
+  @@unique([investmentId, externalReference])
+  @@index([processedAt, verifiedAt])
 }

@@ -16,6 +16,7 @@ integration("real PostgreSQL account and ledger integration", () => {
     prisma: any,
     encrypt: (value: string) => string,
     normalize: (network: string, value: string) => string;
+  let processSettlements: () => Promise<{ processed: number; failed: number }>;
   let user: any,
     adminA: any,
     adminB: any,
@@ -65,6 +66,7 @@ integration("real PostgreSQL account and ledger integration", () => {
     process.env.JWT_SECRET = randomBytes(48).toString("hex");
     process.env.KYC_ENCRYPTION_KEY = randomBytes(32).toString("hex");
     process.env.FUNDING_ENABLED = "true";
+    process.env.AUTOMATIC_SETTLEMENT_ENABLED = "true";
     process.env.APP_ORIGIN = "http://localhost:3000";
     process.env.NODE_ENV = "test";
     const native = new pg.Client({ connectionString });
@@ -90,6 +92,7 @@ integration("real PostgreSQL account and ledger integration", () => {
     encrypt = (await import("../server/crypto")).encrypt;
     const api = await import("../server/app");
     normalize = api.normalizeTxHash;
+    processSettlements = (await import("../server/investment-settlements")).processVerifiedSettlements;
     server = createServer(api.app);
     await new Promise<void>((r) => server.listen(0, "127.0.0.1", r));
     base = `http://127.0.0.1:${(server.address() as any).port}`;
@@ -691,6 +694,95 @@ integration("real PostgreSQL account and ledger integration", () => {
     } finally {
       await prisma.investment.update({ where: { id }, data: { earnedCents: 29 } });
     }
+  });
+  test("verified profit credits post automatically during the term and final settlement never credits them twice", async () => {
+    const before = (await request("/dashboard")).data;
+    const created = await request("/investments", { method: "POST", body: { planId: plan.id, amount: 100, code: code() } });
+    expect(created.response.status).toBe(201);
+    const id = created.data.investment.id;
+    const proof = { kind: "PROFIT", verified: true, principalReturned: 0, realizedEarnings: 0.29,
+      externalReference: "verified-profit-record-first-029", note: "Additional unpaid income independently verified from the actual external trade record.", code: code() };
+    const queued = await request(`/admin/investments/${id}/verify-settlement`, { method: "POST", as: "adminA", body: proof });
+    expect(queued.response.status).toBe(202);
+    expect((await request("/dashboard")).data.totalEarned).toBe(before.totalEarned);
+    expect((await request(`/admin/investments/${id}/verify-settlement`, { method: "POST", as: "adminB", body: proof })).response.status).toBe(409);
+    const runs = await Promise.all([processSettlements(), processSettlements()]);
+    expect(runs.reduce((sum, run) => sum + run.processed, 0)).toBe(1);
+    expect(runs.reduce((sum, run) => sum + run.failed, 0)).toBe(0);
+    const after = (await request("/dashboard")).data;
+    expect(Math.round(after.totalEarned * 100)).toBe(Math.round(before.totalEarned * 100) + 29);
+    expect(after.balance).toBeCloseTo(before.balance - 100 + .29, 2);
+    expect(after.investments.find((i: any) => i.id === id)).toMatchObject({ status: "ACTIVE", earnedCents: 29, settledAt: null });
+    expect(await prisma.ledgerEntry.count({ where: { referenceId: queued.data.verification.id, kind: "REALIZED_EARNINGS" } })).toBe(1);
+    expect(await prisma.ledgerEntry.count({ where: { referenceId: id, kind: "PRINCIPAL_RETURN" } })).toBe(0);
+    expect((await processSettlements()).processed).toBe(0);
+    expect((await request(`/admin/investments/${id}/verify-settlement`, { method: "POST", as: "adminA", body: { ...proof, kind: "FINAL", principalReturned: 100, externalReference: "verified-final-before-maturity" } })).response.status).toBe(409);
+    await prisma.investment.update({ where: { id }, data: { startTimestamp: new Date(Date.now() - 8 * 86400000) } });
+    const final = await request(`/admin/investments/${id}/verify-settlement`, { method: "POST", as: "adminB", body: { ...proof, kind: "FINAL", principalReturned: 100, realizedEarnings: 2.5, externalReference: "verified-final-additional-250" } });
+    expect(final.response.status).toBe(202);
+    expect((await processSettlements()).processed).toBe(1);
+    const finished = (await request("/dashboard")).data;
+    const portfolio = (await request("/investments")).data;
+    const analytics = (await request("/analytics")).data;
+    const position = portfolio.investments.find((i: any) => i.id === id);
+    expect(position).toMatchObject({ status: "SETTLED", earnedCents: 279, principalReturnedCents: 10000 });
+    expect(finished.totalEarned).toBe(portfolio.totalEarned);
+    expect(portfolio.summary.realizedEarningsCents).toBe(analytics.summary.realizedEarningsCents);
+    expect(analytics.settlements.find((i: any) => i.id === id)).toMatchObject({ earningsCents: 279, returnedCents: 10000 });
+    expect(finished.balance).toBeCloseTo(before.balance + 2.79, 2);
+    expect((await processSettlements()).processed).toBe(0);
+  });
+  test("automatic credits require actual verification, evidence, operator MFA and correct principal handling", async () => {
+    const created = await request("/investments", { method: "POST", body: { planId: plan.id, amount: 100, code: code() } });
+    const id = created.data.investment.id;
+    const proof = { kind: "PROFIT", verified: true, principalReturned: 0, realizedEarnings: 1.01,
+      externalReference: "verified-controls-101", note: "Independent evidence establishes additional income not previously credited to this investment.", code: code() };
+    const send = (body: any, as = "adminA") => request(`/admin/investments/${id}/verify-settlement`, { method: "POST", as, body });
+    expect((await send(proof, "user")).response.status).toBe(403);
+    expect((await send({ ...proof, code: undefined })).response.status).toBe(403);
+    expect((await send({ ...proof, verified: false })).response.status).toBe(400);
+    expect((await send({ ...proof, externalReference: "" })).response.status).toBe(400);
+    expect((await send({ ...proof, realizedEarnings: -.01 })).response.status).toBe(400);
+    expect((await send({ ...proof, realizedEarnings: .001 })).response.status).toBe(400);
+    expect((await send({ ...proof, realizedEarnings: 0 })).response.status).toBe(400);
+    expect((await send({ ...proof, principalReturned: 1 })).response.status).toBe(400);
+    const before = (await request("/dashboard")).data;
+    expect((await processSettlements()).processed).toBe(0);
+    expect((await request("/dashboard")).data.balance).toBe(before.balance);
+    expect((await send(proof)).response.status).toBe(202);
+    await prisma.setting.upsert({ where: { key: "fundingEnabled" }, create: { key: "fundingEnabled", value: "false" }, update: { value: "false" } });
+    try { expect((await processSettlements()).processed).toBe(0); }
+    finally { await prisma.setting.update({ where: { key: "fundingEnabled" }, data: { value: "true" } }); }
+    expect((await processSettlements()).processed).toBe(1);
+    expect((await request("/dashboard")).data.balance).toBeCloseTo(before.balance + 1.01, 2);
+    expect((await send({ ...proof, externalReference: "unique-next-unpaid-profit-record", realizedEarnings: 2 })).response.status).toBe(202);
+    expect((await processSettlements()).processed).toBe(1);
+    const portfolio = (await request("/investments")).data;
+    expect(portfolio.investments.find((i: any) => i.id === id).earnedCents).toBe(301);
+  });
+  test("failed automatic posting rolls back completely and a later retry credits once", async () => {
+    const created = await request("/investments", { method: "POST", body: { planId: plan.id, amount: 100, code: code() } });
+    const id = created.data.investment.id;
+    const before = (await request("/dashboard")).data.balance;
+    const queued = await request(`/admin/investments/${id}/verify-settlement`, { method: "POST", as: "adminA", body: {
+      kind: "PROFIT", verified: true, principalReturned: 0, realizedEarnings: 1.23, externalReference: "auto-rollback-evidence-test",
+      note: "Actual additional income verified for the atomic posting and failure recovery regression.", code: code(),
+    } });
+    expect(queued.response.status).toBe(202);
+    await prisma.$executeRawUnsafe(`CREATE FUNCTION auto_settlement_test_failure() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN IF NEW.note LIKE '%auto-rollback-evidence-test%' THEN RAISE EXCEPTION 'Isolated test posting failure'; END IF; RETURN NEW; END $$`);
+    await prisma.$executeRawUnsafe(`CREATE TRIGGER auto_settlement_test_failure BEFORE INSERT ON "Transaction" FOR EACH ROW EXECUTE FUNCTION auto_settlement_test_failure()`);
+    try {
+      expect((await processSettlements()).failed).toBe(1);
+      expect((await request("/dashboard")).data.balance).toBe(before);
+      expect(await prisma.ledgerEntry.count({ where: { referenceId: queued.data.verification.id } })).toBe(0);
+      expect((await prisma.verifiedInvestmentSettlement.findUnique({ where: { id: queued.data.verification.id } })).processedAt).toBeNull();
+    } finally {
+      await prisma.$executeRawUnsafe(`DROP TRIGGER auto_settlement_test_failure ON "Transaction"`);
+      await prisma.$executeRawUnsafe(`DROP FUNCTION auto_settlement_test_failure()`);
+    }
+    expect((await processSettlements()).processed).toBe(1);
+    expect((await request("/dashboard")).data.balance).toBeCloseTo(before + 1.23, 2);
+    expect((await processSettlements()).processed).toBe(0);
   });
   test("the operator funding pause is enforced by the server", async () => {
     await prisma.setting.upsert({

@@ -19,6 +19,7 @@ const investmentSelect = {
   status: true,
   startTimestamp: true,
   settledAt: true,
+  verifiedSettlements: { select: { id: true } },
 } as const;
 
 export const analyticsUserRouter = Router();
@@ -39,7 +40,8 @@ analyticsUserRouter.get("/", async (req, res) => {
           orderBy: [{ startTimestamp: "asc" }, { id: "asc" }],
         }),
       ]);
-      return portfolioAnalytics(ledger, investments);
+      const references = new Map(investments.flatMap(position => position.verifiedSettlements.map(record => [record.id, position.id] as const)));
+      return portfolioAnalytics(ledger.map(entry => ({ ...entry, referenceId: references.get(entry.referenceId) ?? entry.referenceId })), investments);
     },
     { isolationLevel: Prisma.TransactionIsolationLevel.RepeatableRead },
   );
@@ -90,9 +92,10 @@ analyticsAdminRouter.get("/", async (_req, res) => {
           },
         }),
       ]);
+      const references = new Map(investments.flatMap(position => position.verifiedSettlements.map(record => [record.id, position.id] as const)));
       return platformAnalytics({
         users,
-        ledger,
+        ledger: ledger.map(entry => ({ ...entry, referenceId: references.get(entry.referenceId) ?? entry.referenceId })),
         investments,
         withdrawals,
         pendingDeposits,

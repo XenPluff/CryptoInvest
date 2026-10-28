@@ -7,6 +7,7 @@ import { z, ZodError } from "zod";
 import PDFDocument from "pdfkit";
 import { prisma } from "./db";
 import { readInvestorPortfolio } from "./investor-portfolio";
+import { automaticSettlementStatus, postInvestmentSettlement, verifyInvestmentSettlement } from "./investment-settlements";
 import { HttpError } from "./errors";
 import {
   authRouter,
@@ -190,6 +191,7 @@ api.get("/health", async (_req, res) => {
       emailConfigured,
       emailDeliveryStatus: getEmailReadiness().status,
       fundingEnabled: await fundingEnabled(),
+      automaticSettlement: automaticSettlementStatus(),
     });
   } catch {
     res.status(503).json({
@@ -1027,106 +1029,35 @@ admin.post("/withdrawals/:id/review", adminFinancial, async (req, res) => {
 });
 admin.get("/investments", async (_req, res) =>
   res.json({
-    investments: (
-      await prisma.investment.findMany({
-        include: { user: { select: { id: true, name: true, email: true } } },
-        orderBy: { startTimestamp: "desc" },
-        take: 1000,
-      })
-    ).map(investmentJson),
+    automaticSettlement: automaticSettlementStatus(),
+    investments: (await prisma.investment.findMany({
+      include: { user: { select: { id: true, name: true, email: true } }, verifiedSettlements: true },
+      orderBy: { startTimestamp: "desc" }, take: 1000,
+    })).map(investmentJson),
   }),
 );
+const settlementSchema = z.object({
+  principalReturned: z.union([z.number(), z.string()]),
+  realizedEarnings: z.union([z.number(), z.string()]),
+  externalReference: z.string().trim().min(8).max(200),
+  note: z.string().trim().min(30).max(1000),
+});
+function settlementAmounts(req: Request, body: z.infer<typeof settlementSchema>) {
+  const cents = (value: string | number) => /^0(?:\.0{1,2})?$/.test(String(value)) ? 0 : toCents(value);
+  return { investmentId: idParam(req), principalReturnedCents: cents(body.principalReturned),
+    realizedEarningsCents: cents(body.realizedEarnings), externalReference: body.externalReference,
+    note: body.note, actorId: userId(req), ip: req.ip };
+}
 admin.post("/investments/:id/settle", adminFinancial, async (req, res) => {
-  const body = z
-    .object({
-      principalReturned: z.union([z.number(), z.string()]),
-      realizedEarnings: z.union([z.number(), z.string()]),
-      externalReference: z.string().trim().min(8).max(200),
-      note: z.string().trim().min(30).max(1000),
-    })
-    .parse(req.body);
-  const principalReturned = /^0(?:\.0{1,2})?$/.test(
-    String(body.principalReturned),
-  )
-    ? 0
-    : toCents(body.principalReturned);
-  const realizedEarnings = /^0(?:\.0{1,2})?$/.test(
-    String(body.realizedEarnings),
-  )
-    ? 0
-    : toCents(body.realizedEarnings);
-  const investment = await serializable(async (tx) => {
-    const i = await tx.investment.findUnique({ where: { id: idParam(req) } });
-    if (!i) throw new HttpError(404, "Investment not found.");
-    if (i.status !== "ACTIVE")
-      throw new HttpError(409, "This investment is already settled.");
-    if (i.userId === userId(req))
-      throw new HttpError(
-        403,
-        "Administrators cannot settle their own investments.",
-      );
-    if (Date.now() < i.startTimestamp.getTime() + i.durationDays * 86400000)
-      throw new HttpError(409, "This investment has not reached maturity.");
-    if (principalReturned > i.principalCents)
-      throw new HttpError(
-        400,
-        "Principal returned cannot exceed the original principal. Record any genuine additional proceeds as realized earnings.",
-      );
-    await tx.ledgerEntry.createMany({
-      data: [
-        {
-          userId: i.userId,
-          amountCents: principalReturned,
-          kind: "PRINCIPAL_RETURN",
-          referenceId: i.id,
-        },
-        {
-          userId: i.userId,
-          amountCents: realizedEarnings,
-          kind: "REALIZED_EARNINGS",
-          referenceId: i.id,
-        },
-      ],
-    });
-    const updated = await tx.investment.update({
-      where: { id: i.id },
-      data: {
-        status: "SETTLED",
-        earnedCents: realizedEarnings,
-        settledAt: new Date(),
-      },
-    });
-    await tx.transaction.create({
-      data: {
-        userId: i.userId,
-        type: "RETURN",
-        amountCents: principalReturned + realizedEarnings,
-        status: "SETTLED",
-        note: `Reconciled settlement ${i.id}; reference ${body.externalReference}`,
-      },
-    });
-    await audit(
-      tx,
-      userId(req),
-      "INVESTMENT_SETTLED",
-      i.id,
-      {
-        principalReturnedCents: principalReturned,
-        realizedEarningsCents: realizedEarnings,
-        externalReference: body.externalReference,
-        note: body.note,
-      },
-      req.ip,
-    );
-    await notify(
-      tx,
-      i.userId,
-      "Investment settled",
-      "Reconciled proceeds have been posted to your available balance. Actual returns may differ from target estimates.",
-    );
-    return updated;
-  });
+  const input = settlementAmounts(req, settlementSchema.parse(req.body));
+  const investment = await serializable(tx => postInvestmentSettlement(tx, input));
   res.json({ investment: investmentJson(investment) });
+});
+admin.post("/investments/:id/verify-settlement", adminFinancial, async (req, res) => {
+  const body = settlementSchema.extend({ verified: z.literal(true), kind: z.enum(["PROFIT", "FINAL"]).default("FINAL") }).parse(req.body);
+  const verification = await verifyInvestmentSettlement({ ...settlementAmounts(req, body), kind: body.kind });
+  res.status(202).json({ verification: { id: verification.id, investmentId: verification.investmentId,
+    verifiedAt: verification.verifiedAt }, message: "Verified proceeds are queued for automatic settlement." });
 });
 admin.get("/kyc", async (_req, res) => {
   const submissions = await prisma.kycSubmission.findMany({

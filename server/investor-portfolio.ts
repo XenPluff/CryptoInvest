@@ -1,10 +1,11 @@
 import { Prisma } from "@prisma/client";
 import { addCents } from "../lib/analytics";
+import { automaticSettlementStatus } from "./investment-settlements";
 
 /** Read posted proceeds and positions from the same database snapshot. */
 export async function readInvestorPortfolio(tx: Prisma.TransactionClient, userId: string) {
   const [positions, proceeds] = await Promise.all([
-    tx.investment.findMany({ where: { userId }, orderBy: [{ startTimestamp: "desc" }, { id: "desc" }] }),
+    tx.investment.findMany({ where: { userId }, include: { verifiedSettlements: { select: { id: true, kind: true, verifiedAt: true, processedAt: true } } }, orderBy: [{ startTimestamp: "desc" }, { id: "desc" }] }),
     tx.ledgerEntry.groupBy({
       by: ["referenceId", "kind"],
       where: { userId, kind: { in: ["REALIZED_EARNINGS", "PRINCIPAL_RETURN"] } },
@@ -13,13 +14,15 @@ export async function readInvestorPortfolio(tx: Prisma.TransactionClient, userId
   ]);
   const earnings = new Map<string, number>(), returns = new Map<string, number>();
   let realizedEarningsCents = 0, principalReturnedCents = 0, activePrincipalCents = 0;
+  const referenceMap = new Map(positions.flatMap(position => position.verifiedSettlements.map(record => [record.id, position.id] as const)));
   for (const row of proceeds) {
+    const investmentId = referenceMap.get(row.referenceId) ?? row.referenceId;
     const cents = row._sum.amountCents ?? 0;
     if (row.kind === "REALIZED_EARNINGS") {
-      earnings.set(row.referenceId, cents);
+      earnings.set(investmentId, addCents(earnings.get(investmentId) ?? 0, cents));
       realizedEarningsCents = addCents(realizedEarningsCents, cents);
     } else {
-      returns.set(row.referenceId, cents);
+      returns.set(investmentId, addCents(returns.get(investmentId) ?? 0, cents));
       principalReturnedCents = addCents(principalReturnedCents, cents);
     }
   }
@@ -33,6 +36,7 @@ export async function readInvestorPortfolio(tx: Prisma.TransactionClient, userId
   });
   return {
     generatedAt: new Date().toISOString(),
+    automaticSettlement: automaticSettlementStatus(),
     totalEarned: realizedEarningsCents / 100,
     summary: { activePrincipalCents, realizedEarningsCents, principalReturnedCents,
       activePositions: positions.filter(p => p.status === "ACTIVE").length,

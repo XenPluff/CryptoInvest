@@ -20,7 +20,7 @@ export function InvestmentPortfolio() {
   const visible = positions.filter(position => (filter === "ALL" || position.status === filter)
     && `${position.planName} ${position.id}`.toLocaleLowerCase().includes(search.trim().toLocaleLowerCase()));
   return <TranslatedContent><>
-    <PortfolioRefresh {...remote} />
+    <PortfolioRefresh {...remote} automaticSettlement={remote.data?.automaticSettlement} />
     <div className="ws-stats-grid ws-portfolio-summary">
       {[
         ["Active principal", money(summary.activePrincipalCents / 100), "Capital in active plans"],
@@ -55,11 +55,12 @@ export function InvestmentPortfolio() {
             : <div className="ws-position-settlement"><div className="ws-settlement-title"><Check size={17} /><span>Settlement recorded</span></div>
               <dl><div><dt>Principal returned</dt><dd>{money(position.principalReturned)}</dd></div>
                 <div><dt>Realized earnings</dt><dd data-position-earnings={position.id}>{money(position.earnedAmount)}</dd></div>
-                <div className="ws-settlement-total"><dt>Total proceeds</dt><dd>{money((position.principalReturnedCents + position.earnedCents) / 100)}</dd></div>
+                <div className="ws-settlement-total"><dt>Lifetime proceeds</dt><dd>{money((position.principalReturnedCents + position.earnedCents) / 100)}</dd></div>
                 <div><dt>Net result</dt><dd className={position.principalReturnedCents + position.earnedCents < position.principalCents ? "ws-negative" : "ws-positive"}>{money((position.principalReturnedCents + position.earnedCents - position.principalCents) / 100)}</dd></div></dl>
               <p>Posted to your account <DateText value={position.settledAt} /></p></div>}
           {position.status === "ACTIVE" && <div className="ws-investment-realized"><span>Realized earnings</span><strong data-position-earnings={position.id}>{money(position.earnedAmount)}</strong></div>}
-          {position.status === "ACTIVE" && Date.now() >= new Date(position.startTimestamp).getTime() + position.durationDays * 86400000 && <p className="ws-position-pending">Term ended. Awaiting settlement.</p>}
+          {position.status === "ACTIVE" && position.verifiedSettlements?.some((record: RecordData) => !record.processedAt) && <p className="ws-position-pending">Verified proceeds queued for automatic settlement.</p>}
+          {position.status === "ACTIVE" && !position.verifiedSettlements?.some((record: RecordData) => !record.processedAt) && Date.now() >= new Date(position.startTimestamp).getTime() + position.durationDays * 86400000 && <p className="ws-position-pending">Term ended. Awaiting settlement.</p>}
           <dl className="ws-position-dates"><div><dt>Started</dt><dd><DateText value={position.startTimestamp} /></dd></div>
             <div><dt>{position.status === "SETTLED" ? "Settled" : "Term ends"}</dt><dd><DateText value={position.status === "SETTLED" ? position.settledAt : new Date(new Date(position.startTimestamp).getTime() + position.durationDays * 86400000).toISOString()} /></dd></div></dl>
           <details className="ws-position-reference"><summary>Investment reference</summary><Verbatim>{position.id}</Verbatim></details>

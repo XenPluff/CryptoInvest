@@ -117,6 +117,7 @@ export const config = {
   encryptionKey,
   authCookie,
   fundingEnabled: boolean("FUNDING_ENABLED"),
+  automaticSettlementEnabled: boolean("AUTOMATIC_SETTLEMENT_ENABLED"),
   resendApiKey,
   brevoApiKey,
   brevoSenderEmail,
