@@ -3636,6 +3636,9 @@
   "Is the live investment counter a realized profit?": [
     "app/support/page.tsx"
   ],
+  "ISO — International Organization for Standardization": [
+    "components/SiteFooter.tsx"
+  ],
   "issued": [
     "localization"
   ],

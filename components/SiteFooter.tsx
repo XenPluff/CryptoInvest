@@ -43,6 +43,9 @@ export default function SiteFooter() {
                 <div className="footer-education-logo">
                   <img src="/images/footer-logos/esma.jpg" alt="ESMA — European Securities and Markets Authority" width={991} height={458} loading="lazy" draggable={false} translate="no" />
                 </div>
+                <div className="footer-education-logo">
+                  <img src="/images/footer-logos/iso.png" alt="ISO — International Organization for Standardization" width={1200} height={630} loading="lazy" draggable={false} translate="no" />
+                </div>
               </div>
               <p>{t("Educational resources only; no affiliation or endorsement of AUREON is implied.")}</p>
             </figure>

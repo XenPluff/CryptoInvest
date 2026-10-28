@@ -2,6 +2,26 @@
 
 ## Investor education resources
 
+### ISO education reference
+
+The follow-up upload `file_000000007b9c8243bca96f2348368952` (`download.avif`)
+depicts an “ISO 27001 Certified” badge with British Assessment Bureau and UKAS
+marks. It is not published. Following the owner's accepted organization-logo
+approach for AICPA, the education section instead adds the ordinary ISO
+organization logo, with no certification or auditor claim. The owner was told
+of this choice before implementation.
+
+The source is ISO's official homepage, <https://www.iso.org/home.html>, which
+publishes the following Open Graph image:
+<https://www.iso.org/modules/isoorg-template/img/iso/iso-logo-og.png>.
+The unchanged original is `public/images/footer-logos/iso.png` (5,878 bytes,
+1200×630; SHA-256
+`0e07e2bfd43a0a0aab819c735cd30d193ad1d616b9ab5f1a8253ebff61f3b908`).
+It follows ESMA as the fifth static, non-clickable education tile and retains
+the shared external-education heading and no-affiliation/endorsement note.
+Its alt text identifies the International Organization for Standardization.
+Credential-logo data remains empty.
+
 ### AICPA replacement
 
 The owner explicitly chose a standard AICPA organization logo to replace the
