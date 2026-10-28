@@ -7674,5 +7674,8 @@
   ],
   "Z": [
     "lib/investment.ts"
+  ],
+  "Track all markets on TradingView": [
+    "components/MarketTicker.tsx"
   ]
 }

@@ -1,113 +1,43 @@
 "use client";
-import TranslatedContent from "@/components/TranslatedContent";
-import { useDisplayLocale } from "@/lib/i18n";
-import { useEffect, useState } from "react";
-import { ArrowUpRight, ArrowDownRight, Radio } from "lucide-react";
-import { api, money } from "@/lib/api";
-type Market = {
-  id: string;
-  symbol: string;
-  name: string;
-  price: number;
-  change24h: number;
-};
-const placeholders = [
-  { id: "bitcoin", symbol: "BTC", name: "Bitcoin" },
-  { id: "ethereum", symbol: "ETH", name: "Ethereum" },
-  { id: "solana", symbol: "SOL", name: "Solana" },
-  { id: "tether", symbol: "USDT", name: "Tether" },
+
+import { useMemo } from "react";
+import { useTranslation } from "@/lib/i18n";
+import { usePreferences } from "@/lib/ui-store";
+import styles from "./market-ticker.module.css";
+
+const WIDGET_ORIGIN = "https://www.tradingview-widget.com";
+const widgetLocales = { en: "en", fr: "fr", de: "de_DE", es: "es", it: "it", ru: "ru", uk: "en", ar: "ar_AE" } as const;
+const symbols = [
+  { proName: "COINBASE:BTCUSD", description: "Bitcoin / USD" },
+  { proName: "COINBASE:ETHUSD", description: "Ethereum / USD" },
+  { proName: "COINBASE:USDTUSD", description: "Tether / USD" },
+  { proName: "BINANCE:BNBUSDT", description: "BNB / USDT" },
 ];
+
 export default function MarketTicker() {
-  useDisplayLocale();
-  const [assets, setAssets] = useState<Market[]>([]);
-  const [stale, setStale] = useState(false);
-  const [error, setError] = useState(false);
-  useEffect(() => {
-    let cancelled = false;
-    async function load() {
-      try {
-        const result = await api<{ assets: Market[]; stale?: boolean }>(
-          "/markets",
-        );
-        if (!cancelled) {
-          setAssets(result.assets);
-          setStale(!!result.stale);
-          setError(false);
-        }
-      } catch {
-        if (!cancelled) setError(true);
-      }
-    }
-    load();
-    const timer = setInterval(load, 60000);
-    return () => {
-      cancelled = true;
-      clearInterval(timer);
+  const theme = usePreferences(state => state.theme);
+  const { locale, t } = useTranslation();
+  const providerLocale = widgetLocales[locale];
+  const src = useMemo(() => {
+    const configuration = {
+      symbols,
+      colorTheme: theme,
+      isTransparent: true,
+      showSymbolLogo: true,
+      displayMode: "regular",
+      largeChartUrl: "",
     };
-  }, []);
-  return <TranslatedContent>{(
-    <div className="market-band">
-      <div className="container market-inner">
-        <div className="market-label">
-          <Radio size={15} />
-          <span>
-            THE MARKET
-            <br />
-            <strong>
-              {error
-                ? "FEED UNAVAILABLE"
-                : stale
-                  ? "LAST AVAILABLE"
-                  : "AT A GLANCE"}
-            </strong>
-          </span>
-        </div>
-        {(assets.length ? assets.slice(0, 4) : placeholders).map((a) => {
-          const market = a as Market;
-          return (
-            <a href={`/insights#${a.id}`} className="ticker-asset" key={a.id}>
-              <span className={`coin-icon coin-${a.symbol.toLowerCase()}`}>
-                {a.symbol === "BTC"
-                  ? "₿"
-                  : a.symbol === "ETH"
-                    ? "Ξ"
-                    : a.symbol === "SOL"
-                      ? "≋"
-                      : "₮"}
-              </span>
-              <div>
-                <span className="asset-name">
-                  {a.name} <small>{a.symbol.toUpperCase()}</small>
-                </span>
-                <span className="asset-price">
-                  {market.price != null ? money(market.price) : "—"}
-                  {market.change24h != null && (
-                    <small
-                      className={
-                        market.change24h >= 0 ? "positive" : "negative"
-                      }
-                    >
-                      {market.change24h >= 0 ? (
-                        <ArrowUpRight size={11} />
-                      ) : (
-                        <ArrowDownRight size={11} />
-                      )}{" "}
-                      {Math.abs(market.change24h).toFixed(2)}%
-                    </small>
-                  )}
-                </span>
-              </div>
-              <span className="ticker-signal" aria-hidden="true">
-                {market.change24h == null
-                  ? "—"
-                  : market.change24h >= 0
-                    ? "↗"
-                    : "↘"}
-              </span>
-            </a>
-          );
-        })}
-      </div>
+    return `${WIDGET_ORIGIN}/embed-widget/ticker-tape/?locale=${providerLocale}#${encodeURIComponent(JSON.stringify(configuration))}`;
+  }, [theme, providerLocale]);
+
+  return <div className={styles.band} data-market-provider="tradingview" dir="ltr">
+    <iframe key={`${theme}-${providerLocale}`} className={styles.widget}
+      src={src} title={`TradingView — ${t("Market insights")}`}
+      height={58} loading="lazy" referrerPolicy="origin" />
+    <div className={styles.attribution}>
+      <a href="https://www.tradingview.com/markets/cryptocurrencies/prices/" target="_blank" rel="noopener noreferrer">
+        {t("Track all markets on TradingView")}
+      </a>
     </div>
-  )}</TranslatedContent>;
+  </div>;
 }
