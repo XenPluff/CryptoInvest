@@ -1,6 +1,17 @@
 # Footer resources and pending credential logos
 
-## Investor education resources
+## External resources
+
+### Single muted-grey label
+
+The owner approved replacing the former education heading and explanatory
+paragraph with one visible label: “External resources”. It appears once above
+the existing grid, in sentence case and the theme's muted grey (`#99999d` in
+dark mode, `#6d6a61` in light mode). The former two lines are removed from the
+rendered section. Translations cover all seven additional website languages.
+The thirteen references, source images, order, dimensions and non-clickable
+static presentation are unchanged. The heading continues to identify the logos
+as external resources.
 
 ### Compact resource grid
 

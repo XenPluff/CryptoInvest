@@ -2620,9 +2620,6 @@
   "Educational reading to support your own research. This material is not personal investment advice.": [
     "app/insights/page.tsx"
   ],
-  "Educational resources only; no affiliation or endorsement of AUREON is implied.": [
-    "components/SiteFooter.tsx"
-  ],
   "Elapsed days must be finite.": [
     "lib/investment.ts"
   ],
@@ -2956,11 +2953,11 @@
   "External evidence reference": [
     "components/workspace/admin.tsx"
   ],
-  "External investor education": [
-    "components/SiteFooter.tsx"
-  ],
   "External organizations and publications, in one place.": [
     "components/OrganizationMarquee.tsx"
+  ],
+  "External resources": [
+    "components/SiteFooter.tsx"
   ],
   "Facility or hosting agreements, energy bills, equipment inventory, hashrate records and reconciled pool payouts linked to controlled wallets.": [
     "lib/business-activities.ts"

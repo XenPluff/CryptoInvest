@@ -30,7 +30,7 @@ export default function SiteFooter() {
             </p>
             <FooterLogoGrid logos={footerLogos} label={t("Company information")} />
             <figure className="footer-education">
-              <figcaption>{t("External investor education")}</figcaption>
+              <figcaption>{t("External resources")}</figcaption>
               <ul className="footer-education-logos">
                 {educationResources.map(resource => <li key={resource.id} className="footer-education-logo" data-resource={resource.id}>
                   <span className="footer-education-art">
@@ -39,7 +39,6 @@ export default function SiteFooter() {
                   <span className="footer-education-name" translate="no" aria-hidden={resource.image ? true : undefined}>{resource.label}</span>
                 </li>)}
               </ul>
-              <p>{t("Educational resources only; no affiliation or endorsement of AUREON is implied.")}</p>
             </figure>
           </div>
           <div className="footer-links">
