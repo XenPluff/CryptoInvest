@@ -5,8 +5,22 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 29, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `fb4f91a29793c96647186054dac95757fd36a204` from branch
+- Running source commit: `90f202a12d158e35907d6f4835ee643b2c1cfd4b` from branch
   `codex/aureon-render-preview`.
+- The Privacy Notice uses the seven-section formal document in deployment
+  `dep-dbhq6vhsrm7s738gc2e0`: full-width layout, gold frame, 16px body/topic
+  text, 18px section headings and a 22px title matching AML. The initial-policy
+  banner is absent, the support link works and `AUR-PRIV-2026.V1` remains raw.
+  Copy follows actual collection and conditional future services rather than
+  claiming active AUDU, corporate onboarding, custodians, automated screening
+  or an appointed DPO. Relevant account/card/cookie disclosures remain. The
+  structured legal stylesheet is shared with AML unchanged. Build, six
+  language tests and 96 local plus 96 hosted layout states pass across eight
+  languages, six widths and both themes. Desktop/mobile previews visually
+  reviewed; all 60 document messages and support navigation are verified.
+  Hosted resources have no page errors, API fixtures or production mutations.
+  Health remains connected with funding and automatic settlement enabled and
+  email readiness checks passed. See [privacy scope](PRIVACY_NOTICE.md).
 - Risk disclosure text matches the AML document scale in deployment
   `dep-dbhpa8etlv9c739c3v70`: 16px body text and a 22px document title.
   Both pages inherit shared formal-document type tokens; AML keeps its 18px
