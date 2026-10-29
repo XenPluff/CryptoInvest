@@ -7,7 +7,10 @@ paragraph spacing, and copyright/version footer support desktop, mobile, RTL,
 and dark/light themes. This presentation is a policy document, not a compliance
 certificate or regulatory approval. The document heading reads “AML & Identity
 Policy”; the requested “Legal & Disclosures,” prefix and framework-status label
-are omitted.
+are omitted. The AML document uses 16px (12pt) body/topic text, 18px section
+headings and a 22px document title, with a 1.65 body line height and compact
+paragraph spacing. These sizes are scoped to the AML document; the surrounding
+site and risk document retain their existing typography.
 
 ## Copy and operating scope
 

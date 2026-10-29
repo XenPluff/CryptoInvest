@@ -1,19 +1,28 @@
+.policy {
+  --type-body: 16px;
+  --type-subheading: 22px;
+  --type-card-title: 18px;
+}
+.policy > header {
+  padding-bottom: 26px;
+  margin-bottom: 26px;
+}
 .sections > section + section {
-  margin-top: 42px;
-  padding-top: 36px;
+  margin-top: 32px;
+  padding-top: 28px;
   border-top: 1px solid color-mix(in srgb, var(--gold) 30%, transparent);
 }
 .sections h3 {
-  margin: 0 0 30px;
+  margin: 0 0 20px;
   font-family: var(--serif);
-  font-size: var(--type-subheading);
+  font-size: var(--type-card-title);
   font-weight: 400;
-  line-height: 1.3;
+  line-height: 1.4;
   letter-spacing: -.015em;
   color: var(--gold);
 }
 .sections h4 {
-  margin: 30px 0 12px;
+  margin: 24px 0 9px;
   font-family: var(--sans);
   font-size: var(--type-body);
   font-weight: 500;
@@ -21,17 +30,14 @@
   color: var(--text);
 }
 .policy .sections p {
-  margin: 0 0 24px;
-  line-height: 1.85;
+  margin: 0 0 18px;
+  line-height: 1.65;
   text-align: start;
   text-wrap: pretty;
 }
 .sections > section > p:last-child { margin-bottom: 0; }
 @media (max-width: 650px) {
-  .sections > section + section { margin-top: 34px; padding-top: 28px; }
-  .sections h3 { font-size: var(--type-card-title); line-height: 1.4; margin-bottom: 24px; }
-  .sections h4 { margin-top: 26px; }
-  .policy .sections p { line-height: 1.8; }
+  .sections > section + section { margin-top: 28px; padding-top: 24px; }
 }
 @media print {
   .sections > section + section { border-color: #c8b992; }
