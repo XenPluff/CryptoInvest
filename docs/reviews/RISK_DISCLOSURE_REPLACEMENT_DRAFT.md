@@ -31,7 +31,9 @@ were supplied or inferred.
   centered brand/title, generous paragraph spacing and a version/copyright footer.
   The layout identifies a risk disclosure and does not represent a certification.
 - Use the available responsive screen width, with legal navigation above the
-  document, matching the AML page’s wide presentation.
+  document, matching the AML page’s wide presentation. Match its 16px body text
+  and 22px document title through shared, scoped formal-document type tokens;
+  preserve the existing paragraph spacing, brand and footer sizes.
 
 The copy is implemented in [the risk page](../../app/legal/risk/page.tsx).
 Deployment and validation status are recorded in [the live preview record](../LIVE_PREVIEW.md)

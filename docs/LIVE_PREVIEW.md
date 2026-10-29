@@ -5,8 +5,18 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 29, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `118a611aed42f154d751e79e558527f70e898e7d` from branch
+- Running source commit: `fb4f91a29793c96647186054dac95757fd36a204` from branch
   `codex/aureon-render-preview`.
+- Risk disclosure text matches the AML document scale in deployment
+  `dep-dbhpa8etlv9c739c3v70`: 16px body text and a 22px document title.
+  Both pages inherit shared formal-document type tokens; AML keeps its 18px
+  section headings and existing spacing. Risk wording, paragraph spacing,
+  full-width layout, brand and raw version are preserved. Build and 96 local
+  plus 96 hosted layout states pass across eight languages, six widths and
+  both themes, checking exact font sizes and available-width fit. Desktop
+  preview visually reviewed. Hosted resources have no page errors, API
+  fixtures or production mutations. Health remains connected with funding,
+  email readiness checks and automatic settlement enabled/passed.
 - The Risk disclosure matches the AML wide layout in deployment
   `dep-dbhn5m7f3r2c73db7ma0`: its document fills the responsive screen width
   within normal margins, with wrapping legal navigation above the article.
