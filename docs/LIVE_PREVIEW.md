@@ -5,8 +5,21 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `6f93ae4e1bcbad66cf01177e4e57d2a14930090d` from branch
+- Running source commit: `d40d572c1826ad558d7af8d3e87b65d632f177f3` from branch
   `codex/aureon-render-preview`.
+- Required blockchain-hash fields are removed from deposit reporting and payout
+  confirmation in deployment `dep-dbh8rluc6qcc73emr4cg`. Deposit reports use
+  signed payment instructions and confirmation; a unique token digest protects
+  against replay, and new instructions have random signed IDs. Legacy optional
+  hashes and historical records remain supported. Review, current administrator
+  proof, second-operator payout reconciliation and ledger reserves remain.
+  Deposit/account guide MP4s, captions and transcripts are regenerated.
+  Build, 170 unit tests, 42 disposable-PostgreSQL checks and 19 local browser cases
+  are verified. Nine hosted cases pass on deployed HTML/assets with browser-only
+  account/report/review responses; all eight regenerated guide asset hashes match.
+  Real health remains connected with funding enabled, email readiness passed and
+  an advancing automatic-settlement heartbeat. No production financial records
+  or emails were created by validation. See [hashless transfer scope](HASHLESS_TRANSFERS.md).
 - Identity approval is optional for deposit quotes, submissions and reviewed
   funding in deployment `dep-dbh8i1e1egvs73eqtf5g`. Newly registered,
   email-verified investors can fund with no identity submission or while review

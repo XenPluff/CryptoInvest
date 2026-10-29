@@ -55,3 +55,14 @@ local SMTP capture, with no production records or external emails.
 Hosted verification and the running source are recorded in
 [Live preview](LIVE_PREVIEW.md) and [Validation](VALIDATION.md). Local evidence is
 under `.aureon/hashless-transfers/`.
+
+This release is live in deployment `dep-dbh8rluc6qcc73emr4cg`, source
+`d40d572c1826ad558d7af8d3e87b65d632f177f3`. Nine hosted deposit/payout cases
+pass on deployed HTML/assets with browser-only private records and requests.
+The eight local guide files (MP4/poster/captions/transcript for both affected
+guides) match deployed SHA-256 hashes. Actual health remains connected with
+enabled funding, passed email readiness and an advancing automatic-settlement
+heartbeat; unauthenticated account APIs return 401. Verification created no
+production deposits, payouts, financial credits or emails. Deployment/health
+metadata is in `.aureon/validation/hashless-transfers-*`. Documentation-only
+commits do not change this running source automatically.
