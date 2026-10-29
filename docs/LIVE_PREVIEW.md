@@ -5,8 +5,26 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 29, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `90f202a12d158e35907d6f4835ee643b2c1cfd4b` from branch
+- Running source commit: `2c0795332363fbd1ca1a01f81771f814a06d6287` from branch
   `codex/aureon-render-preview`.
+- Investment plans use the sculptural gallery design in deployment
+  `dep-dbhqv9o8v5cc7396lum0`: asymmetric outer/inset frames, five coloured
+  mathematical surface artworks, staggered homepage cards, a two-column public
+  catalogue and generous single-column mobile cards. Workspace cards share
+  the treatment while retaining their dark panels and investment flow. Static
+  SVG requires no extra canvas, asset fetch or animation loop; hover respects
+  reduced motion and buttons retain keyboard focus and large targets. Homepage
+  figures now use published active plan records instead of older fixed examples;
+  loading, empty, outage/retry and real catalogue anchors are supported. No plan
+  parameter or financial record was changed. Build, six language cases, the
+  outage/retry regression and 240 local plus 240 hosted layout states pass across
+  three routes, eight languages, five widths and both themes. Desktop/mobile/
+  light previews visually reviewed. All five selection dialogs preserve amount
+  limits; paused funding disables selection. Private UI uses browser-only
+  fixtures; public figures use actual published responses. Hosted resources
+  have no page errors or production mutations. Health remains connected with
+  funding and automatic settlement enabled and email checks passed. See
+  [design and behavior](PLAN_PRESENTATION.md).
 - The Privacy Notice uses the seven-section formal document in deployment
   `dep-dbhq6vhsrm7s738gc2e0`: full-width layout, gold frame, 16px body/topic
   text, 18px section headings and a 22px title matching AML. The initial-policy
