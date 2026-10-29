@@ -5,8 +5,21 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 29, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `07e877e15febd8c62da82e6697ba64ec175ba8ac` from branch
+- Running source commit: `31d6f2745407ba14e92bca047f38c54ade5b0784` from branch
   `codex/aureon-render-preview`.
+- The risk disclosure has a formal document layout in deployment
+  `dep-dbhgln5g1s2s73a1pe60`: a double gold border, centered AUREON/title,
+  generous paragraph spacing and a copyright/version footer, with responsive
+  dark/light and RTL treatment. Its opening explicitly states investments are
+  not bank deposits or insured/guaranteed by government, financial-protection
+  or central-bank authorities. Previously confirmed proposed arrangements remain
+  proposed while clarification/supporting records for later present-tense claims
+  are outstanding. The design does not assert certification. Build, six language
+  cases and 48 local/hosted layout states pass, including readable body size and
+  spacing, all translated paragraphs and unchanged version identifiers. Other
+  legal pages retain their layouts/notices. Hosted checks have no page errors,
+  API fixtures or production mutations; actual health remains connected with
+  enabled funding, passed email readiness and automatic settlement enabled.
 - The risk page’s proposed-arrangements notice is removed in deployment
   `dep-dbhg5ton74is73da8mj0`. The shared legal layout supports explicitly
   omitting a notice; terms, privacy and AML retain their default notices.
