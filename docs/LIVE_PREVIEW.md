@@ -5,8 +5,18 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 29, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `8df1c8bde3866d604b97ec566b4bd1236484b129` from branch
+- Running source commit: `a01acd9977577d7512bf4c0e6d6c228ef5c6b998` from branch
   `codex/aureon-render-preview`.
+- The document-header “Proposed arrangements · Not established” label is
+  removed in deployment `dep-dbhhtvvlk1mc73cqete0`. Its unused styles and
+  translations are removed as well. The document retains its formal frame,
+  spacing, no-insurance wording, conditional body descriptions and version
+  footer. Build, six language cases and 48 local/hosted desktop/mobile/theme
+  states pass across eight languages without the label or a replacement notice.
+  Other legal pages retain their default notices. Actual hosted resources use
+  no API fixtures, report no page errors and create no production mutations.
+  Health remains connected with enabled funding, passed email readiness and
+  automatic settlement enabled.
 - Proposed status is consolidated into one visible document-header label in
   deployment `dep-dbhgqpgm7kps73esoie0`: “Proposed arrangements · Not established.”
   The body uses conditional descriptions of the plans without repeated status
