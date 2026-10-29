@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 import { businessActivities } from "../../lib/business-activities";
 
-test("all sector pictures load and original branded artwork can be downloaded", async ({ page }) => {
+test("all sector pictures load without artwork download links", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", error => errors.push(error.message));
   const response = await page.goto("/approach");
@@ -13,11 +13,7 @@ test("all sector pictures load and original branded artwork can be downloaded", 
     const image = article.getByRole("img", { name: activity.imageAlt, exact: true });
     await image.scrollIntoViewIfNeeded();
     await expect.poll(() => image.evaluate((element: HTMLImageElement) => element.complete && element.naturalWidth > 0)).toBe(true);
-    const download = article.getByRole("link", { name: `Download ${activity.title} artwork` });
-    const artwork = await page.request.get((await download.getAttribute("href"))!);
-    expect(artwork.status()).toBe(200);
-    expect(artwork.headers()["content-type"]).toContain("image/png");
-    expect((await artwork.body()).subarray(0, 8).toString("hex")).toBe("89504e470d0a1a0a");
+    await expect(article.locator("figure a, a[download], figcaption")).toHaveCount(0);
     await expect(article.getByText("AI-generated sector illustration", { exact: true })).toHaveCount(0);
   }
   const trading = page.locator("article#market-trading");

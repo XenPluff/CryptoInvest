@@ -35,8 +35,8 @@ include the words "SECTOR ILLUSTRATION"; the strategic-business image contains
 only the AUREON emblem and wordmark, without an AI-generated caption. Its
 conceptual boardroom scene uses an existing sector picture as the brand/style
 reference. Source artwork is retained unchanged as PNG; website delivery uses
-Next.js responsive image handling. Each picture can be downloaded in its
-original form from its profile.
+Next.js responsive image handling. Profiles display the artwork without
+download links or caption bars.
 
 The homepage's "Where value takes shape" picture cycles through all ten
 activities, one image at a time, on a five-second interval. The next responsive
@@ -57,7 +57,7 @@ updating the captions and alternative text.
 
 - Edit the sector copy in [business activities](../lib/business-activities.ts),
   and page-level source/reporting notes in [the approach page](../app/approach/page.tsx).
-- Keep all image files, captions, download links and alt text aligned.
+- Keep all image files and alt text aligned.
 - Publish verifiable entity, team and activity records through a suitable secure
   disclosure process before upgrading an attributed statement to a verified one.
   Avoid public investor records and confidential commercial documents.
