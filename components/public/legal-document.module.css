@@ -1,0 +1,24 @@
+.wide:global(.container) {
+  max-width: none;
+}
+.wide:global(.public-legal-grid) {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+}
+.wide :global(.public-legal-nav) {
+  position: static;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.wide :global(.public-legal-nav a) {
+  padding: 11px 16px;
+  border: 1px solid var(--border);
+}
+.wide :global(.public-legal-nav a.active) {
+  border-color: var(--gold);
+}
+.wide :global(.public-legal-content) {
+  width: 100%;
+  max-width: none;
+}

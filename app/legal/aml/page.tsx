@@ -8,7 +8,7 @@ import styles from "./aml-policy.module.css";
 export default function AmlPage() {
   useDisplayLocale();
   return <TranslatedContent>{(
-    <LegalDocument type="aml" title="AML & identity." notice={null}>
+    <LegalDocument type="aml" title="AML & identity." notice={null} wide>
       <section className={`${documentStyles.document} ${styles.policy}`} aria-labelledby="aml-document-title">
         <header className={documentStyles.header}>
           <span className={documentStyles.brand} translate="no">AUREON</span>
