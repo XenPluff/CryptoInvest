@@ -1,4 +1,7 @@
 .document {
+  --type-body: 16px;
+  --type-subheading: 22px;
+  --type-card-title: 18px;
   position: relative;
   isolation: isolate;
   margin-block: 24px 40px;
