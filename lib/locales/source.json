@@ -997,6 +997,9 @@
     "components/public/LegalDocument.tsx",
     "lib/page-titles.ts"
   ],
+  "AML & Identity Policy": [
+    "app/legal/aml/page.tsx"
+  ],
   "AML & identity.": [
     "app/legal/aml/page.tsx"
   ],
@@ -3753,9 +3756,6 @@
     "components/public/LegalDocument.tsx",
     "lib/page-titles.ts"
   ],
-  "Legal & Disclosures, AML & Identity Policy": [
-    "app/legal/aml/page.tsx"
-  ],
   "Legal documents": [
     "components/public/LegalDocument.tsx"
   ],
@@ -4742,9 +4742,6 @@
   "Please wait": [
     "components/auth/AuthForms.tsx",
     "lib/i18n.ts"
-  ],
-  "Policy framework · Planned requirements": [
-    "app/legal/aml/page.tsx"
   ],
   "Portfolio activity": [
     "components/workspace/Workspace.tsx"

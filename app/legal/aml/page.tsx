@@ -13,8 +13,7 @@ export default function AmlPage() {
         <header className={documentStyles.header}>
           <span className={documentStyles.brand} translate="no">AUREON</span>
           <span className={documentStyles.ornament} aria-hidden="true"><i /></span>
-          <h2 id="aml-document-title">Legal & Disclosures, AML & Identity Policy</h2>
-          <p className={styles.status}>Policy framework · Planned requirements</p>
+          <h2 id="aml-document-title">AML & Identity Policy</h2>
         </header>
         <div className={styles.sections}>
           <section aria-labelledby="aml-section-one">

@@ -5,7 +5,9 @@ AML/CTF requirements and intellectual property, with the supplied identifier
 `AUR-AML-2026.V1`. A shared gold frame, centered brand/title, generous topic and
 paragraph spacing, and copyright/version footer support desktop, mobile, RTL,
 and dark/light themes. This presentation is a policy document, not a compliance
-certificate or regulatory approval.
+certificate or regulatory approval. The document heading reads “AML & Identity
+Policy”; the requested “Legal & Disclosures,” prefix and framework-status label
+are omitted.
 
 ## Copy and operating scope
 
