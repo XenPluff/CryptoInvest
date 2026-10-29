@@ -4,6 +4,7 @@ import { useDisplayLocale } from "@/lib/i18n";
 import Link from "next/link";
 import { heroHeadlines, useTranslation } from "@/lib/i18n";
 import HeroArtwork from "./HeroArtwork";
+import { LandingPlanCollection } from "./plans/LandingPlanCollection";
 import { useRef, useEffect, useState } from "react";
 import {
   ArrowUpRight,
@@ -30,42 +31,6 @@ import OrganizationMarquee from "./OrganizationMarquee";
 import InvestorPerspective from "./public/InvestorPerspective";
 import { api } from "@/lib/api";
 const reveal = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } };
-const plans = [
-  {
-    name: "Starter",
-    number: "01",
-    rate: "2.5",
-    period: "day",
-    min: "100",
-    max: "1,999",
-    days: "7 days",
-    description: "Your first step towards a broader perspective.",
-    tag: "THE FIRST CHAPTER",
-  },
-  {
-    name: "Elite",
-    number: "02",
-    rate: "3.0",
-    period: "day",
-    min: "2,000",
-    max: "9,999",
-    days: "7 days",
-    description: "An elevated approach to your next chapter.",
-    tag: "A NEW PERSPECTIVE",
-  },
-  {
-    name: "Gold",
-    number: "03",
-    rate: "4.0",
-    period: "day",
-    min: "10,000",
-    max: "49,999",
-    days: "7 days",
-    description: "A considered allocation. A wider horizon.",
-    tag: "THE SIGNATURE COLLECTION",
-    featured: true,
-  },
-];
 const questions = [
   [
     "What makes Aureon different?",
@@ -315,52 +280,7 @@ export default function Landing() {
                 </span>
               </Link>
             </div>
-            <div className="landing-plans">
-              {plans.map((p) => (
-                <article
-                  className={`landing-plan ${p.featured ? "featured" : ""}`}
-                  key={p.name}
-                >
-                  <div className="plan-card-top">
-                    <span className="eyebrow">{t(p.tag)}</span>
-                    <span>{p.number}</span>
-                  </div>
-                  <h3>
-                    {p.name}
-                    <span>↗</span>
-                  </h3>
-                  <p>{t(p.description)}</p>
-                  <div className="plan-rate">
-                    {p.rate}
-                    <span>
-                      %<small>/ {t(p.period)}</small>
-                    </span>
-                  </div>
-                  <span className="target-caption">
-                    {t("ILLUSTRATIVE TARGET RATE")}
-                  </span>
-                  <div className="plan-card-details">
-                    <div>
-                      <span>{t("Investment range")}</span>
-                      <strong>
-                        ${p.min} – ${p.max}
-                      </strong>
-                    </div>
-                    <div>
-                      <span>{t("Investment duration")}</span>
-                      <strong>{t(p.days)}</strong>
-                    </div>
-                  </div>
-                  <Link
-                    href={`/plans#${p.name.toLowerCase()}`}
-                    className={`button ${p.featured ? "button-gold" : "button-outline"}`}
-                  >
-                    {t("Explore")} {p.name}
-                    <ArrowUpRight size={16} />
-                  </Link>
-                </article>
-              ))}
-            </div>
+            <LandingPlanCollection />
             <p className="plans-disclosure">
               <ShieldCheck size={13} />{" "}
               {t(

@@ -65,3 +65,30 @@ test("newsletter validates email before transmitting a subscription", async ({
   ).toBe(true);
   expect(calls).toBe(0);
 });
+
+test("homepage plans recover from an outage and use only published active terms", async ({ page }) => {
+  let available = false;
+  const plan = { id: "published-ui-plan", name: "Starter", slug: "starter", active: true, dailyRate: .019, monthlyRate: 0, minAmount: 111, maxAmount: 222, durationDays: 11, description: "Published plan terms" };
+  await page.route("**/api/plans", route => {
+    expect(route.request().method()).toBe("GET");
+    return available
+      ? route.fulfill({ json: { plans: [plan, { ...plan, id: "inactive", slug: "elite", name: "Elite", active: false }] } })
+      : route.fulfill({ status: 503, json: { error: "Unavailable during review" } });
+  });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+  const section = page.locator(".plans-section");
+  await expect(section.getByRole("alert")).toContainText("Plans are temporarily unavailable.");
+  await expect(section.locator(".landing-plan")).toHaveCount(0);
+  available = true;
+  await section.getByRole("button", { name: "Try again" }).click();
+  const cards = section.locator(".landing-plan");
+  await expect(cards).toHaveCount(1);
+  await expect(cards.locator(".plan-rate")).toContainText("1.9");
+  await expect(cards.locator(".plan-card-details")).toContainText("$111.00 – $222.00");
+  await expect(cards.locator(".plan-card-details")).toContainText("11 days");
+  await cards.getByRole("link", { name: "Explore Starter" }).click();
+  await expect(page).toHaveURL(/\/plans#starter$/);
+  await expect(page.locator("#starter")).toContainText("$111.00");
+  await expect(page.locator("#starter")).toContainText("$222.00");
+});

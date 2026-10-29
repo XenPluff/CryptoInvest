@@ -7,11 +7,12 @@ import {
   ArrowRight,
   ArrowUpRight,
   Diamond,
-  Gem,
   RefreshCw,
   ShieldAlert,
 } from "lucide-react";
 import { api, money } from "@/lib/api";
+import { PlanArtwork, planVariant } from "@/components/plans/PlanArtwork";
+import planStyles from "@/components/plans/plan-frame.module.css";
 
 interface Plan {
   id: string;
@@ -88,18 +89,19 @@ export function PlanCatalog() {
   const monthly = plans.filter((plan) => plan.monthlyRate);
   return <TranslatedContent>{(
     <>
-      <div className="plan-grid">
+      <div className={`plan-grid ${planStyles.catalogGrid}`}>
         {daily.map((plan, index) => (
           <article
             key={plan.id}
-            className={`public-plan-card ${plan.slug === "gold" ? "featured" : ""}`}
+            id={plan.slug}
+            className={`public-plan-card ${plan.slug === "gold" ? "featured" : ""} ${planStyles.frame} ${planStyles[planVariant(plan.slug,index)]}`}
           >
             <div className="plan-icon">
               <span className="plan-index">
                 0{index + 1} / {plan.durationDays} DAYS
               </span>
-              <Gem size={21} strokeWidth={1} />
             </div>
+            <PlanArtwork variant={planVariant(plan.slug,index)} />
             <h3>{plan.name.replace(/ Plan$/, "")}</h3>
             <div className="public-plan-rate">
               {percent(plan.dailyRate)}
@@ -137,7 +139,8 @@ export function PlanCatalog() {
         ))}
       </div>
       {monthly.map((plan) => (
-        <article className="public-shareholder" key={plan.id}>
+        <article className={`public-shareholder ${planStyles.frame} ${planStyles.shareholder}`} key={plan.id} id={plan.slug}>
+          <PlanArtwork variant="shareholder" />
           <div>
             <p className="eyebrow">
               <Diamond

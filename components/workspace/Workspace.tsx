@@ -35,6 +35,8 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { api, money } from "@/lib/api";
+import { PlanArtwork, planVariant } from "@/components/plans/PlanArtwork";
+import planStyles from "@/components/plans/plan-frame.module.css";
 import {
   ActionForm,
   Badge,
@@ -582,16 +584,16 @@ function Plans() {
           You can review the available terms below.
         </Notice>
       )}
-      <div className="ws-plans-grid">
+      <div className={`ws-plans-grid ${planStyles.workspaceGrid}`}>
         {r.data?.plans?.map((p: RecordData, i: number) => (
           <Panel
             key={p.id}
-            className={`ws-plan-card ${i === 2 ? "ws-plan-featured" : ""}`}
+            className={`ws-plan-card ${i === 2 ? "ws-plan-featured" : ""} ${planStyles.frame} ${planStyles[planVariant(p.slug || p.name, i)]}`}
           >
             <div className="ws-plan-head">
               <span className="ws-plan-number">0{i + 1}</span>
-              <Sparkles size={24} strokeWidth={1} />
             </div>
+            <PlanArtwork variant={planVariant(p.slug || p.name, i)} />
             <h2><Verbatim>{p.name}</Verbatim></h2>
             <p>{p.description}</p>
             <div className="ws-plan-rate">
@@ -621,7 +623,7 @@ function Plans() {
                 setDone(false);
               }}
             >
-              Choose <Verbatim>{p.name}</Verbatim> <ArrowUpRight size={16} />
+              <span>Choose <Verbatim>{p.name}</Verbatim></span> <ArrowUpRight size={16} />
             </button>
           </Panel>
         ))}

@@ -103,6 +103,7 @@
   "{0} days": [
     "components/InvestmentCalculator.tsx",
     "components/LiveInvestmentDisplay.tsx",
+    "components/plans/LandingPlanCollection.tsx",
     "components/public/PlanCatalog.tsx",
     "components/workspace/Workspace.tsx",
     "components/workspace/admin.tsx"
@@ -363,7 +364,6 @@
     "app/legal/privacy/page.tsx"
   ],
   "7 days": [
-    "components/Landing.tsx",
     "lib/i18n.ts"
   ],
   "7. Service availability & third parties": [
@@ -449,7 +449,7 @@
     "app/newsletter/confirm/page.tsx"
   ],
   "A considered allocation. A wider horizon.": [
-    "components/Landing.tsx",
+    "components/plans/LandingPlanCollection.tsx",
     "lib/i18n.ts"
   ],
   "A considered approach to digital asset investing, built around clarity, deliberate design and transparent risk.": [
@@ -582,7 +582,7 @@
   ],
   "A NEW PERSPECTIVE": [
     "app/register/page.tsx",
-    "components/Landing.tsx",
+    "components/plans/LandingPlanCollection.tsx",
     "lib/i18n.ts"
   ],
   "a new perspective.": [
@@ -1032,7 +1032,7 @@
     "server/admin-funds.ts"
   ],
   "An elevated approach to your next chapter.": [
-    "components/Landing.tsx",
+    "components/plans/LandingPlanCollection.tsx",
     "lib/i18n.ts"
   ],
   "AN EXCEPTIONAL JOURNEY STARTS WITH PERSPECTIVE.": [
@@ -2313,6 +2313,7 @@
     "components/workspace/admin.tsx"
   ],
   "day": [
+    "components/plans/LandingPlanCollection.tsx",
     "localization"
   ],
   "Day": [
@@ -2907,7 +2908,7 @@
     "app/legal/privacy/page.tsx"
   ],
   "Explore": [
-    "components/Landing.tsx",
+    "components/plans/LandingPlanCollection.tsx",
     "components/public/PlanCatalog.tsx"
   ],
   "EXPLORE": [
@@ -3447,7 +3448,7 @@
     "components/InvestmentCalculator.tsx"
   ],
   "ILLUSTRATIVE TARGET RATE": [
-    "components/Landing.tsx",
+    "components/plans/LandingPlanCollection.tsx",
     "components/public/PlanCatalog.tsx",
     "lib/i18n.ts"
   ],
@@ -3574,7 +3575,7 @@
     "components/InvestmentCalculator.tsx"
   ],
   "Investment duration": [
-    "components/Landing.tsx",
+    "components/plans/LandingPlanCollection.tsx",
     "lib/i18n.ts"
   ],
   "Investment fees, dilution, follow-on funding, taxes and exit costs affect net returns. Investee businesses also face research, computing, hardware, deployment and support costs.": [
@@ -3600,12 +3601,13 @@
     "app/plans/page.tsx",
     "components/SiteFooter.tsx",
     "components/SiteHeader.tsx",
+    "components/plans/LandingPlanCollection.tsx",
     "components/workspace/Workspace.tsx",
     "lib/i18n.ts",
     "lib/page-titles.ts"
   ],
   "Investment range": [
-    "components/Landing.tsx",
+    "components/plans/LandingPlanCollection.tsx",
     "components/public/PlanCatalog.tsx",
     "components/workspace/Workspace.tsx",
     "lib/i18n.ts"
@@ -3852,6 +3854,7 @@
     "components/workspace/DepositWorkspace.tsx"
   ],
   "Loading investment plans": [
+    "components/plans/LandingPlanCollection.tsx",
     "components/public/PlanCatalog.tsx"
   ],
   "Loading language…": [
@@ -4739,6 +4742,7 @@
     "components/public/PlanCatalog.tsx"
   ],
   "Plans are temporarily unavailable.": [
+    "components/plans/LandingPlanCollection.tsx",
     "components/public/PlanCatalog.tsx"
   ],
   "PLATFORM ACTIVITY": [
@@ -6462,7 +6466,7 @@
     "app/insights/page.tsx"
   ],
   "THE FIRST CHAPTER": [
-    "components/Landing.tsx",
+    "components/plans/LandingPlanCollection.tsx",
     "lib/i18n.ts"
   ],
   "The framework calls for automated monitoring of on-chain transactions, wallet activity and relevant fiat flows to identify anomalous patterns, velocity spikes or mixing-service interactions. Operating these controls would require implemented data connections, detection rules and an authorized review process.": [
@@ -6574,7 +6578,7 @@
     "app/legal/aml/page.tsx"
   ],
   "THE SIGNATURE COLLECTION": [
-    "components/Landing.tsx",
+    "components/plans/LandingPlanCollection.tsx",
     "lib/i18n.ts"
   ],
   "The signature does not match the selected wallet. Please connect again.": [
@@ -6599,6 +6603,7 @@
     "components/workspace/admin.tsx"
   ],
   "There are no active investment plans. Please check back for published availability.": [
+    "components/plans/LandingPlanCollection.tsx",
     "components/public/PlanCatalog.tsx"
   ],
   "There are no published": [
@@ -6905,6 +6910,7 @@
     "components/workspace/admin.tsx"
   ],
   "Try again": [
+    "components/plans/LandingPlanCollection.tsx",
     "components/public/Journal.tsx",
     "components/public/PlanCatalog.tsx",
     "components/workspace/shared.tsx"
@@ -7145,6 +7151,7 @@
     "components/orbit/GlobeConcepts.tsx",
     "components/orbit/GlobePoster.tsx",
     "components/orbit/OrbitalGlobe.tsx",
+    "components/plans/LandingPlanCollection.tsx",
     "components/public/BusinessImageCarousel.tsx",
     "components/public/ContactForm.tsx",
     "components/public/InvestorPerspective.tsx",
@@ -7775,7 +7782,7 @@
     "lib/video-content.ts"
   ],
   "Your first step towards a broader perspective.": [
-    "components/Landing.tsx",
+    "components/plans/LandingPlanCollection.tsx",
     "lib/i18n.ts"
   ],
   "Your first steps.": [
