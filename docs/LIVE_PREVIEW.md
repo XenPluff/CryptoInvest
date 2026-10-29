@@ -5,8 +5,19 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 29, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `0c2adfd0e917c96dc63b3b1f233cb189ae8fcb51` from branch
+- Running source commit: `a0aede25da0fa2201d21a7849eb962b19d6bc6c5` from branch
   `codex/aureon-render-preview`.
+- The AML document fills the available screen width in deployment
+  `dep-dbhmtd49v7es73bc2b70`. Legal navigation wraps above the document, and
+  the article/document use the full responsive container with no 740px cap or
+  desktop container maximum. Normal page margins remain. A scoped wide layout
+  leaves other legal pages on their existing sidebar/article layout. Build and
+  96 local/hosted states pass across eight languages, six screen widths and both
+  themes, verifying a frame equal to the available container width, navigation
+  above the text, unchanged 16px body typography, copy/version and mobile fit.
+  The desktop preview was visually reviewed. Hosted resources have no page
+  errors, API fixtures or production mutations. Health remains connected with
+  enabled funding, passed email readiness and automatic settlement enabled.
 - The AML document uses a compact document type scale in deployment
   `dep-dbhmmg6i0phs73epkldg`: 16px (12pt) body/topic text, 18px section
   headings and a 22px document title. A 1.65 body line height and 18px paragraph
