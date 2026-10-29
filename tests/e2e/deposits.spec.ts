@@ -34,7 +34,7 @@ async function openDeposit(page: Page, options: Options = {}) {
       data = { quote: { ...price(wallet.asset), walletId: wallet.id, network: wallet.network, address: wallet.address, amountCents: Math.round(Number(body.amount) * 100), cryptoAmount: depositCoinAmount(Math.round(Number(body.amount) * 100), rates[wallet.asset], wallet.asset), quotedAt: new Date().toISOString(), quoteToken: "browser-only-signed-instructions" } };
     } else if (path === "/api/deposits" && req.method() === "POST") {
       const body = req.postDataJSON(); submissions.push(body);
-      if (options.fail) return route.fulfill({ status: 400, json: { error: "The transaction hash has already been submitted." } });
+      if (options.fail) return route.fulfill({ status: 400, json: { error: "The deposit has already been reported." } });
       const wallet = wallets.find(item => item.id === body.walletId)!;
       const deposit = { ...wallet, id: "browser-deposit", type: "DEPOSIT", amount: body.amount, status: "PENDING", createdAt: "2026-10-22T12:00:00.000Z" };
       transactions.unshift(deposit); return route.fulfill({ status: 201, json: { deposit } });
@@ -51,7 +51,6 @@ async function proceed(page: Page, amount = "250.75") {
   await expect(page.getByRole("dialog")).toBeVisible();
 }
 async function reportTransfer(page: Page) {
-  await page.getByLabel("Blockchain transaction hash").fill("a".repeat(64));
   await page.getByRole("checkbox").check();
   await page.getByRole("button", { name: "Done — I have sent the funds" }).click();
 }
@@ -86,36 +85,36 @@ test("all six original destinations appear only after Proceed, with matching QR 
   }
 });
 
-test("Done requires a hash and acknowledgement and reports the frozen USD/coin instructions without an MFA code", async ({ page }) => {
+test("Done requires acknowledgement without a transaction hash and reports the frozen USD/coin instructions without an MFA code", async ({ page }) => {
   const submissions = await openDeposit(page);
   await page.locator(".dp-assets button").filter({ hasText: "USDT" }).click();
   await page.getByRole("radio", { name: "Ethereum ERC20" }).check();
   await proceed(page);
   await page.getByRole("button", { name: "Done — I have sent the funds" }).click();
   expect(submissions).toHaveLength(0);
+  await expect(page.locator('input[name="txHash"]')).toHaveCount(0);
   await reportTransfer(page);
   await expect(page.getByRole("heading", { name: "Submitted for review." })).toBeVisible();
-  expect(submissions).toEqual([{ walletId: "usdt-erc", amount: 250.75, txHash: "a".repeat(64), quoteToken: "browser-only-signed-instructions" }]);
+  expect(submissions).toEqual([{ walletId: "usdt-erc", amount: 250.75, quoteToken: "browser-only-signed-instructions" }]);
   await expect(page.getByText("Your balance changes only after approval.", { exact: false })).toBeVisible();
   await expect(page.locator(".dp-history-row")).toContainText("PENDING");
 });
 
-test("returning from a wallet or reloading resumes the exact instructions and hash", async ({ page }) => {
+test("returning from a wallet or reloading resumes the exact instructions", async ({ page }) => {
   await openDeposit(page); await proceed(page);
   const amount = await page.getByTestId("deposit-coin-amount").textContent();
-  await page.getByLabel("Blockchain transaction hash").fill("a".repeat(64));
   await page.keyboard.press("Escape");
   await page.reload();
   await page.getByRole("button", { name: "Resume payment" }).click();
   await expect(page.getByTestId("deposit-coin-amount")).toHaveText(amount!);
-  await expect(page.getByLabel("Blockchain transaction hash")).toHaveValue("a".repeat(64));
+  await expect(page.locator('input[name="txHash"]')).toHaveCount(0);
   await expect(page.getByRole("checkbox")).not.toBeChecked();
 });
 
 test("rejection preserves payment details and never claims success", async ({ page }) => {
   await openDeposit(page, { fail: true }); await proceed(page); await reportTransfer(page);
-  await expect(page.getByText("The transaction hash has already been submitted.")).toBeVisible();
-  await expect(page.getByLabel("Blockchain transaction hash")).toHaveValue("a".repeat(64));
+  await expect(page.getByText("The deposit has already been reported.")).toBeVisible();
+  await expect(page.locator('input[name="txHash"]')).toHaveCount(0);
   await expect(page.getByTestId("deposit-coin-amount")).toContainText("BTC");
   await expect(page.getByRole("heading", { name: "Submitted for review." })).toHaveCount(0);
 });

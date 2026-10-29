@@ -53,3 +53,15 @@ it("binds payment instructions to their owner and signed amount without treating
   expect(() => verifyDepositInstructions(quote.quoteToken, "another-investor", secret)).toThrow("could not be verified");
   expect(() => verifyDepositInstructions(quote.quoteToken.slice(0, -4) + "BAD!", "owner", secret)).toThrow("could not be verified");
 });
+
+it("issues distinct instruction identifiers for identical deposits prepared at the same time", () => {
+  vi.useFakeTimers();
+  try {
+    const time = new Date().toISOString(), wallet = { id: "eth", asset: "ETH", network: "Ethereum", address: "0x" + "1".repeat(40) };
+    const price = { asset: "ETH", priceUsd: "2500", source: "Coinbase", updatedAt: time, expiresAt: new Date(Date.now() + 90000).toISOString() };
+    const first = signDepositInstructions("owner", wallet, 10000, price, "test-only-secret");
+    const second = signDepositInstructions("owner", wallet, 10000, price, "test-only-secret");
+    expect(first.instructionId).not.toBe(second.instructionId);
+    expect(first.quoteToken).not.toBe(second.quoteToken);
+  } finally { vi.useRealTimers(); }
+});

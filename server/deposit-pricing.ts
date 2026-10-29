@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import { randomUUID } from "node:crypto";
 import { z } from "zod";
 import { depositCoinAmount, depositDecimals, type DepositPrice } from "../lib/deposits";
 import { HttpError } from "./errors";
@@ -39,10 +40,10 @@ export const readDepositPrice = createDepositPriceReader();
 const quoteSchema = z.object({
   asset: z.string(), priceUsd: decimal, source: z.string(), updatedAt: z.iso.datetime(), expiresAt: z.iso.datetime(),
   walletId: z.string(), network: z.string(), address: z.string(), amountCents: z.number().int().positive().max(1_000_000_000),
-  cryptoAmount: decimal, quotedAt: z.iso.datetime(),
+  cryptoAmount: decimal, quotedAt: z.iso.datetime(), instructionId: z.uuid().optional(),
 });
 export function signDepositInstructions(userId: string, wallet: { id: string; asset: string; network: string; address: string }, amountCents: number, price: DepositPrice, secret: string) {
-  const quote = quoteSchema.parse({ ...price, walletId: wallet.id, network: wallet.network, address: wallet.address, amountCents, cryptoAmount: depositCoinAmount(amountCents, price.priceUsd, wallet.asset), quotedAt: new Date().toISOString() });
+  const quote = quoteSchema.parse({ instructionId: randomUUID(), ...price, walletId: wallet.id, network: wallet.network, address: wallet.address, amountCents, cryptoAmount: depositCoinAmount(amountCents, price.priceUsd, wallet.asset), quotedAt: new Date().toISOString() });
   return { ...quote, quoteToken: jwt.sign({ purpose: "deposit-instructions", userId, quote }, secret, { algorithm: "HS256", expiresIn: "7d" }) };
 }
 export function verifyDepositInstructions(token: string, userId: string, secret: string) {

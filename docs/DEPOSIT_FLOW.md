@@ -12,15 +12,14 @@ figure, exact network, receiving address and address-only QR code. Separate
 buttons copy the address and coin amount without locale separators. Wallet fees
 are separate; the recipient must receive the displayed coin amount.
 
-The amount remains fixed while paying. Instructions and a partially entered hash
-are retained in session storage for this account and browser tab. Closing the
+The amount remains fixed while paying. Instructions are retained in session storage for this account and browser tab. Closing the
 window or reloading offers Resume payment. Starting another deposit discards
 the local instructions. The token is scoped to reporting this pending deposit;
 it does not authorize a wallet transfer or a balance change.
 
-After sending, the investor pastes the blockchain transaction hash, confirms the
-network and chooses Done. The server verifies the signed owner, amount and
-wallet mapping, normalizes the hash and records a pending deposit with captured
+After sending, the investor confirms the network and chooses Done. No blockchain
+transaction hash is requested. The server verifies the signed owner, amount and
+wallet mapping and records a pending deposit with captured
 pricing details in its note and a durable audit record. Invalid or duplicate
 references preserve the payment window.
 An administrator must independently verify receipt, claimant attribution and
@@ -61,3 +60,13 @@ email readiness remain enabled/passed; the automatic-settlement heartbeat
 advances. No production accounts, identity records, deposits or balances were
 modified by verification. Evidence is in `.aureon/optional-deposit-identity/`.
 Documentation-only commits do not redeploy the running source automatically.
+
+Hashless reporting uses a unique server-signed instruction identifier. A digest
+of the instruction token is stored under a unique database constraint, so
+concurrent/repeated reports of the same instructions cannot create multiple
+pending deposits or credits. Preparing a distinct payment produces a new
+identifier even for the same amount and time. Legacy clients may still provide
+an optional transaction hash; supplied values are validated and keep their
+existing uniqueness protection. Hashless API reports require the payment token
+that the normal Proceed flow automatically supplies. This is not another
+investor-entered field. Existing recorded hashes are preserved.

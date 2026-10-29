@@ -460,8 +460,8 @@ function FinancialReviews({ type }: { type: "deposits" | "withdrawals" }) {
     <>
       <Notice>
         {isDeposit
-          ? "Verify the receiving network, transaction hash, confirmation count, and actual amount before approving a deposit."
-          : "Verify the recipient address and available balance before approving. Mark a withdrawal paid only after sending funds and recording its transaction hash."}
+          ? "Verify the receiving address, network, actual receipt, confirmation count and amount before approving a deposit."
+          : "Verify the recipient address and available balance before approving. Mark a withdrawal paid only after sending funds and independently reconciling the payout."}
       </Notice>
       <Panel
         title={
@@ -561,10 +561,10 @@ function FinancialReviews({ type }: { type: "deposits" | "withdrawals" }) {
             <div>
               <span>
                 {isDeposit
-                  ? "Submitted transaction hash"
+                  ? "Deposit reference"
                   : "Destination address"}
               </span>
-              <code><Verbatim>{isDeposit ? selected.txHash : selected.address}</Verbatim></code>
+              <code><Verbatim>{isDeposit ? selected.id : selected.address}</Verbatim></code>
             </div>
             {isDeposit && selected.wallet && (
               <div>
@@ -578,14 +578,12 @@ function FinancialReviews({ type }: { type: "deposits" | "withdrawals" }) {
             submit="Record review decision"
             transform={(d) => {
               const {
-                txHash,
                 ownershipEvidence,
                 verificationReference,
                 ...rest
               } = d;
               return {
                 ...rest,
-                ...(txHash ? { txHash } : {}),
                 ...(ownershipEvidence ? { ownershipEvidence } : {}),
                 ...(verificationReference ? { verificationReference } : {}),
                 ...(d.confirmedAmount
@@ -607,7 +605,7 @@ function FinancialReviews({ type }: { type: "deposits" | "withdrawals" }) {
                 )}
               </select>
             </Field>
-            {isDeposit ? (
+            {isDeposit && (
               <Field
                 label="Confirmed amount (USD)"
                 name="confirmedAmount"
@@ -616,12 +614,6 @@ function FinancialReviews({ type }: { type: "deposits" | "withdrawals" }) {
                 min="0.01"
                 defaultValue={selected.amount}
                 help="Enter the independently verified transaction value."
-              />
-            ) : (
-              <Field
-                label="Settlement transaction hash"
-                name="txHash"
-                placeholder="Required when marking paid"
               />
             )}
             {!isDeposit && <Field label="Evidence and review note" name="note">

@@ -941,6 +941,9 @@
   "Administrators cannot settle their own investments.": [
     "server/investment-settlements.ts"
   ],
+  "After sending funds, confirm your transfer in the payment window. An authorized operator independently verifies receipt, confirmations and the credited amount before updating your balance.": [
+    "components/Landing.tsx"
+  ],
   "Agreements should explain allocations, fees, redemption terms, liquidity constraints, conflicts and how losses are treated. A business overview does not establish an entitlement to income.": [
     "app/approach/page.tsx"
   ],
@@ -1100,9 +1103,6 @@
   ],
   "An illustrated guide to the brand, company-reported business activities and the investor experience, brought together in one publication.": [
     "app/company-profile/page.tsx"
-  ],
-  "An independently verified on-chain payout hash is required.": [
-    "server/app.ts"
   ],
   "An informed decision starts with": [
     "components/Landing.tsx",
@@ -1607,9 +1607,6 @@
   "Bitcoin / USD": [
     "components/MarketTicker.tsx"
   ],
-  "Blockchain transaction hash": [
-    "components/workspace/DepositWorkspace.tsx"
-  ],
   "BNB": [
     "components/workspace/DepositWorkspace.tsx"
   ],
@@ -2024,6 +2021,9 @@
   "Confirm unlink": [
     "components/workspace/WalletConnections.tsx"
   ],
+  "Confirm you sent the transfer and choose Done to report it for review.": [
+    "components/workspace/DepositWorkspace.tsx"
+  ],
   "Confirm your": [
     "components/workspace/PasskeySettings.tsx",
     "lib/video-content.ts"
@@ -2399,11 +2399,14 @@
   "Deposit not found.": [
     "server/app.ts"
   ],
+  "Deposit reference": [
+    "components/workspace/admin.tsx"
+  ],
   "Deposit reviews": [
     "components/workspace/Workspace.tsx",
     "components/workspace/admin.tsx"
   ],
-  "Deposit submission is currently unavailable. Keep your transaction hash and contact support if you have sent funds.": [
+  "Deposit submission is currently unavailable. Keep your payment instructions and contact support if you have sent funds.": [
     "components/workspace/DepositWorkspace.tsx"
   ],
   "Deposit submitted": [
@@ -2435,6 +2438,9 @@
   ],
   "Deposits paused": [
     "components/workspace/DepositWorkspace.tsx"
+  ],
+  "Deposits require verified email and enabled platform funding; identity review is optional for deposits. Investments and withdrawals require identity approval. Investor authenticator enrollment is optional.": [
+    "lib/video-content.ts"
   ],
   "Deposits use the supplied receiving wallet addresses for each supported asset and network. Transfers are reviewed manually before balances are credited; no third-party deposit provider is required.": [
     "app/security/page.tsx"
@@ -3060,9 +3066,6 @@
   "Find perspective.": [
     "lib/video-content.ts"
   ],
-  "Find this in your sending wallet’s transaction details.": [
-    "components/workspace/DepositWorkspace.tsx"
-  ],
   "Find your investment plan": [
     "components/Landing.tsx",
     "lib/i18n.ts"
@@ -3164,9 +3167,6 @@
   ],
   "Funding is not enabled. The operator must complete custody, payment verification, and production configuration.": [
     "server/app.ts"
-  ],
-  "Funding requires verified email, approved KYC and enabled platform funding. Investor authenticator enrollment is optional.": [
-    "lib/video-content.ts"
   ],
   "Funding status": [
     "components/workspace/admin.tsx"
@@ -4381,6 +4381,9 @@
   "Open navigation": [
     "components/workspace/Workspace.tsx"
   ],
+  "Open payment instructions before reporting your transfer.": [
+    "server/app.ts"
+  ],
   "Open the password reset link from your email, or request a new one below.": [
     "components/auth/AuthForms.tsx",
     "lib/i18n.ts"
@@ -4573,12 +4576,6 @@
   ],
   "Passwords are hashed, authentication sessions use HTTP-only cookies, and sensitive authentication material is protected on the server. These controls do not eliminate every security risk. Production access control, encryption, backups, incident response and monitoring require operational configuration.": [
     "app/legal/privacy/page.tsx"
-  ],
-  "Paste the blockchain transaction hash to report your transfer for verification.": [
-    "components/workspace/DepositWorkspace.tsx"
-  ],
-  "Paste your transaction hash": [
-    "components/workspace/DepositWorkspace.tsx"
   ],
   "PATCH": [
     "components/workspace/ContentOperations.tsx",
@@ -5494,9 +5491,6 @@
   "REQUIRED FOR SENSITIVE ACTIONS": [
     "components/workspace/Operations.tsx"
   ],
-  "Required when marking paid": [
-    "components/workspace/admin.tsx"
-  ],
   "RESERVE, REVIEW, THEN SETTLE": [
     "components/workspace/AdminFunds.tsx"
   ],
@@ -5544,7 +5538,7 @@
   "Return to AUREON": [
     "components/public/NewsletterAction.tsx"
   ],
-  "Return to the payment window, paste your blockchain transaction hash, confirm the transfer and choose Done. No authenticator code is needed for deposits.": [
+  "Return to the payment window, confirm you sent the transfer and choose Done. Your saved payment instructions identify the report. No authenticator code is needed for deposits.": [
     "lib/video-content.ts"
   ],
   "Return to your dashboard": [
@@ -5914,9 +5908,6 @@
   "Settlement recorded": [
     "components/workspace/InvestmentPortfolio.tsx"
   ],
-  "Settlement transaction hash": [
-    "components/workspace/admin.tsx"
-  ],
   "Settlements": [
     "components/workspace/Workspace.tsx"
   ],
@@ -6118,9 +6109,6 @@
   ],
   "Submitted pre-launch card applications will appear here.": [
     "components/workspace/Cards.tsx"
-  ],
-  "Submitted transaction hash": [
-    "components/workspace/admin.tsx"
   ],
   "Submitted transfers are reviewed before crediting.": [
     "components/workspace/DepositWorkspace.tsx"
@@ -6721,7 +6709,7 @@
   "Track the outcome.": [
     "lib/video-content.ts"
   ],
-  "Track the pending deposit in activity. A hash alone never credits your balance; the operator must verify and approve it.": [
+  "Track the pending deposit in activity. Submitting a report does not credit your balance; the operator must verify actual receipt and approve the deposit.": [
     "lib/video-content.ts"
   ],
   "Track the request in transaction history.": [
@@ -7145,8 +7133,10 @@
   "Verified settlement records cannot be overridden during posting.": [
     "server/investment-settlements.ts"
   ],
+  "Verified users can request withdrawals from their available balance when funding is enabled. Requests are reviewed, and the payout is independently reconciled before it is marked paid. Funds allocated to an active investment are unavailable until settled.": [
+    "components/Landing.tsx"
+  ],
   "Verified users can request withdrawals from their available balance when funding is enabled. Requests are reviewed, and the transaction hash is recorded when a payment is sent. Funds allocated to an active investment are unavailable until settled.": [
-    "components/Landing.tsx",
     "lib/i18n.ts"
   ],
   "Verify & sign in": [
@@ -7165,10 +7155,10 @@
   "Verify the network and destination.": [
     "app/security/page.tsx"
   ],
-  "Verify the receiving network, transaction hash, confirmation count, and actual amount before approving a deposit.": [
+  "Verify the receiving address, network, actual receipt, confirmation count and amount before approving a deposit.": [
     "components/workspace/admin.tsx"
   ],
-  "Verify the recipient address and available balance before approving. Mark a withdrawal paid only after sending funds and recording its transaction hash.": [
+  "Verify the recipient address and available balance before approving. Mark a withdrawal paid only after sending funds and independently reconciling the payout.": [
     "components/workspace/admin.tsx"
   ],
   "Verify your": [
@@ -7401,7 +7391,7 @@
   "When does a deposit become available?": [
     "app/support/page.tsx"
   ],
-  "When funding is available, select an asset and its exact network. Verify the destination before transferring, then submit the transaction reference for operator review.": [
+  "When funding is available, select an asset and its exact network. Verify the destination before transferring, then report the transfer for operator review.": [
     "app/how-it-works/page.tsx"
   ],
   "Where appropriate, we reinvest earnings, improve operating efficiency, restructure exposures or exit investments whose fundamentals no longer support continued ownership.": [
@@ -7536,7 +7526,6 @@
     "lib/video-content.ts"
   ],
   "You submit the transaction hash and selected network. An authorized operator must independently verify the transfer and its confirmations before crediting the ledger. A submitted hash alone never increases your balance.": [
-    "components/Landing.tsx",
     "lib/i18n.ts"
   ],
   "YOU WILL SEND": [

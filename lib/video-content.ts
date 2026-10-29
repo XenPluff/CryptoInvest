@@ -44,7 +44,7 @@ export const aureonVideos: AureonVideo[] = [
       { title: "Verify your", accent: "email.", label: "02 / CHECK YOUR INBOX", visual: "account", text: "Open the verification link sent to your email, then sign in. Check spam if the message is missing." },
       { title: "Complete", accent: "identity review.", label: "03 / ACCOUNT SETTINGS", visual: "account", text: "Open Account settings and submit the required identity details. Wait for an approved KYC review." },
       { title: "Add another", accent: "layer.", label: "04 / AUTHENTICATOR SETUP", visual: "account", text: "Investor two-factor authentication is optional. Enable it in Account settings for codes at sign-in and withdrawal requests." },
-      { title: "Know before", accent: "you proceed.", label: "05 / UNDERSTAND THE PROCESS", visual: "ledger", text: "Funding requires verified email, approved KYC and enabled platform funding. Investor authenticator enrollment is optional." },
+      { title: "Know before", accent: "you proceed.", label: "05 / UNDERSTAND THE PROCESS", visual: "ledger", text: "Deposits require verified email and enabled platform funding; identity review is optional for deposits. Investments and withdrawals require identity approval. Investor authenticator enrollment is optional." },
     ],
   },
   {
@@ -60,8 +60,8 @@ export const aureonVideos: AureonVideo[] = [
       { title: "Match the", accent: "network.", label: "02 / CHECK BOTH SIDES", visual: "network", text: "Your sending wallet must use the exact selected network. USDT on TRC20 and ERC20 are different routes." },
       { title: "Proceed to", accent: "payment.", label: "03 / YOUR PAYMENT WINDOW", visual: "address", text: "Choose Proceed to payment. Copy the receiving address and exact coin amount, or scan the address QR code and enter the amount separately." },
       { title: "Send the", accent: "exact amount.", label: "04 / YOUR SENDING WALLET", visual: "address", text: "Use the matching network and allow for wallet fees so the recipient receives the amount shown. The coin amount stays fixed; USD credit is confirmed during review." },
-      { title: "Return and", accent: "choose Done.", label: "05 / REPORT YOUR TRANSFER", visual: "receipt", text: "Return to the payment window, paste your blockchain transaction hash, confirm the transfer and choose Done. No authenticator code is needed for deposits." },
-      { title: "Follow the", accent: "review.", label: "06 / TRANSACTION HISTORY", visual: "receipt", text: "Track the pending deposit in activity. A hash alone never credits your balance; the operator must verify and approve it." },
+      { title: "Return and", accent: "choose Done.", label: "05 / REPORT YOUR TRANSFER", visual: "receipt", text: "Return to the payment window, confirm you sent the transfer and choose Done. Your saved payment instructions identify the report. No authenticator code is needed for deposits." },
+      { title: "Follow the", accent: "review.", label: "06 / TRANSACTION HISTORY", visual: "receipt", text: "Track the pending deposit in activity. Submitting a report does not credit your balance; the operator must verify actual receipt and approve the deposit." },
     ],
   },
   {

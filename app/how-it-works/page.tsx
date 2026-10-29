@@ -22,7 +22,7 @@ const steps = [
   {
     title: "Fund with care.",
     description:
-      "When funding is available, select an asset and its exact network. Verify the destination before transferring, then submit the transaction reference for operator review.",
+      "When funding is available, select an asset and its exact network. Verify the destination before transferring, then report the transfer for operator review.",
   },
   {
     title: "Choose your perspective.",

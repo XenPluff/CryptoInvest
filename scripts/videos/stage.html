@@ -60,9 +60,9 @@ function visual(kind,t,progress,sceneIndex){
  }else if(kind==='network'){
   panel('One asset. Different networks.');row('ASSET','USDT',295);row('NETWORK OPTION','TRON / TRC20',369,true);row('DIFFERENT NETWORK','Ethereum / ERC20',443);caps('MATCH YOUR SENDING WALLET',794,542,9,gold);
  }else if(kind==='address'){
-  panel('Check the current destination');row('SOURCE','Your live deposit workspace',295,true);row('DESTINATION','Verify the complete address',369);row('KEEP YOUR RECORD','Blockchain transaction hash',443);
+  panel('Check the current destination');row('SOURCE','Your live deposit workspace',295,true);row('DESTINATION','Verify the complete address',369);row('KEEP YOUR RECORD','Sending wallet receipt',443);
  }else if(kind==='receipt'){
-  panel('Submit. Verify. Then credit.','PROCESS PREVIEW');const labels=['Transfer reference submitted','Operator verifies on-chain','Credit after approval'];labels.forEach((label,i)=>{const y=318+i*83;box(787,y-20,356,63,8,i===0?'#d6b66c14':'#202022','#ffffff12');text(`0${i+1}`,806,y+18,23,gold,'Cormorant Garamond');text(label,847,y+14,15,ivory);});
+  panel('Submit. Verify. Then credit.','PROCESS PREVIEW');const labels=['Transfer report submitted','Operator verifies on-chain','Credit after approval'];labels.forEach((label,i)=>{const y=318+i*83;box(787,y-20,356,63,8,i===0?'#d6b66c14':'#202022','#ffffff12');text(`0${i+1}`,806,y+18,23,gold,'Cormorant Garamond');text(label,847,y+14,15,ivory);});
  }else if(kind==='withdraw'){
   panel('Request a withdrawal');row('AMOUNT (USD)','Within available funds',292);row('CRYPTOCURRENCY AND NETWORK','Match your external wallet',366,true);row('AUTHENTICATOR CODE','Current six-digit code',440);
  }else if(kind==='timeline'){

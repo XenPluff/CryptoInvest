@@ -52,7 +52,6 @@ export function DepositWorkspace({ user }: { user: RecordData }) {
   const priceRequest = useRef(0);
   const [quote, setQuote] = useState<DepositInstructions | null>(null);
   const [paymentOpen, setPaymentOpen] = useState(false);
-  const [txHash, setTxHash] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [receipt, setReceipt] = useState<Deposit | null>(null);
@@ -94,22 +93,22 @@ export function DepositWorkspace({ user }: { user: RecordData }) {
     try {
       const saved = JSON.parse(sessionStorage.getItem(storageKey) || "null");
       if (saved?.quote?.quoteToken && typeof saved.quote.cryptoAmount === "string" && typeof saved.quote.address === "string") {
-        setQuote(saved.quote); setTxHash(saved.txHash || ""); setAmount((saved.quote.amountCents / 100).toFixed(2)); setSelectedId(saved.quote.walletId);
+        setQuote(saved.quote); setAmount((saved.quote.amountCents / 100).toFixed(2)); setSelectedId(saved.quote.walletId);
       }
     } catch { /* A missing or invalid local draft does not prevent a new deposit. */ }
   }, [storageKey]);
   useEffect(() => {
     if (!quote) return;
-    try { sessionStorage.setItem(storageKey, JSON.stringify({ quote, txHash })); } catch { /* The open payment window still retains its instructions. */ }
-  }, [quote, txHash, storageKey]);
-  function clearDraft() { setQuote(null); setTxHash(""); setError(""); try { sessionStorage.removeItem(storageKey); } catch {} }
+    try { sessionStorage.setItem(storageKey, JSON.stringify({ quote })); } catch { /* The open payment window still retains its instructions. */ }
+  }, [quote, storageKey]);
+  function clearDraft() { setQuote(null); setError(""); try { sessionStorage.removeItem(storageKey); } catch {} }
   async function proceed(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!selected || !canSubmit || !amountCents || !currentPrice || busy) return;
     setBusy(true); setError(""); setReceipt(null);
     try {
       const result = await api<{ quote: DepositInstructions }>("/deposits/quote", { method: "POST", body: JSON.stringify({ walletId: selected.id, amount }) });
-      setQuote(result.quote); setTxHash(""); setPaymentOpen(true);
+      setQuote(result.quote); setPaymentOpen(true);
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "Payment instructions could not be prepared.");
       if (typeof cause === "object" && cause && "status" in cause && cause.status === 503) void catalog.reload();
@@ -120,7 +119,7 @@ export function DepositWorkspace({ user }: { user: RecordData }) {
     if (!quote || !canSubmit || busy) return;
     setBusy(true); setError("");
     try {
-      const result = await api<{ deposit: Deposit }>("/deposits", { method: "POST", body: JSON.stringify({ walletId: quote.walletId, amount: quote.amountCents / 100, txHash: txHash.trim(), quoteToken: quote.quoteToken }) });
+      const result = await api<{ deposit: Deposit }>("/deposits", { method: "POST", body: JSON.stringify({ walletId: quote.walletId, amount: quote.amountCents / 100, quoteToken: quote.quoteToken }) });
       if (!result.deposit?.id) throw new Error("Submission could not be confirmed. Check transaction activity before retrying.");
       setReceipt(result.deposit); setPaymentOpen(false); clearDraft(); setAmount(""); void activity.reload();
     } catch (cause) {
@@ -160,14 +159,14 @@ export function DepositWorkspace({ user }: { user: RecordData }) {
           {activity.loading && !activity.data ? <p className="dp-history-empty">Loading deposit activity…</p> : activity.error ? <><Notice tone="error">{activity.error}</Notice><button className="ws-text-button" onClick={() => void activity.reload()}>Reload deposit activity</button></> : deposits.length ? <div className="dp-history-list">{deposits.map(deposit => <div className="dp-history-row" key={deposit.id}><CoinIcon asset={deposit.asset} /><div><strong>{deposit.asset} deposit</strong><span>{network(deposit.network).name} · <DateText value={deposit.createdAt} /></span></div><div className="dp-history-value"><strong>{money(deposit.amount)}</strong><Badge value={deposit.status} /></div></div>)}</div> : <div className="dp-history-empty"><span className="dp-empty-icon"><ArrowDownLeft size={18} /></span><div><strong>A fresh start.</strong><p>Your submitted deposits will appear here. No activity yet.</p></div></div>}
         </section>
       </div>
-      <aside className="dp-sidebar"><section className="dp-panel dp-how-to"><span className="dp-small-label">A SIMPLE WAY TO FUND</span><h2>From your wallet to your workspace.</h2><ol><li><span>01</span><div><strong>Set your amount</strong><p>Choose a USD amount, cryptocurrency and matching network. Review the current conversion.</p></div></li><li><span>02</span><div><strong>Make the transfer</strong><p>Copy the address and exact coin amount, or scan the address QR code. Send using your wallet app.</p></div></li><li><span>03</span><div><strong>Come back and choose Done</strong><p>Paste the blockchain transaction hash to report your transfer for verification.</p></div></li></ol><div className="dp-review-note"><FileCheck2 size={19} /><div><strong>Every transfer, accounted for.</strong><p>Network fees are separate. Your final USD credit is confirmed during review; a market conversion or Done does not credit your balance.</p><Link href="/videos#deposit-guide">Watch the deposit guide <ArrowUpRight size={12} /></Link></div></div></section></aside>
+      <aside className="dp-sidebar"><section className="dp-panel dp-how-to"><span className="dp-small-label">A SIMPLE WAY TO FUND</span><h2>From your wallet to your workspace.</h2><ol><li><span>01</span><div><strong>Set your amount</strong><p>Choose a USD amount, cryptocurrency and matching network. Review the current conversion.</p></div></li><li><span>02</span><div><strong>Make the transfer</strong><p>Copy the address and exact coin amount, or scan the address QR code. Send using your wallet app.</p></div></li><li><span>03</span><div><strong>Come back and choose Done</strong><p>Confirm you sent the transfer and choose Done to report it for review.</p></div></li></ol><div className="dp-review-note"><FileCheck2 size={19} /><div><strong>Every transfer, accounted for.</strong><p>Network fees are separate. Your final USD credit is confirmed during review; a market conversion or Done does not credit your balance.</p><Link href="/videos#deposit-guide">Watch the deposit guide <ArrowUpRight size={12} /></Link></div></div></section></aside>
     </div>}
-    {paymentOpen && quote && <PaymentDialog quote={quote} txHash={txHash} setTxHash={setTxHash} busy={busy} error={error} canSubmit={canSubmit} onSubmit={submit} onClose={() => { if (!busy) setPaymentOpen(false); }} />}
+    {paymentOpen && quote && <PaymentDialog quote={quote} busy={busy} error={error} canSubmit={canSubmit} onSubmit={submit} onClose={() => { if (!busy) setPaymentOpen(false); }} />}
   </div></TranslatedContent>;
 }
 
-function PaymentDialog({ quote, txHash, setTxHash, busy, error, canSubmit, onSubmit, onClose }: {
-  quote: DepositInstructions; txHash: string; setTxHash: (value: string) => void; busy: boolean; error: string; canSubmit: boolean;
+function PaymentDialog({ quote, busy, error, canSubmit, onSubmit, onClose }: {
+  quote: DepositInstructions; busy: boolean; error: string; canSubmit: boolean;
   onSubmit: (event: FormEvent<HTMLFormElement>) => void; onClose: () => void;
 }) {
   useDisplayLocale();
@@ -190,8 +189,8 @@ function PaymentDialog({ quote, txHash, setTxHash, busy, error, canSubmit, onSub
     <p className="dp-copy-status" aria-live="polite">{copyStatus}</p>
     <div className="dp-network-note"><ShieldCheck size={18} /><p><strong>Send only {quote.asset} on {chain.name} ({chain.tag}).</strong>Use the exact network and ensure the recipient receives the amount shown after any wallet fees. The QR code contains the address; enter the coin amount separately.</p></div>
     <div className="dp-captured-rate"><span>Captured conversion</span><strong><Verbatim>1 {quote.asset} = {priceMoney(quote.priceUsd)}</Verbatim></strong><span><Verbatim>{quote.source} · {new Date(quote.quotedAt).toLocaleTimeString()}</Verbatim></span><p>The coin amount stays fixed for this transfer. Market prices can change; the final USD credit is confirmed during review.</p></div>
-    <form className="dp-form" onSubmit={onSubmit}><fieldset disabled={busy || !canSubmit}><label htmlFor="dp-hash">Blockchain transaction hash</label><input id="dp-hash" name="txHash" required autoComplete="off" spellCheck={false} placeholder="Paste your transaction hash" value={txHash} onChange={event => setTxHash(event.target.value)} /><p className="dp-field-help">Find this in your sending wallet’s transaction details.</p><label className="dp-confirm-check"><input type="checkbox" required checked={confirmed} onChange={event => setConfirmed(event.target.checked)} /><span>I sent {quote.asset} on {chain.name} to the address shown.</span></label></fieldset>
-      {!canSubmit && <Notice>Deposit submission is currently unavailable. Keep your transaction hash and contact support if you have sent funds.</Notice>}
+    <form className="dp-form" onSubmit={onSubmit}><fieldset disabled={busy || !canSubmit}><label className="dp-confirm-check"><input type="checkbox" required checked={confirmed} onChange={event => setConfirmed(event.target.checked)} /><span>I sent {quote.asset} on {chain.name} to the address shown.</span></label></fieldset>
+      {!canSubmit && <Notice>Deposit submission is currently unavailable. Keep your payment instructions and contact support if you have sent funds.</Notice>}
       {error && <Notice tone="error">{error}</Notice>}<button className="dp-primary-button" type="submit" disabled={busy || !canSubmit}>{busy ? <LoaderCircle size={16} className="ws-spin" /> : <CheckCircle2 size={16} />}{busy ? "Submitting…" : "Done — I have sent the funds"}</button><p className="dp-submit-note"><LockKeyhole size={12} />Submitted transfers are reviewed before crediting.</p>
     </form>
   </section></div></TranslatedContent>, document.querySelector(".ws-shell") ?? document.body);

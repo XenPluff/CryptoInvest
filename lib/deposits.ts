@@ -2,7 +2,7 @@ export const depositDecimals: Record<string, number> = { BTC: 8, ETH: 18, USDT: 
 export type DepositPrice = { asset: string; priceUsd: string; source: string; updatedAt: string; expiresAt: string };
 export type DepositInstructions = DepositPrice & {
   walletId: string; network: string; address: string; amountCents: number;
-  cryptoAmount: string; quotedAt: string; quoteToken: string;
+  cryptoAmount: string; quotedAt: string; quoteToken: string; instructionId?: string;
 };
 
 // Integer arithmetic keeps the wallet amount within the asset's transferable precision.

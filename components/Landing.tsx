@@ -77,11 +77,11 @@ const questions = [
   ],
   [
     "How are deposits verified?",
-    "You submit the transaction hash and selected network. An authorized operator must independently verify the transfer and its confirmations before crediting the ledger. A submitted hash alone never increases your balance.",
+    "After sending funds, confirm your transfer in the payment window. An authorized operator independently verifies receipt, confirmations and the credited amount before updating your balance.",
   ],
   [
     "Can I withdraw my funds?",
-    "Verified users can request withdrawals from their available balance when funding is enabled. Requests are reviewed, and the transaction hash is recorded when a payment is sent. Funds allocated to an active investment are unavailable until settled.",
+    "Verified users can request withdrawals from their available balance when funding is enabled. Requests are reviewed, and the payout is independently reconciled before it is marked paid. Funds allocated to an active investment are unavailable until settled.",
   ],
 ];
 export default function Landing() {

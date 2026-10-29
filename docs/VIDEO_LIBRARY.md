@@ -59,3 +59,8 @@ renders 1280×720 frames in Chromium, pipes them to FFmpeg, synthesizes the scor
 then writes posters/captions/transcripts from the same script. No paid generation
 service or API key is required. Unfinished `.rendering.mp4` files must not be
 committed. Real security findings, legal opinions and operator intake stay private.
+
+The deposit and getting-started guides have been regenerated for hashless deposit
+reporting and the optional identity review for deposits. The deposit guide no
+longer asks investors to paste a blockchain hash; captions, transcript and
+process-preview graphics match the current confirmation-only report form.

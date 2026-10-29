@@ -467,10 +467,10 @@ integration("real PostgreSQL account and ledger integration", () => {
     });
     expect(created.response.status).toBe(201);
     const id = created.data.withdrawal.id;
+    const reservedEntries = await prisma.ledgerEntry.count({ where: { referenceId: id } });
     const body = {
       action: "paid",
       note: "External payout independently verified on chain.",
-      txHash: "0x" + "d".repeat(64),
       code: code(),
     };
     expect(
@@ -513,6 +513,8 @@ integration("real PostgreSQL account and ledger integration", () => {
         })
       ).response.status,
     ).toBe(200);
+    expect((await prisma.transaction.findUnique({ where: { id } })).txHash).toBeNull();
+    expect(await prisma.ledgerEntry.count({ where: { referenceId: id } })).toBe(reservedEntries);
   });
   test("investment settlement requires maturity, evidence, and bounded actual principal", async () => {
     const created = await request("/investments", {

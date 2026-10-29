@@ -6,7 +6,9 @@ import { config as loadEnv } from "dotenv";
 import pg from "pg";
 
 const root = fileURLToPath(new URL("..", import.meta.url));
-const testFile = process.argv.includes("--deposit-identity")
+const testFile = process.argv.includes("--hashless-deposits")
+  ? "tests/hashless-deposits.integration.test.ts"
+  : process.argv.includes("--deposit-identity")
   ? "tests/optional-deposit-identity.integration.test.ts"
   : process.argv.includes("--two-factor")
   ? "tests/two-factor-policy.integration.test.ts"

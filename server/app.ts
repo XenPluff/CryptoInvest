@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import express, { NextFunction, Request, Response } from "express";
 import cookieParser from "cookie-parser";
 import helmet from "helmet";
@@ -134,6 +135,10 @@ api.use(["/deposits", "/withdrawals", "/investments"], (req, res, next) =>
 );
 const entrySchema = z.object({ amount: z.union([z.number(), z.string()]) });
 const shortText = z.string().trim().min(1).max(200);
+const optionalTransactionHash = z.preprocess(
+  value => value == null || typeof value === "string" && !value.trim() ? undefined : value,
+  z.string().trim().regex(/^[A-Za-z0-9]{32,128}$/, "Enter a valid transaction hash when supplying one.").optional(),
+);
 async function fundingEnabled() {
   if (!config.fundingEnabled) return false;
   return (
@@ -336,13 +341,7 @@ api.post("/deposits", requireAuth, depositGuard, async (req, res) => {
     .extend({
       walletId: shortText,
       quoteToken: z.string().max(5000).optional(),
-      txHash: z
-        .string()
-        .trim()
-        .regex(
-          /^[A-Za-z0-9]{32,128}$/,
-          "Enter the transaction hash supplied by your wallet.",
-        ),
+      txHash: optionalTransactionHash,
     })
     .parse(req.body);
   const wallet = await prisma.wallet.findFirst({
@@ -353,7 +352,10 @@ api.post("/deposits", requireAuth, depositGuard, async (req, res) => {
   const quote = body.quoteToken ? verifyDepositInstructions(body.quoteToken, userId(req), config.jwtSecret) : null;
   if (quote && (quote.walletId !== wallet.id || quote.asset !== wallet.asset || quote.network !== wallet.network || quote.address !== wallet.address || quote.amountCents !== amountCents))
     throw new HttpError(400, "The deposit details do not match the payment instructions. Contact support if funds have already been sent.");
-  const txHash = normalizeTxHash(wallet.network, body.txHash);
+  if (!body.txHash && !body.quoteToken)
+    throw new HttpError(400, "Open payment instructions before reporting your transfer.");
+  const txHash = body.txHash ? normalizeTxHash(wallet.network, body.txHash) : null;
+  const depositInstructionKey = body.quoteToken ? createHash("sha256").update(body.quoteToken).digest("hex") : null;
   const deposit = await serializable(async (tx) => {
     const transaction = await tx.transaction.create({
       data: {
@@ -364,6 +366,7 @@ api.post("/deposits", requireAuth, depositGuard, async (req, res) => {
         asset: wallet.asset,
         network: wallet.network,
         txHash,
+        depositInstructionKey,
         ...(quote ? { note: `Payment instructions: ${quote.cryptoAmount} ${quote.asset}; declared USD ${(amountCents / 100).toFixed(2)}; ${quote.source} USD price ${quote.priceUsd}; captured ${quote.quotedAt}. Independently verify the received amount and USD credit.` } : {}),
       },
     });
@@ -933,18 +936,9 @@ admin.post("/withdrawals/:id/review", adminFinancial, async (req, res) => {
     .object({
       action: z.enum(["approve", "reject", "paid"]),
       note: z.string().trim().min(15).max(1000),
-      txHash: z
-        .string()
-        .trim()
-        .regex(/^[A-Za-z0-9]{32,128}$/)
-        .optional(),
+      txHash: optionalTransactionHash,
     })
     .parse(req.body);
-  if (body.action === "paid" && !body.txHash)
-    throw new HttpError(
-      400,
-      "An independently verified on-chain payout hash is required.",
-    );
   const withdrawal = await serializable(async (tx) => {
     const t = await tx.transaction.findFirst({
       where: { id: idParam(req), type: "WITHDRAWAL" },
@@ -1009,7 +1003,7 @@ admin.post("/withdrawals/:id/review", adminFinancial, async (req, res) => {
       body.action === "reject"
         ? "Your withdrawal was rejected and its reserved funds restored."
         : body.action === "paid"
-          ? "Your payout has been recorded with an on-chain transaction hash."
+          ? "Your payout has been recorded as paid after administrator reconciliation."
           : "Your withdrawal was approved. It is awaiting external transfer and independent reconciliation.",
     );
     return updated;

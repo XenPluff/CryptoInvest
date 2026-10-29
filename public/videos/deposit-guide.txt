@@ -24,10 +24,10 @@ Use the matching network and allow for wallet fees so the recipient receives the
 
 05 / REPORT YOUR TRANSFER
 Return and choose Done.
-Return to the payment window, paste your blockchain transaction hash, confirm the transfer and choose Done. No authenticator code is needed for deposits.
+Return to the payment window, confirm you sent the transfer and choose Done. Your saved payment instructions identify the report. No authenticator code is needed for deposits.
 
 06 / TRANSACTION HISTORY
 Follow the review.
-Track the pending deposit in activity. A hash alone never credits your balance; the operator must verify and approve it.
+Track the pending deposit in activity. Submitting a report does not credit your balance; the operator must verify actual receipt and approve the deposit.
 
 Digital assets involve substantial risk, including loss of your entire investment.
