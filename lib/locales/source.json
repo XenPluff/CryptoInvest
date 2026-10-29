@@ -2464,7 +2464,7 @@
   "Digital asset prices can change sharply at any hour. A 24-hour percentage describes the recent past, not what comes next. Consider potential losses and liquidity before making any allocation.": [
     "app/insights/page.tsx"
   ],
-  "Digital assets and diversified multi-sector investments are speculative, subject to market volatility, and carry a high degree of risk, including potential illiquidity and the loss of the entire principal investment. AUREON investments are not bank deposits. Insurance or guarantees from a government agency, financial protection corporation or central banking authority are proposed only and have not been established. No such protection should be assumed.": [
+  "Digital assets and diversified multi-sector investments are speculative, subject to market volatility, and carry a high degree of risk, including potential illiquidity and the loss of the entire principal investment. AUREON investments are not bank deposits and are not insured or guaranteed by any government agency, financial protection corporation, or central banking authority.": [
     "app/legal/risk/page.tsx"
   ],
   "Digital assets and multi-sector investments carry substantial risk. Read this information before transferring assets or purchasing an investment plan.": [
@@ -5623,6 +5623,7 @@
   "Risk disclosure": [
     "app/legal/page.tsx",
     "app/legal/risk/layout.tsx",
+    "app/legal/risk/page.tsx",
     "components/SiteFooter.tsx",
     "components/public/LegalDocument.tsx",
     "components/workspace/Workspace.tsx",

@@ -4,7 +4,10 @@ The owner confirmed that the entities, protections, institutional products,
 audits, reserve arrangements and registrations in the supplied replacement
 are proposed. The risk page therefore describes them as proposals rather than
 established facts. No supporting registration, insurance, audit or reserve
-records were supplied or inferred.
+records were supplied or inferred. A later request supplied present-tense claims;
+those claims remain proposed pending clarification and supporting records. The
+formal document layout and explicit no-insurance wording were implemented
+independently of that unresolved change.
 
 ## Implemented scope
 
@@ -12,8 +15,9 @@ records were supplied or inferred.
 - Omit the risk page's notice banner, as subsequently requested by the owner;
   preserve the default notice on terms, privacy and AML. Proposed status remains
   explicit in the disclosure paragraphs.
-- Describe government insurance/guarantees as proposed and unestablished, with
-  no assumption of present coverage.
+- State explicitly, as requested in the later revision, that investments are
+  not bank deposits and are not insured or guaranteed by any government agency,
+  financial protection corporation or central banking authority.
 - Describe affiliated entities, permissions, custody arrangements, restricted
   offerings, AUREON Ventures, institutional audits and fund structures as proposed.
 - Describe AUDU, its issuer and reserve structure as proposed; do not imply a
@@ -24,6 +28,9 @@ records were supplied or inferred.
   total loss, illiquidity, variable protection and non-guaranteed returns.
 - Keep target counters distinct from posted realized earnings and available funds.
 - Translate the replacement into the site's seven non-English languages.
+- Present the disclosure in a formal framed document with a double gold border,
+  centered brand/title, generous paragraph spacing and a version/copyright footer.
+  The layout identifies a risk disclosure and does not represent a certification.
 
 The copy is implemented in [the risk page](../../app/legal/risk/page.tsx).
 Deployment and validation status are recorded in [the live preview record](../LIVE_PREVIEW.md)
