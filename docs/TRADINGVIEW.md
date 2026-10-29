@@ -1,11 +1,11 @@
 # TradingView homepage market display
 
 Live at <https://aureon-preview.onrender.com>, deployed from source
-`b4355d76258f29105afb5e48198055ea364236e4` in Render deployment
-`dep-dbh4qt59fdbs738c77j0`.
+`7cceb82323b1e5379f0ba7923619dcf531ea5d5e` in Render deployment
+`dep-dbhak308v5cc73fuh33g`.
 
 The homepage uses TradingView's public Ticker Tape iframe with its native
-provider logo and market links. The owner-requested removal of the separate
+provider logo and read-only market quotes. The owner-requested removal of the separate
 “Track all markets on TradingView” text link is live. Its wrapper and styles
 are removed, leaving a 58px iframe inside a 60px bordered band on desktop and
 mobile, without the former 32px text row.
@@ -34,7 +34,29 @@ All eight site language selections are handled; TradingView does not list
 Ukrainian for this widget, so Ukrainian uses its English provider UI. Provider
 fonts, logos and quote-pair labels remain inside the unchanged iframe.
 
-## Validation
+## Read-only display
+
+The owner-requested non-interactive presentation is live. The iframe has
+`pointer-events:none`, `inert` and `tabIndex=-1`; its parent supplies the existing
+translated market-display label as a single image role. Mouse/touch events and
+keyboard focus cannot activate provider links. Native provider branding stays
+visible. Provider content, quotes, theme/locale selection, streams and dimensions
+remain unchanged, without an overlay control or a separate external link.
+
+Production build and six local/hosted checks pass. Six 1440/390/320px dark/light
+states verify clicks/taps open nothing, programmatic focus is rejected and Tab
+moves directly past the display. All four real instruments receive numeric
+provider quotes and continue updating; eight language selections keep their
+configured provider locale. Hosted checks use actual HTML/assets, content GETs
+and verified provider HTTP/WebSocket traffic, with no price fixtures, popups,
+page/provider/socket errors or production mutations. The hosted run observed
+53 actual price updates. Health remains connected with funding enabled,
+email readiness passed and the settlement heartbeat advancing. Artifacts are
+in `.aureon/tradingview-readonly/`, with matching deployment/health metadata in
+`.aureon/validation/tradingview-readonly-*`. Documentation commits do not
+automatically redeploy the running source.
+
+## Earlier text-link-removal validation
 
 The production build and client/server type checks pass. Six focused local and
 hosted browser checks verify real quotes for all four instruments, the unchanged

@@ -5,8 +5,18 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `d40d572c1826ad558d7af8d3e87b65d632f177f3` from branch
+- Running source commit: `7cceb82323b1e5379f0ba7923619dcf531ea5d5e` from branch
   `codex/aureon-render-preview`.
+- The TradingView live market display is non-interactive in deployment
+  `dep-dbhak308v5cc73fuh33g`. Pointer/touch activation and keyboard focus are
+  blocked, with a translated display label and visible native provider branding.
+  Live quotes, themes/locales and the 60px band remain. Build and six local/
+  hosted checks pass across six desktop/mobile/theme states and eight language
+  selections. Actual hosted provider traffic supplies all four markets and
+  53 real price updates without popups, navigation, page/provider/socket errors,
+  API fixtures or mutations. Health remains connected with funding enabled,
+  email readiness passed and an advancing settlement heartbeat. See
+  [read-only ticker behavior](TRADINGVIEW.md).
 - Required blockchain-hash fields are removed from deposit reporting and payout
   confirmation in deployment `dep-dbh8rluc6qcc73emr4cg`. Deposit reports use
   signed payment instructions and confirmation; a unique token digest protects
