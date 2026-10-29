@@ -30,9 +30,11 @@ export default function MarketTicker() {
     return `${WIDGET_ORIGIN}/embed-widget/ticker-tape/?locale=${providerLocale}#${encodeURIComponent(JSON.stringify(configuration))}`;
   }, [theme, providerLocale]);
 
-  return <div className={styles.band} data-market-provider="tradingview" dir="ltr">
+  return <div className={styles.band} data-market-provider="tradingview" dir="ltr"
+    role="img" aria-label={`TradingView — ${t("Market insights")}`}>
     <iframe key={`${theme}-${providerLocale}`} className={styles.widget}
       src={src} title={`TradingView — ${t("Market insights")}`}
-      height={58} loading="lazy" referrerPolicy="origin" />
+      height={58} loading="lazy" referrerPolicy="origin"
+      inert tabIndex={-1} aria-hidden="true" />
   </div>;
 }
