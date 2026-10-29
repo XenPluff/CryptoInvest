@@ -19,7 +19,7 @@ export function LegalDocument({
 }: {
   type: LegalType;
   title: string;
-  description: string;
+  description?: string;
   notice?: string | null;
   children: ReactNode;
 }) {

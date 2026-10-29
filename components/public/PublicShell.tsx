@@ -28,7 +28,7 @@ export function PageIntro({
   eyebrow: string;
   title: string;
   emphasis?: string;
-  description: string;
+  description?: string;
   number?: string;
 }) {
   return <TranslatedContent>{(
@@ -54,10 +54,10 @@ export function PageIntro({
             )}
           </h1>
         </div>
-        <div className="public-intro-note">
+        {description && <div className="public-intro-note">
           <span className="public-section-number">{number} / AUREON</span>
           <p>{description}</p>
-        </div>
+        </div>}
       </div>
     </section>
   )}</TranslatedContent>;

@@ -8,7 +8,7 @@ export default function AmlPage() {
     <LegalDocument
       type="aml"
       title="AML & identity."
-      description="A clear account of identity review, transaction checks, and the verification capabilities that must be completed before financial launch."
+      notice={null}
     >
       <h2>1. Purpose & policy ownership</h2>
       <p>

@@ -430,9 +430,6 @@
   "A careful beginning.": [
     "lib/video-content.ts"
   ],
-  "A clear account of identity review, transaction checks, and the verification capabilities that must be completed before financial launch.": [
-    "app/legal/aml/page.tsx"
-  ],
   "A clear path from your first question": [
     "components/Landing.tsx",
     "lib/i18n.ts"
