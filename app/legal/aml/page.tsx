@@ -3,7 +3,7 @@ import TranslatedContent from "@/components/TranslatedContent";
 import { useDisplayLocale } from "@/lib/i18n";
 import { LegalDocument } from "@/components/public/LegalDocument";
 import documentStyles from "@/components/public/formal-legal.module.css";
-import styles from "./aml-policy.module.css";
+import styles from "@/components/public/structured-legal.module.css";
 
 export default function AmlPage() {
   useDisplayLocale();

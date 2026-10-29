@@ -178,6 +178,7 @@
   ],
   "© 2026 AUREON. All rights reserved.": [
     "app/legal/aml/page.tsx",
+    "app/legal/privacy/page.tsx",
     "app/legal/risk/page.tsx"
   ],
   "0 auto 24px": [
@@ -277,11 +278,11 @@
   "1. Cryptocurrency Mining and Digital Infrastructure": [
     "lib/business-activities.ts"
   ],
-  "1. Data controller": [
-    "app/legal/privacy/page.tsx"
-  ],
   "1. Operator & scope": [
     "app/legal/terms/page.tsx"
+  ],
+  "1. Overview & Scope": [
+    "app/legal/privacy/page.tsx"
   ],
   "10% · first level": [
     "components/public/PlanCatalog.tsx"
@@ -298,7 +299,7 @@
   "2. Eligibility & account access": [
     "app/legal/terms/page.tsx"
   ],
-  "2. Information collected": [
+  "2. Information We Collect": [
     "app/legal/privacy/page.tsx"
   ],
   "20px 0": [
@@ -316,14 +317,14 @@
   "24px 0": [
     "components/public/Journal.tsx"
   ],
+  "3. How We Use Your Information": [
+    "app/legal/privacy/page.tsx"
+  ],
   "3. Plans & investment records": [
     "app/legal/terms/page.tsx"
   ],
   "3. Test a recovery": [
     "components/workspace/Operations.tsx"
-  ],
-  "3. Why it is processed": [
-    "app/legal/privacy/page.tsx"
   ],
   "30 days": [
     "localization"
@@ -331,17 +332,17 @@
   "3D DESIGN PREVIEW": [
     "components/cards/CardShowcase.tsx"
   ],
-  "4. Cookies & local preferences": [
-    "app/legal/privacy/page.tsx"
-  ],
   "4. Deposits & withdrawals": [
     "app/legal/terms/page.tsx"
   ],
+  "4. Legal Basis for Processing": [
+    "app/legal/privacy/page.tsx"
+  ],
+  "5. Data Sharing & Disclosure": [
+    "app/legal/privacy/page.tsx"
+  ],
   "5. Referrals": [
     "app/legal/terms/page.tsx"
-  ],
-  "5. Service providers & international transfers": [
-    "app/legal/privacy/page.tsx"
   ],
   "50px 20px": [
     "components/public/Journal.tsx"
@@ -358,7 +359,7 @@
   "6. Acceptable use": [
     "app/legal/terms/page.tsx"
   ],
-  "6. Security & retention": [
+  "6. Data Security & Retention": [
     "app/legal/privacy/page.tsx"
   ],
   "7 days": [
@@ -368,7 +369,7 @@
   "7. Service availability & third parties": [
     "app/legal/terms/page.tsx"
   ],
-  "7. Your rights & choices": [
+  "7. Your Privacy Rights": [
     "app/legal/privacy/page.tsx"
   ],
   "7px 10px": [
@@ -376,9 +377,6 @@
   ],
   "8. Changes, closure & outstanding terms": [
     "app/legal/terms/page.tsx"
-  ],
-  "8. Children & updates": [
-    "app/legal/privacy/page.tsx"
   ],
   "A": [
     "app/about/page.tsx",
@@ -704,6 +702,9 @@
   "Account activity. Deposit instructions. Investment records.": [
     "lib/video-content.ts"
   ],
+  "Account Administration & Operations": [
+    "app/legal/privacy/page.tsx"
+  ],
   "Account balance": [
     "components/workspace/shared.tsx"
   ],
@@ -722,9 +723,6 @@
   ],
   "Account event": [
     "components/workspace/admin.tsx"
-  ],
-  "Account information: name, email, password hash, verification status and referral relationship.": [
-    "app/legal/privacy/page.tsx"
   ],
   "Account ledger": [
     "components/workspace/AdminFunds.tsx"
@@ -1048,7 +1046,7 @@
     "components/SiteFooter.tsx",
     "lib/i18n.ts"
   ],
-  "An HTTP-only session cookie authenticates your account. Local browser preferences may store your display theme and motion or sound preferences. The core application does not require advertising cookies. If analytics or marketing trackers are introduced, the operator must disclose them and obtain consent where required.": [
+  "An HTTP-only cookie authenticates sessions. Local browser storage holds language, theme and other display preferences. Advertising cookies are not required for the core service; additional analytics or marketing trackers would require appropriate notice and consent where applicable.": [
     "app/legal/privacy/page.tsx"
   ],
   "An identifiable operator": [
@@ -1298,6 +1296,9 @@
   "AUR-AML-2026.V1": [
     "app/legal/aml/page.tsx"
   ],
+  "AUR-PRIV-2026.V1": [
+    "app/legal/privacy/page.tsx"
+  ],
   "AUREON — A higher standard of digital wealth": [
     "app/layout.tsx",
     "lib/page-titles.ts"
@@ -1331,6 +1332,9 @@
   ],
   "Aureon does not describe the displayed deposit addresses as insured or independently audited. Do not transfer assets until you have reviewed the operator’s published legal and custody information.": [
     "app/security/page.tsx"
+  ],
+  "AUREON does not sell, rent or trade personal data. Any disclosure must be limited to a lawful purpose, with appropriate confidentiality and access safeguards.": [
+    "app/legal/privacy/page.tsx"
   ],
   "AUREON does not treat diversification as a substitute for due diligence. Each proposed investment must satisfy appropriate financial, operational, legal and risk-management requirements.": [
     "app/about/page.tsx"
@@ -1402,6 +1406,9 @@
   ],
   "aureon/backups/": [
     "components/workspace/Operations.tsx"
+  ],
+  "Authentication and audit records support access security, abuse prevention and operator review. Any automated monitoring of external wallets, smart contracts or financial flows would require established data connections and controls.": [
+    "app/legal/privacy/page.tsx"
   ],
   "Authentication code": [
     "components/auth/AuthForms.tsx",
@@ -1697,9 +1704,6 @@
   "Card format preference": [
     "components/workspace/Cards.tsx"
   ],
-  "Card preferences are used for preliminary application review and account updates. A withdrawal closes the application but retains its historical record; you may contact support to exercise applicable data rights. This process does not run a credit check, issue a card or automatically share an application with a bank or card network. Any future issuer processing requires an identified partner and updated information and terms before that processing begins.": [
-    "app/legal/privacy/page.tsx"
-  ],
   "Card program availability": [
     "app/cards/page.tsx"
   ],
@@ -1890,7 +1894,10 @@
   "Commodity prices can be volatile. Physical holdings also introduce storage, insurance, transportation, authenticity and counterparty risks.": [
     "lib/business-activities.ts"
   ],
-  "Communication information: support enquiries, newsletter subscriptions and account notifications.": [
+  "Communications": [
+    "app/legal/privacy/page.tsx"
+  ],
+  "Communications & Card Preferences": [
     "app/legal/privacy/page.tsx"
   ],
   "Company information": [
@@ -2056,6 +2063,9 @@
   "considered.": [
     "app/support/page.tsx"
   ],
+  "Contact information is used for account notices, support replies and subscribed communications. Future regulatory reports or institutional statements would depend on the relevant services and obligations.": [
+    "app/legal/privacy/page.tsx"
+  ],
   "Contact requests": [
     "components/workspace/admin.tsx"
   ],
@@ -2092,6 +2102,12 @@
   "CONTINUITY & OVERSIGHT": [
     "components/workspace/Operations.tsx"
   ],
+  "Contractual Necessity": [
+    "app/legal/privacy/page.tsx"
+  ],
+  "Cookies & Preferences": [
+    "app/legal/privacy/page.tsx"
+  ],
   "Copied": [
     "components/workspace/shared.tsx"
   ],
@@ -2122,6 +2138,9 @@
   ],
   "Copy unavailable. Select the address or amount to copy it manually.": [
     "components/workspace/DepositWorkspace.tsx"
+  ],
+  "Corporate & Beneficial Ownership Data": [
+    "app/legal/privacy/page.tsx"
   ],
   "Costs & evidence to assess": [
     "app/approach/page.tsx"
@@ -2244,6 +2263,9 @@
   "Cumulative verified deposit ledger credits and withdrawals recorded paid. Each step occurs at an actual posting or review timestamp. Investor registrations appear as timestamps with no change to funding totals.": [
     "components/workspace/AdminAnalytics.tsx"
   ],
+  "Current account and identity forms collect names, email addresses, country, date of birth, identity document type and document number. Account records include password hashes, verification status and referral relationships. Collecting document images, residential addresses, telephone numbers or accredited status for future onboarding would require an updated collection notice.": [
+    "app/legal/privacy/page.tsx"
+  ],
   "Current active positions and immutable settlement credits. Projections and unverified deposits are excluded.": [
     "components/workspace/AdminAnalytics.tsx"
   ],
@@ -2347,9 +2369,6 @@
   ],
   "DELIVERY OPERATIONS": [
     "components/workspace/ProviderConnections.tsx"
-  ],
-  "Depending on applicable law, you may request access, correction, deletion, restriction, portability or an objection to certain processing. You may withdraw consent where processing depends on consent. Submit a request through support; identity verification may be required. The operator must provide the applicable regulator and complaint procedure for its jurisdiction.": [
-    "app/legal/privacy/page.tsx"
   ],
   "deposit": [
     "components/workspace/DepositWorkspace.tsx"
@@ -2608,6 +2627,9 @@
   "Each plan specifies an investment range, duration, and target rate. Review the plan and risk disclosure before allocating funds. Target returns are illustrative, are not guaranteed, and are separate from your available balance.": [
     "components/Landing.tsx",
     "lib/i18n.ts"
+  ],
+  "Each processing purpose must have a documented lawful basis under the applicable jurisdiction. Depending on the activity and law, the following bases may apply.": [
+    "app/legal/privacy/page.tsx"
   ],
   "Each withdrawal receives an operator review.": [
     "components/workspace/Workspace.tsx"
@@ -2881,6 +2903,9 @@
   "Explain the preliminary outcome. Do not claim that a card or credit line is approved.": [
     "components/workspace/Cards.tsx"
   ],
+  "Explicit Consent": [
+    "app/legal/privacy/page.tsx"
+  ],
   "Explore": [
     "components/Landing.tsx",
     "components/public/PlanCatalog.tsx"
@@ -3022,6 +3047,9 @@
   "Final settlement at maturity": [
     "components/workspace/admin.tsx"
   ],
+  "Financial & Transactional Data": [
+    "app/legal/privacy/page.tsx"
+  ],
   "Financial activation": [
     "components/workspace/admin.tsx"
   ],
@@ -3039,9 +3067,6 @@
   ],
   "Financial Promotions & Institutional Restriction": [
     "app/legal/aml/page.tsx"
-  ],
-  "Financial records: deposit and withdrawal requests, amounts, wallet addresses, asset networks, transaction references and investment records.": [
-    "app/legal/privacy/page.tsx"
   ],
   "Find a plan that fits your goals. Understand the terms, the timeline, and the risks.": [
     "components/workspace/Workspace.tsx"
@@ -3166,6 +3191,9 @@
   "Funds have been reserved for an internal account transfer. The recipient is credited only after approval.": [
     "server/admin-funds.ts"
   ],
+  "Future corporate onboarding would require relevant registration documents, incorporation records, resolutions, tax identifiers and beneficial ownership information, including individuals holding 25% or greater equity or voting rights where applicable. These are planned requirements rather than a description of a current corporate onboarding form.": [
+    "app/legal/privacy/page.tsx"
+  ],
   "General enquiry": [
     "components/public/ContactForm.tsx"
   ],
@@ -3255,7 +3283,7 @@
     "components/auth/AuthShell.tsx",
     "lib/i18n.ts"
   ],
-  "Hosting, database and email services may process personal information as necessary to provide the service. The deployed transactional email service uses Brevo. Deposits use the supplied wallet addresses, with no external deposit-provider connection. No card-issuing provider is integrated with the pre-launch application process.": [
+  "Hosting, database and email providers process information necessary to operate the service; transactional email uses Brevo. The operator must publish the processor list, locations, processing agreements and applicable international transfer safeguards. Deposits use operator-supplied wallet addresses rather than an external deposit-provider integration.": [
     "app/legal/privacy/page.tsx"
   ],
   "How are deposits verified?": [
@@ -3349,11 +3377,11 @@
   "Identity": [
     "components/workspace/admin.tsx"
   ],
+  "Identity & Contact Data": [
+    "app/legal/privacy/page.tsx"
+  ],
   "Identity details received for manual review. This submission does not replace a regulated identity/AML verification provider.": [
     "server/app.ts"
-  ],
-  "Identity information: full name, country, date of birth, document type and document number submitted through the identity form.": [
-    "app/legal/privacy/page.tsx"
   ],
   "Identity review · {0}": [
     "components/workspace/admin.tsx"
@@ -3457,7 +3485,10 @@
   "INDUSTRY RESOURCES": [
     "components/OrganizationMarquee.tsx"
   ],
-  "Information is used to operate accounts, verify access, review identity, maintain transaction records, prevent abuse, support users and meet applicable recordkeeping obligations. The operator must establish and document a valid legal basis for each processing activity, including contract, legal obligation, legitimate interest or consent where appropriate.": [
+  "Information may be disclosed to competent authorities when required by applicable law or valid legal process.": [
+    "app/legal/privacy/page.tsx"
+  ],
+  "Information supports accounts, access checks, financial requests, investment records and preliminary card review. Card applications do not issue cards, run credit checks or automatically transfer applications to banks or networks. AUDU issuance and redemption would require established services and updated terms before related processing.": [
     "app/legal/privacy/page.tsx"
   ],
   "Initial policy documentation · pending operator and counsel review. The operator’s legal entity, address, applicable jurisdiction and regulatory details have not been published. This document must be completed and approved before public financial operations.": [
@@ -3468,6 +3499,9 @@
   ],
   "Insights, platform announcements, and answers published by the AUREON team.": [
     "app/journal/page.tsx"
+  ],
+  "Institutional Custodians & Banking Partners": [
+    "app/legal/privacy/page.tsx"
   ],
   "Institutional products and fund structures would be supported by independent audits and operational reporting. Past performance, algorithmic returns and projected yields in mining, commodities or emerging technologies do not guarantee future results. Displayed target rates and time-based estimates are illustrations, separate from posted realized earnings and available account funds.": [
     "app/legal/risk/page.tsx"
@@ -3756,6 +3790,9 @@
     "components/public/LegalDocument.tsx",
     "lib/page-titles.ts"
   ],
+  "Legal & Disclosures, Privacy Notice": [
+    "app/legal/privacy/page.tsx"
+  ],
   "Legal documents": [
     "components/public/LegalDocument.tsx"
   ],
@@ -3764,6 +3801,12 @@
   ],
   "legal information": [
     "app/about/page.tsx"
+  ],
+  "Legal Obligation": [
+    "app/legal/privacy/page.tsx"
+  ],
+  "Legitimate Interests": [
+    "app/legal/privacy/page.tsx"
   ],
   "Less noise.": [
     "app/about/page.tsx"
@@ -4197,6 +4240,9 @@
   "No identity submissions to review": [
     "components/workspace/admin.tsx"
   ],
+  "No institutional custodian, banking partner or card issuer is integrated into the current application. Future sharing would require an identified provider, a lawful basis and updated privacy information before the arrangement begins.": [
+    "app/legal/privacy/page.tsx"
+  ],
   "No investment plans": [
     "components/workspace/admin.tsx"
   ],
@@ -4440,6 +4486,9 @@
   "Optimise": [
     "app/about/page.tsx"
   ],
+  "Optional communications or preferences may rely on consent where required. Consent can be withdrawn without affecting prior lawful processing.": [
+    "app/legal/privacy/page.tsx"
+  ],
   "Original documents are in English. Translations are provided for convenience.": [
     "components/public/LegalDocument.tsx",
     "localization"
@@ -4563,7 +4612,7 @@
   "Passwords are hashed before storage. Sessions use HTTP-only cookies, and account access requires email verification before investing.": [
     "app/security/page.tsx"
   ],
-  "Passwords are hashed, authentication sessions use HTTP-only cookies, and sensitive authentication material is protected on the server. These controls do not eliminate every security risk. Production access control, encryption, backups, incident response and monitoring require operational configuration.": [
+  "Passwords are hashed, sessions use HTTP-only cookies and administrative actions use role-based access controls. Encryption at rest, multi-signature wallet governance, continuous monitoring, backups and incident response require verified operational configuration; this notice does not establish that all such controls are active. No system eliminates every security risk.": [
     "app/legal/privacy/page.tsx"
   ],
   "PATCH": [
@@ -4834,9 +4883,6 @@
   "Pre-launch applications only. No issuing bank or live card program is configured. Network choice is a preference, not a confirmed partnership. Cards cannot currently be issued, activated or used for payments.": [
     "lib/cards.ts"
   ],
-  "Pre-launch card applications: your account identity, preferred network design and card format, country of residence, intended use, age attestation, versioned acknowledgements, review messages and status history. No card number, CVV, PIN, credit limit, bank account details or additional identity documents are requested in this form.": [
-    "app/legal/privacy/page.tsx"
-  ],
   "Pre-launch review only. Administrator decisions cannot issue cards or approve credit.": [
     "components/workspace/Cards.tsx"
   ],
@@ -4981,6 +5027,12 @@
   ],
   "Proceed to payment.": [
     "lib/video-content.ts"
+  ],
+  "Processing may be necessary to provide requested account services or fulfil applicable agreements. Future institutional mandates would require the corresponding agreements and permissions.": [
+    "app/legal/privacy/page.tsx"
+  ],
+  "Processing may be required for applicable identity, AML, CTF, tax or recordkeeping duties; the relevant obligation must be identified for the activity and jurisdiction.": [
+    "app/legal/privacy/page.tsx"
   ],
   "Processing…": [
     "components/workspace/shared.tsx"
@@ -5293,9 +5345,6 @@
   "Recorded transactions will appear here.": [
     "components/workspace/AdminFunds.tsx"
   ],
-  "Records are retained only as necessary for the purpose and applicable legal obligations. The operator must set and publish specific retention periods or criteria. Financial and identity records may require longer retention; account deletion does not necessarily erase legally required records.": [
-    "app/legal/privacy/page.tsx"
-  ],
   "Records that should support the activity": [
     "app/approach/page.tsx"
   ],
@@ -5389,6 +5438,12 @@
   ],
   "Registration, email verification, identity review and authenticator setup, step by step.": [
     "lib/video-content.ts"
+  ],
+  "Regulators & Law Enforcement": [
+    "app/legal/privacy/page.tsx"
+  ],
+  "Regulatory Compliance & Verification": [
+    "app/legal/privacy/page.tsx"
   ],
   "Regulatory Oversight & Jurisdictional Variance": [
     "app/legal/aml/page.tsx"
@@ -5518,6 +5573,9 @@
   "Resume this transfer to keep the same address and coin amount, including after returning from your wallet app.": [
     "components/workspace/DepositWorkspace.tsx"
   ],
+  "Retention Period": [
+    "app/legal/privacy/page.tsx"
+  ],
   "Retry video": [
     "components/public/VideoLibrary.tsx"
   ],
@@ -5632,6 +5690,15 @@
   ],
   "review.": [
     "lib/video-content.ts"
+  ],
+  "Right of Access & Rectification": [
+    "app/legal/privacy/page.tsx"
+  ],
+  "Right to Data Portability": [
+    "app/legal/privacy/page.tsx"
+  ],
+  "Right to Erasure / Restriction": [
+    "app/legal/privacy/page.tsx"
   ],
   "Rights to the assets": [
     "app/approach/page.tsx"
@@ -5758,6 +5825,9 @@
     "components/SiteFooter.tsx",
     "lib/i18n.ts"
   ],
+  "Security & Fraud Prevention": [
+    "app/legal/privacy/page.tsx"
+  ],
   "Security & the card collection": [
     "app/company-profile/page.tsx"
   ],
@@ -5777,7 +5847,13 @@
     "components/Landing.tsx",
     "lib/i18n.ts"
   ],
-  "Security information: authentication events, session records, audit events, and available network address information.": [
+  "Security Measures": [
+    "app/legal/privacy/page.tsx"
+  ],
+  "Security records include authentication events, sessions, administrative audit events and available network address information. Any future device profiling, smart-contract monitoring or blockchain analytics would require appropriate implementation, purpose and privacy disclosures.": [
+    "app/legal/privacy/page.tsx"
+  ],
+  "Security, fraud prevention and service operation may rely on legitimate interests where lawful, after considering necessity and the individual's rights.": [
     "app/legal/privacy/page.tsx"
   ],
   "See the process.": [
@@ -5850,6 +5926,9 @@
   ],
   "Service connections": [
     "components/workspace/admin.tsx"
+  ],
+  "Service Providers": [
+    "app/legal/privacy/page.tsx"
   ],
   "Set a new password for your Aureon account.": [
     "app/reset-password/page.tsx"
@@ -6118,6 +6197,9 @@
   "Submitted for review.": [
     "components/workspace/DepositWorkspace.tsx"
   ],
+  "Submitted identity details currently support manual operator review. Automated KYC, AML, CTF and sanctions screening are planned requirements whose operation would depend on implemented providers, procedures and applicable legal obligations.": [
+    "app/legal/privacy/page.tsx"
+  ],
   "Submitted pre-launch card applications will appear here.": [
     "components/workspace/Cards.tsx"
   ],
@@ -6160,7 +6242,11 @@
     "lib/i18n.ts"
   ],
   "support contact form": [
+    "app/legal/privacy/page.tsx",
     "components/public/LegalDocument.tsx"
+  ],
+  "Support enquiries, newsletter subscriptions and account notifications are recorded. Pre-launch card applications also record design and format preferences, residence country, intended use, age attestation, acknowledgements, review messages and status history. The form does not request card numbers, CVVs, PINs, bank details or extra identity documents.": [
+    "app/legal/privacy/page.tsx"
   ],
   "Supporting reconciliation reference": [
     "components/workspace/AdminFunds.tsx"
@@ -6219,6 +6305,9 @@
   ],
   "Target rate": [
     "components/InvestmentCalculator.tsx"
+  ],
+  "Technical & On-Chain Data": [
+    "app/legal/privacy/page.tsx"
   ],
   "Technology investments may face rapid obsolescence, competitive pressure, intellectual-property disputes, cybersecurity threats and uncertainty regarding commercial adoption.": [
     "lib/business-activities.ts"
@@ -6289,6 +6378,9 @@
   ],
   "The application currently uses manual operator review of submitted identity details. Email-verified investors may submit deposits without identity approval; investments and withdrawals require an approved identity review. The automated verification, screening and monitoring controls described in this framework are planned requirements.": [
     "app/legal/aml/page.tsx"
+  ],
+  "The application records deposit and withdrawal requests, amounts, wallet addresses, networks, available transaction references and investment activity. Bank details, wire origins, source-of-funds or source-of-wealth documents and AUDU minting, burning or redemption records would be collected only if the corresponding services and lawful requirements are established.": [
+    "app/legal/privacy/page.tsx"
   ],
   "The asset and blockchain network must match the selected deposit instructions.": [
     "app/security/page.tsx"
@@ -6385,6 +6477,9 @@
   "The intended corporate structure would encompass affiliated entities and divisions operating under the relevant commercial registrations, governance standards and financial permissions. The regulatory treatment of crypto mining, decentralized financial protocols, real estate syndications and commodity-backed products depends on the activity and jurisdiction. Corporate registration alone does not establish authorization to provide financial services.": [
     "app/legal/aml/page.tsx"
   ],
+  "The intended retention framework would retain relevant identity, corporate and transaction records for at least five years after the relationship or relevant transaction ends, subject to applicable law and privacy obligations. Specific schedules remain to be published. Card application withdrawal closes the application but retains its history; deletion requests do not necessarily erase records that must lawfully be kept.": [
+    "app/legal/privacy/page.tsx"
+  ],
   "The investment collection": [
     "app/plans/page.tsx"
   ],
@@ -6431,12 +6526,6 @@
   "The operator must publish an effective date and a clear notice process for material changes. Account closure may require resolution of outstanding obligations and lawful record retention. Contractual liability limits, complaints escalation and dispute terms must be completed by the operator and reviewed by counsel before these terms become final.": [
     "app/legal/terms/page.tsx"
   ],
-  "The operator must publish its final processor list, locations, processing agreements and any applicable international transfer safeguards before production data is processed by those providers.": [
-    "app/legal/privacy/page.tsx"
-  ],
-  "The operator must publish the data controller’s legal name, registered address, privacy contact, applicable legal framework and any appointed representative before launch. This initial notice describes the application’s current data categories and intended processing.": [
-    "app/legal/privacy/page.tsx"
-  ],
   "The operator must verify the transfer and approve the confirmed amount.": [
     "app/security/page.tsx"
   ],
@@ -6478,7 +6567,7 @@
   "The service could not complete this request. Please try again or contact support.": [
     "server/app.ts"
   ],
-  "The service is not intended for anyone under 18. Do not submit a child’s information. Material changes to this notice require an updated version and effective date, with additional notice where required.": [
+  "The service is intended for adults aged 18 or over. Material changes to this notice will be identified by an updated version and effective date, with additional notice where required.": [
     "app/legal/privacy/page.tsx"
   ],
   "The service must not be used for money laundering, terrorist financing, sanctions evasion or illicit financial transactions. The intended AML/CTF framework would align with Financial Action Task Force (FATF) recommendations and applicable regional statutes, supported by designated compliance personnel, documented procedures and a risk assessment.": [
@@ -6602,6 +6691,9 @@
   ],
   "This pre-launch application was declined. Read the review message before deciding whether to submit an updated application.": [
     "lib/cards.ts"
+  ],
+  "This Privacy Notice explains how the AUREON application handles account, identity, financial and communication data. AUREON Group LLC is the intended entity name; its controller identity, registered address and applicable jurisdiction remain to be published. Future institutional services, smart-contract activities and the AUREON Digital Unit (AUDU) would require updated privacy information before processing begins.": [
+    "app/legal/privacy/page.tsx"
   ],
   "This publication could not be found.": [
     "server/content.ts"
@@ -7092,6 +7184,9 @@
   "Use the matching network and allow for wallet fees so the recipient receives the amount shown. The coin amount stays fixed; USD credit is confirmed during review.": [
     "lib/video-content.ts"
   ],
+  "Use the privacy contact below for requests. Identity verification may be needed. The operator must identify the applicable supervisory authority and complaint procedure; no appointed Data Protection Officer is established by this notice.": [
+    "app/legal/privacy/page.tsx"
+  ],
   "Use the RSA public key generated by the recovery kit (3072 bits or stronger).": [
     "server/operations.ts"
   ],
@@ -7420,6 +7515,9 @@
   "When funding is available, select an asset and its exact network. Verify the destination before transferring, then report the transfer for operator review.": [
     "app/how-it-works/page.tsx"
   ],
+  "Where applicable, you may request your data in a structured, commonly used electronic format.": [
+    "app/legal/privacy/page.tsx"
+  ],
   "Where appropriate, we reinvest earnings, improve operating efficiency, restructure exposures or exit investments whose fundamentals no longer support continued ownership.": [
     "app/about/page.tsx"
   ],
@@ -7538,6 +7636,12 @@
   ],
   "You have been unsubscribed from the AUREON newsletter.": [
     "server/content.ts"
+  ],
+  "You may request confirmation of processing, access to your information and correction of inaccurate records.": [
+    "app/legal/privacy/page.tsx"
+  ],
+  "You may request deletion or restriction, or object to certain processing, subject to applicable legal grounds and retention duties.": [
+    "app/legal/privacy/page.tsx"
   ],
   "You must be at least 18 years old, have legal capacity to enter an agreement and be permitted to use the services in your jurisdiction. Provide accurate information, verify your email and complete the required identity review. Do not create accounts on behalf of another person without lawful authority.": [
     "app/legal/terms/page.tsx"
@@ -7807,6 +7911,9 @@
   ],
   "Your referral impact": [
     "components/workspace/Workspace.tsx"
+  ],
+  "Your rights depend on applicable law and may include the following.": [
+    "app/legal/privacy/page.tsx"
   ],
   "Your sending wallet must use the exact selected network. USDT on TRC20 and ERC20 are different routes.": [
     "lib/video-content.ts"

@@ -12,8 +12,9 @@ headings and a 22px document title, with a 1.65 body line height and compact
 paragraph spacing. The shared formal-document scale also gives Risk disclosure a 16px body
 and 22px title; surrounding site typography is unaffected. The AML panel fills
 the available viewport width inside the site’s responsive margins, with legal
-navigation displayed as wrapping links above the document. Terms and privacy retain the 740px article cap and sidebar layout; the risk
-disclosure also uses the wide presentation.
+navigation displayed as wrapping links above the document. Terms retain the 740px article cap and sidebar layout; privacy and risk
+disclosures also use the wide presentation. Privacy also shares the AML
+section and topic spacing through the structured legal stylesheet.
 
 ## Copy and operating scope
 
@@ -40,8 +41,7 @@ inferred.
 - No backend gate, verification status, receiving wallet, ledger record,
   financial setting, retention job or screening integration is changed.
 
-The former intro note and initial-policy banner remain absent. Terms, privacy,
-and risk keep their existing content and notice behavior. Risk and AML share
+The former intro note and initial-policy banner remain absent. Terms and risk keep their existing content and notice behavior. Risk and AML share
 [the formal document stylesheet](../components/public/formal-legal.module.css).
 
 ## Languages and verification
