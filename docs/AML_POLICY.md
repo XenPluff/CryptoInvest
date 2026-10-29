@@ -12,8 +12,8 @@ headings and a 22px document title, with a 1.65 body line height and compact
 paragraph spacing. These sizes are scoped to the AML document; the surrounding
 site and risk document retain their existing typography. The AML panel fills
 the available viewport width inside the site’s responsive margins, with legal
-navigation displayed as wrapping links above the document. The 740px article
-cap and sidebar layout remain the defaults for other legal pages.
+navigation displayed as wrapping links above the document. Terms and privacy retain the 740px article cap and sidebar layout; the risk
+disclosure also uses the wide presentation.
 
 ## Copy and operating scope
 

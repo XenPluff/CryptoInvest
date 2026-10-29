@@ -11,6 +11,7 @@ export default function RiskPage() {
       title="Risk disclosure."
       description="Digital assets and multi-sector investments carry substantial risk. Read this information before transferring assets or purchasing an investment plan."
       notice={null}
+      wide
     >
       <section className={styles.document} aria-labelledby="risk-document-title">
         <header className={styles.header}>

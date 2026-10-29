@@ -30,6 +30,8 @@ were supplied or inferred.
 - Present the disclosure in a formal framed document with a double gold border,
   centered brand/title, generous paragraph spacing and a version/copyright footer.
   The layout identifies a risk disclosure and does not represent a certification.
+- Use the available responsive screen width, with legal navigation above the
+  document, matching the AML page’s wide presentation.
 
 The copy is implemented in [the risk page](../../app/legal/risk/page.tsx).
 Deployment and validation status are recorded in [the live preview record](../LIVE_PREVIEW.md)
