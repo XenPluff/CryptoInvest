@@ -5017,9 +5017,6 @@
   "Property valuations can fluctuate, and rental assets may face vacancy, maintenance, financing, insurance, taxation and liquidity risks.": [
     "lib/business-activities.ts"
   ],
-  "Proposed arrangements · Not established": [
-    "app/legal/risk/page.tsx"
-  ],
   "Protect your information.": [
     "app/support/page.tsx"
   ],

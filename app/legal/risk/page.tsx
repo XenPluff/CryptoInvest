@@ -17,7 +17,6 @@ export default function RiskPage() {
           <span className={styles.brand} translate="no">AUREON</span>
           <span className={styles.ornament} aria-hidden="true"><i /></span>
           <h2 id="risk-document-title">Risk disclosure</h2>
-          <p className={styles.status}>Proposed arrangements · Not established</p>
         </header>
         <div className={styles.body}>
           <p>

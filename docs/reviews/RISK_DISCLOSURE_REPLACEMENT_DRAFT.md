@@ -1,19 +1,19 @@
 # Proposal-based risk disclosure replacement
 
 The owner confirmed that the entities, institutional products, audits, reserve
-arrangements and registrations are proposed, then requested that the status
-appear in a label only. The document header therefore carries a single prominent
-“Proposed arrangements · Not established” label. The body describes the planned
-arrangements with conditional wording rather than repeating the status label or
-asserting that the arrangements currently exist. No supporting registration,
-audit or reserve records were supplied or inferred.
+arrangements and registrations are proposed. After first requesting a status
+label, the owner asked to remove that label. The document has no status label
+or notice banner. Its body continues to describe the planned arrangements with
+conditional wording rather than asserting current registrations, issuance,
+reserve backing or audits. No supporting registration, audit or reserve records
+were supplied or inferred.
 
 ## Implemented scope
 
 - Replace the eight numbered sections with the revised multi-sector disclosure.
 - Omit the risk page's notice banner, as subsequently requested by the owner;
-  preserve the default notice on terms, privacy and AML. Proposed status remains
-  in one document-header label.
+  preserve the default notice on terms, privacy and AML. Omit the subsequently
+  requested-and-removed document-header status label as well.
 - State explicitly, as requested in the later revision, that investments are
   not bank deposits and are not insured or guaranteed by any government agency,
   financial protection corporation or central banking authority.
