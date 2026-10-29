@@ -1,28 +1,27 @@
 # Proposal-based risk disclosure replacement
 
-The owner confirmed that the entities, protections, institutional products,
-audits, reserve arrangements and registrations in the supplied replacement
-are proposed. The risk page therefore describes them as proposals rather than
-established facts. No supporting registration, insurance, audit or reserve
-records were supplied or inferred. A later request supplied present-tense claims;
-those claims remain proposed pending clarification and supporting records. The
-formal document layout and explicit no-insurance wording were implemented
-independently of that unresolved change.
+The owner confirmed that the entities, institutional products, audits, reserve
+arrangements and registrations are proposed, then requested that the status
+appear in a label only. The document header therefore carries a single prominent
+“Proposed arrangements · Not established” label. The body describes the planned
+arrangements with conditional wording rather than repeating the status label or
+asserting that the arrangements currently exist. No supporting registration,
+audit or reserve records were supplied or inferred.
 
 ## Implemented scope
 
 - Replace the eight numbered sections with the revised multi-sector disclosure.
 - Omit the risk page's notice banner, as subsequently requested by the owner;
   preserve the default notice on terms, privacy and AML. Proposed status remains
-  explicit in the disclosure paragraphs.
+  in one document-header label.
 - State explicitly, as requested in the later revision, that investments are
   not bank deposits and are not insured or guaranteed by any government agency,
   financial protection corporation or central banking authority.
 - Describe affiliated entities, permissions, custody arrangements, restricted
-  offerings, AUREON Ventures, institutional audits and fund structures as proposed.
-- Describe AUDU, its issuer and reserve structure as proposed; do not imply a
+  offerings, AUREON Ventures, institutional audits and fund structures as plans.
+- Describe AUDU, its issuer and reserve structure conditionally; do not imply a
   currently available or reserve-backed instrument.
-- Describe AUREON Group LLC and trademark/service-mark registrations as proposed.
+- Describe AUREON Group LLC and trademark/service-mark registrations as plans.
   Use “© 2026 AUREON” without attributing ownership to an unestablished LLC.
 - Retain the supplied version identifier, AUR-2026.04.1, and risk language about
   total loss, illiquidity, variable protection and non-guaranteed returns.

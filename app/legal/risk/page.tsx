@@ -17,6 +17,7 @@ export default function RiskPage() {
           <span className={styles.brand} translate="no">AUREON</span>
           <span className={styles.ornament} aria-hidden="true"><i /></span>
           <h2 id="risk-document-title">Risk disclosure</h2>
+          <p className={styles.status}>Proposed arrangements · Not established</p>
         </header>
         <div className={styles.body}>
           <p>
@@ -28,64 +29,61 @@ export default function RiskPage() {
             or central banking authority.
           </p>
           <p>
-            AUREON proposes operating through affiliated entities and registered
-            divisions encompassing digital asset services and multi-sector real-world
-            asset management. Entity formation, registrations and applicable
-            permissions remain subject to completion and approval. The regulatory
-            treatment of private equity, digital currency operations and
-            commodity-backed initiatives depends on the jurisdiction and the
-            specific activity.
+            AUREON would operate through affiliated entities and registered
+            divisions encompassing digital asset services and multi-sector
+            real-world asset management. Entity formation, registrations and
+            applicable permissions would be completed before activities requiring
+            them begin. The regulatory treatment of private equity, digital
+            currency operations and commodity-backed initiatives depends on the
+            jurisdiction and the specific activity.
           </p>
           <p>
-            Proposed custody, trading and execution arrangements for digital assets
-            and traditional financial market instruments are intended to follow
-            applicable compliance requirements, subject to establishing the relevant
-            entities, permissions and controls. Standard deposit insurance schemes
-            and statutory ombudsman services do not automatically extend to all
+            Custody, trading and execution arrangements for digital assets and
+            traditional financial market instruments would follow applicable
+            compliance requirements and depend on the relevant entities,
+            permissions and controls. Standard deposit insurance schemes and
+            statutory ombudsman services do not automatically extend to all
             specialized asset classes, alternative commodities or decentralized
             financial activities.
           </p>
           <p>
-            The proposed investment offering is intended for sophisticated investors,
+            The investment offering would be directed at sophisticated investors,
             accredited institutions and qualified individuals with the risk
             tolerance and financial expertise to evaluate alternative asset
-            portfolios. Any restricted offering would require applicable eligibility
-            terms and effective distribution controls; this statement alone does not
+            portfolios. Distribution would be subject to applicable eligibility
+            terms and effective access controls; this statement alone does not
             establish investor eligibility or an offering exemption.
           </p>
           <p>
-            AUREON Ventures is a proposed brand name for an AUREON investment
-            collective with interests spanning cryptocurrency mining, financial
-            market trading, real estate management, agricultural development, solar
-            energy infrastructure, tangible physical assets, natural resources and
-            precious metals, automated arbitrage systems, artificial intelligence
-            and robotics, and strategic venture investments. This proposed structure
-            does not establish particular portfolio holdings.
+            AUREON Ventures would serve as the brand name for an AUREON investment
+            collective. Its intended investment areas include cryptocurrency
+            mining, financial market trading, real estate management,
+            agricultural development, solar energy infrastructure, tangible
+            physical assets, natural resources and precious metals, automated
+            arbitrage systems, artificial intelligence and robotics, and
+            strategic venture investments.
           </p>
           <p>
-            Designated institutional products, independently audited reports and
-            verified fund structures are proposed arrangements. This disclosure
-            does not establish completed audits or verified investment performance.
-            Past performance, algorithmic returns and projected yields in mining,
-            commodities or emerging technologies do not guarantee future results.
-            Displayed target rates and time-based estimates are illustrations,
-            separate from posted realized earnings and available account funds.
+            Institutional products and fund structures would be supported by
+            independent audits and operational reporting. Past performance,
+            algorithmic returns and projected yields in mining, commodities or
+            emerging technologies do not guarantee future results. Displayed
+            target rates and time-based estimates are illustrations, separate
+            from posted realized earnings and available account funds.
           </p>
           <p>
-            The AUREON Digital Unit (AUDU) is a proposed digital representation, with
-            proposed issuance and management by AUREON Asset Management and a
-            proposed operational reserve structure. Issuance, issuer registration,
-            reserve backing and redemption arrangements have not been established
-            by this disclosure. AUDU should not be treated as an available,
-            reserve-backed instrument on the basis of this proposal. Any future
-            access would depend on regulatory availability, jurisdictional
-            compliance and individual account eligibility.
+            The AUREON Digital Unit (AUDU) would be a digital representation with
+            issuance and management by AUREON Asset Management and backing from
+            operational reserve structures. Issuance and access would depend on
+            issuer registration, documented reserve and redemption arrangements,
+            regulatory availability, jurisdictional compliance and individual
+            account eligibility.
           </p>
           <p>
-            AUREON Group LLC is a proposed entity name. Registration of AUREON, the
-            AUREON logo and associated branding as trademarks or service marks is
-            proposed; this disclosure does not establish incorporation, trademark
-            registration or ownership by that proposed entity.
+            AUREON Group LLC would be the entity name for the collective.
+            Registration of AUREON, the AUREON logo and associated branding as
+            trademarks or service marks would be pursued through the applicable
+            registries.
           </p>
         </div>
         <footer className={styles.footer}>
