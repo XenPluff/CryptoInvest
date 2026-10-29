@@ -5,8 +5,13 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 28, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `7cceb82323b1e5379f0ba7923619dcf531ea5d5e` from branch
+- Running source commit: `a09e7b963575ba95233f480e5a3b5a11c387f4a0` from branch
   `codex/aureon-render-preview`.
+- All ten business-activity pictures on “How value is generated” display
+  without artwork-download links or caption bars in deployment
+  `dep-dbhc3e8u01pc73at7c4g`. Original images and profile content remain.
+  Build, the focused existing browser case and six local/hosted
+  desktop/mobile/theme states pass with every image decoded and no page errors.
 - The TradingView live market display is non-interactive in deployment
   `dep-dbhak308v5cc73fuh33g`. Pointer/touch activation and keyboard focus are
   blocked, with a translated display label and visible native provider branding.
