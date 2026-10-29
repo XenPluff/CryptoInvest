@@ -5,8 +5,19 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 29, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `a8b8c167139f564fdf58f8b0da647eef6dfcc7b9` from branch
+- Running source commit: `0c2adfd0e917c96dc63b3b1f233cb189ae8fcb51` from branch
   `codex/aureon-render-preview`.
+- The AML document uses a compact document type scale in deployment
+  `dep-dbhmmg6i0phs73epkldg`: 16px (12pt) body/topic text, 18px section
+  headings and a 22px document title. A 1.65 body line height and 18px paragraph
+  gaps retain clear spacing. Type tokens are scoped to the AML document; the
+  risk title remains 28px and surrounding site typography is unaffected.
+  Build and 64 local/hosted desktop/tablet/mobile/theme states pass across
+  eight languages, verifying exact text sizes, unchanged copy/version and
+  responsive fit. The desktop preview was visually reviewed. Actual hosted
+  resources have no page errors, API fixtures or production mutations. Health
+  remains connected with enabled funding, passed email readiness and automatic
+  settlement enabled.
 - The AML document heading reads “AML & Identity Policy” in deployment
   `dep-dbhk84flk1mc73cviccg`. The “Legal & Disclosures,” prefix and
   “Policy framework · Planned requirements” header label are removed, with
