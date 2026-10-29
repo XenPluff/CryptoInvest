@@ -5,8 +5,19 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 29, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `57717c3d762e220e9518320b4b3d420c8318fc16` from branch
+- Running source commit: `a8b8c167139f564fdf58f8b0da647eef6dfcc7b9` from branch
   `codex/aureon-render-preview`.
+- The AML document heading reads “AML & Identity Policy” in deployment
+  `dep-dbhk84flk1mc73cviccg`. The “Legal & Disclosures,” prefix and
+  “Policy framework · Planned requirements” header label are removed, with
+  unused label styles/translations cleaned up. Document body, frame, spacing,
+  version and account rules remain. Build, six language cases and 64 local/
+  hosted states pass across eight languages and desktop/tablet/mobile widths
+  in both themes. Actual hosted resources have no page errors, API fixtures
+  or production mutations. Health remains connected with enabled funding,
+  passed email readiness and automatic settlement enabled. The initial Render
+  creation request returned HTTP 500; after confirming no deployment was created,
+  one retry was accepted and verified.
 - The AML page presents a three-section planned policy framework in deployment
   `dep-dbhjnemc6qcc73fjlicg`, with a double gold frame, clear topic hierarchy,
   generous spacing and raw `AUR-AML-2026.V1` footer. Unsupported assertions of
