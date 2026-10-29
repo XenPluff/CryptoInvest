@@ -2,7 +2,7 @@
 import TranslatedContent from "@/components/TranslatedContent";
 import { useDisplayLocale } from "@/lib/i18n";
 import { LegalDocument } from "@/components/public/LegalDocument";
-import styles from "./risk-document.module.css";
+import styles from "@/components/public/formal-legal.module.css";
 export default function RiskPage() {
   useDisplayLocale();
   return <TranslatedContent>{(

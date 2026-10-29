@@ -177,6 +177,7 @@
     "components/workspace/Workspace.tsx"
   ],
   "© 2026 AUREON. All rights reserved.": [
+    "app/legal/aml/page.tsx",
     "app/legal/risk/page.tsx"
   ],
   "0 auto 24px": [
@@ -282,9 +283,6 @@
   "1. Operator & scope": [
     "app/legal/terms/page.tsx"
   ],
-  "1. Purpose & policy ownership": [
-    "app/legal/aml/page.tsx"
-  ],
   "10% · first level": [
     "components/public/PlanCatalog.tsx"
   ],
@@ -296,9 +294,6 @@
   ],
   "2. Connect private off-site storage": [
     "components/workspace/Operations.tsx"
-  ],
-  "2. Current identity workflow": [
-    "app/legal/aml/page.tsx"
   ],
   "2. Eligibility & account access": [
     "app/legal/terms/page.tsx"
@@ -321,9 +316,6 @@
   "24px 0": [
     "components/public/Journal.tsx"
   ],
-  "3. Eligibility & verification": [
-    "app/legal/aml/page.tsx"
-  ],
   "3. Plans & investment records": [
     "app/legal/terms/page.tsx"
   ],
@@ -345,14 +337,8 @@
   "4. Deposits & withdrawals": [
     "app/legal/terms/page.tsx"
   ],
-  "4. Transaction review": [
-    "app/legal/aml/page.tsx"
-  ],
   "5. Referrals": [
     "app/legal/terms/page.tsx"
-  ],
-  "5. Restrictions & escalation": [
-    "app/legal/aml/page.tsx"
   ],
   "5. Service providers & international transfers": [
     "app/legal/privacy/page.tsx"
@@ -372,18 +358,12 @@
   "6. Acceptable use": [
     "app/legal/terms/page.tsx"
   ],
-  "6. Records & privacy": [
-    "app/legal/aml/page.tsx"
-  ],
   "6. Security & retention": [
     "app/legal/privacy/page.tsx"
   ],
   "7 days": [
     "components/Landing.tsx",
     "lib/i18n.ts"
-  ],
-  "7. Requirements before launch": [
-    "app/legal/aml/page.tsx"
   ],
   "7. Service availability & third parties": [
     "app/legal/terms/page.tsx"
@@ -546,9 +526,6 @@
     "components/Landing.tsx",
     "lib/i18n.ts"
   ],
-  "A final program requires legal and compliance approval, a documented risk assessment, responsible personnel, screening and identity-provider decisions, training, ongoing monitoring, recordkeeping and independent review appropriate to the operating jurisdiction. Until these are established, this document is an implementation outline rather than a certification of compliance.": [
-    "app/legal/aml/page.tsx"
-  ],
   "A first look at the workspace, its records and the distinction between available funds and estimates.": [
     "lib/video-content.ts"
   ],
@@ -708,6 +685,9 @@
   ],
   "About these business descriptions": [
     "app/approach/page.tsx"
+  ],
+  "Absence of Government Insurance": [
+    "app/legal/aml/page.tsx"
   ],
   "Account & security": [
     "components/workspace/Workspace.tsx"
@@ -1139,6 +1119,9 @@
   "Any future international use would depend on the issuer, card network, local rules, sanctions, merchant acceptance and account terms. Providing a country in the form is not confirmation of service availability.": [
     "app/cards/page.tsx"
   ],
+  "Any restricted investment offering would be directed at accredited investors, institutional entities, corporate treasuries and qualified individuals meeting the applicable statutory and experience requirements. Participation would depend on eligibility verification, jurisdictional availability and effective distribution controls. Public website material does not itself establish investor eligibility or an offering exemption.": [
+    "app/legal/aml/page.tsx"
+  ],
   "API route not found.": [
     "server/app.ts"
   ],
@@ -1309,6 +1292,9 @@
   "AUR-2026.04.1": [
     "app/legal/risk/page.tsx"
   ],
+  "AUR-AML-2026.V1": [
+    "app/legal/aml/page.tsx"
+  ],
   "AUREON — A higher standard of digital wealth": [
     "app/layout.tsx",
     "lib/page-titles.ts"
@@ -1346,6 +1332,9 @@
   "AUREON does not treat diversification as a substitute for due diligence. Each proposed investment must satisfy appropriate financial, operational, legal and risk-management requirements.": [
     "app/about/page.tsx"
   ],
+  "AUREON Group LLC is the intended entity name for this framework. Trademark and service-mark registrations for AUREON, the AUREON logo, AUREON Ventures, AUREON Asset Management and the AUREON Digital Unit (AUDU) would be pursued through the relevant registries. Use of protected brand assets, whitepapers or software materials requires the rights holder's permission except where permitted by law.": [
+    "app/legal/aml/page.tsx"
+  ],
   "AUREON Group LLC would be the entity name for the collective. Registration of AUREON, the AUREON logo and associated branding as trademarks or service marks would be pursued through the applicable registries.": [
     "app/legal/risk/page.tsx"
   ],
@@ -1359,6 +1348,9 @@
   ],
   "AUREON introduction: a new perspective, with a gold orbital sphere": [
     "components/public/VideoLibrary.tsx"
+  ],
+  "AUREON investments and any future digital units, including the AUREON Digital Unit (AUDU), are not bank deposits and are not insured, guaranteed or backed by the Federal Deposit Insurance Corporation (FDIC), the Securities Investor Protection Corporation (SIPC), any government agency, central bank or statutory financial protection scheme.": [
+    "app/legal/aml/page.tsx"
   ],
   "AUREON is reviewing your pre-launch application. This is not a credit or issuer decision.": [
     "lib/cards.ts"
@@ -1421,9 +1413,6 @@
     "components/workspace/Operations.tsx",
     "components/workspace/TwoFactorSettings.tsx",
     "components/workspace/Workspace.tsx"
-  ],
-  "Automated document authenticity checks, biometric liveness, sanctions screening, politically exposed person screening and independent identity-provider verification have not been represented as active integrations.": [
-    "app/legal/aml/page.tsx"
   ],
   "Automatic backup did not finish": [
     "server/operations.ts"
@@ -1892,6 +1881,9 @@
   "Come back and choose Done": [
     "components/workspace/DepositWorkspace.tsx"
   ],
+  "Commitment to Compliance": [
+    "app/legal/aml/page.tsx"
+  ],
   "Commodity prices can be volatile. Physical holdings also introduce storage, insurance, transportation, authenticity and counterparty risks.": [
     "lib/business-activities.ts"
   ],
@@ -2252,6 +2244,9 @@
   "Current active positions and immutable settlement credits. Projections and unverified deposits are excluded.": [
     "components/workspace/AdminAnalytics.tsx"
   ],
+  "Current Application Access": [
+    "app/legal/aml/page.tsx"
+  ],
   "Current authenticator code": [
     "components/workspace/AdminFunds.tsx",
     "components/workspace/PasskeySettings.tsx"
@@ -2268,6 +2263,9 @@
   ],
   "Custody, trading and execution arrangements for digital assets and traditional financial market instruments would follow applicable compliance requirements and depend on the relevant entities, permissions and controls. Standard deposit insurance schemes and statutory ombudsman services do not automatically extend to all specialized asset classes, alternative commodities or decentralized financial activities.": [
     "app/legal/risk/page.tsx"
+  ],
+  "Customer Due Diligence (CDD) & Identity Verification (KYC)": [
+    "app/legal/aml/page.tsx"
   ],
   "Daily": [
     "localization"
@@ -2400,9 +2398,6 @@
   "Deposits & withdrawals": [
     "components/public/ContactForm.tsx"
   ],
-  "Deposits and withdrawals are subject to operator review. Deposit credit requires verification of the actual transfer and confirmed amount. Withdrawal review includes the destination, available balance and account eligibility. An authenticator code is required for withdrawal requests only when the investor has enabled two-factor authentication.": [
-    "app/legal/aml/page.tsx"
-  ],
   "Deposits are investor funding. These amounts do not represent revenue or profit. Paid withdrawal dates reflect recorded operator review, not blockchain confirmation time.": [
     "components/workspace/AdminAnalytics.tsx"
   ],
@@ -2432,6 +2427,9 @@
   ],
   "DESIGN PREVIEW ONLY": [
     "components/cards/CardShowcase.tsx"
+  ],
+  "Designated compliance personnel would assess escalated activity, restrict accounts or transactions where legally authorized, and file reports with the appropriate financial intelligence units when required by applicable law. Reporting decisions, confidentiality requirements and any asset restrictions would follow the relevant jurisdiction's legal procedures.": [
+    "app/legal/aml/page.tsx"
   ],
   "Designed for clarity.": [
     "components/Landing.tsx",
@@ -2476,6 +2474,9 @@
   ],
   "Digital assets move quickly. Take time to understand what you see.": [
     "lib/video-content.ts"
+  ],
+  "Digital assets, multi-sector alternative investments, commodity-backed instruments and private equity initiatives are speculative, highly volatile and subject to potential illiquidity. Investors must possess a high-risk tolerance and the financial capacity to absorb the complete loss of their principal investment.": [
+    "app/legal/aml/page.tsx"
   ],
   "DIGITAL INFRASTRUCTURE": [
     "lib/business-activities.ts"
@@ -2608,6 +2609,9 @@
   "Each withdrawal receives an operator review.": [
     "components/workspace/Workspace.tsx"
   ],
+  "EDD requirements would include source-of-wealth and source-of-funds reviews for designated high-net-worth accounts, politically exposed persons (PEPs) and corporate entities from higher-risk jurisdictions. Automated escalation would depend on implementing and validating the relevant risk criteria and review procedures.": [
+    "app/legal/aml/page.tsx"
+  ],
   "Edit": [
     "components/workspace/ContentOperations.tsx",
     "components/workspace/admin.tsx"
@@ -2733,6 +2737,9 @@
   ],
   "English": [
     "components/public/VideoLibrary.tsx"
+  ],
+  "Enhanced Due Diligence (EDD)": [
+    "app/legal/aml/page.tsx"
   ],
   "Enroll two-factor authentication in account security before accessing administration.": [
     "server/auth.ts"
@@ -3012,9 +3019,6 @@
   "Final settlement at maturity": [
     "components/workspace/admin.tsx"
   ],
-  "Financial access requires verified email and an approved identity status in the application. Users must supply accurate information and cooperate with lawful requests. The operator may require further evidence of identity, residence, source of funds, source of wealth or beneficial ownership before accepting or processing activity.": [
-    "app/legal/aml/page.tsx"
-  ],
   "Financial activation": [
     "components/workspace/admin.tsx"
   ],
@@ -3029,6 +3033,9 @@
   ],
   "Financial operations are unavailable until the operator explicitly enables funding. Transfers must use the correct asset, blockchain network and destination address. Deposits enter review and are credited only after the operator verifies the transfer and amount. A transaction reference does not itself prove receipt.": [
     "app/legal/terms/page.tsx"
+  ],
+  "Financial Promotions & Institutional Restriction": [
+    "app/legal/aml/page.tsx"
   ],
   "Financial records: deposit and withdrawal requests, amounts, wallet addresses, asset networks, transaction references and investment records.": [
     "app/legal/privacy/page.tsx"
@@ -3066,6 +3073,9 @@
   "Follow your active positions and their projected growth.": [
     "components/workspace/Workspace.tsx"
   ],
+  "For corporate entities, the framework would require incorporation documents, beneficial ownership records identifying individuals owning 25% or more, and authorized signatory resolutions, with further information where required by applicable law or risk assessment.": [
+    "app/legal/aml/page.tsx"
+  ],
   "For every ambition,": [
     "components/Landing.tsx",
     "lib/i18n.ts"
@@ -3075,6 +3085,9 @@
   ],
   "for help.": [
     "components/public/NewsletterAction.tsx"
+  ],
+  "For individuals, the framework would require government-issued photo identification, such as a passport or national ID, proof of residential address dated within three months, and evidence of accredited or qualified status where applicable.": [
+    "app/legal/aml/page.tsx"
   ],
   "for those who see further.": [
     "components/Landing.tsx",
@@ -3350,9 +3363,6 @@
   ],
   "Identity review is optional for deposits. Complete it before investing or withdrawing. You can also enable two-factor authentication for additional protection.": [
     "app/how-it-works/page.tsx"
-  ],
-  "Identity review outcomes, financial records and administrative audit events are retained to support account operations and review. The operator must establish jurisdiction-specific retention periods, access controls, data protection procedures and evidence preservation. Personal information must be handled in accordance with the privacy notice and applicable law.": [
-    "app/legal/aml/page.tsx"
   ],
   "Identity review queue": [
     "components/workspace/admin.tsx"
@@ -3742,6 +3752,9 @@
     "app/legal/page.tsx",
     "components/public/LegalDocument.tsx",
     "lib/page-titles.ts"
+  ],
+  "Legal & Disclosures, AML & Identity Policy": [
+    "app/legal/aml/page.tsx"
   ],
   "Legal documents": [
     "components/public/LegalDocument.tsx"
@@ -4504,6 +4517,9 @@
   "Paid withdrawals": [
     "components/workspace/AdminAnalytics.tsx"
   ],
+  "Participant, wallet-address and institutional-counterparty screening would include applicable lists maintained by the Office of Foreign Assets Control (OFAC), the United Nations, the European Union and the U.K. Treasury. Applicable sanctions, legal restrictions and the adopted jurisdiction policy would determine eligibility and any required access restrictions.": [
+    "app/legal/aml/page.tsx"
+  ],
   "Passkey added. You can use it the next time you sign in.": [
     "server/passkeys.ts"
   ],
@@ -4726,6 +4742,9 @@
   "Please wait": [
     "components/auth/AuthForms.tsx",
     "lib/i18n.ts"
+  ],
+  "Policy framework · Planned requirements": [
+    "app/legal/aml/page.tsx"
   ],
   "Portfolio activity": [
     "components/workspace/Workspace.tsx"
@@ -5250,6 +5269,9 @@
   "Record identity review": [
     "components/workspace/admin.tsx"
   ],
+  "Record Keeping": [
+    "app/legal/aml/page.tsx"
+  ],
   "Record not found.": [
     "server/app.ts"
   ],
@@ -5371,6 +5393,9 @@
   "Registration, email verification, identity review and authenticator setup, step by step.": [
     "lib/video-content.ts"
   ],
+  "Regulatory Oversight & Jurisdictional Variance": [
+    "app/legal/aml/page.tsx"
+  ],
   "Regulatory transparency.": [
     "app/security/page.tsx"
   ],
@@ -5457,6 +5482,9 @@
   ],
   "Requests reserve available funds. Payment is only recorded after operator action and a transaction reference.": [
     "app/security/page.tsx"
+  ],
+  "Required Documentation": [
+    "app/legal/aml/page.tsx"
   ],
   "REQUIRED FOR SENSITIVE ACTIONS": [
     "components/workspace/Operations.tsx"
@@ -5645,6 +5673,9 @@
   "S3": [
     "components/workspace/Operations.tsx"
   ],
+  "Sanctions Screening & Prohibited Jurisdictions": [
+    "app/legal/aml/page.tsx"
+  ],
   "Save campaign draft": [
     "components/workspace/ContentOperations.tsx"
   ],
@@ -5700,6 +5731,15 @@
   ],
   "Search name or email": [
     "components/workspace/admin.tsx"
+  ],
+  "Section I: General Legal Disclosures & Regulatory Status": [
+    "app/legal/aml/page.tsx"
+  ],
+  "Section II: Anti-Money Laundering (AML) & Counter-Terrorist Financing (CTF) Policy": [
+    "app/legal/aml/page.tsx"
+  ],
+  "Section III: Intellectual Property & Trademark Notice": [
+    "app/legal/aml/page.tsx"
   ],
   "Secure session": [
     "components/workspace/Workspace.tsx"
@@ -5987,6 +6027,9 @@
   "SPECIMEN": [
     "components/cards/CardShowcase.tsx"
   ],
+  "Speculative & High-Risk Nature of Assets": [
+    "app/legal/aml/page.tsx"
+  ],
   "Stale price": [
     "server/deposit-pricing.ts"
   ],
@@ -6134,6 +6177,9 @@
   "Suspension prevents this investor from signing in or performing financial actions. All changes are recorded in the audit trail.": [
     "components/workspace/admin.tsx"
   ],
+  "Suspicious Activity Reporting": [
+    "app/legal/aml/page.tsx"
+  ],
   "Switch to dark mode": [
     "components/SiteHeader.tsx",
     "lib/i18n.ts"
@@ -6244,7 +6290,7 @@
   "The application changed. Reload its status.": [
     "server/cards.ts"
   ],
-  "The application collects full name, country, date of birth, identity document type and document number through an account form. The submission is reviewed by an authorized operator, who records approval or rejection. This is a manual administrative workflow; a form submission and manual approval alone do not establish regulated KYC or AML compliance.": [
+  "The application currently uses manual operator review of submitted identity details. Email-verified investors may submit deposits without identity approval; investments and withdrawals require an approved identity review. The automated verification, screening and monitoring controls described in this framework are planned requirements.": [
     "app/legal/aml/page.tsx"
   ],
   "The asset and blockchain network must match the selected deposit instructions.": [
@@ -6330,11 +6376,17 @@
     "components/Landing.tsx",
     "lib/i18n.ts"
   ],
+  "The framework calls for automated monitoring of on-chain transactions, wallet activity and relevant fiat flows to identify anomalous patterns, velocity spikes or mixing-service interactions. Operating these controls would require implemented data connections, detection rules and an authorized review process.": [
+    "app/legal/aml/page.tsx"
+  ],
   "The idea behind Aureon": [
     "app/about/page.tsx"
   ],
   "The information collected, why it is processed, how it is protected and how to submit a data request.": [
     "app/legal/page.tsx"
+  ],
+  "The intended corporate structure would encompass affiliated entities and divisions operating under the relevant commercial registrations, governance standards and financial permissions. The regulatory treatment of crypto mining, decentralized financial protocols, real estate syndications and commodity-backed products depends on the activity and jurisdiction. Corporate registration alone does not establish authorization to provide financial services.": [
+    "app/legal/aml/page.tsx"
   ],
   "The investment collection": [
     "app/plans/page.tsx"
@@ -6379,9 +6431,6 @@
   "The operator can update available plans. An existing investment retains the rate and duration recorded when it was created. Always review the current plan terms before making a commitment.": [
     "app/plans/page.tsx"
   ],
-  "The operator must define risk scoring, blockchain analytics, sanctions checks, suspicious activity escalation and applicable reporting procedures. The current review queue is not a substitute for a complete transaction-monitoring program.": [
-    "app/legal/aml/page.tsx"
-  ],
   "The operator must publish an effective date and a clear notice process for material changes. Account closure may require resolution of outstanding obligations and lawful record retention. Contractual liability limits, complaints escalation and dispute terms must be completed by the operator and reviewed by counsel before these terms become final.": [
     "app/legal/terms/page.tsx"
   ],
@@ -6423,6 +6472,9 @@
   "The requested amount is reserved while the request is pending. Approval alone does not send cryptocurrency.": [
     "lib/video-content.ts"
   ],
+  "The retention framework would require identity verification records, KYC documentation, transaction logs and institutional communications to be securely retained for at least five years after the customer relationship ends, subject to applicable jurisdictional retention and privacy obligations. Access for authorized regulatory examination would follow those legal requirements.": [
+    "app/legal/aml/page.tsx"
+  ],
   "The sender’s balance is reserved immediately. Approval credits the recipient; declining restores the sender’s funds. Both accounts must have verified email and approved identity.": [
     "components/workspace/AdminFunds.tsx"
   ],
@@ -6432,7 +6484,7 @@
   "The service is not intended for anyone under 18. Do not submit a child’s information. Material changes to this notice require an updated version and effective date, with additional notice where required.": [
     "app/legal/privacy/page.tsx"
   ],
-  "The service must not be used for money laundering, terrorist financing, sanctions evasion, fraud or other unlawful activity. The operator must appoint responsible compliance personnel and publish its legal jurisdiction, applicable obligations and formal risk-based compliance policy before offering financial services.": [
+  "The service must not be used for money laundering, terrorist financing, sanctions evasion or illicit financial transactions. The intended AML/CTF framework would align with Financial Action Task Force (FATF) recommendations and applicable regional statutes, supported by designated compliance personnel, documented procedures and a risk assessment.": [
     "app/legal/aml/page.tsx"
   ],
   "THE SIGNATURE COLLECTION": [
@@ -6708,6 +6760,9 @@
     "components/workspace/AdminFunds.tsx",
     "components/workspace/shared.tsx"
   ],
+  "Transaction Monitoring & Suspicious Activity Reporting (SAR)": [
+    "app/legal/aml/page.tsx"
+  ],
   "Transaction status": [
     "components/workspace/AdminFunds.tsx"
   ],
@@ -6827,6 +6882,9 @@
   ],
   "under review.": [
     "lib/video-content.ts"
+  ],
+  "Under this framework, participation in any future institutional pools, issuance of AUDU or access to alternative asset portfolios would require appropriate individual or corporate KYC and customer due diligence before acceptance.": [
+    "app/legal/aml/page.tsx"
   ],
   "Understand account protection": [
     "components/public/InvestorPerspective.tsx",
@@ -7370,9 +7428,6 @@
   ],
   "Where appropriately authorised and commercially suitable, AUREON may use approved strategies involving financial instruments and markets.": [
     "lib/business-activities.ts"
-  ],
-  "Where permitted or required by law, access or transactions may be restricted while suspicious activity, identity inconsistencies or prohibited activity is reviewed. Reports to competent authorities and restrictions on disclosure must be handled by authorized compliance personnel under applicable law. This application does not independently determine legal reporting obligations.": [
-    "app/legal/aml/page.tsx"
   ],
   "Where value": [
     "app/approach/page.tsx",

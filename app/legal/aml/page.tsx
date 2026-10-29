@@ -2,86 +2,64 @@
 import TranslatedContent from "@/components/TranslatedContent";
 import { useDisplayLocale } from "@/lib/i18n";
 import { LegalDocument } from "@/components/public/LegalDocument";
+import documentStyles from "@/components/public/formal-legal.module.css";
+import styles from "./aml-policy.module.css";
+
 export default function AmlPage() {
   useDisplayLocale();
   return <TranslatedContent>{(
-    <LegalDocument
-      type="aml"
-      title="AML & identity."
-      notice={null}
-    >
-      <h2>1. Purpose & policy ownership</h2>
-      <p>
-        The service must not be used for money laundering, terrorist financing,
-        sanctions evasion, fraud or other unlawful activity. The operator must
-        appoint responsible compliance personnel and publish its legal
-        jurisdiction, applicable obligations and formal risk-based compliance
-        policy before offering financial services.
-      </p>
-      <h2>2. Current identity workflow</h2>
-      <p>
-        The application collects full name, country, date of birth, identity
-        document type and document number through an account form. The
-        submission is reviewed by an authorized operator, who records approval
-        or rejection. This is a manual administrative workflow; a form
-        submission and manual approval alone do not establish regulated KYC or
-        AML compliance.
-      </p>
-      <p>
-        Automated document authenticity checks, biometric liveness, sanctions
-        screening, politically exposed person screening and independent
-        identity-provider verification have not been represented as active
-        integrations.
-      </p>
-      <h2>3. Eligibility & verification</h2>
-      <p>
-        Financial access requires verified email and an approved identity status
-        in the application. Users must supply accurate information and cooperate
-        with lawful requests. The operator may require further evidence of
-        identity, residence, source of funds, source of wealth or beneficial
-        ownership before accepting or processing activity.
-      </p>
-      <h2>4. Transaction review</h2>
-      <p>
-        Deposits and withdrawals are subject to operator review. Deposit credit
-        requires verification of the actual transfer and confirmed amount.
-        Withdrawal review includes the destination, available balance and
-        account eligibility. An authenticator code is required for withdrawal requests
-        only when the investor has enabled two-factor authentication.
-      </p>
-      <p>
-        The operator must define risk scoring, blockchain analytics, sanctions
-        checks, suspicious activity escalation and applicable reporting
-        procedures. The current review queue is not a substitute for a complete
-        transaction-monitoring program.
-      </p>
-      <h2>5. Restrictions & escalation</h2>
-      <p>
-        Where permitted or required by law, access or transactions may be
-        restricted while suspicious activity, identity inconsistencies or
-        prohibited activity is reviewed. Reports to competent authorities and
-        restrictions on disclosure must be handled by authorized compliance
-        personnel under applicable law. This application does not independently
-        determine legal reporting obligations.
-      </p>
-      <h2>6. Records & privacy</h2>
-      <p>
-        Identity review outcomes, financial records and administrative audit
-        events are retained to support account operations and review. The
-        operator must establish jurisdiction-specific retention periods, access
-        controls, data protection procedures and evidence preservation. Personal
-        information must be handled in accordance with the privacy notice and
-        applicable law.
-      </p>
-      <h2>7. Requirements before launch</h2>
-      <p>
-        A final program requires legal and compliance approval, a documented
-        risk assessment, responsible personnel, screening and identity-provider
-        decisions, training, ongoing monitoring, recordkeeping and independent
-        review appropriate to the operating jurisdiction. Until these are
-        established, this document is an implementation outline rather than a
-        certification of compliance.
-      </p>
+    <LegalDocument type="aml" title="AML & identity." notice={null}>
+      <section className={`${documentStyles.document} ${styles.policy}`} aria-labelledby="aml-document-title">
+        <header className={documentStyles.header}>
+          <span className={documentStyles.brand} translate="no">AUREON</span>
+          <span className={documentStyles.ornament} aria-hidden="true"><i /></span>
+          <h2 id="aml-document-title">Legal & Disclosures, AML & Identity Policy</h2>
+          <p className={styles.status}>Policy framework · Planned requirements</p>
+        </header>
+        <div className={styles.sections}>
+          <section aria-labelledby="aml-section-one">
+            <h3 id="aml-section-one">Section I: General Legal Disclosures & Regulatory Status</h3>
+            <h4>Speculative & High-Risk Nature of Assets</h4>
+            <p>Digital assets, multi-sector alternative investments, commodity-backed instruments and private equity initiatives are speculative, highly volatile and subject to potential illiquidity. Investors must possess a high-risk tolerance and the financial capacity to absorb the complete loss of their principal investment.</p>
+            <h4>Absence of Government Insurance</h4>
+            <p>AUREON investments and any future digital units, including the AUREON Digital Unit (AUDU), are not bank deposits and are not insured, guaranteed or backed by the Federal Deposit Insurance Corporation (FDIC), the Securities Investor Protection Corporation (SIPC), any government agency, central bank or statutory financial protection scheme.</p>
+            <h4>Regulatory Oversight & Jurisdictional Variance</h4>
+            <p>The intended corporate structure would encompass affiliated entities and divisions operating under the relevant commercial registrations, governance standards and financial permissions. The regulatory treatment of crypto mining, decentralized financial protocols, real estate syndications and commodity-backed products depends on the activity and jurisdiction. Corporate registration alone does not establish authorization to provide financial services.</p>
+            <h4>Financial Promotions & Institutional Restriction</h4>
+            <p>Any restricted investment offering would be directed at accredited investors, institutional entities, corporate treasuries and qualified individuals meeting the applicable statutory and experience requirements. Participation would depend on eligibility verification, jurisdictional availability and effective distribution controls. Public website material does not itself establish investor eligibility or an offering exemption.</p>
+          </section>
+          <section aria-labelledby="aml-section-two">
+            <h3 id="aml-section-two">Section II: Anti-Money Laundering (AML) & Counter-Terrorist Financing (CTF) Policy</h3>
+            <h4>Commitment to Compliance</h4>
+            <p>The service must not be used for money laundering, terrorist financing, sanctions evasion or illicit financial transactions. The intended AML/CTF framework would align with Financial Action Task Force (FATF) recommendations and applicable regional statutes, supported by designated compliance personnel, documented procedures and a risk assessment.</p>
+            <h4>Customer Due Diligence (CDD) & Identity Verification (KYC)</h4>
+            <p>Under this framework, participation in any future institutional pools, issuance of AUDU or access to alternative asset portfolios would require appropriate individual or corporate KYC and customer due diligence before acceptance.</p>
+            <h4>Current Application Access</h4>
+            <p>The application currently uses manual operator review of submitted identity details. Email-verified investors may submit deposits without identity approval; investments and withdrawals require an approved identity review. The automated verification, screening and monitoring controls described in this framework are planned requirements.</p>
+            <h4>Required Documentation</h4>
+            <p>For individuals, the framework would require government-issued photo identification, such as a passport or national ID, proof of residential address dated within three months, and evidence of accredited or qualified status where applicable.</p>
+            <p>For corporate entities, the framework would require incorporation documents, beneficial ownership records identifying individuals owning 25% or more, and authorized signatory resolutions, with further information where required by applicable law or risk assessment.</p>
+            <h4>Enhanced Due Diligence (EDD)</h4>
+            <p>EDD requirements would include source-of-wealth and source-of-funds reviews for designated high-net-worth accounts, politically exposed persons (PEPs) and corporate entities from higher-risk jurisdictions. Automated escalation would depend on implementing and validating the relevant risk criteria and review procedures.</p>
+            <h4>Sanctions Screening & Prohibited Jurisdictions</h4>
+            <p>Participant, wallet-address and institutional-counterparty screening would include applicable lists maintained by the Office of Foreign Assets Control (OFAC), the United Nations, the European Union and the U.K. Treasury. Applicable sanctions, legal restrictions and the adopted jurisdiction policy would determine eligibility and any required access restrictions.</p>
+            <h4>Transaction Monitoring & Suspicious Activity Reporting (SAR)</h4>
+            <p>The framework calls for automated monitoring of on-chain transactions, wallet activity and relevant fiat flows to identify anomalous patterns, velocity spikes or mixing-service interactions. Operating these controls would require implemented data connections, detection rules and an authorized review process.</p>
+            <h4>Suspicious Activity Reporting</h4>
+            <p>Designated compliance personnel would assess escalated activity, restrict accounts or transactions where legally authorized, and file reports with the appropriate financial intelligence units when required by applicable law. Reporting decisions, confidentiality requirements and any asset restrictions would follow the relevant jurisdiction's legal procedures.</p>
+            <h4>Record Keeping</h4>
+            <p>The retention framework would require identity verification records, KYC documentation, transaction logs and institutional communications to be securely retained for at least five years after the customer relationship ends, subject to applicable jurisdictional retention and privacy obligations. Access for authorized regulatory examination would follow those legal requirements.</p>
+          </section>
+          <section aria-labelledby="aml-section-three">
+            <h3 id="aml-section-three">Section III: Intellectual Property & Trademark Notice</h3>
+            <p>AUREON Group LLC is the intended entity name for this framework. Trademark and service-mark registrations for AUREON, the AUREON logo, AUREON Ventures, AUREON Asset Management and the AUREON Digital Unit (AUDU) would be pursued through the relevant registries. Use of protected brand assets, whitepapers or software materials requires the rights holder's permission except where permitted by law.</p>
+          </section>
+        </div>
+        <footer className={documentStyles.footer}>
+          <p>© 2026 AUREON. All rights reserved.</p>
+          <p className={documentStyles.version} translate="no">AUR-AML-2026.V1</p>
+        </footer>
+      </section>
     </LegalDocument>
   )}</TranslatedContent>;
 }

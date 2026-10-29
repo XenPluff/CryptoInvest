@@ -51,6 +51,7 @@
   html:not([lang="en"]) .site-header .header-actions { margin-inline-start:auto; }
 }
 @media(max-width:900px) {
+  .site-header .header-join,.site-header .login-link { display:none; }
   .split-heading { align-items:flex-start; flex-direction:column; }
   .hero-ctas { gap:16px; }
   .footer-top { gap:36px; }
@@ -58,7 +59,6 @@
 @media(max-width:650px) {
   .site-header { height:auto; min-height:98px; }
   .header-inner { padding-block:14px; gap:10px; }
-  .site-header .header-join,.site-header .login-link { display:none; }
   .site-header .header-actions { gap:8px; }
   .site-header .language-selector select { width:72px; }
   .brand { min-width:0; flex-shrink:1; }
