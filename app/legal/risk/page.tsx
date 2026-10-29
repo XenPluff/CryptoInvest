@@ -2,7 +2,6 @@
 import TranslatedContent from "@/components/TranslatedContent";
 import { useDisplayLocale } from "@/lib/i18n";
 import { LegalDocument } from "@/components/public/LegalDocument";
-const riskNotice = "Proposed arrangements · The entities, registrations, insurance, guarantees, institutional products, audits, reserve structures and trademark registrations described below are proposed. Their existence, approval or availability has not been established by this disclosure.";
 export default function RiskPage() {
   useDisplayLocale();
   return <TranslatedContent>{(
@@ -10,7 +9,7 @@ export default function RiskPage() {
       type="risk"
       title="Risk disclosure."
       description="Digital assets and multi-sector investments carry substantial risk. Read this information before transferring assets or purchasing an investment plan."
-      notice={riskNotice}
+      notice={null}
     >
       <p>
         Digital assets and diversified multi-sector investments are speculative,

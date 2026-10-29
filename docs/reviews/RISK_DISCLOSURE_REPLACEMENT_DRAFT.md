@@ -9,8 +9,9 @@ records were supplied or inferred.
 ## Implemented scope
 
 - Replace the eight numbered sections with the revised multi-sector disclosure.
-- Replace the risk page's initial-policy notice with a prominent proposed-
-  arrangements notice; preserve the default notice on terms, privacy and AML.
+- Omit the risk page's notice banner, as subsequently requested by the owner;
+  preserve the default notice on terms, privacy and AML. Proposed status remains
+  explicit in the disclosure paragraphs.
 - Describe government insurance/guarantees as proposed and unestablished, with
   no assumption of present coverage.
 - Describe affiliated entities, permissions, custody arrangements, restricted

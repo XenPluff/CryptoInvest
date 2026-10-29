@@ -20,7 +20,7 @@ export function LegalDocument({
   type: LegalType;
   title: string;
   description: string;
-  notice?: string;
+  notice?: string | null;
   children: ReactNode;
 }) {
   return <TranslatedContent>{(
@@ -46,10 +46,10 @@ export function LegalDocument({
         </nav>
         <article className="public-legal-content">
           <p className="legal-language-note">Original documents are in English. Translations are provided for convenience.</p>
-          <div className="public-notice">
+          {notice && <div className="public-notice">
             <Info size={17} />
             <p>{notice}</p>
-          </div>
+          </div>}
           {children}
           <h2>Questions & contact</h2>
           <p>

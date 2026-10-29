@@ -5014,9 +5014,6 @@
   "Property valuations can fluctuate, and rental assets may face vacancy, maintenance, financing, insurance, taxation and liquidity risks.": [
     "lib/business-activities.ts"
   ],
-  "Proposed arrangements · The entities, registrations, insurance, guarantees, institutional products, audits, reserve structures and trademark registrations described below are proposed. Their existence, approval or availability has not been established by this disclosure.": [
-    "app/legal/risk/page.tsx"
-  ],
   "Proposed custody, trading and execution arrangements for digital assets and traditional financial market instruments are intended to follow applicable compliance requirements, subject to establishing the relevant entities, permissions and controls. Standard deposit insurance schemes and statutory ombudsman services do not automatically extend to all specialized asset classes, alternative commodities or decentralized financial activities.": [
     "app/legal/risk/page.tsx"
   ],
