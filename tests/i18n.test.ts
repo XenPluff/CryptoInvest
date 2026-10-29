@@ -86,14 +86,15 @@ describe("complete language catalogs", () => {
     const { readFile } = await import("node:fs/promises");
     const { loadLocale, supportedLocales } = await import("../lib/i18n");
     const source = JSON.parse(await readFile("lib/locales/source.json", "utf8"));
-    const rateKey = Object.keys(source).find(key => key.startsWith("The displayed daily target rates of"))!;
     const placeholders = (value: string) => [...value.matchAll(/\{\d+\}/g)].map(match => match[0]).sort();
     const rates = (value: string) => [...value.matchAll(/(\d+(?:[.,]\d+)?)\s*[%٪]/g)].map(match => Number(match[1].replace(",", "."))).sort((a,b) => a-b);
+    const rateKeys = Object.keys(source).filter(key => rates(key).length > 0);
+    expect(rateKeys.length).toBeGreaterThan(0);
     for (const locale of supportedLocales.filter(value => value !== "en")) {
       const catalog = await loadLocale(locale);
       expect(Object.keys(source).filter(key => typeof catalog[key] !== "string" || !catalog[key])).toEqual([]);
       expect(Object.keys(source).filter(key => JSON.stringify(placeholders(key)) !== JSON.stringify(placeholders(catalog[key])))).toEqual([]);
-      expect(rates(catalog[rateKey])).toEqual(rates(rateKey));
+      for (const key of rateKeys) expect(rates(catalog[key])).toEqual(rates(key));
     }
   });
 

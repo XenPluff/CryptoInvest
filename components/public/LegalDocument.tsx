@@ -14,11 +14,13 @@ export function LegalDocument({
   type,
   title,
   description,
+  notice = "Initial policy documentation · pending operator and counsel review. The operator’s legal entity, address, applicable jurisdiction and regulatory details have not been published. This document must be completed and approved before public financial operations.",
   children,
 }: {
   type: LegalType;
   title: string;
   description: string;
+  notice?: string;
   children: ReactNode;
 }) {
   return <TranslatedContent>{(
@@ -46,13 +48,7 @@ export function LegalDocument({
           <p className="legal-language-note">Original documents are in English. Translations are provided for convenience.</p>
           <div className="public-notice">
             <Info size={17} />
-            <p>
-              Initial policy documentation · pending operator and counsel
-              review. The operator’s legal entity, address, applicable
-              jurisdiction and regulatory details have not been published. This
-              document must be completed and approved before public financial
-              operations.
-            </p>
+            <p>{notice}</p>
           </div>
           {children}
           <h2>Questions & contact</h2>
