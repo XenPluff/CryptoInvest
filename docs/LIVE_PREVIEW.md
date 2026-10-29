@@ -5,8 +5,23 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 29, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `d0c737ee232b6d8c0c9136a22369dd718ed6ff79` from branch
+- Running source commit: `57717c3d762e220e9518320b4b3d420c8318fc16` from branch
   `codex/aureon-render-preview`.
+- The AML page presents a three-section planned policy framework in deployment
+  `dep-dbhjnemc6qcc73fjlicg`, with a double gold frame, clear topic hierarchy,
+  generous spacing and raw `AUR-AML-2026.V1` footer. Unsupported assertions of
+  active automated controls, registrations, five-year archiving and registered
+  trademarks are expressed as requirements/plans; current manual identity review
+  and optional-identity deposit access are stated separately. No backend
+  compliance integration or financial setting was changed. Risk and AML share
+  the same formal stylesheet, preserving the risk layout. A German tablet-header
+  overflow found during QA is fixed by using the existing menu for account links
+  through 900px; both destinations remain accessible in all languages. Build,
+  six language cases and 64 local/hosted layout states pass at four widths, eight
+  languages and both themes. After translation HTTP 429, new language copy was
+  completed directly. Actual hosted resources have no page errors, API fixtures
+  or production mutations. Health remains connected with enabled funding, passed
+  email readiness and automatic settlement enabled. See [policy scope](AML_POLICY.md).
 - The AML & identity page omits its “08 / AUREON” introductory note, its
   launch-readiness description and the initial-policy notice in deployment
   `dep-dbhi6jks728c73cpd9k0`. The shared intro supports an omitted description
