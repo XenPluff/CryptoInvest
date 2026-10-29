@@ -5,8 +5,20 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 29, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `31d6f2745407ba14e92bca047f38c54ade5b0784` from branch
+- Running source commit: `8df1c8bde3866d604b97ec566b4bd1236484b129` from branch
   `codex/aureon-render-preview`.
+- Proposed status is consolidated into one visible document-header label in
+  deployment `dep-dbhgqpgm7kps73esoie0`: “Proposed arrangements · Not established.”
+  The body uses conditional descriptions of the plans without repeated status
+  wording. No-insurance wording, formal frame, paragraph spacing and version
+  footer remain. The owner confirmed that the arrangements remain proposed and
+  requested a label only. Build, six language cases and 48 local/hosted states
+  pass across eight languages at desktop/mobile widths in both themes. The label
+  is readable and unfaded; English status wording appears exactly once in the
+  document and never in the body paragraphs. Other legal pages retain their
+  default notices. Hosted resources use no API fixtures or production mutations
+  and produce no page errors. Health remains connected with enabled funding,
+  passed email readiness and automatic settlement enabled.
 - The risk disclosure has a formal document layout in deployment
   `dep-dbhgln5g1s2s73a1pe60`: a double gold border, centered AUREON/title,
   generous paragraph spacing and a copyright/version footer, with responsive
