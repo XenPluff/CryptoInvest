@@ -5,8 +5,18 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 29, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `a01acd9977577d7512bf4c0e6d6c228ef5c6b998` from branch
+- Running source commit: `d0c737ee232b6d8c0c9136a22369dd718ed6ff79` from branch
   `codex/aureon-render-preview`.
+- The AML & identity page omits its “08 / AUREON” introductory note, its
+  launch-readiness description and the initial-policy notice in deployment
+  `dep-dbhi6jks728c73cpd9k0`. The shared intro supports an omitted description
+  without rendering an empty note; other legal pages and the approach intro
+  retain their descriptions/numbers. All 16 AML body messages, title and legal
+  navigation remain. Build, six language cases and 48 local/hosted states pass
+  across eight languages at desktop/mobile widths in both themes. Actual hosted
+  resources use no API fixtures, produce no page errors and create no production
+  mutations. Health remains connected with enabled funding, passed email
+  readiness and automatic settlement enabled.
 - The document-header “Proposed arrangements · Not established” label is
   removed in deployment `dep-dbhhtvvlk1mc73cqete0`. Its unused styles and
   translations are removed as well. The document retains its formal frame,
