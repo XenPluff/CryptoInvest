@@ -5,8 +5,16 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 29, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `9c2282006fd59ab0ec85be7c7e2c2bab97281c6f` from branch
+- Running source commit: `07e877e15febd8c62da82e6697ba64ec175ba8ac` from branch
   `codex/aureon-render-preview`.
+- The risk page’s proposed-arrangements notice is removed in deployment
+  `dep-dbhg5ton74is73da8mj0`. The shared legal layout supports explicitly
+  omitting a notice; terms, privacy and AML retain their default notices.
+  Disclosure paragraphs remain unchanged. Build, six language unit cases and
+  48 local/hosted desktop/mobile/theme states pass across all eight languages,
+  without page errors, API fixtures or production mutations. Actual health
+  remains connected with enabled funding, passed email readiness and automatic
+  settlement enabled.
 - The risk disclosure uses the owner-confirmed proposed status of the supplied
   arrangements in deployment `dep-dbhffe08v5cc738bno10`. Entities, insurance/
   guarantees, audits, institutional products, AUDU reserves and trademark
