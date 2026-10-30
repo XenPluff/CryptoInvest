@@ -1,0 +1,8 @@
+{
+  "name": "Gold",
+  "slug": "gold",
+  "dailyRate": 0.04,
+  "minAmount": 10100,
+  "maxAmount": 50000,
+  "durationDays": 21
+}
