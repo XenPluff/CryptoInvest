@@ -5,8 +5,20 @@ Website: <https://aureon-preview.onrender.com>
 Latest deployment verified on October 29, 2026:
 
 - Render service `aureon-preview` (`srv-dbb4i9o473hc73cjo9b0`) reports a live deploy.
-- Running source commit: `2c0795332363fbd1ca1a01f81771f814a06d6287` from branch
+- Running source commit: `c9e7241eac72ab6eb6b3f2661bd317de066625a4` from branch
   `codex/aureon-render-preview`.
+- An isolated ten-concept design study is available in deployment
+  `dep-dbi06edg1s2s73dj1o80` under `/design-studio/investment-card-options.html`,
+  with a comparison PNG. The owner rejected this first set; no concept is
+  selected for implementation, and a visual reference was requested. Existing
+  product cards remain unchanged. The study is self-contained, noindex, uses
+  the same published Gold reference terms and offers only local-browser design
+  selection/copy/clear. It has no account, investment or selection API. Generator
+  syntax and local/hosted checks pass at seven widths, including all ten choices,
+  keyboard activation, persistence, copy and clear, with no overflow, page errors,
+  external requests, API calls or production mutations. The comparison sheet was
+  visually reviewed. Health remains connected, funding and automatic settlement
+  enabled, and email checks passed. See [study status](INVESTMENT_CARD_DESIGN_OPTIONS.md).
 - Investment plans use the sculptural gallery design in deployment
   `dep-dbhqv9o8v5cc7396lum0`: asymmetric outer/inset frames, five coloured
   mathematical surface artworks, staggered homepage cards, a two-column public

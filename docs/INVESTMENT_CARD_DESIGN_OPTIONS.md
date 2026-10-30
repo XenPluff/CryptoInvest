@@ -1,6 +1,9 @@
 # Investment card design options
 
-The owner requested ten different card designs to choose from. The isolated
+The owner requested ten different card designs to choose from. The first ten
+concepts were subsequently rejected as not matching the desired taste. No
+concept is approved for adoption. A visual reference/direction was requested
+before producing the next set. The isolated
 preview is `/design-studio/investment-card-options.html`; its comparison image
 is `/design-studio/investment-card-options.png`. Existing homepage, catalogue
 and investor cards are unchanged until a design is selected for implementation.
